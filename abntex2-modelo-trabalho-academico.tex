@@ -511,6 +511,7 @@ Lauro César Araujo
 		Para geração de dados foram utilizados 3 tipos de formato de arquivos, o tipo JSON, o CSV e o TSV. 
 		A prioridade por esses 3 formatos devem-se às suas popularidades, suporte por várias linguagens de programação, e adoção por desenvolvedores.
 		\par
+		%JSON
 		JSON \cite{json-rfc-8259} \cite{json-jsonOrg} (Javascript Object Notation, ou em português Notação de Objecto Javacript),lançado em 2002, é uma formatação leve para troca de dados. 
 		O uso é facilitado tanto para seres humano quanto para máquina.
 		O JSON é um formato de texto que é independente de linguagem, mas foi baseado no objeto provido do Javascript (ECMA-262, 1999).
@@ -518,9 +519,13 @@ Lauro César Araujo
 		Quanto aos tipos de dados suportados, o JSON \cite{json-rfc-8259} é uma sequência de tokens. 
 		Os tipos de tokens aceitos é do tipo \textit{object}, \textit{array}, \textit{string}, \textit{number} e nomes literais como \textit{false}, \textit{true} e \textit{null}.
 		\par
-		CSV
-		\par
-		TSV
+		%CSV
+		CSV \cite{csv-rfc-4180} (comma-separated values, ou em português Valores Separados por Vírgula) é tipo de texto MIME (Internet Media) \cite{mime-rfc-2048} que utiliza a encodificação de caracteres US-ASCII \cite{csv-rfc-7111}.
+		Ao longo dos anos, seu uso foi consolidado para exportar dados entre vários softwares de tabelas (Microsoft suíte para Apple Suíte, por exemplo).
+		A padronização do CSV demorou e por isso, vários outros estilos surgiram, a exemplo, o uso do CSV com ponto-e-vírgula (;).
+		Outros estilos foram criados a ponto de ser chamado de arquivo DSV \cite{dsv}.
+		Por conseguinte, outro estilo que teve notoriedade na troca de dados entre bancos de dados ou tabelas de dados foi o TSV \cite{tsv-iana}.
+		A idea é similar ao CSV, porém é utilizado uma tabulação em vez de vírgula.
 		
 		\subsection{Banco de Dados}
 		\subsection{Web Service}
