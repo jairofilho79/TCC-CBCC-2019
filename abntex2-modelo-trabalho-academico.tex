@@ -459,6 +459,12 @@ contribuirão para a evolução do \abnTeX.
 % ----------------------------------------------------------
 \chapter{Introdução}
 % ----------------------------------------------------------
+%Mostrar o que são dados sintéticos de forma geral.
+%Mostrar o problema que é a utilização de dados reais.
+%Mostrar o uso de dados sintéticos e principais locais de uso.
+%Mostrar a necessidade de um gerador de dados sintéticos.
+%Mostrar que já existem geradores de dados sintéticos.
+%Mostrar o diferencial do protótipo que procuramos fazer.
 
 Este documento e seu código-fonte são exemplos de referência de uso da classe
 \textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento 
@@ -503,8 +509,15 @@ Lauro César Araujo
 % ---
 
 	\section{Dados Sintéticos}
+	O conceito de geração de dados sintéticos vieram por volta de 1993, por Rubin. \cite{rubin1993statistical}
+	Em suma, seu objetivo era tonar anônimo os domicílios que participaram do censo daquela época.
+	A partir desse fato, confidencialidade dos dados se tornou muito necessário, o que ajudou na popularização dos dados sintéticos.
+	Portanto, dados sintéticos foi definido como "qualquer dado produzido o qual possa ser aplicado a uma dada situação que não foi obtido por mensuração direta.". \cite{mcgraw-hilleducation2016}
+	\par
+	A aplicabilidade dos dados sintéticos é ilimitada, e é bastante explorada por setores cujos dados são sensíveis como a financeiro \cite{lopez2012money} e de saúde. \cite{bergeat2014french} 	
+	Também são muito bem aplicáveis para exaustívos testes de segurança, os quais são necessários vários casos de teste, já que o pesquisador tem controle suficiente processamento (fórmulas matemáticas ou regras de geração) e saída do dado, como um sistema de detecção de fraudes \cite{barse2003synthesizing} 
+	%\section{Dados Sintéticos vs Dados Reais}
 	
-	\section{Dados Sintéticos vs Dados Reais}
 
 	\section{Formato dos dados salvos}
 		\subsection{Arquivo}
@@ -522,14 +535,17 @@ Lauro César Araujo
 		%CSV
 		CSV \cite{csv-rfc-4180} (comma-separated values, ou em português Valores Separados por Vírgula) é tipo de texto MIME (Internet Media) \cite{mime-rfc-2048} que utiliza a encodificação de caracteres US-ASCII \cite{csv-rfc-7111}.
 		Ao longo dos anos, seu uso foi consolidado para exportar dados entre vários softwares de tabelas (Microsoft suíte para Apple Suíte, por exemplo).
-		A padronização do CSV demorou e por isso, vários outros estilos surgiram, a exemplo, o uso do CSV com ponto-e-vírgula (;).
+		A padronização do CSV demorou a ocorrer e por isso, vários outros estilos surgiram, a exemplo, o uso do CSV com ponto-e-vírgula (;).
 		Outros estilos foram criados a ponto de ser chamado de arquivo DSV \cite{dsv}.
 		Por conseguinte, outro estilo que teve notoriedade na troca de dados entre bancos de dados ou tabelas de dados foi o TSV \cite{tsv-iana}.
 		A idea é similar ao CSV, porém é utilizado uma tabulação em vez de vírgula.
 		
-		\subsection{Banco de Dados}
+		%\subsection{Banco de Dados}
 		\subsection{Web Service}
-
+		\cite{webService-W3C}
+		Um Web service é definido como um software sistema criado para suportar interoperabilidade entre máquinas através da rede computadores. Também possui uma interface descrita em um formato processável por máquinas (WSDL) e um protocolo para comunicação (SOAP). \cite{webService-W3C}
+		Essa era a arquitetura utilizada em 2004. Atualmente é predominante o uso de REST que em vez de exportar serviços como o SOAP, exporta os dados em si e não necessita do WSDL. \cite{soapVSrest}
+		
 	% ---
 \chapter{Arquitetura do projeto}\label{cap_trabalho_academico}
 % ---
