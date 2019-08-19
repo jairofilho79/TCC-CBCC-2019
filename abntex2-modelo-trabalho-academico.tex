@@ -508,22 +508,95 @@ Lauro César Araujo
 \chapter{Fundamentação Teórica}\label{cap_exemplos}
 % ---
 
+	% Por que estou fazendo isso?
+	% Qual a necessidade de um gerador de dados sintéticos?
+	% Já existem aplicações? Quais os seus prós e contras?
+	% Onde são aplicados os dados sintéticos.
+	% Qual o desempenho? Quais os resultados? Discussão.
+
+	% Escrever um overview. Principais funcionalidades. Multiplataforma. Forma de pagamento.
+	% Funcionalidades Detalhadas.
+	% Se houver softwares relacionados, explicar um pouco mais sobre.
+	% Mostrar a foto.
+
 	\section{Dados Sintéticos}
 	O conceito de geração de dados sintéticos vieram por volta de 1993, por Rubin. \cite{rubin1993statistical}
 	Em suma, seu objetivo era tonar anônimo os domicílios que participaram do censo daquela época.
 	A partir desse fato, confidencialidade dos dados se tornou muito necessário, o que ajudou na popularização dos dados sintéticos.
 	Portanto, dados sintéticos foi definido como "qualquer dado produzido o qual possa ser aplicado a uma dada situação que não foi obtido por mensuração direta.". \cite{mcgraw-hilleducation2016}
 	\par
+	A necessidade de dados sintéticos podem ser de várias formas, 
+	desde a escassez de dados reais ou indisponibilidade;
+	 para teste de dados não usuais;
+	 para evitar lidar com questões de privacidade dos dados;
+	 teste de aplicação sem precisar modificar dados da aplicação de produção;
+	 criar teste de estresse da aplicação com \emph{Big Data} antes de criar versão para produção;
+	 bem como não precisar adicionar os dados de teste manualmente. \cite{top15DatagenTools2019}
+	\par
 	A aplicabilidade dos dados sintéticos é ilimitada, e é bastante explorada por setores cujos dados são sensíveis como a financeiro \cite{lopez2012money} e de saúde. \cite{bergeat2014french} 	
-	Também são muito bem aplicáveis para exaustívos testes de segurança, os quais são necessários vários casos de teste, já que o pesquisador tem controle suficiente processamento (fórmulas matemáticas ou regras de geração) e saída do dado, como um sistema de detecção de fraudes \cite{barse2003synthesizing} 
-	%\section{Dados Sintéticos vs Dados Reais}
+	Também são muito bem aplicáveis para exaustívos testes de segurança, os quais são necessários vários casos de teste, já que o pesquisador tem controle suficiente processamento (fórmulas matemáticas ou regras de geração) e saída do dado, como um sistema de detecção de fraudes. \cite{barse2003synthesizing}
+	 
+	\subsection{Trabalhos Relacionados}
+	\begin{figure}
+		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/DTMDataGenerator.png}
+		\caption{Usando o DTM Data Generator. Fonte: DTM Data Generator}
+		\label{fig:DTMDG}
+	\end{figure}
+	\begin{figure}
+		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/sql-data-generator.png}
+		\caption{Usando o Redgate SQL Data Generator. Fonte: Red Gate SQL Data Generator}
+		\label{fig:RedgateSQLDG}
+	\end{figure}
+	\subsubsection{DTM Data Generator}
+	DTM Data Generator \cite{DTMDataGenerator} é uma plataforma de geração de dados sintéticos que existe de 1998.
+	Esta possui suporte para geração de dados em arquivos, em banco de dados, também para \emph{Big Data}.
+	Possui suporte multiplataforma, através do modo \emph{multiplatform runtime}, contudo é limitado quando comparado à versão Windows, o qual suporta a versão para servidor também.
+	É válido destacar que é um software essencialmente pago, isto é, existem versões gratuitas - demonstrações, para ser mais exato - mas limitadas.
+	Além disso, há categorias de versões pagas, que vão desde limitações de geração (Standart - Professional) à vantagens mais técnicas (Professional - Entrerprise).
+	\par
+	O DTM Data Generator possui uma vasta coleção de funcionalidades, as quais liberadas de acordo com as versões pagas.
+	Adotando a versão mais cara, a lista de \emph{features} é composta por geração de dados em JSON, XML, CSV ou geração por separador customizado.
+	Também permite gerar dados por arquivo DSN (Database Source Name), gerar dados por linha de comando, e gerar um arquivo SQL para não seja necessário conexão com banco de dados.
+	\par
+	É possível gerar cerca de 9.2 sextilhões de registros por \emph{rule}, modos de atualizar dados existentes (adicionar, substituir e \emph{Data Scrambling}), e suporte para bibliotecas de dados realistas.
+	A plataforma disponibiliza entrada de dados através de SQL, XML, JSON, pela WEB através de HTTP ou FTP, XLSM, arquivos de texto e scripts em Python.
+	Também é possível visualizar e testar os dados gerados, bem como gerá-los nos principais arquivos de texto (TSV, CSV, "DSV", JSON, XML) e banco de dados. (MS SQL Server, Oracle, DB2, MySQL, PostgreSQL, Informix, Sybase, SQLite e Firebird) 
+	\par
+	Há uma suíte de produtos relacionados fornecidos pela DTM soft. 
+	Além do gerador de dados, 
+		há o gerador de dados XML para teste de aplicação (DTM Test XML Generator);
+		um gerador de planilhas Excel (DTM Data Generator for Excel)
+		testador exaustivo - teste de estresse - de banco de dados (DTM DB Stress);
+		Bem como editor, visualizador (DTM Data Editor), comparador e sincronizador de banco de dados (DTM Data Comparer) entre outros. 
+	\ref{fig:DTMDG}
+	\subsubsection{Red Gate SQL Data Generator}
+	O SQL Data Generator \cite{RedgateSQLDataGenerator} é um software que compõe uma suíte de ferramentas (chamada de SQL Toolbelt) da Red Gate.
+	O software é exclusivo para o ecossistema Windows, com suporte do Windows 7 ao 10, à versão para servidores do Windows, ao SQL Server (2008 ao 2017), .NET e Oracle.
+	Este produto é distribuido através de licenças pagas e vitalícias, com atualizações gratuitas e, no mínimo 1 ano de suporte gratuito.,
+	\par
+	O SQL Toolbelt tem funcionalidades bem delimitadas e a função do Data Generator é popular um banco de dados. 
+	A população acontece ao escolher, primeiramente, uma tabela do banco.
+	A partir disso, escolhe-se um gerador para cada coluna da tabela.
+	Um gerador tem classificação fortemente baseada na realidade, isto é, possui geradores como palavras relacionadas à compras, pagamentos, pessoas (primeiro e último nome), dado geográficos e afins.
+	Contudo, também disponibiliza a geração a partir de expressões regulares \emph{Regex generator} e scripts de python.
+	Por se tratar de banco de dados, também há checagem e tratamento de \emph{constraints}, \emph{Foreign keys} e \emph{Dependencies}.
+	O SQL Data Generator também permite lidar com arquivos XML, quer seja para geração de valores XML, como utilizar como dados de entrada, além de mesclá-los com o \emph{Regex generator}.
+	\par
+	Quanto ao SQL Toolbelt oferecido pela Red Gate, ele conta com 2 modalidades, o completo com 14 programas e o \emph{essentials} com 10.
+	Entre os mais relevantes, pode-se citar o \emph{SQL Data Compare}, \emph{SQL Data Generator}, \emph{SQL Test}, \emph{SQL Backup Pro} e \emph{SQL Scripts Manager}.
+	\ref{fig:RedgateSQLDG}
+	\subsubsection{Visual Studio (Premium) Data Generator}
+	\subsubsection{GEDIS Studio}
+	\subsubsection{dbForge Test Data Generator}
+	\subsubsection{Mockaroo}
+	\subsubsection{ApexSQL Generate}
+	\subsubsection{Datanamic Data Generator MultiDB}
+	\subsubsection{Upscene Advanced Data Generator}
+	\subsubsection{EMS Data Generator}
 	
 
 	\section{Formato dos dados salvos}
 		\subsection{Arquivo}
-		Para geração de dados foram utilizados 3 tipos de formato de arquivos, o tipo JSON, o CSV e o TSV. 
-		A prioridade por esses 3 formatos devem-se às suas popularidades, suporte por várias linguagens de programação, e adoção por desenvolvedores.
-		\par
 		%JSON
 		JSON \cite{json-rfc-8259} \cite{json-jsonOrg} (Javascript Object Notation, ou em português Notação de Objecto Javacript),lançado em 2002, é uma formatação leve para troca de dados. 
 		O uso é facilitado tanto para seres humano quanto para máquina.
