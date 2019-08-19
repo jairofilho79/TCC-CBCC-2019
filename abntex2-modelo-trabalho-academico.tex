@@ -544,8 +544,13 @@ Lauro César Araujo
 	\end{figure}
 	\begin{figure}
 		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/sql-data-generator.png}
-		\caption{Usando o Redgate SQL Data Generator. Fonte: Red Gate SQL Data Generator}
+		\caption{Usando o Redgate SQL Data Generator. Fonte: Red Gate SQL Data Generator.}
 		\label{fig:RedgateSQLDG}
+	\end{figure}
+	\begin{figure}
+		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Visual-Studio.jpg}
+		\caption{Usando o Microsoft Visual Studio. Fonte: anranik.}
+		\label{fig:VSDG}
 	\end{figure}
 	\subsubsection{DTM Data Generator}
 	DTM Data Generator \cite{DTMDataGenerator} é uma plataforma de geração de dados sintéticos que existe de 1998.
@@ -572,7 +577,8 @@ Lauro César Araujo
 	\subsubsection{Red Gate SQL Data Generator}
 	O SQL Data Generator \cite{RedgateSQLDataGenerator} é um software que compõe uma suíte de ferramentas (chamada de SQL Toolbelt) da Red Gate.
 	O software é exclusivo para o ecossistema Windows, com suporte do Windows 7 ao 10, à versão para servidores do Windows, ao SQL Server (2008 ao 2017), .NET e Oracle.
-	Este produto é distribuido através de licenças pagas e vitalícias, com atualizações gratuitas e, no mínimo 1 ano de suporte gratuito.,
+	Este produto é distribuido através de licenças pagas e vitalícias, com atualizações gratuitas e, no mínimo 1 ano de suporte gratuito.
+	Vale ressaltar que é possível testar o produto por 14 dias gratuitamente.
 	\par
 	O SQL Toolbelt tem funcionalidades bem delimitadas e a função do Data Generator é popular um banco de dados. 
 	A população acontece ao escolher, primeiramente, uma tabela do banco.
@@ -586,6 +592,15 @@ Lauro César Araujo
 	Entre os mais relevantes, pode-se citar o \emph{SQL Data Compare}, \emph{SQL Data Generator}, \emph{SQL Test}, \emph{SQL Backup Pro} e \emph{SQL Scripts Manager}.
 	\ref{fig:RedgateSQLDG}
 	\subsubsection{Visual Studio (Premium) Data Generator}
+	Microsoft Visual Studio \cite{VSDataGenerator} é um pacote de programas da Microsoft para desenvolvimento de \emph{software}. 
+	Este é composto por 4 versões (\emph{Express}, \emph{Professional}, \emph{Premium}, \emph{Ultimate}), e a opção de gerar dados para teste está disponível a partir da versão \emph{Premium}.
+	O foco é permitir que verique o comportamento do banco de dados, sem relacioná-los com os dados da aplicação em produção.
+	\par
+	Para gerar os dados de teste, deve-se utilizar os geradores de dados (\emph{Data Generators}), que são correlacionados às tabelas do banco de dados.
+		Os geradores podem ser dos mais primitivos (Binários, Inteiros, Data, \emph{Float}), como de Imagem, Dinheiro, Expressão Regular, Categórico entre outros.
+	Também é disponibilizado um Plano de Geração de Dados (\emph{Data Generation Plan}), feito em XML, que contém informações do banco de dados, o tipo de dados de cada gerador e a quantidade de dados para ser gerado. 
+	Este plano serve basicamente para reutilização da lógica de teste.
+	\ref{fig:VSDG}
 	\subsubsection{GEDIS Studio}
 	\subsubsection{dbForge Test Data Generator}
 	\subsubsection{Mockaroo}
