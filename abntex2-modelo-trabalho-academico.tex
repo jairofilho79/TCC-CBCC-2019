@@ -53,6 +53,7 @@
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{float}
 \usepackage{microtype} 			% para melhorias de justificação
 % ---
 		
@@ -98,7 +99,7 @@
 \local{Belém}
 \data{2019}
 \orientador{Prof. Dr. Carlos Gustavo Resque dos Santos}
-\coorientador{}
+\coorientador{Msc. Yvan Brito}
 \instituicao{Universidade Federal do Pará}
 \instituicaounidade{Instituto de Ciências Exatas e Naturais}
 \instituicaosubunidade{Faculdade de Computação}
@@ -538,19 +539,28 @@ Lauro César Araujo
 	 
 	\subsection{Trabalhos Relacionados}
 	\begin{figure}
+		\centering
 		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/DTMDataGenerator.png}
 		\caption{Usando o DTM Data Generator. Fonte: DTM Data Generator}
 		\label{fig:DTMDG}
 	\end{figure}
 	\begin{figure}
+		\centering
 		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/sql-data-generator.png}
 		\caption{Usando o Redgate SQL Data Generator. Fonte: Red Gate SQL Data Generator.}
 		\label{fig:RedgateSQLDG}
 	\end{figure}
 	\begin{figure}
+		\centering
 		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Visual-Studio.jpg}
 		\caption{Usando o Microsoft Visual Studio. Fonte: anranik.}
 		\label{fig:VSDG}
+	\end{figure}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/dbForge-Test-Data-Generator.jpg}
+		\caption{Usando o dbForge Test Data Generator. Fonte: anranik.}
+		\label{fig:dbForgeTDG}
 	\end{figure}
 	\subsubsection{DTM Data Generator}
 	DTM Data Generator \cite{DTMDataGenerator} é uma plataforma de geração de dados sintéticos que existe de 1998.
@@ -601,14 +611,30 @@ Lauro César Araujo
 	Também é disponibilizado um Plano de Geração de Dados (\emph{Data Generation Plan}), feito em XML, que contém informações do banco de dados, o tipo de dados de cada gerador e a quantidade de dados para ser gerado. 
 	Este plano serve basicamente para reutilização da lógica de teste.
 	\ref{fig:VSDG}
-	\subsubsection{GEDIS Studio}
 	\subsubsection{dbForge Test Data Generator}
+	Test Data Generator \cite{forgeDBDataGenerator} é uma ferramenta GUI (\emph{Graphical User Interface}) pela dbForge para gerar dados de teste para banco de dados SQL desde 1997.
+	O software possui mais de 200 geradores predifinidos e configuráveis os quais permitem a geração de dados mais inteligentes, isto é, mais próximos da realidade, como nomes, localização, dados de saúde e afins.
+	Quanto à compatibilidade, este é exclusivo do ecossistema Windows, com suporte à versão 7 ao 10, do Windows Server 2008 ao 2019 e ao SQL Server Azure, 2008 ao 2017.
+	Além da GUI, também há o suporte para geração de dados a partir da linha de comando.
+	O produto é distribuido sob licenças pagas e vitalícias, porém, com suporte ao cliente com tempo limitado e com 30 dias gratuitos para avaliação.
+	\par
+	Para usar o dbForge Test Data Generator, é preciso fazer uma conexão com banco de dados. 
+	A partir disso, utiliza-se os \emph{Data Generators} para determinar o comportamento dos dados para determinada coluna da tabela selecionada no Banco de dados.
+	Os Geradores de dados podem ser do tipo emph{Basics} e emph{Advanced}. 
+	Do primeiro tipo, são formas mais próximas dos dados primitivos, como datas, texto \emph{lorem ipsum}, JSON, \emph{ReGex}.
+	Já o avançado conta com número de cartão de crédito, aniversário, número de conta bancária internacional, IPv4, \emph{hash} de senhas.  
+	A geração de dados resume-se à população de banco de dados, não há uma forma de exportar os dados em arquivos como CSV e JSON.
+	\par
+	Há um suíte exclusivo para SQL Server, contudo também para Oracle, MySQL, PostgreSQL entre outros.
+	Neste suíte, há várias ferramentas que auxiliam na manutenção, mas não, necessariamente, a geração de dados, a exemplode um \emph{previewer}.
+	Destes, pode-se citar um comparador de dados, criador de \emph{querys}, um monitor - para supervisão do banco de dados - e afins.
+	\ref{fig:dbForgeTDG}
 	\subsubsection{Mockaroo}
 	\subsubsection{ApexSQL Generate}
 	\subsubsection{Datanamic Data Generator MultiDB}
 	\subsubsection{Upscene Advanced Data Generator}
 	\subsubsection{EMS Data Generator}
-	
+	\subsubsection{GEDIS Studio}
 
 	\section{Formato dos dados salvos}
 		\subsection{Arquivo}
