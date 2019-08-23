@@ -53,7 +53,7 @@
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
-\usepackage{float}
+% \usepackage{float}
 \usepackage{microtype} 			% para melhorias de justificação
 % ---
 		
@@ -562,6 +562,12 @@ Lauro César Araujo
 		\caption{Usando o dbForge Test Data Generator. Fonte: anranik.}
 		\label{fig:dbForgeTDG}
 	\end{figure}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/mockaroo.jpg}
+		\caption{Usando o Mockaroo. Fonte: anranik.}
+		\label{fig:mockaroo}
+	\end{figure}
 	\subsubsection{DTM Data Generator}
 	DTM Data Generator \cite{DTMDataGenerator} é uma plataforma de geração de dados sintéticos que existe de 1998.
 	Esta possui suporte para geração de dados em arquivos, em banco de dados, também para \emph{Big Data}.
@@ -630,6 +636,20 @@ Lauro César Araujo
 	Destes, pode-se citar um comparador de dados, criador de \emph{querys}, um monitor - para supervisão do banco de dados - e afins.
 	\ref{fig:dbForgeTDG}
 	\subsubsection{Mockaroo}
+	Mockaroo \cite{mockaroo} é um \emph{web site} e \emph{framework} para desenvolver dados de teste.
+	Há um total de 143 geradores, sendo a maioria considerados geradores realistas.
+	Por ser um site, é possível acessá-lo por qualquer sistema operacional, dependendo apenas de conexão com a internet.
+	O produto possui versões gratuita e pagas. - \emph{Free}, \emph{Silver}, \emph{Gold}, \emph{Enterprise} as quais variam no \emph{host}, o qual pode ser do Mockaroo ou privado, máximo de registros por download, velocidade de download e preço.
+	\par
+	Na tela inicial, é possível escolher o nome da coluna, o tipo de gerador, algumas opções - valores em branco e funções a partir dos dados.
+	Ainda nesta tela, encontra-se o botão para \emph{download} dos dados, pré-visualização dos mesmo (mas sem gráficos), algumas configurações como quantidade de linhas, formato dos dados para \emph{download}, botão para clone ou deleção de banco de dados, e importação de dados csv/Excel ou SQL.
+	\par
+	Outro serviço interessante do Mockaroo é Mockaroo APIs \cite{mockarooAPI}.
+	Este consiste em baixar dados programaticamente através de requisições REST (\emph{Representational State Transfer}).
+	As requisições podem ser feitas de 2 formas, a \emph{Generate API} - gera os dados através de um banco de dados salvo e os envia pelo corpo de uma requisição - 
+	e \emph{Mock APIs} que basicamente, simula um \emph{back-end} como tratamento de parâmetros e simulação de erros. 
+	É pensado para desenvolvimento ágil de aplicações \emph{front-end}, isto é, sem perder muito tempo com o \emph{back-end} a priori.
+	\ref{fig:mockaroo}
 	\subsubsection{ApexSQL Generate}
 	\subsubsection{Datanamic Data Generator MultiDB}
 	\subsubsection{Upscene Advanced Data Generator}
