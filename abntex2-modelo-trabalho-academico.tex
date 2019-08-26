@@ -538,36 +538,54 @@ Lauro César Araujo
 	Também são muito bem aplicáveis para exaustívos testes de segurança, os quais são necessários vários casos de teste, já que o pesquisador tem controle suficiente processamento (fórmulas matemáticas ou regras de geração) e saída do dado, como um sistema de detecção de fraudes. \cite{barse2003synthesizing}
 	 
 	\subsection{Trabalhos Relacionados}
-	\begin{figure}
+	
+	\subsubsection{\emph{Synthetic Generation of High-Dimensional Datasets}}
+	Albuquerque et al. \cite{Albuquerque2011} descreveu um \emph{framework} capaz de gerar dados sintéticos multidimensionais. O sistema (ver figura \ref{fig:albuquerque}) recebe um \emph{input} que representa algumas propriedades do conjunto de dados como número de dimensões, uma distribuição de dados padrão, tipo de dado de cada dimensão entre outros. A partir disso, é criada uma função densidade de probabilidade, com o fim de gerar um cojunto de dados padrão. Essas funções podem ser ajustadas e modeladas através de objetos. Também, essas funções podem ser de 1, 2 ou 3 dimensões. Adicionalmente, pode-se haver ruídos, para simular as irregularidades encontradas em conjunto de dados reais.
+	\par
+	O framework apresentado também possui uma interface gráfica para auxiliar o usuário a configurar o conjunto de dados, bem como gerá-lo. Contudo, não foi encontrado uma interface para pré-visualização dos futuros dados gerados. Quanto aos tipos de dados, estes são restritos aos numéricos, quer sejam inteiros ou de ponto flutuante.    
+	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/DTMDataGenerator.png}
-		\caption{Usando o DTM Data Generator. Fonte: DTM Data Generator}
-		\label{fig:DTMDG}
+		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Albuquerque10.png}
+		\caption{Visão Geral de geração de dados.}
+		\label{fig:albuquerque}
 	\end{figure}
-	\begin{figure}
+	\subsubsection{\emph{SketchPadN-D: WYDIWYG Sculpting and Editing in High-Dimensional Space}}
+	Wang et al. \cite{BingWang2013} apresentou uma aplicação cujo principal diferencial é a capacidade de modelar, através de desenho, o comportamento das dimensões do conjunto de dados sintéticos. A priori, o usuário pode iniciar o processo de geração através do zero, de um conjunto de dados já existente, ou um conjunto de dados aleatório. A partir disso, o usuário visualiza os dados no gráfico - que pode ser as coordenadas paralelas ou o \emph{scatterplot} - e pode modificá-lo através de cliques e arrastos. Por conseguinte, os dados podem ser gerados e isto também serve como retroalimentação do sistema. Na figura \ref{fig:sketchpad} é possível visualizar a visão geral do funcionamento do SketchPad.
+	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/sql-data-generator.png}
-		\caption{Usando o Redgate SQL Data Generator. Fonte: Red Gate SQL Data Generator.}
-		\label{fig:RedgateSQLDG}
+		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Wang11.png}
+		\caption{Visão Geral de geração de dados do Sketchpad.}
+		\label{fig:sketchpad}
 	\end{figure}
-	\begin{figure}
+	\subsubsection{\emph{Synthetic Data Generator for Classification Rules Learning}}
+	Liu \cite{Liu2016} criou um gerador de dados sintéticos a partir de avaliação de regras de aprendizagem. O sistema funciona criando regras de aprendizagem - usando algoritmos de árvore de decisão como o ID3 - baseado em dados de entrada contruindo correlações entre os dados. Na figura \ref{fig:liu} é possível visualizar uma árvore de decisão. Durante a leitura do conjunto de dados de entrada é feita a árvore de decisão e, concomitantemente, são geradas as regras de aprendizagem. Essas regras são utilizadas para gerar amostras de dados sintéticos.
+	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Visual-Studio.jpg}
-		\caption{Usando o Microsoft Visual Studio. Fonte: anranik.}
-		\label{fig:VSDG}
+		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Liu13.png}
+		\caption{Exemplo de árvore de decisão para jogar tennis criado a partir de regras encontradas em um conjunto de dados.}
+		\label{fig:liu}
 	\end{figure}
-	\begin{figure}
+	\subsubsection{\emph{A prototype of synthetic data generator}}
+	Garcia e Millán \cite{Garcia2011} criaram um sistema par gerar dados sintéticos pensado para desenvolvedores que buscam testar de forma eficiente e exaustiva a sua aplicação. Esses dados pode ser configurados (ver figura \ref{fig:garcia}) de acordo com as preferências do usuário. As dimensões de dados seguem alguns padrões como a partir de fontes externas (Arquivos, Bibliotecas, Base de dados) Sequencial, Constante, Funcional, Intervalo ou Lista de valores. 
+	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/dbForge-Test-Data-Generator.jpg}
-		\caption{Usando o dbForge Test Data Generator. Fonte: anranik.}
-		\label{fig:dbForgeTDG}
+		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Garcia18.png}
+		\caption{Exemplo da interface do usuário para configuração do gerador de dados.}
+		\label{fig:garcia}
 	\end{figure}
-	\begin{figure}
+	\subsubsection{\emph{A methodology for synthetic household water consumption data generation}}
+	Kofinas et al. \cite{Kofinas2018} criou uma metedologia para gerar dados sintéticos para simular consumo de água. A metodologia é avaliada através de algoritmos de validação - como a visualização dos resultados e fórmulas.
+	\par
+	Como pode ser visto na figura \ref{fig:kofinas}, a geração dos dados é feita a partir de 2 fases. A fase 1 serve, basicamente, para investigar a distribuição dos dados. Esta fase, primeiramente transforma dados números em séries temporais de 30 segundos. Em alguns casos, não há registro, para isso, é criada uma tabela de incidentes e posteriormente uma probabilidade de existência de registro para que seja encontrada as classes usadas para construção do histograma de Pearson \cite{dean2009descriptive}, por fim, são comparadas funções de distribuição com a atual com o fim de encontrar a que mais se aproxima.
+	\par
+	Para a fase 2 cuida da geração de dados sintéticos propriamente. Basicamente, o sistema utiliza a distribuição criada na fase um para gerar os dados para 24h, respeitando as características diferenciadas para dias de semana e finais de semana.
+	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/mockaroo.jpg}
-		\caption{Usando o Mockaroo. Fonte: anranik.}
-		\label{fig:mockaroo}
+		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Kofinas21.png}
+		\caption{Fluxo de passos para geração dos dados sintéticos.}
+		\label{fig:kofinas}
 	\end{figure}
+
 	\subsubsection{DTM Data Generator}
 	DTM Data Generator \cite{DTMDataGenerator} é uma plataforma de geração de dados sintéticos que existe de 1998.
 	Esta possui suporte para geração de dados em arquivos, em banco de dados, também para \emph{Big Data}.
@@ -589,7 +607,12 @@ Lauro César Araujo
 		um gerador de planilhas Excel (DTM Data Generator for Excel)
 		testador exaustivo - teste de estresse - de banco de dados (DTM DB Stress);
 		Bem como editor, visualizador (DTM Data Editor), comparador e sincronizador de banco de dados (DTM Data Comparer) entre outros. 
-	\ref{fig:DTMDG}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/DTMDataGenerator.png}
+		\caption{Usando o DTM Data Generator. Fonte: DTM Data Generator}
+		\label{fig:DTMDG}
+	\end{figure}
 	\subsubsection{Red Gate SQL Data Generator}
 	O SQL Data Generator \cite{RedgateSQLDataGenerator} é um software que compõe uma suíte de ferramentas (chamada de SQL Toolbelt) da Red Gate.
 	O software é exclusivo para o ecossistema Windows, com suporte do Windows 7 ao 10, à versão para servidores do Windows, ao SQL Server (2008 ao 2017), .NET e Oracle.
@@ -606,7 +629,12 @@ Lauro César Araujo
 	\par
 	Quanto ao SQL Toolbelt oferecido pela Red Gate, ele conta com 2 modalidades, o completo com 14 programas e o \emph{essentials} com 10.
 	Entre os mais relevantes, pode-se citar o \emph{SQL Data Compare}, \emph{SQL Data Generator}, \emph{SQL Test}, \emph{SQL Backup Pro} e \emph{SQL Scripts Manager}.
-	\ref{fig:RedgateSQLDG}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/sql-data-generator.png}
+		\caption{Usando o Redgate SQL Data Generator. Fonte: Red Gate SQL Data Generator.}
+		\label{fig:RedgateSQLDG}
+	\end{figure}
 	\subsubsection{Visual Studio (Premium) Data Generator}
 	Microsoft Visual Studio \cite{VSDataGenerator} é um pacote de programas da Microsoft para desenvolvimento de \emph{software}. 
 	Este é composto por 4 versões (\emph{Express}, \emph{Professional}, \emph{Premium}, \emph{Ultimate}), e a opção de gerar dados para teste está disponível a partir da versão \emph{Premium}.
@@ -616,7 +644,12 @@ Lauro César Araujo
 		Os geradores podem ser dos mais primitivos (Binários, Inteiros, Data, \emph{Float}), como de Imagem, Dinheiro, Expressão Regular, Categórico entre outros.
 	Também é disponibilizado um Plano de Geração de Dados (\emph{Data Generation Plan}), feito em XML, que contém informações do banco de dados, o tipo de dados de cada gerador e a quantidade de dados para ser gerado. 
 	Este plano serve basicamente para reutilização da lógica de teste.
-	\ref{fig:VSDG}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Visual-Studio.jpg}
+		\caption{Usando o Microsoft Visual Studio. Fonte: anranik.}
+		\label{fig:VSDG}
+	\end{figure}
 	\subsubsection{dbForge Test Data Generator}
 	Test Data Generator \cite{forgeDBDataGenerator} é uma ferramenta GUI (\emph{Graphical User Interface}) pela dbForge para gerar dados de teste para banco de dados SQL desde 1997.
 	O software possui mais de 200 geradores predifinidos e configuráveis os quais permitem a geração de dados mais inteligentes, isto é, mais próximos da realidade, como nomes, localização, dados de saúde e afins.
@@ -634,7 +667,12 @@ Lauro César Araujo
 	Há um suíte exclusivo para SQL Server, contudo também para Oracle, MySQL, PostgreSQL entre outros.
 	Neste suíte, há várias ferramentas que auxiliam na manutenção, mas não, necessariamente, a geração de dados, a exemplode um \emph{previewer}.
 	Destes, pode-se citar um comparador de dados, criador de \emph{querys}, um monitor - para supervisão do banco de dados - e afins.
-	\ref{fig:dbForgeTDG}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/dbForge-Test-Data-Generator.jpg}
+		\caption{Usando o dbForge Test Data Generator. Fonte: anranik.}
+		\label{fig:dbForgeTDG}
+	\end{figure}
 	\subsubsection{Mockaroo}
 	Mockaroo \cite{mockaroo} é um \emph{web site} e \emph{framework} para desenvolver dados de teste.
 	Há um total de 143 geradores, sendo a maioria considerados geradores realistas.
@@ -649,12 +687,17 @@ Lauro César Araujo
 	As requisições podem ser feitas de 2 formas, a \emph{Generate API} - gera os dados através de um banco de dados salvo e os envia pelo corpo de uma requisição - 
 	e \emph{Mock APIs} que basicamente, simula um \emph{back-end} como tratamento de parâmetros e simulação de erros. 
 	É pensado para desenvolvimento ágil de aplicações \emph{front-end}, isto é, sem perder muito tempo com o \emph{back-end} a priori.
-	\ref{fig:mockaroo}
-	\subsubsection{ApexSQL Generate}
-	\subsubsection{Datanamic Data Generator MultiDB}
-	\subsubsection{Upscene Advanced Data Generator}
-	\subsubsection{EMS Data Generator}
-	\subsubsection{GEDIS Studio}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/mockaroo.jpg}
+		\caption{Usando o Mockaroo. Fonte: anranik.}
+		\label{fig:mockaroo}
+	\end{figure}
+	% \subsubsection{ApexSQL Generate}
+	% \subsubsection{Datanamic Data Generator MultiDB}
+	% \subsubsection{Upscene Advanced Data Generator}
+	% \subsubsection{EMS Data Generator}
+	% \subsubsection{GEDIS Studio}
 
 	\section{Formato dos dados salvos}
 		\subsection{Arquivo}
