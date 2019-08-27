@@ -777,7 +777,7 @@ Lauro César Araujo
 			Similarmente há o \emph{Weighted Categorical} que possui valores de probabilidade para cada palavra, e 
 			já o \emph{Categorical Quantity}, em vez de probabilidade, define quantas vezes cada palavra deve aparecer.
 		\subsection{Funcional}
-		A categoria funcional \emph{Function} serve para gerar dados de acordo com outra dimensão, isto é, facilita a correlação entre dimensões.
+		A categoria funcional \emph{Function} serve para gerar dados de acordo com outra dimensão chamado de \emph{input}, isto é, facilita a correlação entre dimensões.
 		Para dados numéricos, disponibiliza-se as 
 			função de primeiro \emph{Linear Function} e 
 			segundo \emph{Quadratic Function} grau, 
@@ -786,10 +786,33 @@ Lauro César Araujo
 			a \emph{Piecewise Function}, cuja função é definida por subfunções, e no caso, é possível definir o gerador desejado até um determinado valor chamado de \emph{Intervals} e depois pode-se escolher outro gerador.
 		\par
 		Para dados categóricos, há a função categórica \emph{Categorical Function} e 
-		a \emph{TimeLaps Function} a qual funciona de forma semelhante a \emph{Piecewise Function}, só que utiliza uma quantidade de tempo como limiar, chamado de \emph{Laps} e também geradores de tempo.
+		a \emph{TimeLaps Function} a qual funciona de forma semelhante ao gerador \emph{Piecewise Function}, só que utiliza uma quantidade de tempo como limiar, chamado de \emph{Laps} e também somente geradores de tempo como \emph{input}.
 		\subsection{Acessórios}
+		Os geradores da categoria Acessórios (\emph{Acessory}) foram pensados especialmente para serem concatenados com outros geradores, com o fim auxiliá-los.
+		Entre os geradores acessórios, pode-se citar o \emph{Missing Value}, o qual retira alguns dados do conjunto;
+			o \emph{Noise Generator} que adiciona dados fora do padrão, conhecido como ruído, com uma determinada probabilidade e intensidade*
+			o \emph{Constant Noise Generator} também adiciona ruídos, mas só que é um valor específico com determinada probabilidade de ser adicionado;
+			o \emph{Ranger Filter} permite ficar no conjunto de dados apenas os valores que estão entre os valores de início \emph{Begin} e fim \emph{End};
+			o \emph{Linear Scale};
+			o \emph{No Repeat} retira dados repetidos do conjunto;
+			o \emph{MinMax} define quais valores serão os maiores e menores de acordo com os parâmetros dados;
+			o \emph{Low-Pass Filter}
+			o \emph{Get Extra Value} pega os retornos extras dos geradores que retornam mais que um valor.
 		\subsection{Geométrico}
+		% Ver Dissertação do Yvan.
 		\subsection{Baseado em dados reais}
+		Para esta categoria, existe apenas um gerador, chamado como \emph{Real Data Wrapper}.
+		Basicamente, ele é criado automaticamente quando o usuário importa um conjunto de dados reais através de um CSV, por exemplo.
+		Este gerador recebe tantos valores categóricos como numéricos e essa informação pode ser decidida automaticamente pelo gerador ou ser forçada pelo usuário.
+		É possível gerar uma quande superior de dados do que do conjunto de dados real, para isso é feito um tratamento para dados faltantes.
+		Esse tratamento é feito através de funções de geração, chamadas de \emph{GenType}.
+		\par
+		Essas funções pode ser do tipo \emph{Standart}, que é pegar os dados do início ao fim de forma cíclica até chegar ao número desejado de registros.
+		Também pode ser do tipo \emph{Reverse} que ao invés do \emph{Standart}, pega os dados do final ao início.
+		É disponibilizado o modo aleatório (\emph{Random}), e algumas variações.
+		A primeira variação é o \emph{QuartileRandom}, que divide o conjunto de dados em 3 marcos e a probabilidade de se pegar um dado daquele quartil é proporcional ao tamanho do marco.
+		A leitura dos Marcos pode ser visualizada na figura \ref{fig:leituraMarco} % TODO: fazer figura do marco.
+		A segunda variação é o \emph{AverageRandom} que utiliza o valor da média e da variancia - [Média - Variancia, Média + Variancia] de um conjunto de dados númerico ou utiliza os N valores categóricos mais frequentes com distribuição uniforme.
 
 	\section{Modos de Geração de Dados}
 
