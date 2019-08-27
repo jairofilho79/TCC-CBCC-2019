@@ -738,7 +738,23 @@ Lauro César Araujo
 % ---
 \chapter{Protótipo}
 % ---
-
+	Este capítulo é dedicado em explicar mais sobre o prótótipo, seu fluxo de funcionamento, funcionalidades, mais detalhes sobre a interface do usuário entre outros.
+	De modo geral, o protótipo é chamado de Blocks Data Generator e visa ser um gerador de dados sintéticos baseado em modelos de dados.
+	Assim, o usuário pode manipular um ou mais modelos e cada modelo pode conter N dimensões, que por sua vez podem conter M geradores de dados encadeados.
+	Os geradores de dados podem gerar dados numéricos, categóricos, temporais etc (haverá uma seção específica para geradores) e o resultado de um gerador pode servir de entrada para outro gerador através de operadores.
+	Os operadores podem ou não aplicar uma operação matemática (soma, subtração, divisão, multiplicação) ao resultado do gerador anterior - a leitura de anterior e posterior é da esquerda para a direita, respectivamente.
+	Junto com os operadores, também há outras propriedades que variam de acordo com o gerador (ver seção de Tipos de Geradores de Dados).
+	\par
+	Ainda na modelagem das dimensões, é possível modificar seu nome, verificar o tipo do dado gerado pelo gerador, o ID e se está disponível para geração e visualização.
+	Essa disponibilidade (chamado de \emph{display}) foi feita para o caso de haver um modelo em que nem todas as dimensões sejam necessárias em determinado momento, mas também não queira perdê-las.
+	Adicionalmente, é possível copiar e colar dimensões através de atalhos no teclado, bem como adicionar ou excluir dimensões, esta por só meio de um botão.
+	\par
+	Também é disponibilizado um pré-visualizador de dados com apenas um gráfico - o coordenadas paralelas -, cujo volume de dados é independente do volume de dados para ser gerado, colorido e interativo.
+	Além do \emph{preview}, há uma integralização com um visualizador de dados mais elaborado e com mais opções de visualização.
+	Outrossim, há um botão específico para gerar os dados em arquivos JSON, CSV, TSV ou por de requisições HTTP do tipo GET (\emph{Web Service}).
+	Vale ressaltar que quantidade de dados gerados, pré-visualizados, formato dos dados gerados e se contém a legenda dos dados no arquivo final é configurável em ambiente especializado, assim como para o \emph{Web Service}.
+	\par
+	% Melhorar a imagem do workflow do Blocks e explicá-la aqui.
 	\section{Tipos de Geradores de Dados}
 
 		\subsection{Sequencial}
@@ -751,6 +767,11 @@ Lauro César Araujo
 		\subsection{Padrão}
 		\subsection{Streaming Data}
 		\subsection{Web Service}
+
+	\section{Modos para Visualização de Dados}
+
+		\subsection{Preview}
+		\subsection{Sistema de Visualização Externo e Integralizado}
 
 	\section{Estrutura de Interação Humano Computador}
 
