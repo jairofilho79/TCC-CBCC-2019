@@ -756,11 +756,40 @@ Lauro César Araujo
 	\par
 	% Melhorar a imagem do workflow do Blocks e explicá-la aqui.
 	\section{Tipos de Geradores de Dados}
-
+		% TODO: colocar as fórmulas na seção de fórmulas (perguntar para o professor antes)
 		\subsection{Sequencial}
+		Os geradores da categoria Sequencial geram valores encadeados dado um padrão.
+		É possível gerar o próprio padrão a partir do gerador \emph{Custom Sequence}, o qual você determina um valor Inicial (\emph{Begin}), o valor Intervalar (\emph{Step}), isto é, o qual vai ser incrementado ou decrementado dado uma Sentencia (\emph{sentence}) customizada.
+		\par
+		Contudo, já são predefinidos alguns geradores como 
+			o \emph{constant}, o qual define um valor único de geração;
+			o \emph{counter}, funciona como um contador, onde-se é definido o valor Inicial e o Intervalar;
+			o \emph{Fixed Time Generator} gera um intevalo de tempo, onde-se define o valor inicial (\emph{init}), Intervalar e a máscara (\emph{mask}), isto é, como o tempo deve ser formatado;
+			o \emph{Sinusoidal Sequence} gera de acordo com a função senoidal, que, além do valor Inicial e Intervalar, há o 'a' de Amplitude, 'b' de frequência ângular e 'c' para representar a fase da onda.
+
 		\subsection{Aleatório}
+		A categoria aleatória de dados são as que contem mais geradores, pois são mais fáceis de se dissociar da realidade, pelo caráter aleatório, mas também de reaproximar, pelo caráter probabilístico.
+		Esta categoria conta com geradores uniformes, isto é, a distribuição dos dados é equalizada;
+			Também há um gerador de dados de tempo, parecido com o \emph{Fixed Time Generator} com a diferença que o comportamento é definido pela fórmula de Poisson e que há mais duas configurações: unidade de tempo - a qual pode ser desde milissegundos a anos - e o lambda, advindo da fórmula.
+			Há uma distribuição de poisson também, apenas com o lambda;
+			É disponibilizado geradores de fórmulas clássicas com a normal (Gaussiana), Bernoulli, e Cauchy com seus devidos parâmetros.
+			Além de números, também é possível gerar dados categóricos (\emph{Categorical}), dadas as palavras inicialmente.
+			Similarmente há o \emph{Weighted Categorical} que possui valores de probabilidade para cada palavra, e 
+			já o \emph{Categorical Quantity}, em vez de probabilidade, define quantas vezes cada palavra deve aparecer.
 		\subsection{Funcional}
+		A categoria funcional \emph{Function} serve para gerar dados de acordo com outra dimensão, isto é, facilita a correlação entre dimensões.
+		Para dados numéricos, disponibiliza-se as 
+			função de primeiro \emph{Linear Function} e 
+			segundo \emph{Quadratic Function} grau, 
+			exponencial \emph{Exponential Function}, 
+			logarítmica \emph{Logarithm Function} e
+			a \emph{Piecewise Function}, cuja função é definida por subfunções, e no caso, é possível definir o gerador desejado até um determinado valor chamado de \emph{Intervals} e depois pode-se escolher outro gerador.
+		\par
+		Para dados categóricos, há a função categórica \emph{Categorical Function} e 
+		a \emph{TimeLaps Function} a qual funciona de forma semelhante a \emph{Piecewise Function}, só que utiliza uma quantidade de tempo como limiar, chamado de \emph{Laps} e também geradores de tempo.
+		\subsection{Acessórios}
 		\subsection{Geométrico}
+		\subsection{Baseado em dados reais}
 
 	\section{Modos de Geração de Dados}
 
