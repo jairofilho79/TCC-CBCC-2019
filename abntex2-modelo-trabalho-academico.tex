@@ -816,10 +816,18 @@ Lauro César Araujo
 
 	\section{Modos de Geração de Dados}
 
-		\subsection{Padrão}
-		\subsection{Streaming Data}
+		\subsection{Padrão e \emph{Streaming Data}}
+		O protótipo, para uma quantidade limitada de registros e dimensões (5000 e 30 respectivamente) gera os dados agilmente, isto é, bloqueia a interface do usuário, para geração dos dados seja consistente com o modelo.
+		O \emph{Streaming Data} foi pensando para o \emph{Big Data}. Então, quando foi passado o limiar da geração padrão dos dados, é criada uma cópia do modelo, para que o usuário seja livre para fazer alterações.
+		E para fazer valer essa liberdade, o usuário tem o controle sobre o processo de geração por ver seu progresso e também poder cancelá-lo.
 		\subsection{Web Service}
-
+		Quanto ao \emph{Web Service}, este foi pensado para facilitar o teste de aplicação.
+		Cada modelo é independente, isto é, podem ser habilitados somente os modelos desejados para distribuição.
+		É além da configuração por dentro do \emph{software}, também é possível criar configurações temporárias para cada requisição, sem alterar as configurações o modelo.
+		Os parâmetros disponíveis para configuração temporária pela URI são o nome do modelo, o formato dos dados e a quantidade de registro.
+		É disponibilizado um aviso ao usuário quando um modelo está distribuindo dados via \emph{Web Service} na aba do modelo.
+		Um exemplo de URI para fazer requisição HTTP do tipo GET (http://localhost:8000/?modelid=MODEL_r6w2ffk3.mva&nsample=100&format=csv), nos quais "modelid" é o \emph{ID} do modelo, "nsample" é a quantidade de registros desejado e "format" é o formato dos dados desejado.
+	 
 	\section{Modos para Visualização de Dados}
 
 		\subsection{Preview}
