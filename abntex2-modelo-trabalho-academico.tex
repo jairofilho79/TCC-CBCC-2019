@@ -826,16 +826,28 @@ Lauro César Araujo
 		É além da configuração por dentro do \emph{software}, também é possível criar configurações temporárias para cada requisição, sem alterar as configurações o modelo.
 		Os parâmetros disponíveis para configuração temporária pela URI são o nome do modelo, o formato dos dados e a quantidade de registro.
 		É disponibilizado um aviso ao usuário quando um modelo está distribuindo dados via \emph{Web Service} na aba do modelo.
-		Um exemplo de URI para fazer requisição HTTP do tipo GET (http://localhost:8000/?modelid=MODEL_r6w2ffk3.mva&nsample=100&format=csv), nos quais "modelid" é o \emph{ID} do modelo, "nsample" é a quantidade de registros desejado e "format" é o formato dos dados desejado.
+		Um exemplo de URI para fazer requisição HTTP do tipo GET (\url{http://localhost:8000/?modelid=MODEL_r6w2ffk3.mva&nsample=100&format=csv}), nos quais "modelid" é o \emph{ID} do modelo, "nsample" é a quantidade de registros desejado e "format" é o formato dos dados desejado.
 	 
 	\section{Modos para Visualização de Dados}
 
 		\subsection{Preview}
-		\subsection{Sistema de Visualização Externo e Integralizado}
+		O pré-visualizador de dados foi criando pensando em oferecer uma visualização rápida e abrangente do modelo de dados.
+		Para isso, foi escolhido o gráfico Coordenadas Paralelas, por conta de sua característica de visualização prática de dados multidimensionais.
+		Também foram adicionadas algumas características extras como diferenciação por cores (mapa de calor para dados numéricos e cor única para dados categóricos); 
+			filtro de dimensão, para seja visualizado apenas o que for necessário;
+			escolha de dimensão como referencial, isto é, a partir da dimensão escolhida, verificar como os dados se comportam nas outras dimensões. Isso pode ser ativado tanto clicando sobre o nome da dimensão, quanto através do \emph{ComboBox} acima do \emph{preview};
+			também é possível recarregá-lo e desativá-lo, para travamentos quando for trabalhar com \emph{Big Data}, por exemplo.
 
+		\subsection{Módulo de Visualização Externo e Integralizado}
+		O módulo chamado VisTechLib é um conjunto de técnicas de visualização reutilizáveis.
+		Ela pode chamada por dentro do Blocks e já pode consumir os dados do modelo atual.
+		Dentre as visualizações disponíveis pode-se citar as Coordenadas Paralelas, \emph{Scatterplot} % Ver outras visualizações em casa.
+		Como diferencial, algumas funcionalidades são adicionadas como detalhe sob demanda, \emph{zoom}, marcação de dados (\emph{Highlight}), multiplas visualizações simultâneas, entre outras.
+		% Colocar foto.
 	\section{Estrutura de Interação Humano Computador}
-
-		\subsection{Interface do Usuário}
+		% Explicar como utilizar os elementos da interface. 
+		O protótipo possui uma interface gráfica para \emph{Desktop} e segue um modelo conhecido como SPA (\emph{Single Page Aplication}).
+		Isso significa que há uma tela principal, e outras informações mais raras de serem consumidas aparecem através de \emph{tabs}, \emph{modals}, \emph{alerts} e correlacionados.
 		\subsection{Mensagens para o usuário}
 		\subsection{Atalhos do Teclado}
 		\subsection{Ajuda}
@@ -843,12 +855,11 @@ Lauro César Araujo
 % ---
 \chapter{Teste}
 % ---
-\section{Teste de usabilidade do sistema}
-% ---
-\chapter{Resultados}
-% ---
-\section{Teste de usabilidade}
-% ---
+	% Teste de exaustão na geração de dados
+
+	\section{Configuração do Teste}
+
+	\section{Resultado do Teste}
 % Conclusão
 % ---
 \chapter{Conclusão}
