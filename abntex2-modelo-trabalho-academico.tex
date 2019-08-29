@@ -811,9 +811,14 @@ Lauro César Araujo
 		Também pode ser do tipo \emph{Reverse} que ao invés do \emph{Standart}, pega os dados do final ao início.
 		É disponibilizado o modo aleatório (\emph{Random}), e algumas variações.
 		A primeira variação é o \emph{QuartileRandom}, que divide o conjunto de dados em 3 marcos e a probabilidade de se pegar um dado daquele quartil é proporcional ao tamanho do marco.
-		A leitura dos Marcos pode ser visualizada na figura \ref{fig:leituraMarco} % TODO: fazer figura do marco.
+		A leitura dos Marcos pode ser visualizada na figura \ref{fig:leituraMarco}. Então, se o valor do espaço entre 0 e quartil 1 for 100, todos os dados gerados serão do primeiro 1/4 do conjunto de dados.
 		A segunda variação é o \emph{AverageRandom} que utiliza o valor da média e da variancia - [Média - Variancia, Média + Variancia] de um conjunto de dados númerico ou utiliza os N valores categóricos mais frequentes com distribuição uniforme.
-
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/quartil.png}
+			\caption{Ilustrando a leitura dos marcos dos quartis. O tamanho do espaço entre os quartis ou entre 0 ou o 100 é o valor da probabilidade de um número ser desse espaço. Fonte: O Autor.}
+			\label{fig:leituraMarco}
+		\end{figure}
 	\section{Modos de Geração de Dados}
 
 		\subsection{Padrão e \emph{Streaming Data}}
@@ -841,9 +846,8 @@ Lauro César Araujo
 		\subsection{Módulo de Visualização Externo e Integralizado}
 		O módulo chamado VisTechLib é um conjunto de técnicas de visualização reutilizáveis.
 		Ela pode chamada por dentro do Blocks e já pode consumir os dados do modelo atual.
-		Dentre as visualizações disponíveis pode-se citar as Coordenadas Paralelas, \emph{Scatterplot} % Ver outras visualizações em casa.
+		Dentre as visualizações disponíveis pode-se citar as Coordenadas Paralelas, \emph{Scatter Plot}, \emph{Treemap}, \emph{Sunburst}, \emph{Bar Chart} entre outros.
 		Como diferencial, algumas funcionalidades são adicionadas como detalhe sob demanda, \emph{zoom}, marcação de dados (\emph{Highlight}), multiplas visualizações simultâneas, entre outras.
-		% Colocar foto.
 	\section{Estrutura de Interação Humano Computador}
 		% Explicar como utilizar os elementos da interface. 
 		O protótipo possui uma interface gráfica para \emph{Desktop} e segue um modelo conhecido como SPA (\emph{Single Page Aplication}).
