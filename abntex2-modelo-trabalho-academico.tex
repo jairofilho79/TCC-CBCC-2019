@@ -752,10 +752,28 @@ Lauro César Araujo
 	\par
 	Também é disponibilizado um pré-visualizador de dados com apenas um gráfico - o coordenadas paralelas -, cujo volume de dados é independente do volume de dados para ser gerado, colorido e interativo.
 	Além do \emph{preview}, há uma integralização com um visualizador de dados mais elaborado e com mais opções de visualização.
+	\par
 	Outrossim, há um botão específico para gerar os dados em arquivos JSON, CSV, TSV ou por de requisições HTTP do tipo GET (\emph{Web Service}).
 	Vale ressaltar que quantidade de dados gerados, pré-visualizados, formato dos dados gerados e se contém a legenda dos dados no arquivo final é configurável em ambiente especializado, assim como para o \emph{Web Service}.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/prototipo/fluxogramaUtilizacaoBlocks.png}
+		\caption{Fluxograma de utilização do Blocks Data Generator Fonte: Yvan Brito, 2019.}
+		\label{fig:fluxograma}
+	\end{figure}
 	\par
-	% Melhorar a imagem do workflow do Blocks e explicá-la aqui.
+	Na figura \ref{fig:fluxograma} é possível visualizar como foi pensada a utilização da aplicação.
+	Na primeira raia, encontra-se como usuário pode configurar o modelo.
+	Basicamente, o usuário define as dimensões e os seus geradores e o comportamento dos dados pode ser validado pelo \emph{preview}, se precisar o modelo pode ser atualizado a qualquer momento.
+	\par
+	A segunda raia demonstra os caminhos para geração de dados.
+	É possível a geração de dados por \emph{Big Data}, isto é, um grande conjunto de dados multidimensionais, apenas por meio de arquivos.
+	Também a geração de dados por \emph{Streaming}, o qual dar mais controle ao usuário sobre o processo de geração, e também é disponibilizado o \emph{Web Service}.
+	E o caminho 5.3 demonstra uma for iterativa de geração de arquivos de dados, com mudanças programadas de atributos.
+	Esses dados podem ser usados em experimentos, testes e afins, cujos resultados podem ser publicados.
+	\par
+	A terceira raia funciona como um agrupamento das duas primeiras, mas externa.
+	Isso para demonstrar que os processos anteriores podem ser replicados a partir do mesmo modelo de dados e o resultado pode ser comparado, facilitando Método Científico de pesquisadores sérios.
 	\section{Tipos de Geradores de Dados}
 		% TODO: colocar as fórmulas na seção de fórmulas (perguntar para o professor antes)
 		\subsection{Sequencial}
@@ -770,11 +788,13 @@ Lauro César Araujo
 
 		\subsection{Aleatório}
 		A categoria aleatória de dados são as que contem mais geradores, pois são mais fáceis de se dissociar da realidade, pelo caráter aleatório, mas também de reaproximar, pelo caráter probabilístico.
+		\par
 		Esta categoria conta com geradores uniformes, isto é, a distribuição dos dados é equalizada;
 			Também há um gerador de dados de tempo, parecido com o \emph{Fixed Time Generator} com a diferença que o comportamento é definido pela fórmula de Poisson e que há mais duas configurações: unidade de tempo - a qual pode ser desde milissegundos a anos - e o lambda, advindo da fórmula.
 			Há uma distribuição de poisson também, apenas com o lambda;
 			É disponibilizado geradores de fórmulas clássicas com a normal (Gaussiana), Bernoulli, e Cauchy com seus devidos parâmetros.
-			Além de números, também é possível gerar dados categóricos (\emph{Categorical}), dadas as palavras inicialmente.
+		\par
+		Além de números, também é possível gerar dados categóricos (\emph{Categorical}), dadas as palavras inicialmente.
 			Similarmente há o \emph{Weighted Categorical} que possui valores de probabilidade para cada palavra, e 
 			já o \emph{Categorical Quantity}, em vez de probabilidade, define quantas vezes cada palavra deve aparecer.
 		\subsection{Funcional}
@@ -794,13 +814,17 @@ Lauro César Araujo
 			o \emph{Noise Generator} que adiciona dados fora do padrão, conhecido como ruído, com uma determinada probabilidade e intensidade*
 			o \emph{Constant Noise Generator} também adiciona ruídos, mas só que é um valor específico com determinada probabilidade de ser adicionado;
 			o \emph{Ranger Filter} permite ficar no conjunto de dados apenas os valores que estão entre os valores de início \emph{Begin} e fim \emph{End};
-			o \emph{Linear Scale};
-			o \emph{No Repeat} retira dados repetidos do conjunto;
+			o \emph{Linear Scale} permite que os determinados (selecionados através do \emph{MinIn} e \emph{MaxIn}) dados sejam escalados através do \emph{minOut} e \emph{MaxOut}.
+		\par
+		O \emph{No Repeat} retira dados repetidos do conjunto;
 			o \emph{MinMax} define quais valores serão os maiores e menores de acordo com os parâmetros dados;
-			o \emph{Low-Pass Filter}
+			o \emph{Low-Pass Filter} faz jus ao nome e filtra pela "Amplitude" do dado. Na prática, o valor sucesso é uma media ponderada (valor recebido pelo parâmetro \emph{Smooth}) do valor anterior com o valor gerado;
 			o \emph{Get Extra Value} pega os retornos extras dos geradores que retornam mais que um valor.
 		\subsection{Geométrico}
-		% Ver Dissertação do Yvan.
+		A categoria de geradores Geométricos (\emph{Geometric}) permitem que o usuário desenhem o comportamento dos dados, através da ferramenta de desenho no sistema.
+		Para isso são disponibilizados dois geradores.
+		O primeiro gerados bidimensionais a partir da linha desenhada pelo usuário (\emph{Path2D Stroke}).
+		Quanto ao segundo, este gerado os dados a partir do preenchimento da linha desenhada (ver algoritmo \emph{Floodfill}) pelo usuário (\emph{Path2D Fill}).
 		\subsection{Baseado em dados reais}
 		Para esta categoria, existe apenas um gerador, chamado como \emph{Real Data Wrapper}.
 		Basicamente, ele é criado automaticamente quando o usuário importa um conjunto de dados reais através de um CSV, por exemplo.
@@ -831,6 +855,7 @@ Lauro César Araujo
 		Quanto ao \emph{Web Service}, este foi pensado para facilitar o teste de aplicação.
 		Cada modelo é independente, isto é, podem ser habilitados somente os modelos desejados para distribuição.
 		É além da configuração por dentro do \emph{software}, também é possível criar configurações temporárias para cada requisição, sem alterar as configurações o modelo.
+		\par
 		Os parâmetros disponíveis para configuração temporária pela URI são o nome do modelo, o formato dos dados e a quantidade de registro.
 		É disponibilizado um aviso ao usuário quando um modelo está distribuindo dados via \emph{Web Service} na aba do modelo.
 		Um exemplo de URI para fazer requisição HTTP do tipo GET (\url{http://localhost:8000/?modelid=MODEL_r6w2ffk3.mva&nsample=100&format=csv}), nos quais "modelid" é o \emph{ID} do modelo, "nsample" é a quantidade de registros desejado e "format" é o formato dos dados desejado.
@@ -850,8 +875,7 @@ Lauro César Araujo
 		Ela pode chamada por dentro do Blocks e já pode consumir os dados do modelo atual.
 		Dentre as visualizações disponíveis pode-se citar as Coordenadas Paralelas, \emph{Scatter Plot}, \emph{Treemap}, \emph{Sunburst}, \emph{Bar Chart} entre outros.
 		Como diferencial, algumas funcionalidades são adicionadas como detalhe sob demanda, \emph{zoom}, marcação de dados (\emph{Highlight}), multiplas visualizações simultâneas, entre outras.
-	\section{Estrutura de Interação Humano Computador}
-		% Explicar como utilizar os elementos da interface. 
+	\section{Estrutura de Interação da Interface da aplicação}
 		O protótipo possui uma interface gráfica para \emph{Desktop} e segue um modelo conhecido como SPA (\emph{Single Page Aplication}).
 		Isso significa que há uma tela principal (ver figura \ref{fig:telaPrincipal}), e outras informações mais raras de serem consumidas aparecem através de \emph{tabs}, \emph{modals}, \emph{alerts} e correlacionados.
 		\begin{figure}[h]
@@ -950,7 +974,15 @@ Lauro César Araujo
 	% Teste de exaustão na geração de dados
 
 	\section{Configuração do Teste}
-
+	O teste de exaustão tem o objetivo de verificar o comportamento da aplicação quando é exigido muito esforço computacional.
+	Logo é possível que apareça problemas uso desnecessário de memória primária, oportunidades de otimização e afins.
+	O sistema vai utilizar um PC com sistema operacional windows (verificar especificações po PC e por aqui.).
+	\par
+	O teste vai precisar gerar dois conjuntos de dados com 30 dimensões e 1 bilhão de registros e 1 conjunto com 2 bilhões de registros e 60 dimensões.
+	O primeiro conjunto irá utilizar apenas geradores numéricos.
+	O segundo conjunto será apenas com geradores categóricos.
+	O terceiro é o conjunto dos 2 conjuntos anteriores.
+	Esse teste será gerado 2 vezes, a primeira vez será com a CPU do PC e a outra será utilizada a GPU.
 	\section{Resultado do Teste}
 % Conclusão
 % ---
