@@ -741,9 +741,10 @@ Lauro César Araujo
 	Este capítulo é dedicado em explicar mais sobre o prótótipo, seu fluxo de funcionamento, funcionalidades, mais detalhes sobre a interface do usuário entre outros.
 	De modo geral, o protótipo é chamado de Blocks Data Generator e visa ser um gerador de dados sintéticos baseado em modelos de dados.
 	Assim, o usuário pode manipular um ou mais modelos e cada modelo pode conter N dimensões, que por sua vez podem conter M geradores de dados encadeados.
+	\par
 	Os geradores de dados podem gerar dados numéricos, categóricos, temporais etc (haverá uma seção específica para geradores) e o resultado de um gerador pode servir de entrada para outro gerador através de operadores.
 	Os operadores podem ou não aplicar uma operação matemática (soma, subtração, divisão, multiplicação) ao resultado do gerador anterior - a leitura de anterior e posterior é da esquerda para a direita, respectivamente.
-	Junto com os operadores, também há outras propriedades que variam de acordo com o gerador (ver seção de Tipos de Geradores de Dados).
+	Junto com os operadores, também há outras propriedades que variam de acordo com o gerador (ver seção 4.1).
 	\par
 	Ainda na modelagem das dimensões, é possível modificar seu nome, verificar o tipo do dado gerado pelo gerador, o ID e se está disponível para geração e visualização.
 	Essa disponibilidade (chamado de \emph{display}) foi feita para o caso de haver um modelo em que nem todas as dimensões sejam necessárias em determinado momento, mas também não queira perdê-las.
@@ -810,12 +811,13 @@ Lauro César Araujo
 		Essas funções pode ser do tipo \emph{Standart}, que é pegar os dados do início ao fim de forma cíclica até chegar ao número desejado de registros.
 		Também pode ser do tipo \emph{Reverse} que ao invés do \emph{Standart}, pega os dados do final ao início.
 		É disponibilizado o modo aleatório (\emph{Random}), e algumas variações.
+		\par
 		A primeira variação é o \emph{QuartileRandom}, que divide o conjunto de dados em 3 marcos e a probabilidade de se pegar um dado daquele quartil é proporcional ao tamanho do marco.
 		A leitura dos Marcos pode ser visualizada na figura \ref{fig:leituraMarco}. Então, se o valor do espaço entre 0 e quartil 1 for 100, todos os dados gerados serão do primeiro 1/4 do conjunto de dados.
 		A segunda variação é o \emph{AverageRandom} que utiliza o valor da média e da variancia - [Média - Variancia, Média + Variancia] de um conjunto de dados númerico ou utiliza os N valores categóricos mais frequentes com distribuição uniforme.
 		\begin{figure}[h]
 			\centering
-			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/quartil.png}
+			\includegraphics[width=\linewidth]{./figures/prototipo/quartil.png}
 			\caption{Ilustrando a leitura dos marcos dos quartis. O tamanho do espaço entre os quartis ou entre 0 ou o 100 é o valor da probabilidade de um número ser desse espaço. Fonte: O Autor.}
 			\label{fig:leituraMarco}
 		\end{figure}
@@ -851,10 +853,96 @@ Lauro César Araujo
 	\section{Estrutura de Interação Humano Computador}
 		% Explicar como utilizar os elementos da interface. 
 		O protótipo possui uma interface gráfica para \emph{Desktop} e segue um modelo conhecido como SPA (\emph{Single Page Aplication}).
-		Isso significa que há uma tela principal, e outras informações mais raras de serem consumidas aparecem através de \emph{tabs}, \emph{modals}, \emph{alerts} e correlacionados.
+		Isso significa que há uma tela principal (ver figura \ref{fig:telaPrincipal}), e outras informações mais raras de serem consumidas aparecem através de \emph{tabs}, \emph{modals}, \emph{alerts} e correlacionados.
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/prototipo/telaprincipalmarcada.png}
+			\caption{Conhecendo os elementos da tela principal do Blocks Data Generator, na sua versão para Windows. Fonte: O Autor.}
+			\label{fig:telaPrincipal}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/prototipo/generationSettings.png}
+			\caption{Conhecendo os elementos da tela de configurações para geração de dados. Fonte: O Autor.}
+			\label{fig:generationSettings}
+		\end{figure}
+		\par
+		Na figura \ref{fig:telaPrincipal}, pode-se encontrar os principais elementos para utilizar o Blocks Data Generator.
+		Na marcação 1 (M1), são definidas as propriedades da dimensão, é possível visualizar informações e alterar o título.
+		A M2 mostra o nome atual do modelo, ao seu lado há o símbolo de que este modelo está servindo dados (\emph{Web Service}) (M3);
+			M4 mostra que há alterações não salvas no modelo, a M5 é um botão para fechar o modelo e a M6 é para criar um novo modelo.
+		\par
+		A marcação 7 agrupa as dimensões do modelo. 
+		A M8 é um exemplo de gerador, no formato de chip; 
+			a M9 é o botão responsável por criar e aumentar o encadeamento de geradores; e a M10 excluir um gerador da cadeia - é válido ressaltar que são se pode ter menos que um gerador.
+		A M11 cuida do filtro de dimensões - quando este ícone estiver com uma reta na diagonal sobre o filtro, significa que a dimensão não será incluída na geração e nem visualização dos dados.
+		A M12 é um dos botões responsáveis pela exclusão da dimensão do modelo, o outro botão é encontrado na M14, junto com os botões para reorganização de dimensões - significa poder mover uma dimensão para cima ou para baixo.
+		\par
+		A M13 agrupa as configurações atuais do gerador. 
+		Tanto as configurações da M13 quanto da M1 seguem um padrão chamado \emph{Two-way data binding}, o que signfica que não há a necessidade de um botão de salvar os dados, toda alteração é salva automaticamente, prevalecendo a consistência em todo o sistema.
+		Na M13 encontra-se o tipo de gerador, que apresenta uma lista de categorias que, por sua vez, cada uma apresenta uma lista de geradores (ver seção 4.1) e também as propriedades do gerador selecionado.
+		A M15 possui alguns botões que tornam a modelagem mais prática como um copiador de gerador, e (saber o que é magic painter!). 
+		\par
+		Na parte inferior da tela, é encontrado o pré-visualizador de dados.
+		É utilizado o Coordenadas Paralelas (M20) (ver seção 4.3.1) como principal e único gráfico.
+		A parte interativa deste gráfico se dá pelo \emph{ComboBox} (M19) ou pelo clique no título (ver seção 4.3.1).
+		Ainda sobre o \emph{preview}, é possível escondê-lo (M16) e recarregá-lo (M17).
+		Na marcação 21 encontra-se o botão para gerar os dados a partir do modelo atual e para manipular as algumas configurações o modelo atual.
+		\par
+		Ao clicar com o botão direito do \emph{mouse} no título do modelo (M2) aparece um menu, como visto na figura fig:contextMenu.
+		Esse \emph{context menu} permite renomear ou deletar o modelo, exportá-lo como arquivo .DOT e também manipular algumas informações para o Web Service Como
+			copiar para a área de transferência o ID do modelo, uma URI padrão (\emph{localhost}); ativar ou desativar o modelo pra \emph{Web Service}, bem como abrir a URI em um software padrão do usuário.
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/prototipo/contextMenu.png}
+			\caption{Conhecendo os elementos da \emph{context menu} na aba do modelo. Fonte: O Autor.}
+			\label{fig:contextMenu}
+		\end{figure}
+		\par
+		Ao lado do botão (\emph{Generate}) para iniciar a geração é encontrado outro botão com o ícone de engrenagem (M21).
+		Na imagem \ref{fig:generationSettings}, no lado esquerdo, encontra-se 3 seções.
+		A primeira é dedicada para configurações gerais do modelo, como quantidade de dados para ser gerados, mostrado no \emph{preview} ou formato dos dados.
+		A segunda seção (\emph{Parameter Iterator}) foi pensada para quer precisar criar mais de um arquivo variando apenas alguns parâmetros, de forma iterativa.
+		A terceira seção é especial para o \emph{Web Service} no qual, liga ou desliga o servidor ou troca a porta padrão para servir os dados.
+		% Falar sobre o VisTechLib.
 		\subsection{Mensagens para o usuário}
+		O sistema precisa avisar o usuário de falhas, perguntar sobre preferências e afins.
+		Para isso, o Blocks utiliza-se de \emph{Dialogs} (ver figura \ref{fig:dialog}) para receber um caminho para salvar ou abrir um arquivo.
+		Há um espaço dedicado na tela principal para mensagens advindas de um subprocesso que está gerando dados via Streaming Data.
+		Mensagem para preparação, progresso, finalização ou falha pode ser acompanhado por lá (ver figura \ref{fig:SDvisor}).
+		Para outros avisos mais genéricos como erros ou tarefas bem sucedidas há o \emph{Modal} (ver figura \ref{fig:modal}).
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/prototipo/dialog.png}
+			\caption{Conhecendo os elementos da tela de configurações para geração de dados. Fonte: O Autor.}
+			\label{fig:dialog}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/prototipo/SDvisor.png}
+			\caption{Conhecendo os elementos da tela de configurações para geração de dados. Fonte: O Autor.}
+			\label{fig:SDvisor}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/prototipo/modal.png}
+			\caption{Conhecendo os elementos da tela de configurações para geração de dados. Fonte: O Autor.}
+			\label{fig:modal}
+		\end{figure}
 		\subsection{Atalhos do Teclado}
-		\subsection{Ajuda}
+		Modelar um conjunto de dados pode ser exaustivo, portanto, alguns atalhos podem facilitar na prevenção e correção de erros, eficiência e economia de esforço e afins.
+		Visando dar praticidade ao usuário, o Block Data Generator possui atalhos para 
+			criar novo modelo (Ctrl/Cmd + M);
+			deletar modelo atual (Ctrl/Cmd + W);
+			criar nova dimensão (Ctrl/Cmd + D);
+			salvar modelo (Ctrl/Cmd + S).
+		\par
+		E para termos de segurança no uso, há o desfazer/refazer com Ctrl/Cmd + Z e Ctrl/Cmd + Shift + Z respectivamente.
+		Além de acesso pelo teclado, os atalhos podem ser acessados pela barra superior da tela inicial (M22).
+		É válido ressaltar, ainda na questão de segurança de uso, que o Blocks Data Generator salva as mudanças no automaticamente em arquivo separado, o qual pode ser recuperado se não forem salvas/descartadas adequadamente. 
+
+		% Se sobrar tempo, fazer uns vídeos no YouTube.
+		% \subsection{Ajuda}
 
 % ---
 \chapter{Teste}
