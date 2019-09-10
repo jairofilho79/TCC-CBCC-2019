@@ -728,13 +728,42 @@ Lauro César Araujo
 % ---
 
 %-- TODO: 
-		%Inserir metodologia do teste de IHC
-			%Vai ser um teste de usabilidade.
 		%Inserir os Casos de Uso
 		%Inserir as ferramentas utilizadas
 	\section{Casos de uso do sistema}
-	\section{Ferramentas utilizadas}
-
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/prototipo/diagramaUC.png}
+		\caption{Diagrama de Caso de uso do Blocks Data Generator. Fonte: o autor.}
+		\label{fig:diagramaUC}
+	\end{figure}
+	"O objetivo de um diagrama de casos de uso na UML é demonstrar as diferentes maneiras pelas quais um usuário pode interagir com um sistema." \cite{UCdefinition}
+	Por conta disso, é utilizado o Diagrama de Casos de Uso para demonstrar as principais funcionalidades do protótipo Blocks Data Generator.
+	Na figura \ref{fig:diagramaUC} são encontrados um total de 10 casos de uso.
+	No UC01 mostra que é possível modificar um modelo, isto é, adicionar ou remover dimensões, alterar geradores e afins; também há inclusão do UC04 e a possibilidade de desfazer ou refazer as alterações (UC02).
+	O UC04 representa a criação do modelo. 
+	Está é considerada a funcionalidade original, pois é incluída por vários e não inclui nenhuma funcionalidade.
+	Outros que possuem relação com UC04 é o UC03 e UC07 como inclusão e UC05 como extensão.
+	\par
+	UC03 é uma funcionalidade para reaproveitamento do modelo, também está atrelado à validação de teste por outros pesquisadores.
+	UC07 é o carro chefe do Blocks Data Generator, o qual refere-se à geração de dados, progredindo para o \emph{Big Data} ou não.
+	Esta geração pode ser feita, especificamente, de 3 formas: gerando dados em Memória, para ser utilizado dentro do sistema (UC10);
+		salvar em arquivos - TSV, CSV e JSON - (UC09);
+		e distribuir os dados através de requisições HTTP (UC08).
+	\par
+	Incluindo a UC07, mais especificamente a UC10, a UC06 permite que o usuário visualize os dados. 
+	Assim, a visualização - a qual pode ser rápida (através do \emph{preview}) ou detalhada (com o VisTechLib) - tendo um panorama do comportamento dos dados. 
+	Com isso, pode-se validar os dados, ter insights para aprimorar o modelo e afins.
+	
+	\section{Técnicas e ferramentas utilizadas}
+	A equipe do Blocks Data Generator é composta por 3 pessoas, o administrador Prof. Dr. Gustavo Resque da UFPa, o aluno de mestrado Yvan Brito e o aluno da graduação Jairo Filho - ambos da UFPa - com colaborações avulsas de membros do Laboratório de Visualização e Sistemas Inteligentes da UFPa.
+	O software é \emph{Open Source} e está hospedado no GitHub em \url{http://github.com/gustavoresque/DataGenerator}.
+	Em termos de organização, foi adotado um modelo incremental de desenvolvimento, com reuniões diárias para discussão de \emph{bugs} e melhorias, e utilização da ferramenta Trello (\url{https://trello.com}) para organização das informações, problemas e melhorias.
+	\par
+	Em termos de desenvolvimento, foi utilizada a linguagem Javascript com foco para \emph{Desktop}, através do \emph{Framework} Electron (\url{https://electronjs.org/}).
+	Adotando o padrão de projeto MVC (\emph{Model, View, Controller}), também foi adicionado o \emph{jQuery} para agilizar a codificação do projeto.
+	Do Javascript também foi utilizado o Node.js (\url{https://nodejs.org/en/}) para acessar recursos do sistema operacional, para o desenvolvimento do \emph{Web Service} e também para dar suporte ao Electron.
+	E quanto à versão do Javascript foram utilizados os novos recursos do Ecmascript 6 (2015) como o desenvolvimento assíncrono com as \emph{Promises} e \emph{arrow functions}.
 % ---
 \chapter{Protótipo}
 % ---
