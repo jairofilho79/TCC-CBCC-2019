@@ -99,7 +99,7 @@
 \local{Belém}
 \data{2019}
 \orientador{Prof. Dr. Carlos Gustavo Resque dos Santos}
-\coorientador{Msc. Yvan Brito}
+% -- \coorientador{Msc. Yvan Brito}
 \instituicao{Universidade Federal do Pará}
 \instituicaounidade{Instituto de Ciências Exatas e Naturais}
 \instituicaosubunidade{Faculdade de Computação}
@@ -298,7 +298,7 @@
     \vspace*{\fill}
    \end{center}
         
-   Conceito: Excelente!\rule{3cm}{.1pt}
+   Conceito: \rule{3cm}{.1pt}
    
    \imprimirlocal, 1 de janeiro de 2019.
    
@@ -334,19 +334,7 @@
 % Agradecimentos
 % ---
 \begin{agradecimentos}
-Os agradecimentos principais são direcionados à Gerald Weber, Miguel Frasson,
-Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos Corrêa, Otavio Real
-Salvador, Renato Machnievscz e todos aqueles que
-contribuíram para que a produção de trabalhos acadêmicos conforme
-as normas ABNT com \LaTeX\ fosse possível.
-
-Agradecimentos especiais são direcionados ao Centro de Pesquisa em Arquitetura
-da Informação da Universidade de
-Brasília (CPAI), ao grupo de usuários
-\emph{latex-br} e aos
-novos voluntários do grupo
-\emph{\abnTeX} e que contribuíram e que ainda
-contribuirão para a evolução do \abnTeX.
+Escrever Agradecimentos aqui.
 
 \end{agradecimentos}
 % ---
@@ -466,7 +454,7 @@ contribuirão para a evolução do \abnTeX.
 %Mostrar a necessidade de um gerador de dados sintéticos.
 %Mostrar que já existem geradores de dados sintéticos.
 %Mostrar o diferencial do protótipo que procuramos fazer.
-
+%Mostrar o que são dados ausentes (missing data)
 Este documento e seu código-fonte são exemplos de referência de uso da classe
 \textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento 
 exemplifica a elaboração de trabalho acadêmico (tese, dissertação e outros do
@@ -536,169 +524,7 @@ Lauro César Araujo
 	\par
 	A aplicabilidade dos dados sintéticos é ilimitada, e é bastante explorada por setores cujos dados são sensíveis como a financeiro \cite{lopez2012money} e de saúde. \cite{bergeat2014french} 	
 	Também são muito bem aplicáveis para exaustívos testes de segurança, os quais são necessários vários casos de teste, já que o pesquisador tem controle suficiente processamento (fórmulas matemáticas ou regras de geração) e saída do dado, como um sistema de detecção de fraudes. \cite{barse2003synthesizing}
-	 
-	\subsection{Trabalhos Relacionados}
 	
-	\subsubsection{\emph{Synthetic Generation of High-Dimensional Datasets}}
-	Albuquerque et al. \cite{Albuquerque2011} descreveu um \emph{framework} capaz de gerar dados sintéticos multidimensionais. O sistema (ver figura \ref{fig:albuquerque}) recebe um \emph{input} que representa algumas propriedades do conjunto de dados como número de dimensões, uma distribuição de dados padrão, tipo de dado de cada dimensão entre outros. A partir disso, é criada uma função densidade de probabilidade, com o fim de gerar um cojunto de dados padrão. Essas funções podem ser ajustadas e modeladas através de objetos. Também, essas funções podem ser de 1, 2 ou 3 dimensões. Adicionalmente, pode-se haver ruídos, para simular as irregularidades encontradas em conjunto de dados reais.
-	\par
-	O framework apresentado também possui uma interface gráfica para auxiliar o usuário a configurar o conjunto de dados, bem como gerá-lo. Contudo, não foi encontrado uma interface para pré-visualização dos futuros dados gerados. Quanto aos tipos de dados, estes são restritos aos numéricos, quer sejam inteiros ou de ponto flutuante.    
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Albuquerque10.png}
-		\caption{Visão Geral de geração de dados.}
-		\label{fig:albuquerque}
-	\end{figure}
-	\subsubsection{\emph{SketchPadN-D: WYDIWYG Sculpting and Editing in High-Dimensional Space}}
-	Wang et al. \cite{BingWang2013} apresentou uma aplicação cujo principal diferencial é a capacidade de modelar, através de desenho, o comportamento das dimensões do conjunto de dados sintéticos. A priori, o usuário pode iniciar o processo de geração através do zero, de um conjunto de dados já existente, ou um conjunto de dados aleatório. A partir disso, o usuário visualiza os dados no gráfico - que pode ser as coordenadas paralelas ou o \emph{scatterplot} - e pode modificá-lo através de cliques e arrastos. Por conseguinte, os dados podem ser gerados e isto também serve como retroalimentação do sistema. Na figura \ref{fig:sketchpad} é possível visualizar a visão geral do funcionamento do SketchPad.
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Wang11.png}
-		\caption{Visão Geral de geração de dados do Sketchpad.}
-		\label{fig:sketchpad}
-	\end{figure}
-	\subsubsection{\emph{Synthetic Data Generator for Classification Rules Learning}}
-	Liu \cite{Liu2016} criou um gerador de dados sintéticos a partir de avaliação de regras de aprendizagem. O sistema funciona criando regras de aprendizagem - usando algoritmos de árvore de decisão como o ID3 - baseado em dados de entrada contruindo correlações entre os dados. Na figura \ref{fig:liu} é possível visualizar uma árvore de decisão. Durante a leitura do conjunto de dados de entrada é feita a árvore de decisão e, concomitantemente, são geradas as regras de aprendizagem. Essas regras são utilizadas para gerar amostras de dados sintéticos.
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Liu13.png}
-		\caption{Exemplo de árvore de decisão para jogar tennis criado a partir de regras encontradas em um conjunto de dados.}
-		\label{fig:liu}
-	\end{figure}
-	\subsubsection{\emph{A prototype of synthetic data generator}}
-	Garcia e Millán \cite{Garcia2011} criaram um sistema par gerar dados sintéticos pensado para desenvolvedores que buscam testar de forma eficiente e exaustiva a sua aplicação. Esses dados pode ser configurados (ver figura \ref{fig:garcia}) de acordo com as preferências do usuário. As dimensões de dados seguem alguns padrões como a partir de fontes externas (Arquivos, Bibliotecas, Base de dados) Sequencial, Constante, Funcional, Intervalo ou Lista de valores. 
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Garcia18.png}
-		\caption{Exemplo da interface do usuário para configuração do gerador de dados.}
-		\label{fig:garcia}
-	\end{figure}
-	\subsubsection{\emph{A methodology for synthetic household water consumption data generation}}
-	Kofinas et al. \cite{Kofinas2018} criou uma metedologia para gerar dados sintéticos para simular consumo de água. A metodologia é avaliada através de algoritmos de validação - como a visualização dos resultados e fórmulas.
-	\par
-	Como pode ser visto na figura \ref{fig:kofinas}, a geração dos dados é feita a partir de 2 fases. A fase 1 serve, basicamente, para investigar a distribuição dos dados. Esta fase, primeiramente transforma dados números em séries temporais de 30 segundos. Em alguns casos, não há registro, para isso, é criada uma tabela de incidentes e posteriormente uma probabilidade de existência de registro para que seja encontrada as classes usadas para construção do histograma de Pearson \cite{dean2009descriptive}, por fim, são comparadas funções de distribuição com a atual com o fim de encontrar a que mais se aproxima.
-	\par
-	Para a fase 2 cuida da geração de dados sintéticos propriamente. Basicamente, o sistema utiliza a distribuição criada na fase um para gerar os dados para 24h, respeitando as características diferenciadas para dias de semana e finais de semana.
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Kofinas21.png}
-		\caption{Fluxo de passos para geração dos dados sintéticos.}
-		\label{fig:kofinas}
-	\end{figure}
-
-	\subsubsection{DTM Data Generator}
-	DTM Data Generator \cite{DTMDataGenerator} é uma plataforma de geração de dados sintéticos que existe de 1998.
-	Esta possui suporte para geração de dados em arquivos, em banco de dados, também para \emph{Big Data}.
-	Possui suporte multiplataforma, através do modo \emph{multiplatform runtime}, contudo é limitado quando comparado à versão Windows, o qual suporta a versão para servidor também.
-	É válido destacar que é um software essencialmente pago, isto é, existem versões gratuitas - demonstrações, para ser mais exato - mas limitadas.
-	Além disso, há categorias de versões pagas, que vão desde limitações de geração (Standart - Professional) à vantagens mais técnicas (Professional - Entrerprise).
-	\par
-	O DTM Data Generator possui uma vasta coleção de funcionalidades, as quais liberadas de acordo com as versões pagas.
-	Adotando a versão mais cara, a lista de \emph{features} é composta por geração de dados em JSON, XML, CSV ou geração por separador customizado.
-	Também permite gerar dados por arquivo DSN (Database Source Name), gerar dados por linha de comando, e gerar um arquivo SQL para não seja necessário conexão com banco de dados.
-	\par
-	É possível gerar cerca de 9.2 sextilhões de registros por \emph{rule}, modos de atualizar dados existentes (adicionar, substituir e \emph{Data Scrambling}), e suporte para bibliotecas de dados realistas.
-	A plataforma disponibiliza entrada de dados através de SQL, XML, JSON, pela WEB através de HTTP ou FTP, XLSM, arquivos de texto e scripts em Python.
-	Também é possível visualizar e testar os dados gerados, bem como gerá-los nos principais arquivos de texto (TSV, CSV, "DSV", JSON, XML) e banco de dados. (MS SQL Server, Oracle, DB2, MySQL, PostgreSQL, Informix, Sybase, SQLite e Firebird) 
-	\par
-	Há uma suíte de produtos relacionados fornecidos pela DTM soft. 
-	Além do gerador de dados, 
-		há o gerador de dados XML para teste de aplicação (DTM Test XML Generator);
-		um gerador de planilhas Excel (DTM Data Generator for Excel)
-		testador exaustivo - teste de estresse - de banco de dados (DTM DB Stress);
-		Bem como editor, visualizador (DTM Data Editor), comparador e sincronizador de banco de dados (DTM Data Comparer) entre outros. 
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/DTMDataGenerator.png}
-		\caption{Usando o DTM Data Generator. Fonte: DTM Data Generator}
-		\label{fig:DTMDG}
-	\end{figure}
-	\subsubsection{Red Gate SQL Data Generator}
-	O SQL Data Generator \cite{RedgateSQLDataGenerator} é um software que compõe uma suíte de ferramentas (chamada de SQL Toolbelt) da Red Gate.
-	O software é exclusivo para o ecossistema Windows, com suporte do Windows 7 ao 10, à versão para servidores do Windows, ao SQL Server (2008 ao 2017), .NET e Oracle.
-	Este produto é distribuido através de licenças pagas e vitalícias, com atualizações gratuitas e, no mínimo 1 ano de suporte gratuito.
-	Vale ressaltar que é possível testar o produto por 14 dias gratuitamente.
-	\par
-	O SQL Toolbelt tem funcionalidades bem delimitadas e a função do Data Generator é popular um banco de dados. 
-	A população acontece ao escolher, primeiramente, uma tabela do banco.
-	A partir disso, escolhe-se um gerador para cada coluna da tabela.
-	Um gerador tem classificação fortemente baseada na realidade, isto é, possui geradores como palavras relacionadas à compras, pagamentos, pessoas (primeiro e último nome), dado geográficos e afins.
-	Contudo, também disponibiliza a geração a partir de expressões regulares \emph{Regex generator} e scripts de python.
-	Por se tratar de banco de dados, também há checagem e tratamento de \emph{constraints}, \emph{Foreign keys} e \emph{Dependencies}.
-	O SQL Data Generator também permite lidar com arquivos XML, quer seja para geração de valores XML, como utilizar como dados de entrada, além de mesclá-los com o \emph{Regex generator}.
-	\par
-	Quanto ao SQL Toolbelt oferecido pela Red Gate, ele conta com 2 modalidades, o completo com 14 programas e o \emph{essentials} com 10.
-	Entre os mais relevantes, pode-se citar o \emph{SQL Data Compare}, \emph{SQL Data Generator}, \emph{SQL Test}, \emph{SQL Backup Pro} e \emph{SQL Scripts Manager}.
-	\begin{figure}[h]
-		\centering
-		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/sql-data-generator.png}
-		\caption{Usando o Redgate SQL Data Generator. Fonte: Red Gate SQL Data Generator.}
-		\label{fig:RedgateSQLDG}
-	\end{figure}
-	\subsubsection{Visual Studio (Premium) Data Generator}
-	Microsoft Visual Studio \cite{VSDataGenerator} é um pacote de programas da Microsoft para desenvolvimento de \emph{software}. 
-	Este é composto por 4 versões (\emph{Express}, \emph{Professional}, \emph{Premium}, \emph{Ultimate}), e a opção de gerar dados para teste está disponível a partir da versão \emph{Premium}.
-	O foco é permitir que verique o comportamento do banco de dados, sem relacioná-los com os dados da aplicação em produção.
-	\par
-	Para gerar os dados de teste, deve-se utilizar os geradores de dados (\emph{Data Generators}), que são correlacionados às tabelas do banco de dados.
-		Os geradores podem ser dos mais primitivos (Binários, Inteiros, Data, \emph{Float}), como de Imagem, Dinheiro, Expressão Regular, Categórico entre outros.
-	Também é disponibilizado um Plano de Geração de Dados (\emph{Data Generation Plan}), feito em XML, que contém informações do banco de dados, o tipo de dados de cada gerador e a quantidade de dados para ser gerado. 
-	Este plano serve basicamente para reutilização da lógica de teste.
-	\begin{figure}[h]
-		\centering
-		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Visual-Studio.jpg}
-		\caption{Usando o Microsoft Visual Studio. Fonte: anranik.}
-		\label{fig:VSDG}
-	\end{figure}
-	\subsubsection{dbForge Test Data Generator}
-	Test Data Generator \cite{forgeDBDataGenerator} é uma ferramenta GUI (\emph{Graphical User Interface}) pela dbForge para gerar dados de teste para banco de dados SQL desde 1997.
-	O software possui mais de 200 geradores predifinidos e configuráveis os quais permitem a geração de dados mais inteligentes, isto é, mais próximos da realidade, como nomes, localização, dados de saúde e afins.
-	Quanto à compatibilidade, este é exclusivo do ecossistema Windows, com suporte à versão 7 ao 10, do Windows Server 2008 ao 2019 e ao SQL Server Azure, 2008 ao 2017.
-	Além da GUI, também há o suporte para geração de dados a partir da linha de comando.
-	O produto é distribuido sob licenças pagas e vitalícias, porém, com suporte ao cliente com tempo limitado e com 30 dias gratuitos para avaliação.
-	\par
-	Para usar o dbForge Test Data Generator, é preciso fazer uma conexão com banco de dados. 
-	A partir disso, utiliza-se os \emph{Data Generators} para determinar o comportamento dos dados para determinada coluna da tabela selecionada no Banco de dados.
-	Os Geradores de dados podem ser do tipo emph{Basics} e emph{Advanced}. 
-	Do primeiro tipo, são formas mais próximas dos dados primitivos, como datas, texto \emph{lorem ipsum}, JSON, \emph{ReGex}.
-	Já o avançado conta com número de cartão de crédito, aniversário, número de conta bancária internacional, IPv4, \emph{hash} de senhas.  
-	A geração de dados resume-se à população de banco de dados, não há uma forma de exportar os dados em arquivos como CSV e JSON.
-	\par
-	Há um suíte exclusivo para SQL Server, contudo também para Oracle, MySQL, PostgreSQL entre outros.
-	Neste suíte, há várias ferramentas que auxiliam na manutenção, mas não, necessariamente, a geração de dados, a exemplode um \emph{previewer}.
-	Destes, pode-se citar um comparador de dados, criador de \emph{querys}, um monitor - para supervisão do banco de dados - e afins.
-	\begin{figure}[h]
-		\centering
-		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/dbForge-Test-Data-Generator.jpg}
-		\caption{Usando o dbForge Test Data Generator. Fonte: anranik.}
-		\label{fig:dbForgeTDG}
-	\end{figure}
-	\subsubsection{Mockaroo}
-	Mockaroo \cite{mockaroo} é um \emph{web site} e \emph{framework} para desenvolver dados de teste.
-	Há um total de 143 geradores, sendo a maioria considerados geradores realistas.
-	Por ser um site, é possível acessá-lo por qualquer sistema operacional, dependendo apenas de conexão com a internet.
-	O produto possui versões gratuita e pagas. - \emph{Free}, \emph{Silver}, \emph{Gold}, \emph{Enterprise} as quais variam no \emph{host}, o qual pode ser do Mockaroo ou privado, máximo de registros por download, velocidade de download e preço.
-	\par
-	Na tela inicial, é possível escolher o nome da coluna, o tipo de gerador, algumas opções - valores em branco e funções a partir dos dados.
-	Ainda nesta tela, encontra-se o botão para \emph{download} dos dados, pré-visualização dos mesmo (mas sem gráficos), algumas configurações como quantidade de linhas, formato dos dados para \emph{download}, botão para clone ou deleção de banco de dados, e importação de dados csv/Excel ou SQL.
-	\par
-	Outro serviço interessante do Mockaroo é Mockaroo APIs \cite{mockarooAPI}.
-	Este consiste em baixar dados programaticamente através de requisições REST (\emph{Representational State Transfer}).
-	As requisições podem ser feitas de 2 formas, a \emph{Generate API} - gera os dados através de um banco de dados salvo e os envia pelo corpo de uma requisição - 
-	e \emph{Mock APIs} que basicamente, simula um \emph{back-end} como tratamento de parâmetros e simulação de erros. 
-	É pensado para desenvolvimento ágil de aplicações \emph{front-end}, isto é, sem perder muito tempo com o \emph{back-end} a priori.
-	\begin{figure}[h]
-		\centering
-		\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/mockaroo.jpg}
-		\caption{Usando o Mockaroo. Fonte: anranik.}
-		\label{fig:mockaroo}
-	\end{figure}
-	% \subsubsection{ApexSQL Generate}
-	% \subsubsection{Datanamic Data Generator MultiDB}
-	% \subsubsection{Upscene Advanced Data Generator}
-	% \subsubsection{EMS Data Generator}
-	% \subsubsection{GEDIS Studio}
-
 	\section{Formato dos dados salvos}
 		\subsection{Arquivo}
 		%JSON
@@ -722,48 +548,218 @@ Lauro César Araujo
 		\cite{webService-W3C}
 		Um Web service é definido como um software sistema criado para suportar interoperabilidade entre máquinas através da rede computadores. Também possui uma interface descrita em um formato processável por máquinas (WSDL) e um protocolo para comunicação (SOAP). \cite{webService-W3C}
 		Essa era a arquitetura utilizada em 2004. Atualmente é predominante o uso de REST que em vez de exportar serviços como o SOAP, exporta os dados em si e não necessita do WSDL. \cite{soapVSrest}
+	
+		\section{Dados Ausentes}
+			% O que são dados faltantes
+			% Porque dados podem faltar
+			% O impacto dos dados faltantes
+			% Tipos de dados faltantes
+			% Consequência dos dados faltantes
+			
+	\chapter{Trabalhos Relacionados}
+
+		\section{Artigos acadêmicos relacionados}
+			Albuquerque et al. \cite{Albuquerque2011} descreveu um \emph{framework} capaz de gerar dados sintéticos multidimensionais. O sistema (ver figura \ref{fig:albuquerque}) recebe um \emph{input} que representa algumas propriedades do conjunto de dados como número de dimensões, uma distribuição de dados padrão, tipo de dado de cada dimensão entre outros. A partir disso, é criada uma função densidade de probabilidade, com o fim de gerar um cojunto de dados padrão. Essas funções podem ser ajustadas e modeladas através de objetos. Também, essas funções podem ser de 1, 2 ou 3 dimensões. Adicionalmente, pode-se haver ruídos, para simular as irregularidades encontradas em conjunto de dados reais.
+			\par
+			O framework apresentado também possui uma interface gráfica para auxiliar o usuário a configurar o conjunto de dados, bem como gerá-lo. Contudo, não foi encontrado uma interface para pré-visualização dos futuros dados gerados. Quanto aos tipos de dados, estes são restritos aos numéricos, quer sejam inteiros ou de ponto flutuante.    
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Albuquerque10.png}
+				\caption{Visão Geral de geração de dados.}
+				\label{fig:albuquerque}
+			\end{figure}
+
+			Wang et al. \cite{BingWang2013} apresentou uma aplicação cujo principal diferencial é a capacidade de modelar, através de desenho, o comportamento das dimensões do conjunto de dados sintéticos. A priori, o usuário pode iniciar o processo de geração através do zero, de um conjunto de dados já existente, ou um conjunto de dados aleatório. A partir disso, o usuário visualiza os dados no gráfico - que pode ser as coordenadas paralelas ou o \emph{scatterplot} - e pode modificá-lo através de cliques e arrastos. Por conseguinte, os dados podem ser gerados e isto também serve como retroalimentação do sistema. Na figura \ref{fig:sketchpad} é possível visualizar a visão geral do funcionamento do SketchPad.
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Wang11.png}
+				\caption{Visão Geral de geração de dados do Sketchpad.}
+				\label{fig:sketchpad}
+			\end{figure}
+
+			Liu \cite{Liu2016} criou um gerador de dados sintéticos a partir de avaliação de regras de aprendizagem. O sistema funciona criando regras de aprendizagem - usando algoritmos de árvore de decisão como o ID3 - baseado em dados de entrada contruindo correlações entre os dados. Na figura \ref{fig:liu} é possível visualizar uma árvore de decisão. Durante a leitura do conjunto de dados de entrada é feita a árvore de decisão e, concomitantemente, são geradas as regras de aprendizagem. Essas regras são utilizadas para gerar amostras de dados sintéticos.
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Liu13.png}
+				\caption{Exemplo de árvore de decisão para jogar tennis criado a partir de regras encontradas em um conjunto de dados.}
+				\label{fig:liu}
+			\end{figure}
+
+			Garcia e Millán \cite{Garcia2011} criaram um sistema par gerar dados sintéticos pensado para desenvolvedores que buscam testar de forma eficiente e exaustiva a sua aplicação. Esses dados pode ser configurados (ver figura \ref{fig:garcia}) de acordo com as preferências do usuário. As dimensões de dados seguem alguns padrões como a partir de fontes externas (Arquivos, Bibliotecas, Base de dados) Sequencial, Constante, Funcional, Intervalo ou Lista de valores. 
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Garcia18.png}
+				\caption{Exemplo da interface do usuário para configuração do gerador de dados.}
+				\label{fig:garcia}
+			\end{figure}
+
+			Kofinas et al. \cite{Kofinas2018} criou uma metedologia para gerar dados sintéticos para simular consumo de água. A metodologia é avaliada através de algoritmos de validação - como a visualização dos resultados e fórmulas.
+			\par
+			Como pode ser visto na figura \ref{fig:kofinas}, a geração dos dados é feita a partir de 2 fases. A fase 1 serve, basicamente, para investigar a distribuição dos dados. Esta fase, primeiramente transforma dados números em séries temporais de 30 segundos. Em alguns casos, não há registro, para isso, é criada uma tabela de incidentes e posteriormente uma probabilidade de existência de registro para que seja encontrada as classes usadas para construção do histograma de Pearson \cite{dean2009descriptive}, por fim, são comparadas funções de distribuição com a atual com o fim de encontrar a que mais se aproxima.
+			\par
+			Para a fase 2 cuida da geração de dados sintéticos propriamente. Basicamente, o sistema utiliza a distribuição criada na fase um para gerar os dados para 24h, respeitando as características diferenciadas para dias de semana e finais de semana.
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Kofinas21.png}
+				\caption{Fluxo de passos para geração dos dados sintéticos.}
+				\label{fig:kofinas}
+			\end{figure}
+		
+		\section{Aplicações relacionadas}
+
+			DTM Data Generator \cite{DTMDataGenerator} é uma plataforma de geração de dados sintéticos que existe de 1998.
+			Esta possui suporte para geração de dados em arquivos, em banco de dados, também para \emph{Big Data}.
+			Possui suporte multiplataforma, através do modo \emph{multiplatform runtime}, contudo é limitado quando comparado à versão Windows, o qual suporta a versão para servidor também.
+			É válido destacar que é um software essencialmente pago, isto é, existem versões gratuitas - demonstrações, para ser mais exato - mas limitadas.
+			Além disso, há categorias de versões pagas, que vão desde limitações de geração (Standart - Professional) à vantagens mais técnicas (Professional - Entrerprise).
+			\par
+			O DTM Data Generator possui uma vasta coleção de funcionalidades, as quais liberadas de acordo com as versões pagas.
+			Adotando a versão mais cara, a lista de \emph{features} é composta por geração de dados em JSON, XML, CSV ou geração por separador customizado.
+			Também permite gerar dados por arquivo DSN (Database Source Name), gerar dados por linha de comando, e gerar um arquivo SQL para não seja necessário conexão com banco de dados.
+			\par
+			É possível gerar cerca de 9.2 sextilhões de registros por \emph{rule}, modos de atualizar dados existentes (adicionar, substituir e \emph{Data Scrambling}), e suporte para bibliotecas de dados realistas.
+			A plataforma disponibiliza entrada de dados através de SQL, XML, JSON, pela WEB através de HTTP ou FTP, XLSM, arquivos de texto e scripts em Python.
+			Também é possível visualizar e testar os dados gerados, bem como gerá-los nos principais arquivos de texto (TSV, CSV, "DSV", JSON, XML) e banco de dados. (MS SQL Server, Oracle, DB2, MySQL, PostgreSQL, Informix, Sybase, SQLite e Firebird) 
+			\par
+			Há uma suíte de produtos relacionados fornecidos pela DTM soft. 
+			Além do gerador de dados, 
+				há o gerador de dados XML para teste de aplicação (DTM Test XML Generator);
+				um gerador de planilhas Excel (DTM Data Generator for Excel)
+				testador exaustivo - teste de estresse - de banco de dados (DTM DB Stress);
+				Bem como editor, visualizador (DTM Data Editor), comparador e sincronizador de banco de dados (DTM Data Comparer) entre outros. 
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/DTMDataGenerator.png}
+				\caption{Usando o DTM Data Generator. Fonte: DTM Data Generator}
+				\label{fig:DTMDG}
+			\end{figure}
+
+			O SQL Data Generator \cite{RedgateSQLDataGenerator} é um software que compõe uma suíte de ferramentas (chamada de SQL Toolbelt) da Red Gate.
+			O software é exclusivo para o ecossistema Windows, com suporte do Windows 7 ao 10, à versão para servidores do Windows, ao SQL Server (2008 ao 2017), .NET e Oracle.
+			Este produto é distribuido através de licenças pagas e vitalícias, com atualizações gratuitas e, no mínimo 1 ano de suporte gratuito.
+			Vale ressaltar que é possível testar o produto por 14 dias gratuitamente.
+			\par
+			O SQL Toolbelt tem funcionalidades bem delimitadas e a função do Data Generator é popular um banco de dados. 
+			A população acontece ao escolher, primeiramente, uma tabela do banco.
+			A partir disso, escolhe-se um gerador para cada coluna da tabela.
+			Um gerador tem classificação fortemente baseada na realidade, isto é, possui geradores como palavras relacionadas à compras, pagamentos, pessoas (primeiro e último nome), dado geográficos e afins.
+			Contudo, também disponibiliza a geração a partir de expressões regulares \emph{Regex generator} e scripts de python.
+			Por se tratar de banco de dados, também há checagem e tratamento de \emph{constraints}, \emph{Foreign keys} e \emph{Dependencies}.
+			O SQL Data Generator também permite lidar com arquivos XML, quer seja para geração de valores XML, como utilizar como dados de entrada, além de mesclá-los com o \emph{Regex generator}.
+			\par
+			Quanto ao SQL Toolbelt oferecido pela Red Gate, ele conta com 2 modalidades, o completo com 14 programas e o \emph{essentials} com 10.
+			Entre os mais relevantes, pode-se citar o \emph{SQL Data Compare}, \emph{SQL Data Generator}, \emph{SQL Test}, \emph{SQL Backup Pro} e \emph{SQL Scripts Manager}.
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/sql-data-generator.png}
+				\caption{Usando o Redgate SQL Data Generator. Fonte: Red Gate SQL Data Generator.}
+				\label{fig:RedgateSQLDG}
+			\end{figure}
+
+			Microsoft Visual Studio \cite{VSDataGenerator} é um pacote de programas da Microsoft para desenvolvimento de \emph{software}. 
+			Este é composto por 4 versões (\emph{Express}, \emph{Professional}, \emph{Premium}, \emph{Ultimate}), e a opção de gerar dados para teste está disponível a partir da versão \emph{Premium}.
+			O foco é permitir que verique o comportamento do banco de dados, sem relacioná-los com os dados da aplicação em produção.
+			\par
+			Para gerar os dados de teste, deve-se utilizar os geradores de dados (\emph{Data Generators}), que são correlacionados às tabelas do banco de dados.
+				Os geradores podem ser dos mais primitivos (Binários, Inteiros, Data, \emph{Float}), como de Imagem, Dinheiro, Expressão Regular, Categórico entre outros.
+			Também é disponibilizado um Plano de Geração de Dados (\emph{Data Generation Plan}), feito em XML, que contém informações do banco de dados, o tipo de dados de cada gerador e a quantidade de dados para ser gerado. 
+			Este plano serve basicamente para reutilização da lógica de teste.
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Visual-Studio.jpg}
+				\caption{Usando o Microsoft Visual Studio. Fonte: anranik.}
+				\label{fig:VSDG}
+			\end{figure}
+
+			Test Data Generator \cite{forgeDBDataGenerator} é uma ferramenta GUI (\emph{Graphical User Interface}) pela dbForge para gerar dados de teste para banco de dados SQL desde 1997.
+			O software possui mais de 200 geradores predifinidos e configuráveis os quais permitem a geração de dados mais inteligentes, isto é, mais próximos da realidade, como nomes, localização, dados de saúde e afins.
+			Quanto à compatibilidade, este é exclusivo do ecossistema Windows, com suporte à versão 7 ao 10, do Windows Server 2008 ao 2019 e ao SQL Server Azure, 2008 ao 2017.
+			Além da GUI, também há o suporte para geração de dados a partir da linha de comando.
+			O produto é distribuido sob licenças pagas e vitalícias, porém, com suporte ao cliente com tempo limitado e com 30 dias gratuitos para avaliação.
+			\par
+			Para usar o dbForge Test Data Generator, é preciso fazer uma conexão com banco de dados. 
+			A partir disso, utiliza-se os \emph{Data Generators} para determinar o comportamento dos dados para determinada coluna da tabela selecionada no Banco de dados.
+			Os Geradores de dados podem ser do tipo emph{Basics} e emph{Advanced}. 
+			Do primeiro tipo, são formas mais próximas dos dados primitivos, como datas, texto \emph{lorem ipsum}, JSON, \emph{ReGex}.
+			Já o avançado conta com número de cartão de crédito, aniversário, número de conta bancária internacional, IPv4, \emph{hash} de senhas.  
+			A geração de dados resume-se à população de banco de dados, não há uma forma de exportar os dados em arquivos como CSV e JSON.
+			\par
+			Há um suíte exclusivo para SQL Server, contudo também para Oracle, MySQL, PostgreSQL entre outros.
+			Neste suíte, há várias ferramentas que auxiliam na manutenção, mas não, necessariamente, a geração de dados, a exemplode um \emph{previewer}.
+			Destes, pode-se citar um comparador de dados, criador de \emph{querys}, um monitor - para supervisão do banco de dados - e afins.
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/dbForge-Test-Data-Generator.jpg}
+				\caption{Usando o dbForge Test Data Generator. Fonte: anranik.}
+				\label{fig:dbForgeTDG}
+			\end{figure}
+
+			Mockaroo \cite{mockaroo} é um \emph{web site} e \emph{framework} para desenvolver dados de teste.
+			Há um total de 143 geradores, sendo a maioria considerados geradores realistas.
+			Por ser um site, é possível acessá-lo por qualquer sistema operacional, dependendo apenas de conexão com a internet.
+			O produto possui versões gratuita e pagas. - \emph{Free}, \emph{Silver}, \emph{Gold}, \emph{Enterprise} as quais variam no \emph{host}, o qual pode ser do Mockaroo ou privado, máximo de registros por download, velocidade de download e preço.
+			\par
+			Na tela inicial, é possível escolher o nome da coluna, o tipo de gerador, algumas opções - valores em branco e funções a partir dos dados.
+			Ainda nesta tela, encontra-se o botão para \emph{download} dos dados, pré-visualização dos mesmo (mas sem gráficos), algumas configurações como quantidade de linhas, formato dos dados para \emph{download}, botão para clone ou deleção de banco de dados, e importação de dados csv/Excel ou SQL.
+			\par
+			Outro serviço interessante do Mockaroo é Mockaroo APIs \cite{mockarooAPI}.
+			Este consiste em baixar dados programaticamente através de requisições REST (\emph{Representational State Transfer}).
+			As requisições podem ser feitas de 2 formas, a \emph{Generate API} - gera os dados através de um banco de dados salvo e os envia pelo corpo de uma requisição - 
+			e \emph{Mock APIs} que basicamente, simula um \emph{back-end} como tratamento de parâmetros e simulação de erros. 
+			É pensado para desenvolvimento ágil de aplicações \emph{front-end}, isto é, sem perder muito tempo com o \emph{back-end} a priori.
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/mockaroo.jpg}
+				\caption{Usando o Mockaroo. Fonte: anranik.}
+				\label{fig:mockaroo}
+			\end{figure}
+			% \subsubsection{ApexSQL Generate}
+			% \subsubsection{Datanamic Data Generator MultiDB}
+			% \subsubsection{Upscene Advanced Data Generator}
+			% \subsubsection{EMS Data Generator}
+			% \subsubsection{GEDIS Studio}
+
 		
 	% ---
 \chapter{Arquitetura do projeto}\label{cap_trabalho_academico}
 % ---
 
 %-- TODO: 
-		%Inserir os Casos de Uso
-		%Inserir as ferramentas utilizadas
-	\section{Casos de uso do sistema}
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[width=\linewidth]{./figures/prototipo/diagramaUC.png}
-		\caption{Diagrama de Caso de uso do Blocks Data Generator. Fonte: o autor.}
-		\label{fig:diagramaUC}
-	\end{figure}
-	"O objetivo de um diagrama de casos de uso na UML é demonstrar as diferentes maneiras pelas quais um usuário pode interagir com um sistema." \cite{UCdefinition}
-	Por conta disso, é utilizado o Diagrama de Casos de Uso para demonstrar as principais funcionalidades do protótipo Blocks Data Generator.
-	Na figura \ref{fig:diagramaUC} são encontrados um total de 10 casos de uso.
-	No UC01 mostra que é possível modificar um modelo, isto é, adicionar ou remover dimensões, alterar geradores e afins; também há inclusão do UC04 e a possibilidade de desfazer ou refazer as alterações (UC02).
-	O UC04 representa a criação do modelo. 
-	Está é considerada a funcionalidade original, pois é incluída por vários e não inclui nenhuma funcionalidade.
-	Outros que possuem relação com UC04 é o UC03 e UC07 como inclusão e UC05 como extensão.
-	\par
-	UC03 é uma funcionalidade para reaproveitamento do modelo, também está atrelado à validação de teste por outros pesquisadores.
-	UC07 é o carro chefe do Blocks Data Generator, o qual refere-se à geração de dados, progredindo para o \emph{Big Data} ou não.
-	Esta geração pode ser feita, especificamente, de 3 formas: gerando dados em Memória, para ser utilizado dentro do sistema (UC10);
-		salvar em arquivos - TSV, CSV e JSON - (UC09);
-		e distribuir os dados através de requisições HTTP (UC08).
-	\par
-	Incluindo a UC07, mais especificamente a UC10, a UC06 permite que o usuário visualize os dados. 
-	Assim, a visualização - a qual pode ser rápida (através do \emph{preview}) ou detalhada (com o VisTechLib) - tendo um panorama do comportamento dos dados. 
-	Com isso, pode-se validar os dados, ter insights para aprimorar o modelo e afins.
-	
-	\section{Técnicas e ferramentas utilizadas}
-	A equipe do Blocks Data Generator é composta por 3 pessoas, o administrador Prof. Dr. Gustavo Resque da UFPa, o aluno de mestrado Yvan Brito e o aluno da graduação Jairo Filho - ambos da UFPa - com colaborações avulsas de membros do Laboratório de Visualização e Sistemas Inteligentes da UFPa.
-	O software é \emph{Open Source} e está hospedado no GitHub em \url{http://github.com/gustavoresque/DataGenerator}.
+	%Inserir os Casos de Uso
+	%Inserir as ferramentas utilizadas
+	O software chamado de Blocks Data Generator é \emph{Open Source} e está hospedado no GitHub em \url{http://github.com/gustavoresque/DataGenerator}.
 	Em termos de organização, foi adotado um modelo incremental de desenvolvimento, com reuniões diárias para discussão de \emph{bugs} e melhorias, e utilização da ferramenta Trello (\url{https://trello.com}) para organização das informações, problemas e melhorias.
 	\par
 	Em termos de desenvolvimento, foi utilizada a linguagem Javascript com foco para \emph{Desktop}, através do \emph{Framework} Electron (\url{https://electronjs.org/}).
 	Adotando o padrão de projeto MVC (\emph{Model, View, Controller}), também foi adicionado o \emph{jQuery} para agilizar a codificação do projeto.
 	Do Javascript também foi utilizado o Node.js (\url{https://nodejs.org/en/}) para acessar recursos do sistema operacional, para o desenvolvimento do \emph{Web Service} e também para dar suporte ao Electron.
 	E quanto à versão do Javascript foram utilizados os novos recursos do Ecmascript 6 (2015) como o desenvolvimento assíncrono com as \emph{Promises} e \emph{arrow functions}.
+	
+	\section{Casos de uso do sistema}
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/prototipo/diagramaUC.png}
+			\caption{Diagrama de Caso de uso do Blocks Data Generator. Fonte: o autor.}
+			\label{fig:diagramaUC}
+		\end{figure}
+		"O objetivo de um diagrama de casos de uso na UML é demonstrar as diferentes maneiras pelas quais um usuário pode interagir com um sistema." \cite{UCdefinition}
+		Por conta disso, é utilizado o Diagrama de Casos de Uso para demonstrar as principais funcionalidades do protótipo Blocks Data Generator.
+		Na figura \ref{fig:diagramaUC} são encontrados um total de 10 casos de uso.
+		No UC01 mostra que é possível modificar um modelo, isto é, adicionar ou remover dimensões, alterar geradores e afins; também há inclusão do UC04 e a possibilidade de desfazer ou refazer as alterações (UC02).
+		O UC04 representa a criação do modelo. 
+		Está é considerada a funcionalidade original, pois é incluída por vários e não inclui nenhuma funcionalidade.
+		Outros que possuem relação com UC04 é o UC03 e UC07 como inclusão e UC05 como extensão.
+		\par
+		UC03 é uma funcionalidade para reaproveitamento do modelo, também está atrelado à validação de teste por outros pesquisadores.
+		UC07 é o carro chefe do Blocks Data Generator, o qual refere-se à geração de dados, progredindo para o \emph{Big Data} ou não.
+		Esta geração pode ser feita, especificamente, de 3 formas: gerando dados em Memória, para ser utilizado dentro do sistema (UC10);
+			salvar em arquivos - TSV, CSV e JSON - (UC09);
+			e distribuir os dados através de requisições HTTP (UC08).
+		\par
+		Incluindo a UC07, mais especificamente a UC10, a UC06 permite que o usuário visualize os dados. 
+		Assim, a visualização - a qual pode ser rápida (através do \emph{preview}) ou detalhada (com o VisTechLib) - tendo um panorama do comportamento dos dados. 
+		Com isso, pode-se validar os dados, ter insights para aprimorar o modelo e afins.
+
 % ---
 \chapter{Protótipo}
 % ---
@@ -803,107 +799,114 @@ Lauro César Araujo
 	\par
 	A terceira raia funciona como um agrupamento das duas primeiras, mas externa.
 	Isso para demonstrar que os processos anteriores podem ser replicados a partir do mesmo modelo de dados e o resultado pode ser comparado, facilitando Método Científico de pesquisadores sérios.
+	
 	\section{Tipos de Geradores de Dados}
 		% TODO: colocar as fórmulas na seção de fórmulas (perguntar para o professor antes)
 		\subsection{Sequencial}
-		Os geradores da categoria Sequencial geram valores encadeados dado um padrão.
-		É possível gerar o próprio padrão a partir do gerador \emph{Custom Sequence}, o qual você determina um valor Inicial (\emph{Begin}), o valor Intervalar (\emph{Step}), isto é, o qual vai ser incrementado ou decrementado dado uma Sentencia (\emph{sentence}) customizada.
-		\par
-		Contudo, já são predefinidos alguns geradores como 
-			o \emph{constant}, o qual define um valor único de geração;
-			o \emph{counter}, funciona como um contador, onde-se é definido o valor Inicial e o Intervalar;
-			o \emph{Fixed Time Generator} gera um intevalo de tempo, onde-se define o valor inicial (\emph{init}), Intervalar e a máscara (\emph{mask}), isto é, como o tempo deve ser formatado;
-			o \emph{Sinusoidal Sequence} gera de acordo com a função senoidal, que, além do valor Inicial e Intervalar, há o 'a' de Amplitude, 'b' de frequência ângular e 'c' para representar a fase da onda.
+			Os geradores da categoria Sequencial geram valores encadeados dado um padrão.
+			É possível gerar o próprio padrão a partir do gerador \emph{Custom Sequence}, o qual você determina um valor Inicial (\emph{Begin}), o valor Intervalar (\emph{Step}), isto é, o qual vai ser incrementado ou decrementado dado uma Sentencia (\emph{sentence}) customizada.
+			\par
+			Contudo, já são predefinidos alguns geradores como 
+				o \emph{constant}, o qual define um valor único de geração;
+				o \emph{counter}, funciona como um contador, onde-se é definido o valor Inicial e o Intervalar;
+				o \emph{Fixed Time Generator} gera um intevalo de tempo, onde-se define o valor inicial (\emph{init}), Intervalar e a máscara (\emph{mask}), isto é, como o tempo deve ser formatado;
+				o \emph{Sinusoidal Sequence} gera de acordo com a função senoidal, que, além do valor Inicial e Intervalar, há o 'a' de Amplitude, 'b' de frequência ângular e 'c' para representar a fase da onda.
 
 		\subsection{Aleatório}
-		A categoria aleatória de dados são as que contem mais geradores, pois são mais fáceis de se dissociar da realidade, pelo caráter aleatório, mas também de reaproximar, pelo caráter probabilístico.
-		\par
-		Esta categoria conta com geradores uniformes, isto é, a distribuição dos dados é equalizada;
-			Também há um gerador de dados de tempo, parecido com o \emph{Fixed Time Generator} com a diferença que o comportamento é definido pela fórmula de Poisson e que há mais duas configurações: unidade de tempo - a qual pode ser desde milissegundos a anos - e o lambda, advindo da fórmula.
-			Há uma distribuição de poisson também, apenas com o lambda;
-			É disponibilizado geradores de fórmulas clássicas com a normal (Gaussiana), Bernoulli, e Cauchy com seus devidos parâmetros.
-		\par
-		Além de números, também é possível gerar dados categóricos (\emph{Categorical}), dadas as palavras inicialmente.
-			Similarmente há o \emph{Weighted Categorical} que possui valores de probabilidade para cada palavra, e 
-			já o \emph{Categorical Quantity}, em vez de probabilidade, define quantas vezes cada palavra deve aparecer.
+			A categoria aleatória de dados são as que contem mais geradores, pois são mais fáceis de se dissociar da realidade, pelo caráter aleatório, mas também de reaproximar, pelo caráter probabilístico.
+			\par
+			Esta categoria conta com geradores uniformes, isto é, a distribuição dos dados é equalizada;
+				Também há um gerador de dados de tempo, parecido com o \emph{Fixed Time Generator} com a diferença que o comportamento é definido pela fórmula de Poisson e que há mais duas configurações: unidade de tempo - a qual pode ser desde milissegundos a anos - e o lambda, advindo da fórmula.
+				Há uma distribuição de poisson também, apenas com o lambda;
+				É disponibilizado geradores de fórmulas clássicas com a normal (Gaussiana), Bernoulli, e Cauchy com seus devidos parâmetros.
+			\par
+			Além de números, também é possível gerar dados categóricos (\emph{Categorical}), dadas as palavras inicialmente.
+				Similarmente há o \emph{Weighted Categorical} que possui valores de probabilidade para cada palavra, e 
+				já o \emph{Categorical Quantity}, em vez de probabilidade, define quantas vezes cada palavra deve aparecer.
 		\subsection{Funcional}
-		A categoria funcional \emph{Function} serve para gerar dados de acordo com outra dimensão chamado de \emph{input}, isto é, facilita a correlação entre dimensões.
-		Para dados numéricos, disponibiliza-se as 
-			função de primeiro \emph{Linear Function} e 
-			segundo \emph{Quadratic Function} grau, 
-			exponencial \emph{Exponential Function}, 
-			logarítmica \emph{Logarithm Function} e
-			a \emph{Piecewise Function}, cuja função é definida por subfunções, e no caso, é possível definir o gerador desejado até um determinado valor chamado de \emph{Intervals} e depois pode-se escolher outro gerador.
-		\par
-		Para dados categóricos, há a função categórica \emph{Categorical Function} e 
-		a \emph{TimeLaps Function} a qual funciona de forma semelhante ao gerador \emph{Piecewise Function}, só que utiliza uma quantidade de tempo como limiar, chamado de \emph{Laps} e também somente geradores de tempo como \emph{input}.
+			A categoria funcional \emph{Function} serve para gerar dados de acordo com outra dimensão chamado de \emph{input}, isto é, facilita a correlação entre dimensões.
+			Para dados numéricos, disponibiliza-se as 
+				função de primeiro \emph{Linear Function} e 
+				segundo \emph{Quadratic Function} grau, 
+				exponencial \emph{Exponential Function}, 
+				logarítmica \emph{Logarithm Function} e
+				a \emph{Piecewise Function}, cuja função é definida por subfunções, e no caso, é possível definir o gerador desejado até um determinado valor chamado de \emph{Intervals} e depois pode-se escolher outro gerador.
+			\par
+			Para dados categóricos, há a função categórica \emph{Categorical Function} e 
+			a \emph{TimeLaps Function} a qual funciona de forma semelhante ao gerador \emph{Piecewise Function}, só que utiliza uma quantidade de tempo como limiar, chamado de \emph{Laps} e também somente geradores de tempo como \emph{input}.
 		\subsection{Acessórios}
-		Os geradores da categoria Acessórios (\emph{Acessory}) foram pensados especialmente para serem concatenados com outros geradores, com o fim auxiliá-los.
-		Entre os geradores acessórios, pode-se citar o \emph{Missing Value}, o qual retira alguns dados do conjunto;
-			o \emph{Noise Generator} que adiciona dados fora do padrão, conhecido como ruído, com uma determinada probabilidade e intensidade*
-			o \emph{Constant Noise Generator} também adiciona ruídos, mas só que é um valor específico com determinada probabilidade de ser adicionado;
-			o \emph{Ranger Filter} permite ficar no conjunto de dados apenas os valores que estão entre os valores de início \emph{Begin} e fim \emph{End};
-			o \emph{Linear Scale} permite que os determinados (selecionados através do \emph{MinIn} e \emph{MaxIn}) dados sejam escalados através do \emph{minOut} e \emph{MaxOut}.
-		\par
-		O \emph{No Repeat} retira dados repetidos do conjunto;
-			o \emph{MinMax} define quais valores serão os maiores e menores de acordo com os parâmetros dados;
-			o \emph{Low-Pass Filter} faz jus ao nome e filtra pela "Amplitude" do dado. Na prática, o valor sucesso é uma media ponderada (valor recebido pelo parâmetro \emph{Smooth}) do valor anterior com o valor gerado;
-			o \emph{Get Extra Value} pega os retornos extras dos geradores que retornam mais que um valor.
+			Os geradores da categoria Acessórios (\emph{Acessory}) foram pensados especialmente para serem concatenados com outros geradores, com o fim auxiliá-los.
+			Entre os geradores acessórios, pode-se citar o \emph{Missing Value}, o qual retira alguns dados do conjunto;
+			%TODO: Adicionar novos tipos de missing value.
+				o \emph{Noise Generator} que adiciona dados fora do padrão, conhecido como ruído, com uma determinada probabilidade e intensidade*
+				o \emph{Constant Noise Generator} também adiciona ruídos, mas só que é um valor específico com determinada probabilidade de ser adicionado;
+				o \emph{Ranger Filter} permite ficar no conjunto de dados apenas os valores que estão entre os valores de início \emph{Begin} e fim \emph{End};
+				o \emph{Linear Scale} permite que os determinados (selecionados através do \emph{MinIn} e \emph{MaxIn}) dados sejam escalados através do \emph{minOut} e \emph{MaxOut}.
+			\par
+			O \emph{No Repeat} retira dados repetidos do conjunto;
+				o \emph{MinMax} define quais valores serão os maiores e menores de acordo com os parâmetros dados;
+				o \emph{Low-Pass Filter} faz jus ao nome e filtra pela "Amplitude" do dado. Na prática, o valor sucesso é uma media ponderada (valor recebido pelo parâmetro \emph{Smooth}) do valor anterior com o valor gerado;
+				o \emph{Get Extra Value} pega os retornos extras dos geradores que retornam mais que um valor.
 		\subsection{Geométrico}
-		A categoria de geradores Geométricos (\emph{Geometric}) permitem que o usuário desenhem o comportamento dos dados, através da ferramenta de desenho no sistema.
-		Para isso são disponibilizados dois geradores.
-		O primeiro gerados bidimensionais a partir da linha desenhada pelo usuário (\emph{Path2D Stroke}).
-		Quanto ao segundo, este gerado os dados a partir do preenchimento da linha desenhada (ver algoritmo \emph{Floodfill}) pelo usuário (\emph{Path2D Fill}).
+			A categoria de geradores Geométricos (\emph{Geometric}) permitem que o usuário desenhem o comportamento dos dados, através da ferramenta de desenho no sistema.
+			Para isso são disponibilizados dois geradores.
+			O primeiro gerados bidimensionais a partir da linha desenhada pelo usuário (\emph{Path2D Stroke}).
+			Quanto ao segundo, este gerado os dados a partir do preenchimento da linha desenhada (ver algoritmo \emph{Floodfill}) pelo usuário (\emph{Path2D Fill}).
 		\subsection{Baseado em dados reais}
-		Para esta categoria, existe apenas um gerador, chamado como \emph{Real Data Wrapper}.
-		Basicamente, ele é criado automaticamente quando o usuário importa um conjunto de dados reais através de um CSV, por exemplo.
-		Este gerador recebe tantos valores categóricos como numéricos e essa informação pode ser decidida automaticamente pelo gerador ou ser forçada pelo usuário.
-		É possível gerar uma quande superior de dados do que do conjunto de dados real, para isso é feito um tratamento para dados faltantes.
-		Esse tratamento é feito através de funções de geração, chamadas de \emph{GenType}.
-		\par
-		Essas funções pode ser do tipo \emph{Standart}, que é pegar os dados do início ao fim de forma cíclica até chegar ao número desejado de registros.
-		Também pode ser do tipo \emph{Reverse} que ao invés do \emph{Standart}, pega os dados do final ao início.
-		É disponibilizado o modo aleatório (\emph{Random}), e algumas variações.
-		\par
-		A primeira variação é o \emph{QuartileRandom}, que divide o conjunto de dados em 3 marcos e a probabilidade de se pegar um dado daquele quartil é proporcional ao tamanho do marco.
-		A leitura dos Marcos pode ser visualizada na figura \ref{fig:leituraMarco}. Então, se o valor do espaço entre 0 e quartil 1 for 100, todos os dados gerados serão do primeiro 1/4 do conjunto de dados.
-		A segunda variação é o \emph{AverageRandom} que utiliza o valor da média e da variancia - [Média - Variancia, Média + Variancia] de um conjunto de dados númerico ou utiliza os N valores categóricos mais frequentes com distribuição uniforme.
-		\begin{figure}[h]
-			\centering
-			\includegraphics[width=\linewidth]{./figures/prototipo/quartil.png}
-			\caption{Ilustrando a leitura dos marcos dos quartis. O tamanho do espaço entre os quartis ou entre 0 ou o 100 é o valor da probabilidade de um número ser desse espaço. Fonte: O Autor.}
-			\label{fig:leituraMarco}
-		\end{figure}
+			Para esta categoria, existe apenas um gerador, chamado como \emph{Real Data Wrapper}.
+			Basicamente, ele é criado automaticamente quando o usuário importa um conjunto de dados reais através de um CSV, por exemplo.
+			Este gerador recebe tantos valores categóricos como numéricos e essa informação pode ser decidida automaticamente pelo gerador ou ser forçada pelo usuário.
+			É possível gerar uma quande superior de dados do que do conjunto de dados real, para isso é feito um tratamento para dados faltantes.
+			Esse tratamento é feito através de funções de geração, chamadas de \emph{GenType}.
+			\par
+			Essas funções pode ser do tipo \emph{Standart}, que é pegar os dados do início ao fim de forma cíclica até chegar ao número desejado de registros.
+			Também pode ser do tipo \emph{Reverse} que ao invés do \emph{Standart}, pega os dados do final ao início.
+			É disponibilizado o modo aleatório (\emph{Random}), e algumas variações.
+			\par
+			A primeira variação é o \emph{QuartileRandom}, que divide o conjunto de dados em 3 marcos e a probabilidade de se pegar um dado daquele quartil é proporcional ao tamanho do marco.
+			A leitura dos Marcos pode ser visualizada na figura \ref{fig:leituraMarco}. Então, se o valor do espaço entre 0 e quartil 1 for 100, todos os dados gerados serão do primeiro 1/4 do conjunto de dados.
+			A segunda variação é o \emph{AverageRandom} que utiliza o valor da média e da variancia - [Média - Variancia, Média + Variancia] de um conjunto de dados númerico ou utiliza os N valores categóricos mais frequentes com distribuição uniforme.
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=\linewidth]{./figures/prototipo/quartil.png}
+				\caption{Ilustrando a leitura dos marcos dos quartis. O tamanho do espaço entre os quartis ou entre 0 ou o 100 é o valor da probabilidade de um número ser desse espaço. Fonte: O Autor.}
+				\label{fig:leituraMarco}
+			\end{figure}
 	\section{Modos de Geração de Dados}
 
 		\subsection{Padrão e \emph{Streaming Data}}
-		O protótipo, para uma quantidade limitada de registros e dimensões (5000 e 30 respectivamente) gera os dados agilmente, isto é, bloqueia a interface do usuário, para geração dos dados seja consistente com o modelo.
-		O \emph{Streaming Data} foi pensando para o \emph{Big Data}. Então, quando foi passado o limiar da geração padrão dos dados, é criada uma cópia do modelo, para que o usuário seja livre para fazer alterações.
-		E para fazer valer essa liberdade, o usuário tem o controle sobre o processo de geração por ver seu progresso e também poder cancelá-lo.
+			O protótipo, para uma quantidade limitada de registros e dimensões (5000 e 30 respectivamente) gera os dados agilmente, isto é, bloqueia a interface do usuário, para geração dos dados seja consistente com o modelo.
+			O \emph{Streaming Data} foi pensando para o \emph{Big Data}. Então, quando foi passado o limiar da geração padrão dos dados, é criada uma cópia do modelo, para que o usuário seja livre para fazer alterações.
+			E para fazer valer essa liberdade, o usuário tem o controle sobre o processo de geração por ver seu progresso e também poder cancelá-lo.
 		\subsection{Web Service}
-		Quanto ao \emph{Web Service}, este foi pensado para facilitar o teste de aplicação.
-		Cada modelo é independente, isto é, podem ser habilitados somente os modelos desejados para distribuição.
-		É além da configuração por dentro do \emph{software}, também é possível criar configurações temporárias para cada requisição, sem alterar as configurações o modelo.
-		\par
-		Os parâmetros disponíveis para configuração temporária pela URI são o nome do modelo, o formato dos dados e a quantidade de registro.
-		É disponibilizado um aviso ao usuário quando um modelo está distribuindo dados via \emph{Web Service} na aba do modelo.
-		Um exemplo de URI para fazer requisição HTTP do tipo GET (\url{http://localhost:8000/?modelid=MODEL_r6w2ffk3.mva&nsample=100&format=csv}), nos quais "modelid" é o \emph{ID} do modelo, "nsample" é a quantidade de registros desejado e "format" é o formato dos dados desejado.
+			Quanto ao \emph{Web Service}, este foi pensado para facilitar o teste de aplicação.
+			Cada modelo é independente, isto é, podem ser habilitados somente os modelos desejados para distribuição.
+			É além da configuração por dentro do \emph{software}, também é possível criar configurações temporárias para cada requisição, sem alterar as configurações o modelo.
+			\par
+			Os parâmetros disponíveis para configuração temporária pela URI são o nome do modelo, o formato dos dados e a quantidade de registro.
+			É disponibilizado um aviso ao usuário quando um modelo está distribuindo dados via \emph{Web Service} na aba do modelo.
+			Um exemplo de URI para fazer requisição HTTP do tipo GET (\url{http://localhost:8000/?modelid=MODEL_r6w2ffk3.mva&nsample=100&format=csv}), nos quais "modelid" é o \emph{ID} do modelo, "nsample" é a quantidade de registros desejado e "format" é o formato dos dados desejado.
 	 
 	\section{Modos para Visualização de Dados}
 
+		
+		\subsection{Footer Display}
+		%Falar sobre o pequeno display no footer
+
 		\subsection{Preview}
-		O pré-visualizador de dados foi criando pensando em oferecer uma visualização rápida e abrangente do modelo de dados.
-		Para isso, foi escolhido o gráfico Coordenadas Paralelas, por conta de sua característica de visualização prática de dados multidimensionais.
-		Também foram adicionadas algumas características extras como diferenciação por cores (mapa de calor para dados numéricos e cor única para dados categóricos); 
-			filtro de dimensão, para seja visualizado apenas o que for necessário;
-			escolha de dimensão como referencial, isto é, a partir da dimensão escolhida, verificar como os dados se comportam nas outras dimensões. Isso pode ser ativado tanto clicando sobre o nome da dimensão, quanto através do \emph{ComboBox} acima do \emph{preview};
-			também é possível recarregá-lo e desativá-lo, para travamentos quando for trabalhar com \emph{Big Data}, por exemplo.
+			O pré-visualizador de dados foi criando pensando em oferecer uma visualização rápida e abrangente do modelo de dados.
+			Para isso, foi escolhido o gráfico Coordenadas Paralelas, por conta de sua característica de visualização prática de dados multidimensionais.
+			Também foram adicionadas algumas características extras como diferenciação por cores (mapa de calor para dados numéricos e cor única para dados categóricos); 
+				filtro de dimensão, para seja visualizado apenas o que for necessário;
+				escolha de dimensão como referencial, isto é, a partir da dimensão escolhida, verificar como os dados se comportam nas outras dimensões. Isso pode ser ativado tanto clicando sobre o nome da dimensão, quanto através do \emph{ComboBox} acima do \emph{preview};
+				também é possível recarregá-lo e desativá-lo, para travamentos quando for trabalhar com \emph{Big Data}, por exemplo.
 
 		\subsection{Módulo de Visualização Externo e Integralizado}
-		O módulo chamado VisTechLib é um conjunto de técnicas de visualização reutilizáveis.
-		Ela pode chamada por dentro do Blocks e já pode consumir os dados do modelo atual.
-		Dentre as visualizações disponíveis pode-se citar as Coordenadas Paralelas, \emph{Scatter Plot}, \emph{Treemap}, \emph{Sunburst}, \emph{Bar Chart} entre outros.
-		Como diferencial, algumas funcionalidades são adicionadas como detalhe sob demanda, \emph{zoom}, marcação de dados (\emph{Highlight}), multiplas visualizações simultâneas, entre outras.
+			O módulo chamado VisTechLib é um conjunto de técnicas de visualização reutilizáveis.
+			Ela pode chamada por dentro do Blocks e já pode consumir os dados do modelo atual.
+			Dentre as visualizações disponíveis pode-se citar as Coordenadas Paralelas, \emph{Scatter Plot}, \emph{Treemap}, \emph{Sunburst}, \emph{Bar Chart} entre outros.
+			Como diferencial, algumas funcionalidades são adicionadas como detalhe sob demanda, \emph{zoom}, marcação de dados (\emph{Highlight}), multiplas visualizações simultâneas, entre outras.
+	
 	\section{Estrutura de Interação da Interface da aplicação}
 		O protótipo possui uma interface gráfica para \emph{Desktop} e segue um modelo conhecido como SPA (\emph{Single Page Aplication}).
 		Isso significa que há uma tela principal (ver figura \ref{fig:telaPrincipal}), e outras informações mais raras de serem consumidas aparecem através de \emph{tabs}, \emph{modals}, \emph{alerts} e correlacionados.
@@ -957,62 +960,50 @@ Lauro César Araujo
 		A primeira é dedicada para configurações gerais do modelo, como quantidade de dados para ser gerados, mostrado no \emph{preview} ou formato dos dados.
 		A segunda seção (\emph{Parameter Iterator}) foi pensada para quer precisar criar mais de um arquivo variando apenas alguns parâmetros, de forma iterativa.
 		A terceira seção é especial para o \emph{Web Service} no qual, liga ou desliga o servidor ou troca a porta padrão para servir os dados.
-		% Falar sobre o VisTechLib.
+		
 		\subsection{Mensagens para o usuário}
-		O sistema precisa avisar o usuário de falhas, perguntar sobre preferências e afins.
-		Para isso, o Blocks utiliza-se de \emph{Dialogs} (ver figura \ref{fig:dialog}) para receber um caminho para salvar ou abrir um arquivo.
-		Há um espaço dedicado na tela principal para mensagens advindas de um subprocesso que está gerando dados via Streaming Data.
-		Mensagem para preparação, progresso, finalização ou falha pode ser acompanhado por lá (ver figura \ref{fig:SDvisor}).
-		Para outros avisos mais genéricos como erros ou tarefas bem sucedidas há o \emph{Modal} (ver figura \ref{fig:modal}).
-		\begin{figure}[h]
-			\centering
-			\includegraphics[width=\linewidth]{./figures/prototipo/dialog.png}
-			\caption{Conhecendo os elementos da tela de configurações para geração de dados. Fonte: O Autor.}
-			\label{fig:dialog}
-		\end{figure}
-		\begin{figure}[h]
-			\centering
-			\includegraphics[width=\linewidth]{./figures/prototipo/SDvisor.png}
-			\caption{Conhecendo os elementos da tela de configurações para geração de dados. Fonte: O Autor.}
-			\label{fig:SDvisor}
-		\end{figure}
-		\begin{figure}[h]
-			\centering
-			\includegraphics[width=\linewidth]{./figures/prototipo/modal.png}
-			\caption{Conhecendo os elementos da tela de configurações para geração de dados. Fonte: O Autor.}
-			\label{fig:modal}
-		\end{figure}
+			O sistema precisa avisar o usuário de falhas, perguntar sobre preferências e afins.
+			Para isso, o Blocks utiliza-se de \emph{Dialogs} (ver figura \ref{fig:dialog}) para receber um caminho para salvar ou abrir um arquivo.
+			Há um espaço dedicado na tela principal para mensagens advindas de um subprocesso que está gerando dados via Streaming Data.
+			Mensagem para preparação, progresso, finalização ou falha pode ser acompanhado por lá (ver figura \ref{fig:SDvisor}).
+			Para outros avisos mais genéricos como erros ou tarefas bem sucedidas há o \emph{Modal} (ver figura \ref{fig:modal}).
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=\linewidth]{./figures/prototipo/dialog.png}
+				\caption{Conhecendo os elementos da tela de configurações para geração de dados. Fonte: O Autor.}
+				\label{fig:dialog}
+			\end{figure}
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=\linewidth]{./figures/prototipo/SDvisor.png}
+				\caption{Conhecendo os elementos da tela de configurações para geração de dados. Fonte: O Autor.}
+				\label{fig:SDvisor}
+			\end{figure}
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=\linewidth]{./figures/prototipo/modal.png}
+				\caption{Conhecendo os elementos da tela de configurações para geração de dados. Fonte: O Autor.}
+				\label{fig:modal}
+			\end{figure}
 		\subsection{Atalhos do Teclado}
-		Modelar um conjunto de dados pode ser exaustivo, portanto, alguns atalhos podem facilitar na prevenção e correção de erros, eficiência e economia de esforço e afins.
-		Visando dar praticidade ao usuário, o Block Data Generator possui atalhos para 
-			criar novo modelo (Ctrl/Cmd + M);
-			deletar modelo atual (Ctrl/Cmd + W);
-			criar nova dimensão (Ctrl/Cmd + D);
-			salvar modelo (Ctrl/Cmd + S).
-		\par
-		E para termos de segurança no uso, há o desfazer/refazer com Ctrl/Cmd + Z e Ctrl/Cmd + Shift + Z respectivamente.
-		Além de acesso pelo teclado, os atalhos podem ser acessados pela barra superior da tela inicial (M22).
-		É válido ressaltar, ainda na questão de segurança de uso, que o Blocks Data Generator salva as mudanças no automaticamente em arquivo separado, o qual pode ser recuperado se não forem salvas/descartadas adequadamente. 
+			Modelar um conjunto de dados pode ser exaustivo, portanto, alguns atalhos podem facilitar na prevenção e correção de erros, eficiência e economia de esforço e afins.
+			Visando dar praticidade ao usuário, o Block Data Generator possui atalhos para 
+				criar novo modelo (Ctrl/Cmd + M);
+				deletar modelo atual (Ctrl/Cmd + W);
+				criar nova dimensão (Ctrl/Cmd + D);
+				salvar modelo (Ctrl/Cmd + S).
+			\par
+			E para termos de segurança no uso, há o desfazer/refazer com Ctrl/Cmd + Z e Ctrl/Cmd + Shift + Z respectivamente.
+			Além de acesso pelo teclado, os atalhos podem ser acessados pela barra superior da tela inicial (M22).
+			É válido ressaltar, ainda na questão de segurança de uso, que o Blocks Data Generator salva as mudanças no automaticamente em arquivo separado, o qual pode ser recuperado se não forem salvas/descartadas adequadamente. 
 
-		% Se sobrar tempo, fazer uns vídeos no YouTube.
-		% \subsection{Ajuda}
+			% Se sobrar tempo, fazer uns vídeos no YouTube.
+			% \subsection{Ajuda}
 
 % ---
-\chapter{Teste}
+\chapter{Resultados}
 % ---
-	% Teste de exaustão na geração de dados
-
-	\section{Configuração do Teste}
-	O teste de exaustão tem o objetivo de verificar o comportamento da aplicação quando é exigido muito esforço computacional.
-	Logo é possível que apareça problemas uso desnecessário de memória primária, oportunidades de otimização e afins.
-	O sistema vai utilizar um PC com sistema operacional windows (verificar especificações po PC e por aqui.).
-	\par
-	O teste vai precisar gerar dois conjuntos de dados com 30 dimensões e 1 bilhão de registros e 1 conjunto com 2 bilhões de registros e 60 dimensões.
-	O primeiro conjunto irá utilizar apenas geradores numéricos.
-	O segundo conjunto será apenas com geradores categóricos.
-	O terceiro é o conjunto dos 2 conjuntos anteriores.
-	Esse teste será gerado 2 vezes, a primeira vez será com a CPU do PC e a outra será utilizada a GPU.
-	\section{Resultado do Teste}
+	%TODO : Não sei ainda quais são os resultados.
 % Conclusão
 % ---
 \chapter{Conclusão}
