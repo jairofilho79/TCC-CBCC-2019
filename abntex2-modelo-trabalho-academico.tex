@@ -527,6 +527,7 @@ Lauro César Araujo
 	
 	\section{Formato dos dados salvos}
 		\subsection{Arquivo}
+		%TODO: Colocar exemplos dos arquivos.
 		%JSON
 		JSON \cite{json-rfc-8259} \cite{json-jsonOrg} (Javascript Object Notation, ou em português Notação de Objecto Javacript),lançado em 2002, é uma formatação leve para troca de dados. 
 		O uso é facilitado tanto para seres humano quanto para máquina.
@@ -538,23 +539,118 @@ Lauro César Araujo
 		%CSV
 		CSV \cite{csv-rfc-4180} (comma-separated values, ou em português Valores Separados por Vírgula) é tipo de texto MIME (Internet Media) \cite{mime-rfc-2048} que utiliza a encodificação de caracteres US-ASCII \cite{csv-rfc-7111}.
 		Ao longo dos anos, seu uso foi consolidado para exportar dados entre vários softwares de tabelas (Microsoft suíte para Apple Suíte, por exemplo).
-		A padronização do CSV demorou a ocorrer e por isso, vários outros estilos surgiram, a exemplo, o uso do CSV com ponto-e-vírgula (;).
+		A padronização do CSV de morou a ocorrer e por isso, vários outros estilos surgiram, a exemplo, o uso do CSV com ponto-e-vírgula (;).
 		Outros estilos foram criados a ponto de ser chamado de arquivo DSV \cite{dsv}.
 		Por conseguinte, outro estilo que teve notoriedade na troca de dados entre bancos de dados ou tabelas de dados foi o TSV \cite{tsv-iana}.
-		A idea é similar ao CSV, porém é utilizado uma tabulação em vez de vírgula.
+		A ideia é similar ao CSV, porém é utilizado uma tabulação em vez de vírgula.
 		
 		%\subsection{Banco de Dados}
 		\subsection{Web Service}
-		\cite{webService-W3C}
-		Um Web service é definido como um software sistema criado para suportar interoperabilidade entre máquinas através da rede computadores. Também possui uma interface descrita em um formato processável por máquinas (WSDL) e um protocolo para comunicação (SOAP). \cite{webService-W3C}
+		
+		Um Web service \cite{webService-W3C} é definido como um software sistema criado para suportar interoperabilidade entre máquinas através da rede computadores. Também possui uma interface descrita em um formato processável por máquinas (WSDL) e um protocolo para comunicação (SOAP). \cite{webService-W3C}
 		Essa era a arquitetura utilizada em 2004. Atualmente é predominante o uso de REST que em vez de exportar serviços como o SOAP, exporta os dados em si e não necessita do WSDL. \cite{soapVSrest}
-	
+		%TODO: colocar exemplos de web services
+
 		\section{Dados Ausentes}
 			% O que são dados faltantes
+			O termo dados ausentes ou dados faltantes significa que está faltando dados suficientes para se formar uma informação e,
+			 por conseguinte, compreender o fenômeno de interesse ao observar o conjunto de dados. \cite{patrickmcknight2007}
 			% Porque dados podem faltar
+			Esses dados podem ser perdidos ou não coletados em todas as etapas de geração de dados
+			 como um participante desistindo ou não respondendo parte da pesquisa,
+			 o pesquisador esquecendo ou perdendo seu dispositivo de anotação,
+			 má operação ao salvar em dispositivos eletrônicos etc. \cite{patrickmcknight2007}
+			
+			\par
+			% Mecanismos de dados faltantes
+			Para compreender e lidar melhor com os dados faltantes foram definidos os mecanismos de dados ausentes.
+			Esses mecanismos são conceituados como a probabilidade de uma resposta ser observada ou estar faltando \cite{hbmissingdatameth2014}
+			Existem 3 mecanismos,
+			 os faltando de forma completamente aleatória - \emph{Missing completely at random (MCAR)};
+			 faltando de forma aleatória - \emph{Missing at random (MAR)};
+			 faltando de forma não aleatória - \emph{Not missing at random (NMAR)}. \cite{hbmissingdatameth2014}
+
+			\par
+			Um dado faltante é classificado como MCAR quando a probabilidade da resposta está faltando não é relacionada com outros valores do conjunto de dados nem com os dados que deveriam ser coletados. \cite{hbmissingdatameth2014}
+			Vale ressaltar que é muito difícil relacionar este mecanismos nos conjuntos de dados reais. \cite{hbmissingdatameth2014}
+			Como visto na tabela \ref{table: exemplo DA MCAR} os dados ausentes MCAR não apresentam correlação com outras propriedades para justificar o dado faltante. Portanto, não há como prever qual o valor do dado faltante.
+			\begin{table}[h]
+				\centering
+				\caption{Exemplo de dados ausentes MCAR}
+				\vspace{0.5cm}
+				\label{table: exemplo DA MCAR}
+				\begin{tabular}{r|lll}
+				 
+					ID & Estação do ano & Fruta & Receita \\ % Note a separação de col. e a quebra de linhas
+					\hline                               % para uma linha horizontal
+					1 & Verão     & Laranja & Alta  \\
+					2 & Inverno   & Laranja & Baixa \\
+					3 & Verão     & Morango & Baixa \\
+					4 & Inverno   & Morango & Baixa \\
+					5 & Outono    &         & Baixa        % não é preciso quebrar a última linha
+				 
+				\end{tabular}
+			\end{table}
+			\par
+
+			Quanto ao MAR, este é definido como a probabilidade de a resposta está faltando depende dos dados obtidos, mas não está relacionado com dados não coletados.
+			Este é o mecanismo menos arriscado de se assumir, pois permite a predição de resultados. \cite{hbmissingdatameth2014}
+			Na tabela \ref{table: exemplo DA MAR e DA MNAR} é possível visualizar um exemplo de dados faltantes do mecanismo MAR.
+			Neste caso, assume-se que há correlação entre os valores da tabela e por isso, por predição, assume-se que o valor faltante seja "Alta".
+			\begin{table}[h]
+				\centering
+				\caption{Exemplo de dados ausentes MAR}
+				\vspace{0.5cm}
+				\label{table: exemplo DA MAR e DA MNAR}
+				\begin{tabular}{r|lll}
+				 
+					ID & Estação do ano & Fruta & Receita \\ % Note a separação de col. e a quebra de linhas
+					\hline                               % para uma linha horizontal
+					1 & Verão     & Laranja & Alta  \\
+					2 & Primavera & Laranja & Alta  \\
+					3 & Verão     & Limão   & Alta  \\
+					4 & Inverno   & Limão   & Baixa \\
+					5 & Verão     & Laranja &         % não é preciso quebrar a última linha
+				 
+				\end{tabular}
+			\end{table}
+			\par
+
+			Quanto ao MNAR, este é definido como a probabilidade de a resposta está relacionada com os dados não coletados. \cite{hbmissingdatameth2014}
+			Isto é, por algum motivo que não está no conjunto de dados, há dados ausentes.
+			Este mecanismo permite a geração de hipóteses para justificar a ausencia desses dados. %Professor Bianchi adora fazer isso.
+			Ainda na tabela \ref{table: exemplo DA MAR e DA MNAR} visualiza-se um exemplo de dados ausentes do mecanismo MNAR.
+			O fato da receita de laranja não ter sido divulgada neste registro pode indicar que o produtor não queira preocupar os possíveis investidores (ou partes interessadas no agronegócio) devido uma possível baixa nos rendimentos.
+			\par
+
 			% O impacto dos dados faltantes
-			% Tipos de dados faltantes
-			% Consequência dos dados faltantes
+			O grande impacto dos dados ausentes está nos resultados da pesquisa,
+			 isto é, se esta se tornará tendenciosa, inconclusiva ou inconsistente. \cite{patrickmcknight2007}
+			Um exemplo é para uma pesquisa de salários de executivos, os quais são coletados o sexo, a idade, o cargo e o salário.
+			E por quaisquer motivos, os executivos do sexo masculino de idade acima dos 40 anos que tinham altos cargos e salário abaixo da média resolvessem não responder qual o seu salário.
+			Uma avaliação sem perceber e tratar esse fenômeno pode inferenciar que os homens mais velhos de altos cargos ganham na média ou acima da média, o que se caracterizaria uma pesquisa incondizente com a verdade.
+		
+		\section{Dados Discrepantes}
+			%O que são dados discrepantes
+			Dados discrepantes ou \emph{outliers} são dados que são significativamente diferentes dos outros dados do conjunto de dados. \cite{Aggarwal2012}
+			%Por que são causados
+			Também conhecidos como anomalias, dados desviantes, ou descordantes na literatura, esses dados podem ser gerados, em geral. quando o sistema se comporta de forma não usual. \cite{Aggarwal2012}
+			Por isso, a presença e a frequência de dados discrepantes também são informações relevantes para com o conjunto de dados.
+			Exemplos são para sistemas de detecção de invasão, fraudes de cartão de crédito, diagnósticos médicos, estudos geológicos etc. \cite{Aggarwal2012}
+			%Como identificá-los
+			\par
+			Para identificar os dados discrepantes é um pouco mais subjetivo, isto é, mais dependente de criterios feitos por quem está avaliando o conjunto de dados. \cite{Aggarwal2012}
+			Contudo, existe um espectro de dados normais para discrepantes como pode ser visto na figura (colocar a figura), onde, justamente o limiar entre os normais para os ruídos e anormalias não são precisamente definidos. \cite{Aggarwal2012}
+			%figura
+			%Como lidar com eles
+			Para lidar com os dados discrepantes, em geral, são utilizados algoritmos de clusterização e remoção desses dados \cite{Aggarwal2012}
+		
+		\section{Dados Ruidosos}
+			%O que são dados ruidosos
+			%Quais os tipos
+			%Porque são causados
+			%Como identificá-los e como lidar com eles.
+
 			
 	\chapter{Trabalhos Relacionados}
 
