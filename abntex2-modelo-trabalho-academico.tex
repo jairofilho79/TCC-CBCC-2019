@@ -94,7 +94,7 @@
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
-\titulo{Modelo de Trabalho de Trabalho Acadêmico da Faculdade de Computação e Programa de Pós-Graduação em Ciência da Computação.}
+\titulo{Geração de dados sintéticos utilizando a aplicação Blocks: simulando dados discrepantes e faltantes.}
 \autor{Jairo Nascimento de Sousa Filho}
 \local{Belém}
 \data{2019}
@@ -176,7 +176,7 @@
 \setlength{\parskip}{0.2cm}  % tente também \onelineskip
 
 % ---
-% compila o indice
+% compila o índice
 % ---
 \makeindex
 % ---
@@ -491,10 +491,12 @@ na contribuição científica.
 
 Equipe \abnTeX 
 
-Lauro César Araujo
+Lauro César Araújo
 
 % ---
 \chapter{Fundamentação Teórica}\label{cap_exemplos}
+	Neste capítulo é abordado em mais detalhes sobre a literatura dos dados sintéticos, discrepântes, faltantes,
+	 bem como de arquivos, e serviços como \emph{Web Service} e base de dados.
 % ---
 
 	% Por que estou fazendo isso?
@@ -509,27 +511,39 @@ Lauro César Araujo
 	% Mostrar a foto.
 
 	\section{Dados Sintéticos}
-	O conceito de geração de dados sintéticos vieram por volta de 1993, por Rubin. \cite{rubin1993statistical}
-	Em suma, seu objetivo era tonar anônimo os domicílios que participaram do censo daquela época.
-	A partir desse fato, confidencialidade dos dados se tornou muito necessário, o que ajudou na popularização dos dados sintéticos.
-	Portanto, dados sintéticos foi definido como "qualquer dado produzido o qual possa ser aplicado a uma dada situação que não foi obtido por mensuração direta.". \cite{mcgraw-hilleducation2016}
-	\par
-	A necessidade de dados sintéticos podem ser de várias formas, 
-	desde a escassez de dados reais ou indisponibilidade;
-	 para teste de dados não usuais;
-	 para evitar lidar com questões de privacidade dos dados;
-	 teste de aplicação sem precisar modificar dados da aplicação de produção;
-	 criar teste de estresse da aplicação com \emph{Big Data} antes de criar versão para produção;
-	 bem como não precisar adicionar os dados de teste manualmente. \cite{top15DatagenTools2019}
-	\par
-	A aplicabilidade dos dados sintéticos é ilimitada, e é bastante explorada por setores cujos dados são sensíveis como a financeiro \cite{lopez2012money} e de saúde. \cite{bergeat2014french} 	
-	Também são muito bem aplicáveis para exaustívos testes de segurança, os quais são necessários vários casos de teste, já que o pesquisador tem controle suficiente processamento (fórmulas matemáticas ou regras de geração) e saída do dado, como um sistema de detecção de fraudes. \cite{barse2003synthesizing}
-	
-	\section{Formato dos dados salvos}
+		Em seu trabalho, Rubin \cite{rubin1993statistical} a introduziu a necessidade de dados sintéticos.
+		Em suma, seu objetivo era tornar anônimo os domicílios que participaram do censo daquela época.
+		A partir desse fato, confidencialidade dos dados se tornou muito necessário, o que ajudou na popularização dos dados sintéticos.
+		Portanto, dados sintéticos foi definido como "qualquer dado produzido o qual possa ser aplicado a uma dada situação que não foi obtido por mensuração direta.". \cite{mcgraw-hilleducation2016}
+		\par
+		A necessidade de dados sintéticos podem ser de várias formas, 
+		desde a escassez de dados reais ou indisponibilidade;
+		para teste de dados não usuais;
+		para evitar lidar com questões de privacidade dos dados;
+		teste de aplicação sem precisar modificar dados da aplicação de produção;
+		criar teste de estresse da aplicação com \emph{Big Data} antes de criar versão para produção;
+		bem como não precisar adicionar os dados de teste manualmente. \cite{top15DatagenTools2019}
+		\par
+		A aplicabilidade dos dados sintéticos é ilimitada e é bastante explorada por setores cujos dados são sensíveis como a financeiro \cite{lopez2012money} e de saúde. \cite{bergeat2014french} 	
+		Também são muito bem aplicáveis para exaustivos testes de segurança, os quais são necessários vários casos de teste
+		pesquisador/analista de teste tem controle suficiente das características (fórmulas matemáticas ou regras de geração) e pode usar em um sistema de detecção de fraudes, por exemplo. \cite{barse2003synthesizing}
+		
+	\section{Proveção dos dados}
 		\subsection{Arquivo}
-		%TODO: Colocar exemplos dos arquivos.
+		Gerar os dados não é o suficiente, para isso, é necessário oferecer uma forma pronta de uso para o usuário.
+		Para isso, pode ser utilizado os arquivos.
+		Segundo Tanenbaum \cite{tanenbaum1995sistemas} arquivos são unidades lógicas de informação criadas por processos e gerenciados por sistemas operacionais.
+		Também é um mecanismo de abstração ao usuário para leitura e escrita em disco.
+		Para que isso funcione, são adotados algumas convenções.
+		\par
+
+		A primeira são os sistemas de arquivos.
+		Basicamente, um sistema operacional adota um sistema de arquivos para personalizar a questão da leitura e escrita. \cite{tanenbaum1995sistemas}
+		Também, um arquivo possui uma extensão (nome.extensão) cuja esta dá mais informações a respeito do conteúdo do arquivo.
+		\par
+
 		%JSON
-		JSON \cite{json-rfc-8259} \cite{json-jsonOrg} (Javascript Object Notation, ou em português Notação de Objecto Javacript),lançado em 2002, é uma formatação leve para troca de dados. 
+		A exemplo de extensão de arquivo há o JSON \cite{json-rfc-8259} \cite{json-jsonOrg} (Javascript Object Notation, ou em português Notação de Objecto Javacript) lançado em 2002, é uma formatação leve para troca de dados. 
 		O uso é facilitado tanto para seres humano quanto para máquina.
 		O JSON é um formato de texto que é independente de linguagem, mas foi baseado no objeto provido do Javascript (ECMA-262, 1999).
 		\par
@@ -537,7 +551,7 @@ Lauro César Araujo
 		Os tipos de tokens aceitos é do tipo \textit{object}, \textit{array}, \textit{string}, \textit{number} e nomes literais como \textit{false}, \textit{true} e \textit{null}.
 		\par
 		%CSV
-		CSV \cite{csv-rfc-4180} (comma-separated values, ou em português Valores Separados por Vírgula) é tipo de texto MIME (Internet Media) \cite{mime-rfc-2048} que utiliza a encodificação de caracteres US-ASCII \cite{csv-rfc-7111}.
+		Outra extensão de arquivo é o CSV \cite{csv-rfc-4180} (comma-separated values, ou em português Valores Separados por Vírgula) o qual é um arquivo do tipo de texto MIME (Internet Media) \cite{mime-rfc-2048} que utiliza a encodificação de caracteres US-ASCII \cite{csv-rfc-7111}.
 		Ao longo dos anos, seu uso foi consolidado para exportar dados entre vários softwares de tabelas (Microsoft suíte para Apple Suíte, por exemplo).
 		A padronização do CSV de morou a ocorrer e por isso, vários outros estilos surgiram, a exemplo, o uso do CSV com ponto-e-vírgula (;).
 		Outros estilos foram criados a ponto de ser chamado de arquivo DSV \cite{dsv}.
@@ -546,33 +560,40 @@ Lauro César Araujo
 		
 		%\subsection{Banco de Dados}
 		\subsection{Web Service}
-		
-		Um Web service \cite{webService-W3C} é definido como um software sistema criado para suportar interoperabilidade entre máquinas através da rede computadores. Também possui uma interface descrita em um formato processável por máquinas (WSDL) e um protocolo para comunicação (SOAP). \cite{webService-W3C}
-		Essa era a arquitetura utilizada em 2004. Atualmente é predominante o uso de REST que em vez de exportar serviços como o SOAP, exporta os dados em si e não necessita do WSDL. \cite{soapVSrest}
-		%TODO: colocar exemplos de web services
+			Um \emph{Web Service} \cite{webService-W3C} é definido como um software criado para suportar interoperabilidade entre máquinas através da rede computadores. Também possui uma interface descrita em um formato processável por máquinas (WSDL) e um protocolo para comunicação (SOAP). \cite{webService-W3C}
+			Essa era a arquitetura utilizada em 2004. Atualmente é predominante o uso de REST que em vez de exportar serviços como o SOAP, exporta os dados em si e não necessita do WSDL. \cite{soapVSrest}
+			%TODO: colocar exemplos de web services
 
-		\section{Dados Ausentes}
-			% O que são dados faltantes
-			O termo dados ausentes ou dados faltantes significa que está faltando dados suficientes para se formar uma informação e,
-			 por conseguinte, compreender o fenômeno de interesse ao observar o conjunto de dados. \cite{patrickmcknight2007}
-			% Porque dados podem faltar
-			Esses dados podem ser perdidos ou não coletados em todas as etapas de geração de dados
-			 como um participante desistindo ou não respondendo parte da pesquisa,
-			 o pesquisador esquecendo ou perdendo seu dispositivo de anotação,
-			 má operação ao salvar em dispositivos eletrônicos etc. \cite{patrickmcknight2007}
-			
-			\par
-			% Mecanismos de dados faltantes
-			Para compreender e lidar melhor com os dados faltantes foram definidos os mecanismos de dados ausentes.
-			Esses mecanismos são conceituados como a probabilidade de uma resposta ser observada ou estar faltando \cite{hbmissingdatameth2014}
-			Existem 3 mecanismos,
-			 os faltando de forma completamente aleatória - \emph{Missing completely at random (MCAR)};
-			 faltando de forma aleatória - \emph{Missing at random (MAR)};
-			 faltando de forma não aleatória - \emph{Not missing at random (NMAR)}. \cite{hbmissingdatameth2014}
+	\section{Dados Ausentes}
+		% O que são dados faltantes
+		O termo dados ausentes ou dados faltantes significa que está faltando dados suficientes para se formar uma informação e,
+		por conseguinte, compreender o fenômeno de interesse ao observar o conjunto de dados. \cite{patrickmcknight2007}
+		% Porque dados podem faltar
+		Esses dados podem ser perdidos ou não coletados em todas as etapas de geração de dados
+		como um participante desistindo ou não respondendo parte da pesquisa,
+		o pesquisador esquecendo ou perdendo seu dispositivo de anotação,
+		má operação ao salvar em dispositivos eletrônicos etc. \cite{patrickmcknight2007}
+		\par
 
-			\par
+		% O impacto dos dados ausentes
+		O grande impacto dos dados ausentes está nos resultados da pesquisa,
+		isto é, se esta se tornará tendenciosa, inconclusiva ou inconsistente. \cite{patrickmcknight2007}
+		Um exemplo seria uma pesquisa de salários de executivos, os quais são coletados o sexo, a idade, o cargo e o salário.
+		E por quaisquer motivos, os executivos do sexo masculino de idade acima dos 40 anos que tinham altos cargos e salário abaixo da média resolvessem não responder qual o seu salário.
+		Uma avaliação sem perceber e tratar esse fenômeno pode inferenciar que os homens mais velhos de altos cargos ganham na média ou acima da média, o que se caracterizaria uma pesquisa incondizente com a verdade.
+		\par
+
+		% Mecanismos de dados ausentes
+		Para compreender e lidar melhor com os dados ausentes foram definidos os mecanismos de dados ausentes.
+		Esses mecanismos são conceituados como a probabilidade de uma resposta ser observada ou estar faltando \cite{hbmissingdatameth2014}
+		Existem 3 mecanismos conhecidos como 
+		faltando de forma completamente aleatória - \emph{Missing completely at random (MCAR)};
+		faltando de forma aleatória - \emph{Missing at random (MAR)};
+		faltando de forma não aleatória - \emph{Not missing at random (NMAR)}. \cite{hbmissingdatameth2014}
+
+		\subsection{MCAR}
 			Um dado faltante é classificado como MCAR quando a probabilidade da resposta está faltando não é relacionada com outros valores do conjunto de dados nem com os dados que deveriam ser coletados. \cite{hbmissingdatameth2014}
-			Vale ressaltar que é muito difícil relacionar este mecanismos nos conjuntos de dados reais. \cite{hbmissingdatameth2014}
+			Vale ressaltar que é muito difícil relacionar este mecanismos nos conjuntos de dados reais. \cite{hbmissingdatameth2014} \cite{little2016missing}
 			Como visto na tabela \ref{table: exemplo DA MCAR} os dados ausentes MCAR não apresentam correlação com outras propriedades para justificar o dado faltante. Portanto, não há como prever qual o valor do dado faltante.
 			\begin{table}[h]
 				\centering
@@ -580,7 +601,7 @@ Lauro César Araujo
 				\vspace{0.5cm}
 				\label{table: exemplo DA MCAR}
 				\begin{tabular}{r|lll}
-				 
+				
 					ID & Estação do ano & Fruta & Receita \\ % Note a separação de col. e a quebra de linhas
 					\hline                               % para uma linha horizontal
 					1 & Verão     & Laranja & Alta  \\
@@ -588,14 +609,14 @@ Lauro César Araujo
 					3 & Verão     & Morango & Baixa \\
 					4 & Inverno   & Morango & Baixa \\
 					5 & Outono    &         & Baixa        % não é preciso quebrar a última linha
-				 
+				
 				\end{tabular}
 			\end{table}
-			\par
-
-			Quanto ao MAR, este é definido como a probabilidade de a resposta está faltando depende dos dados obtidos, mas não está relacionado com dados não coletados.
-			Este é o mecanismo menos arriscado de se assumir, pois permite a predição de resultados. \cite{hbmissingdatameth2014}
-			Na tabela \ref{table: exemplo DA MAR e DA MNAR} é possível visualizar um exemplo de dados faltantes do mecanismo MAR.
+		
+		\subsection{MAR}
+			Quanto ao MAR, este é definido como a probabilidade da resposta está faltando depende dos dados obtidos, mas não está relacionado com dados não coletados.
+			Este é o mecanismo menos arriscado de se assumir, pois permite a predição de resultados. \cite{hbmissingdatameth2014} \cite{little2016missing}
+			Na tabela \ref{table: exemplo DA MAR e DA MNAR} é possível visualizar um exemplo de dados ausentes do mecanismo MAR.
 			Neste caso, assume-se que há correlação entre os valores da tabela e por isso, por predição, assume-se que o valor faltante seja "Alta".
 			\begin{table}[h]
 				\centering
@@ -603,7 +624,7 @@ Lauro César Araujo
 				\vspace{0.5cm}
 				\label{table: exemplo DA MAR e DA MNAR}
 				\begin{tabular}{r|lll}
-				 
+				
 					ID & Estação do ano & Fruta & Receita \\ % Note a separação de col. e a quebra de linhas
 					\hline                               % para uma linha horizontal
 					1 & Verão     & Laranja & Alta  \\
@@ -611,209 +632,253 @@ Lauro César Araujo
 					3 & Verão     & Limão   & Alta  \\
 					4 & Inverno   & Limão   & Baixa \\
 					5 & Verão     & Laranja &         % não é preciso quebrar a última linha
-				 
+				
 				\end{tabular}
 			\end{table}
-			\par
-
-			Quanto ao MNAR, este é definido como a probabilidade de a resposta está relacionada com os dados não coletados. \cite{hbmissingdatameth2014}
+		
+		\subsection{MNAR}
+			Quanto ao MNAR, este é definido como a probabilidade da resposta está relacionada com os dados não coletados. \cite{hbmissingdatameth2014} \cite{little2016missing}
 			Isto é, por algum motivo que não está no conjunto de dados, há dados ausentes.
 			Este mecanismo permite a geração de hipóteses para justificar a ausencia desses dados. %Professor Bianchi adora fazer isso.
 			Ainda na tabela \ref{table: exemplo DA MAR e DA MNAR} visualiza-se um exemplo de dados ausentes do mecanismo MNAR.
 			O fato da receita de laranja não ter sido divulgada neste registro pode indicar que o produtor não queira preocupar os possíveis investidores (ou partes interessadas no agronegócio) devido uma possível baixa nos rendimentos.
-			\par
-
-			% O impacto dos dados faltantes
-			O grande impacto dos dados ausentes está nos resultados da pesquisa,
-			 isto é, se esta se tornará tendenciosa, inconclusiva ou inconsistente. \cite{patrickmcknight2007}
-			Um exemplo é para uma pesquisa de salários de executivos, os quais são coletados o sexo, a idade, o cargo e o salário.
-			E por quaisquer motivos, os executivos do sexo masculino de idade acima dos 40 anos que tinham altos cargos e salário abaixo da média resolvessem não responder qual o seu salário.
-			Uma avaliação sem perceber e tratar esse fenômeno pode inferenciar que os homens mais velhos de altos cargos ganham na média ou acima da média, o que se caracterizaria uma pesquisa incondizente com a verdade.
-		
-		\section{Dados Discrepantes}
-			%O que são dados discrepantes
-			Dados discrepantes ou \emph{outliers} são dados que são significativamente diferentes dos outros dados do conjunto de dados. \cite{Aggarwal2012}
-			%Por que são causados
-			Também conhecidos como anomalias, dados desviantes, ou descordantes na literatura, esses dados podem ser gerados, em geral. quando o sistema se comporta de forma não usual. \cite{Aggarwal2012}
-			Por isso, a presença e a frequência de dados discrepantes também são informações relevantes para com o conjunto de dados.
-			Exemplos são para sistemas de detecção de invasão, fraudes de cartão de crédito, diagnósticos médicos, estudos geológicos etc. \cite{Aggarwal2012}
-			%Como identificá-los
-			\par
-			Para identificar os dados discrepantes é um pouco mais subjetivo, isto é, mais dependente de criterios feitos por quem está avaliando o conjunto de dados. \cite{Aggarwal2012}
-			Contudo, existe um espectro de dados normais para discrepantes como pode ser visto na figura (colocar a figura), onde, justamente o limiar entre os normais para os ruídos e anormalias não são precisamente definidos. \cite{Aggarwal2012}
-			%figura
-			%Como lidar com eles
-			Para lidar com os dados discrepantes, em geral, são utilizados algoritmos de clusterização e remoção desses dados \cite{Aggarwal2012}
-		
-		\section{Dados Ruidosos}
-			%O que são dados ruidosos
-			%Quais os tipos
-			%Porque são causados
-			%Como identificá-los e como lidar com eles.
-
 			
-	\chapter{Trabalhos Relacionados}
+	\section{Dados Discrepantes}
+		%O que são dados discrepantes
+		Dados discrepantes ou \emph{outliers} são dados que são significativamente diferentes dos outros dados do conjunto de dados. \cite{Aggarwal2012}
+		%Por que são causados
+		Também conhecidos como anomalias, dados desviantes, ou descordantes na literatura, esses dados podem ser gerados, em geral, quando o sistema se comporta de forma não usual. \cite{Aggarwal2012}
+		Por isso, a presença e a frequência de dados discrepantes também são informações relevantes para com o conjunto de dados.
+		Exemplos desta relevância são para sistemas de detecção de invasão, fraudes de cartão de crédito, diagnósticos médicos, estudos geológicos etc. \cite{Aggarwal2012}
+		%Como identificá-los
+		\par
+		Para identificar os dados discrepantes é um pouco mais subjetivo, isto é, mais dependente de criterios feitos por quem está avaliando, assim como de qual aplicação está sendo extraído o conjunto de dados. \cite{Aggarwal2012}
+		Contudo, existe um espectro de dados normais para discrepantes como pode ser visto na figura \ref{fig:Aggarwal}.
+		Nesta figura, justamente o limiar entre os normais para os ruídos e anormalias não são precisamente definidos,
+		mas algoritmos de detecção de discrepância podem dar pontuação de discrepância para cada dado e utilizar este nível. \cite{Aggarwal2012}
 
-		\section{Artigos acadêmicos relacionados}
-			Albuquerque et al. \cite{Albuquerque2011} descreveu um \emph{framework} capaz de gerar dados sintéticos multidimensionais. O sistema (ver figura \ref{fig:albuquerque}) recebe um \emph{input} que representa algumas propriedades do conjunto de dados como número de dimensões, uma distribuição de dados padrão, tipo de dado de cada dimensão entre outros. A partir disso, é criada uma função densidade de probabilidade, com o fim de gerar um cojunto de dados padrão. Essas funções podem ser ajustadas e modeladas através de objetos. Também, essas funções podem ser de 1, 2 ou 3 dimensões. Adicionalmente, pode-se haver ruídos, para simular as irregularidades encontradas em conjunto de dados reais.
-			\par
-			O framework apresentado também possui uma interface gráfica para auxiliar o usuário a configurar o conjunto de dados, bem como gerá-lo. Contudo, não foi encontrado uma interface para pré-visualização dos futuros dados gerados. Quanto aos tipos de dados, estes são restritos aos numéricos, quer sejam inteiros ou de ponto flutuante.    
-			\begin{figure}[h!]
-				\centering
-				\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Albuquerque10.png}
-				\caption{Visão Geral de geração de dados.}
-				\label{fig:albuquerque}
-			\end{figure}
-
-			Wang et al. \cite{BingWang2013} apresentou uma aplicação cujo principal diferencial é a capacidade de modelar, através de desenho, o comportamento das dimensões do conjunto de dados sintéticos. A priori, o usuário pode iniciar o processo de geração através do zero, de um conjunto de dados já existente, ou um conjunto de dados aleatório. A partir disso, o usuário visualiza os dados no gráfico - que pode ser as coordenadas paralelas ou o \emph{scatterplot} - e pode modificá-lo através de cliques e arrastos. Por conseguinte, os dados podem ser gerados e isto também serve como retroalimentação do sistema. Na figura \ref{fig:sketchpad} é possível visualizar a visão geral do funcionamento do SketchPad.
-			\begin{figure}[h!]
-				\centering
-				\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Wang11.png}
-				\caption{Visão Geral de geração de dados do Sketchpad.}
-				\label{fig:sketchpad}
-			\end{figure}
-
-			Liu \cite{Liu2016} criou um gerador de dados sintéticos a partir de avaliação de regras de aprendizagem. O sistema funciona criando regras de aprendizagem - usando algoritmos de árvore de decisão como o ID3 - baseado em dados de entrada contruindo correlações entre os dados. Na figura \ref{fig:liu} é possível visualizar uma árvore de decisão. Durante a leitura do conjunto de dados de entrada é feita a árvore de decisão e, concomitantemente, são geradas as regras de aprendizagem. Essas regras são utilizadas para gerar amostras de dados sintéticos.
-			\begin{figure}[h!]
-				\centering
-				\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Liu13.png}
-				\caption{Exemplo de árvore de decisão para jogar tennis criado a partir de regras encontradas em um conjunto de dados.}
-				\label{fig:liu}
-			\end{figure}
-
-			Garcia e Millán \cite{Garcia2011} criaram um sistema par gerar dados sintéticos pensado para desenvolvedores que buscam testar de forma eficiente e exaustiva a sua aplicação. Esses dados pode ser configurados (ver figura \ref{fig:garcia}) de acordo com as preferências do usuário. As dimensões de dados seguem alguns padrões como a partir de fontes externas (Arquivos, Bibliotecas, Base de dados) Sequencial, Constante, Funcional, Intervalo ou Lista de valores. 
-			\begin{figure}[h!]
-				\centering
-				\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Garcia18.png}
-				\caption{Exemplo da interface do usuário para configuração do gerador de dados.}
-				\label{fig:garcia}
-			\end{figure}
-
-			Kofinas et al. \cite{Kofinas2018} criou uma metedologia para gerar dados sintéticos para simular consumo de água. A metodologia é avaliada através de algoritmos de validação - como a visualização dos resultados e fórmulas.
-			\par
-			Como pode ser visto na figura \ref{fig:kofinas}, a geração dos dados é feita a partir de 2 fases. A fase 1 serve, basicamente, para investigar a distribuição dos dados. Esta fase, primeiramente transforma dados números em séries temporais de 30 segundos. Em alguns casos, não há registro, para isso, é criada uma tabela de incidentes e posteriormente uma probabilidade de existência de registro para que seja encontrada as classes usadas para construção do histograma de Pearson \cite{dean2009descriptive}, por fim, são comparadas funções de distribuição com a atual com o fim de encontrar a que mais se aproxima.
-			\par
-			Para a fase 2 cuida da geração de dados sintéticos propriamente. Basicamente, o sistema utiliza a distribuição criada na fase um para gerar os dados para 24h, respeitando as características diferenciadas para dias de semana e finais de semana.
-			\begin{figure}[h!]
-				\centering
-				\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Kofinas21.png}
-				\caption{Fluxo de passos para geração dos dados sintéticos.}
-				\label{fig:kofinas}
-			\end{figure}
+		%figura
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/FundamentacaoTeorica/ExemploDeDiscrepancia.png}
+			\caption{Exemplo de escala de discrepância (Adaptado de Aggarwal) }
+			\label{fig:Aggarwal}
+		\end{figure}
 		
-		\section{Aplicações relacionadas}
 
-			DTM Data Generator \cite{DTMDataGenerator} é uma plataforma de geração de dados sintéticos que existe de 1998.
-			Esta possui suporte para geração de dados em arquivos, em banco de dados, também para \emph{Big Data}.
-			Possui suporte multiplataforma, através do modo \emph{multiplatform runtime}, contudo é limitado quando comparado à versão Windows, o qual suporta a versão para servidor também.
-			É válido destacar que é um software essencialmente pago, isto é, existem versões gratuitas - demonstrações, para ser mais exato - mas limitadas.
-			Além disso, há categorias de versões pagas, que vão desde limitações de geração (Standart - Professional) à vantagens mais técnicas (Professional - Entrerprise).
-			\par
-			O DTM Data Generator possui uma vasta coleção de funcionalidades, as quais liberadas de acordo com as versões pagas.
-			Adotando a versão mais cara, a lista de \emph{features} é composta por geração de dados em JSON, XML, CSV ou geração por separador customizado.
-			Também permite gerar dados por arquivo DSN (Database Source Name), gerar dados por linha de comando, e gerar um arquivo SQL para não seja necessário conexão com banco de dados.
-			\par
-			É possível gerar cerca de 9.2 sextilhões de registros por \emph{rule}, modos de atualizar dados existentes (adicionar, substituir e \emph{Data Scrambling}), e suporte para bibliotecas de dados realistas.
-			A plataforma disponibiliza entrada de dados através de SQL, XML, JSON, pela WEB através de HTTP ou FTP, XLSM, arquivos de texto e scripts em Python.
-			Também é possível visualizar e testar os dados gerados, bem como gerá-los nos principais arquivos de texto (TSV, CSV, "DSV", JSON, XML) e banco de dados. (MS SQL Server, Oracle, DB2, MySQL, PostgreSQL, Informix, Sybase, SQLite e Firebird) 
-			\par
-			Há uma suíte de produtos relacionados fornecidos pela DTM soft. 
-			Além do gerador de dados, 
-				há o gerador de dados XML para teste de aplicação (DTM Test XML Generator);
-				um gerador de planilhas Excel (DTM Data Generator for Excel)
-				testador exaustivo - teste de estresse - de banco de dados (DTM DB Stress);
-				Bem como editor, visualizador (DTM Data Editor), comparador e sincronizador de banco de dados (DTM Data Comparer) entre outros. 
+		%Como lidar com eles
+		E se o dados discrepantes não forem tratados, eles podem gerar problemas como 
+		redução da precisão do modelo de dados,
+		aumentar a complexidade do modelo,
+		dificultar e legibilidade dos dados também. \cite{Aggarwal2012} \cite{rathi_2019}
+		E para tratá-los, as formas convencionais são 
+		remoção de instâncias,
+		filtro de dimensões,
+		combinar essas formas convencionais com algoritmos de validação - como o k-fold - ou
+		detecção de anomalias - como baseado em clusterização, SMV ou densidade.
+	
+		\subsection{Dados Ruidosos e Anômalos}
+			%O que são dados ruidosos
+			Dados ruidosos são dados indesejaveis, dimensões ou instâncias que não estão relacionadas com o fenômeno estudado. \cite{rathi_2019}
+			Em geral, dados ruidosos fazem com que algoritmos de aprendizado de máquina encontrem padrões incoerentes. \cite{rathi_2019}
+			Dados ruidosos e dados anômalos diferenciam-se, basicamente, na sua facilidade de percepção em uma visualização e no seu grau de impacto ao inferir sobre os dados.
+			Na figura \ref{fig:ruidoAnomalo}, o item A é um exemplo de dado ruidoso, pois desvia-se levemente do padrão dos dados - uma reta.
+			Quanto ao Item B este descaracteriza significativamente o padrão dos dados - este é um exemplo de dado anômalo.
 			\begin{figure}[h!]
 				\centering
-				\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/DTMDataGenerator.png}
-				\caption{Usando o DTM Data Generator. Fonte: DTM Data Generator}
-				\label{fig:DTMDG}
+				\includegraphics[width=\linewidth]{./figures/FundamentacaoTeorica/ExemploRuidoAnomalo.jpg}
+				\caption{Exemplo de ruído e de anomalia.}
+				\label{fig:ruidoAnomalo}
 			\end{figure}
-
-			O SQL Data Generator \cite{RedgateSQLDataGenerator} é um software que compõe uma suíte de ferramentas (chamada de SQL Toolbelt) da Red Gate.
-			O software é exclusivo para o ecossistema Windows, com suporte do Windows 7 ao 10, à versão para servidores do Windows, ao SQL Server (2008 ao 2017), .NET e Oracle.
-			Este produto é distribuido através de licenças pagas e vitalícias, com atualizações gratuitas e, no mínimo 1 ano de suporte gratuito.
-			Vale ressaltar que é possível testar o produto por 14 dias gratuitamente.
 			\par
-			O SQL Toolbelt tem funcionalidades bem delimitadas e a função do Data Generator é popular um banco de dados. 
-			A população acontece ao escolher, primeiramente, uma tabela do banco.
-			A partir disso, escolhe-se um gerador para cada coluna da tabela.
-			Um gerador tem classificação fortemente baseada na realidade, isto é, possui geradores como palavras relacionadas à compras, pagamentos, pessoas (primeiro e último nome), dado geográficos e afins.
-			Contudo, também disponibiliza a geração a partir de expressões regulares \emph{Regex generator} e scripts de python.
-			Por se tratar de banco de dados, também há checagem e tratamento de \emph{constraints}, \emph{Foreign keys} e \emph{Dependencies}.
-			O SQL Data Generator também permite lidar com arquivos XML, quer seja para geração de valores XML, como utilizar como dados de entrada, além de mesclá-los com o \emph{Regex generator}.
-			\par
-			Quanto ao SQL Toolbelt oferecido pela Red Gate, ele conta com 2 modalidades, o completo com 14 programas e o \emph{essentials} com 10.
-			Entre os mais relevantes, pode-se citar o \emph{SQL Data Compare}, \emph{SQL Data Generator}, \emph{SQL Test}, \emph{SQL Backup Pro} e \emph{SQL Scripts Manager}.
-			\begin{figure}[h]
+			
+			%Quais os tipos
+			Em dados tabulares, é possível classificar esses dados de 3 formas segundo \cite{rathi_2019} (ver figura \ref{fig:Rathi}),
+			sendo estas abnormalidades,
+			dimensões irrelevantes ou
+			instâncias ruídas. 
+			As abnormalidades são irregularidades tanto nas dimensões dos dados ou no evento estudado.
+			As características irrevelentes são aquelas que não ajudam a explicar o fenômeno.
+			E as instâncias ruídas são aquelas que desviam a forma dos outros dados. \cite{rathi_2019}
+			\begin{figure}[h!]
 				\centering
-				\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/sql-data-generator.png}
-				\caption{Usando o Redgate SQL Data Generator. Fonte: Red Gate SQL Data Generator.}
-				\label{fig:RedgateSQLDG}
+				\includegraphics[width=\linewidth]{./figures/FundamentacaoTeorica/ExemploClassificacaoRuido.jpg}
+				\caption{Exemplo das classificações de ruído (adaptado de Rathi)}
+				\label{fig:Rathi}
 			\end{figure}
+			
+\chapter{Trabalhos Relacionados}
+	Nesse capítulo serão apresentados trabalhos acadêmicos e aplicações as quais possuem correlação com meu trabalho.
+	Para isso, foram feitas análises sobre os trabalhos para identifcar semelhanças e diferenças pontuais.
+	Essa análise foi feita com o fim de comparar os trabalhos e identificar contribuições, suprir necessidades e captar trabalhos futuros.
 
-			Microsoft Visual Studio \cite{VSDataGenerator} é um pacote de programas da Microsoft para desenvolvimento de \emph{software}. 
-			Este é composto por 4 versões (\emph{Express}, \emph{Professional}, \emph{Premium}, \emph{Ultimate}), e a opção de gerar dados para teste está disponível a partir da versão \emph{Premium}.
-			O foco é permitir que verique o comportamento do banco de dados, sem relacioná-los com os dados da aplicação em produção.
-			\par
-			Para gerar os dados de teste, deve-se utilizar os geradores de dados (\emph{Data Generators}), que são correlacionados às tabelas do banco de dados.
-				Os geradores podem ser dos mais primitivos (Binários, Inteiros, Data, \emph{Float}), como de Imagem, Dinheiro, Expressão Regular, Categórico entre outros.
-			Também é disponibilizado um Plano de Geração de Dados (\emph{Data Generation Plan}), feito em XML, que contém informações do banco de dados, o tipo de dados de cada gerador e a quantidade de dados para ser gerado. 
-			Este plano serve basicamente para reutilização da lógica de teste.
-			\begin{figure}[h]
-				\centering
-				\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Visual-Studio.jpg}
-				\caption{Usando o Microsoft Visual Studio. Fonte: anranik.}
-				\label{fig:VSDG}
-			\end{figure}
+	\section{Trabalhos acadêmicos relacionados}
+		Albuquerque et al. \cite{Albuquerque2011} descreveu um \emph{framework} capaz de gerar dados sintéticos multidimensionais.
+		O sistema (ver figura \ref{fig:albuquerque}) recebe um \emph{input} que representa algumas propriedades do conjunto de dados como número de dimensões,
+			uma distribuição de dados padrão,
+			tipo de dado de cada dimensão entre outros.
+		A partir disso, é criada uma função densidade de probabilidade, com o fim de gerar um cojunto de dados padrão.
+		Essas funções podem ser ajustadas e modeladas através de objetos.
+		Também, essas funções podem ser de 1, 2 ou 3 dimensões.
+		Adicionalmente, pode-se haver ruídos, para simular as irregularidades encontradas em conjunto de dados reais.
+		\par
+		O framework apresentado também possui uma interface gráfica para auxiliar o usuário a configurar o conjunto de dados, bem como gerá-lo. Contudo, não foi encontrado uma interface para pré-visualização dos futuros dados gerados. Quanto aos tipos de dados, estes são restritos aos numéricos, quer sejam inteiros ou de ponto flutuante.    
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Albuquerque10.png}
+			\caption{Visão Geral de geração de dados.}
+			\label{fig:albuquerque}
+		\end{figure}
 
-			Test Data Generator \cite{forgeDBDataGenerator} é uma ferramenta GUI (\emph{Graphical User Interface}) pela dbForge para gerar dados de teste para banco de dados SQL desde 1997.
-			O software possui mais de 200 geradores predifinidos e configuráveis os quais permitem a geração de dados mais inteligentes, isto é, mais próximos da realidade, como nomes, localização, dados de saúde e afins.
-			Quanto à compatibilidade, este é exclusivo do ecossistema Windows, com suporte à versão 7 ao 10, do Windows Server 2008 ao 2019 e ao SQL Server Azure, 2008 ao 2017.
-			Além da GUI, também há o suporte para geração de dados a partir da linha de comando.
-			O produto é distribuido sob licenças pagas e vitalícias, porém, com suporte ao cliente com tempo limitado e com 30 dias gratuitos para avaliação.
-			\par
-			Para usar o dbForge Test Data Generator, é preciso fazer uma conexão com banco de dados. 
-			A partir disso, utiliza-se os \emph{Data Generators} para determinar o comportamento dos dados para determinada coluna da tabela selecionada no Banco de dados.
-			Os Geradores de dados podem ser do tipo emph{Basics} e emph{Advanced}. 
-			Do primeiro tipo, são formas mais próximas dos dados primitivos, como datas, texto \emph{lorem ipsum}, JSON, \emph{ReGex}.
-			Já o avançado conta com número de cartão de crédito, aniversário, número de conta bancária internacional, IPv4, \emph{hash} de senhas.  
-			A geração de dados resume-se à população de banco de dados, não há uma forma de exportar os dados em arquivos como CSV e JSON.
-			\par
-			Há um suíte exclusivo para SQL Server, contudo também para Oracle, MySQL, PostgreSQL entre outros.
-			Neste suíte, há várias ferramentas que auxiliam na manutenção, mas não, necessariamente, a geração de dados, a exemplode um \emph{previewer}.
-			Destes, pode-se citar um comparador de dados, criador de \emph{querys}, um monitor - para supervisão do banco de dados - e afins.
-			\begin{figure}[h]
-				\centering
-				\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/dbForge-Test-Data-Generator.jpg}
-				\caption{Usando o dbForge Test Data Generator. Fonte: anranik.}
-				\label{fig:dbForgeTDG}
-			\end{figure}
+		Wang et al. \cite{BingWang2013} apresentou uma aplicação cujo principal diferencial é a capacidade de modelar, através de desenho, o comportamento das dimensões do conjunto de dados sintéticos. A priori, o usuário pode iniciar o processo de geração através do zero, de um conjunto de dados já existente, ou um conjunto de dados aleatório. A partir disso, o usuário visualiza os dados no gráfico - que pode ser as coordenadas paralelas ou o \emph{scatterplot} - e pode modificá-lo através de cliques e arrastos. Por conseguinte, os dados podem ser gerados e isto também serve como retroalimentação do sistema. Na figura \ref{fig:sketchpad} é possível visualizar a visão geral do funcionamento do SketchPad.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Wang11.png}
+			\caption{Visão Geral de geração de dados do Sketchpad.}
+			\label{fig:sketchpad}
+		\end{figure}
 
-			Mockaroo \cite{mockaroo} é um \emph{web site} e \emph{framework} para desenvolver dados de teste.
-			Há um total de 143 geradores, sendo a maioria considerados geradores realistas.
-			Por ser um site, é possível acessá-lo por qualquer sistema operacional, dependendo apenas de conexão com a internet.
-			O produto possui versões gratuita e pagas. - \emph{Free}, \emph{Silver}, \emph{Gold}, \emph{Enterprise} as quais variam no \emph{host}, o qual pode ser do Mockaroo ou privado, máximo de registros por download, velocidade de download e preço.
-			\par
-			Na tela inicial, é possível escolher o nome da coluna, o tipo de gerador, algumas opções - valores em branco e funções a partir dos dados.
-			Ainda nesta tela, encontra-se o botão para \emph{download} dos dados, pré-visualização dos mesmo (mas sem gráficos), algumas configurações como quantidade de linhas, formato dos dados para \emph{download}, botão para clone ou deleção de banco de dados, e importação de dados csv/Excel ou SQL.
-			\par
-			Outro serviço interessante do Mockaroo é Mockaroo APIs \cite{mockarooAPI}.
-			Este consiste em baixar dados programaticamente através de requisições REST (\emph{Representational State Transfer}).
-			As requisições podem ser feitas de 2 formas, a \emph{Generate API} - gera os dados através de um banco de dados salvo e os envia pelo corpo de uma requisição - 
-			e \emph{Mock APIs} que basicamente, simula um \emph{back-end} como tratamento de parâmetros e simulação de erros. 
-			É pensado para desenvolvimento ágil de aplicações \emph{front-end}, isto é, sem perder muito tempo com o \emph{back-end} a priori.
-			\begin{figure}[h]
-				\centering
-				\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/mockaroo.jpg}
-				\caption{Usando o Mockaroo. Fonte: anranik.}
-				\label{fig:mockaroo}
-			\end{figure}
-			% \subsubsection{ApexSQL Generate}
-			% \subsubsection{Datanamic Data Generator MultiDB}
-			% \subsubsection{Upscene Advanced Data Generator}
-			% \subsubsection{EMS Data Generator}
-			% \subsubsection{GEDIS Studio}
+		Liu \cite{Liu2016} criou um gerador de dados sintéticos a partir de avaliação de regras de aprendizagem. O sistema funciona criando regras de aprendizagem - usando algoritmos de árvore de decisão como o ID3 - baseado em dados de entrada contruindo correlações entre os dados. Na figura \ref{fig:liu} é possível visualizar uma árvore de decisão. Durante a leitura do conjunto de dados de entrada é feita a árvore de decisão e, concomitantemente, são geradas as regras de aprendizagem. Essas regras são utilizadas para gerar amostras de dados sintéticos.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Liu13.png}
+			\caption{Exemplo de árvore de decisão para jogar tennis criado a partir de regras encontradas em um conjunto de dados.}
+			\label{fig:liu}
+		\end{figure}
+
+		Garcia e Millán \cite{Garcia2011} criaram um sistema par gerar dados sintéticos pensado para desenvolvedores que buscam testar de forma eficiente e exaustiva a sua aplicação. Esses dados pode ser configurados (ver figura \ref{fig:garcia}) de acordo com as preferências do usuário. As dimensões de dados seguem alguns padrões como a partir de fontes externas (Arquivos, Bibliotecas, Base de dados) Sequencial, Constante, Funcional, Intervalo ou Lista de valores. 
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Garcia18.png}
+			\caption{Exemplo da interface do usuário para configuração do gerador de dados.}
+			\label{fig:garcia}
+		\end{figure}
+
+		Kofinas et al. \cite{Kofinas2018} criou uma metedologia para gerar dados sintéticos para simular consumo de água. A metodologia é avaliada através de algoritmos de validação - como a visualização dos resultados e fórmulas.
+		\par
+		Como pode ser visto na figura \ref{fig:kofinas}, a geração dos dados é feita a partir de 2 fases. A fase 1 serve, basicamente, para investigar a distribuição dos dados. Esta fase, primeiramente transforma dados números em séries temporais de 30 segundos. Em alguns casos, não há registro, para isso, é criada uma tabela de incidentes e posteriormente uma probabilidade de existência de registro para que seja encontrada as classes usadas para construção do histograma de Pearson \cite{dean2009descriptive}, por fim, são comparadas funções de distribuição com a atual com o fim de encontrar a que mais se aproxima.
+		\par
+		Para a fase 2 cuida da geração de dados sintéticos propriamente. Basicamente, o sistema utiliza a distribuição criada na fase um para gerar os dados para 24h, respeitando as características diferenciadas para dias de semana e finais de semana.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Kofinas21.png}
+			\caption{Fluxo de passos para geração dos dados sintéticos.}
+			\label{fig:kofinas}
+		\end{figure}
+	
+	\section{Aplicações relacionadas}
+
+		DTM Data Generator \cite{DTMDataGenerator} é uma plataforma de geração de dados sintéticos que existe de 1998.
+		Esta possui suporte para geração de dados em arquivos, em banco de dados, também para \emph{Big Data}.
+		Possui suporte multiplataforma, através do modo \emph{multiplatform runtime}, contudo é limitado quando comparado à versão Windows, o qual suporta a versão para servidor também.
+		É válido destacar que é um software essencialmente pago, isto é, existem versões gratuitas - demonstrações, para ser mais exato - mas limitadas.
+		Além disso, há categorias de versões pagas, que vão desde limitações de geração (Standart - Professional) à vantagens mais técnicas (Professional - Entrerprise).
+		\par
+		O DTM Data Generator possui uma vasta coleção de funcionalidades, as quais liberadas de acordo com as versões pagas.
+		Adotando a versão mais cara, a lista de \emph{features} é composta por geração de dados em JSON, XML, CSV ou geração por separador customizado.
+		Também permite gerar dados por arquivo DSN (Database Source Name), gerar dados por linha de comando, e gerar um arquivo SQL para não seja necessário conexão com banco de dados.
+		\par
+		É possível gerar cerca de 9.2 sextilhões de registros por \emph{rule}, modos de atualizar dados existentes (adicionar, substituir e \emph{Data Scrambling}), e suporte para bibliotecas de dados realistas.
+		A plataforma disponibiliza entrada de dados através de SQL, XML, JSON, pela WEB através de HTTP ou FTP, XLSM, arquivos de texto e scripts em Python.
+		Também é possível visualizar e testar os dados gerados, bem como gerá-los nos principais arquivos de texto (TSV, CSV, "DSV", JSON, XML) e banco de dados. (MS SQL Server, Oracle, DB2, MySQL, PostgreSQL, Informix, Sybase, SQLite e Firebird) 
+		\par
+		Há uma suíte de produtos relacionados fornecidos pela DTM soft. 
+		Além do gerador de dados, 
+			há o gerador de dados XML para teste de aplicação (DTM Test XML Generator);
+			um gerador de planilhas Excel (DTM Data Generator for Excel)
+			testador exaustivo - teste de estresse - de banco de dados (DTM DB Stress);
+			Bem como editor, visualizador (DTM Data Editor), comparador e sincronizador de banco de dados (DTM Data Comparer) entre outros. 
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/DTMDataGenerator.png}
+			\caption{Usando o DTM Data Generator. Fonte: DTM Data Generator}
+			\label{fig:DTMDG}
+		\end{figure}
+
+		O SQL Data Generator \cite{RedgateSQLDataGenerator} é um software que compõe uma suíte de ferramentas (chamada de SQL Toolbelt) da Red Gate.
+		O software é exclusivo para o ecossistema Windows, com suporte do Windows 7 ao 10, à versão para servidores do Windows, ao SQL Server (2008 ao 2017), .NET e Oracle.
+		Este produto é distribuido através de licenças pagas e vitalícias, com atualizações gratuitas e, no mínimo 1 ano de suporte gratuito.
+		Vale ressaltar que é possível testar o produto por 14 dias gratuitamente.
+		\par
+		O SQL Toolbelt tem funcionalidades bem delimitadas e a função do Data Generator é popular um banco de dados. 
+		A população acontece ao escolher, primeiramente, uma tabela do banco.
+		A partir disso, escolhe-se um gerador para cada coluna da tabela.
+		Um gerador tem classificação fortemente baseada na realidade, isto é, possui geradores como palavras relacionadas à compras, pagamentos, pessoas (primeiro e último nome), dado geográficos e afins.
+		Contudo, também disponibiliza a geração a partir de expressões regulares \emph{Regex generator} e scripts de python.
+		Por se tratar de banco de dados, também há checagem e tratamento de \emph{constraints}, \emph{Foreign keys} e \emph{Dependencies}.
+		O SQL Data Generator também permite lidar com arquivos XML, quer seja para geração de valores XML, como utilizar como dados de entrada, além de mesclá-los com o \emph{Regex generator}.
+		\par
+		Quanto ao SQL Toolbelt oferecido pela Red Gate, ele conta com 2 modalidades, o completo com 14 programas e o \emph{essentials} com 10.
+		Entre os mais relevantes, pode-se citar o \emph{SQL Data Compare}, \emph{SQL Data Generator}, \emph{SQL Test}, \emph{SQL Backup Pro} e \emph{SQL Scripts Manager}.
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/sql-data-generator.png}
+			\caption{Usando o Redgate SQL Data Generator. Fonte: Red Gate SQL Data Generator.}
+			\label{fig:RedgateSQLDG}
+		\end{figure}
+
+		Microsoft Visual Studio \cite{VSDataGenerator} é um pacote de programas da Microsoft para desenvolvimento de \emph{software}. 
+		Este é composto por 4 versões (\emph{Express}, \emph{Professional}, \emph{Premium}, \emph{Ultimate}), e a opção de gerar dados para teste está disponível a partir da versão \emph{Premium}.
+		O foco é permitir que verique o comportamento do banco de dados, sem relacioná-los com os dados da aplicação em produção.
+		\par
+		Para gerar os dados de teste, deve-se utilizar os geradores de dados (\emph{Data Generators}), que são correlacionados às tabelas do banco de dados.
+			Os geradores podem ser dos mais primitivos (Binários, Inteiros, Data, \emph{Float}), como de Imagem, Dinheiro, Expressão Regular, Categórico entre outros.
+		Também é disponibilizado um Plano de Geração de Dados (\emph{Data Generation Plan}), feito em XML, que contém informações do banco de dados, o tipo de dados de cada gerador e a quantidade de dados para ser gerado. 
+		Este plano serve basicamente para reutilização da lógica de teste.
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Visual-Studio.jpg}
+			\caption{Usando o Microsoft Visual Studio. Fonte: anranik.}
+			\label{fig:VSDG}
+		\end{figure}
+
+		Test Data Generator \cite{forgeDBDataGenerator} é uma ferramenta GUI (\emph{Graphical User Interface}) pela dbForge para gerar dados de teste para banco de dados SQL desde 1997.
+		O software possui mais de 200 geradores predifinidos e configuráveis os quais permitem a geração de dados mais inteligentes, isto é, mais próximos da realidade, como nomes, localização, dados de saúde e afins.
+		Quanto à compatibilidade, este é exclusivo do ecossistema Windows, com suporte à versão 7 ao 10, do Windows Server 2008 ao 2019 e ao SQL Server Azure, 2008 ao 2017.
+		Além da GUI, também há o suporte para geração de dados a partir da linha de comando.
+		O produto é distribuido sob licenças pagas e vitalícias, porém, com suporte ao cliente com tempo limitado e com 30 dias gratuitos para avaliação.
+		\par
+		Para usar o dbForge Test Data Generator, é preciso fazer uma conexão com banco de dados. 
+		A partir disso, utiliza-se os \emph{Data Generators} para determinar o comportamento dos dados para determinada coluna da tabela selecionada no Banco de dados.
+		Os Geradores de dados podem ser do tipo emph{Basics} e emph{Advanced}. 
+		Do primeiro tipo, são formas mais próximas dos dados primitivos, como datas, texto \emph{lorem ipsum}, JSON, \emph{ReGex}.
+		Já o avançado conta com número de cartão de crédito, aniversário, número de conta bancária internacional, IPv4, \emph{hash} de senhas.  
+		A geração de dados resume-se à população de banco de dados, não há uma forma de exportar os dados em arquivos como CSV e JSON.
+		\par
+		Há um suíte exclusivo para SQL Server, contudo também para Oracle, MySQL, PostgreSQL entre outros.
+		Neste suíte, há várias ferramentas que auxiliam na manutenção, mas não, necessariamente, a geração de dados, a exemplode um \emph{previewer}.
+		Destes, pode-se citar um comparador de dados, criador de \emph{querys}, um monitor - para supervisão do banco de dados - e afins.
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/dbForge-Test-Data-Generator.jpg}
+			\caption{Usando o dbForge Test Data Generator. Fonte: anranik.}
+			\label{fig:dbForgeTDG}
+		\end{figure}
+
+		Mockaroo \cite{mockaroo} é um \emph{web site} e \emph{framework} para desenvolver dados de teste.
+		Há um total de 143 geradores, sendo a maioria considerados geradores realistas.
+		Por ser um site, é possível acessá-lo por qualquer sistema operacional, dependendo apenas de conexão com a internet.
+		O produto possui versões gratuita e pagas. - \emph{Free}, \emph{Silver}, \emph{Gold}, \emph{Enterprise} as quais variam no \emph{host}, o qual pode ser do Mockaroo ou privado, máximo de registros por download, velocidade de download e preço.
+		\par
+		Na tela inicial, é possível escolher o nome da coluna, o tipo de gerador, algumas opções - valores em branco e funções a partir dos dados.
+		Ainda nesta tela, encontra-se o botão para \emph{download} dos dados, pré-visualização dos mesmo (mas sem gráficos), algumas configurações como quantidade de linhas, formato dos dados para \emph{download}, botão para clone ou deleção de banco de dados, e importação de dados csv/Excel ou SQL.
+		\par
+		Outro serviço interessante do Mockaroo é Mockaroo APIs \cite{mockarooAPI}.
+		Este consiste em baixar dados programaticamente através de requisições REST (\emph{Representational State Transfer}).
+		As requisições podem ser feitas de 2 formas, a \emph{Generate API} - gera os dados através de um banco de dados salvo e os envia pelo corpo de uma requisição - 
+		e \emph{Mock APIs} que basicamente, simula um \emph{back-end} como tratamento de parâmetros e simulação de erros. 
+		É pensado para desenvolvimento ágil de aplicações \emph{front-end}, isto é, sem perder muito tempo com o \emph{back-end} a priori.
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/mockaroo.jpg}
+			\caption{Usando o Mockaroo. Fonte: anranik.}
+			\label{fig:mockaroo}
+		\end{figure}
+		% \subsubsection{ApexSQL Generate}
+		% \subsubsection{Datanamic Data Generator MultiDB}
+		% \subsubsection{Upscene Advanced Data Generator}
+		% \subsubsection{EMS Data Generator}
+		% \subsubsection{GEDIS Studio}
 
 		
 	% ---
