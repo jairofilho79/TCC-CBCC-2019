@@ -494,11 +494,10 @@ Equipe \abnTeX
 Lauro César Araújo
 
 % ---
-\chapter{Fundamentação Teórica}\label{cap_exemplos}
+
+\chapter{Fundamentação Teórica}
 	Neste capítulo é abordado em mais detalhes sobre a literatura dos dados sintéticos, discrepântes, faltantes,
 	 bem como de arquivos, e serviços como \emph{Web Service} e base de dados.
-% ---
-
 	% Por que estou fazendo isso?
 	% Qual a necessidade de um gerador de dados sintéticos?
 	% Já existem aplicações? Quais os seus prós e contras?
@@ -765,6 +764,31 @@ Lauro César Araújo
 			\caption{Fluxo de passos para geração dos dados sintéticos.}
 			\label{fig:kofinas}
 		\end{figure}
+
+		No trabalho feito por Sakshaug and Raghunathan produziram um procedimento de simulação não paramétrica para geração de dados sintéticos de variáveis contínuas com o foco em pequenas áreas geográfica. 
+		Segundo a avaliação do autor os dados sintéticos tiveram validade moderadamente alta em seus testes, mas ressalta a limitação do método não paramétrico. 
+		Em geral, os dados sintéticos se mostram promissores para geração de dados sintéticos para pequenas áreas geográficas, mas faltam testes mais aprofundados como dados de pesquisa em larga escala para substituir os dados reais por dados sintéticos em centros de dados de pesquisa.
+		Na figura \ref{fig:SakshaugandRaghunathan} é possível observar a comparação dos resultados da média da simulação paramétrica e da não paramétrica para cada atributo.
+		Na simulação não paramétrica as médias dos dados sintéticos e reais ficam bem próximas, com exceção da idade (\emph{age}), apresentando um bom resultado para a troca de dados reais para dados sintéticos.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/SakshaugandRaghunathan.jpg}
+			\caption{Fluxo de passos para geração dos dados sintéticos.}
+			\label{fig:SakshaugandRaghunathan}
+		\end{figure}
+
+		Similarmente ao Blocks Data Generator, o projeto Threat Streaming Generator (TSG) visa criar um gerador de dados sintéticos realistas com foco em dados para testes.
+		É mostrado o fluxograma dos processos do TSG na figura \ref{fig:whitingetal} .
+		Primeiramente são definidos qual o tipo de conjunto de dados vai ser gerado.
+		Em seguida são dadas 3 possilidades ao usuário de inserir o ambiente e a ameaça: manualmente, através da ferramenta TSG e outras fontes.
+		Por fim, esses dados são analisados por especialistas os quais são responsáveis pela qualidade do conjunto de dados gerado.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/whitingetal.jpg}
+			\caption{Fluxo de passos para geração dos dados sintéticos.}
+			\label{fig:whitingetal}
+		\end{figure}
+
 	
 	\section{Aplicações relacionadas}
 
