@@ -510,10 +510,12 @@ Lauro César Araújo
 	% Mostrar a foto.
 
 	\section{Dados Sintéticos}
-		Em seu trabalho, Rubin \cite{rubin1993statistical} a introduziu a necessidade de dados sintéticos.
+		Dados sintéticos foi definido como "qualquer dado produzido o qual possa ser aplicado a uma dada situação que não foi obtido por mensuração direta.". \cite{mcgraw-hilleducation2016}
+		Em seu trabalho, Rubin \cite{rubin1993statistical} a introduziu um conjunto de dados completamente sintético.
 		Em suma, seu objetivo era tornar anônimo os domicílios que participaram do censo daquela época.
-		A partir desse fato, confidencialidade dos dados se tornou muito necessário, o que ajudou na popularização dos dados sintéticos.
-		Portanto, dados sintéticos foi definido como "qualquer dado produzido o qual possa ser aplicado a uma dada situação que não foi obtido por mensuração direta.". \cite{mcgraw-hilleducation2016}
+		A questão da confidencialidade sempre foi uma característica necessária para dados divulgados, principalmente para dados sensíveis.
+		Os dados sintéticos possuem possuem a possibilidade de serem alterados mantendo a mesma ideia, logo, representa os dados reais originais.
+		Essa característica que ajudou na popularização dos dados sintéticos.
 		\par
 		A necessidade de dados sintéticos podem ser de várias formas, 
 		desde a escassez de dados reais ou indisponibilidade;
@@ -765,7 +767,7 @@ Lauro César Araújo
 			\label{fig:kofinas}
 		\end{figure}
 
-		No trabalho feito por Sakshaug and Raghunathan produziram um procedimento de simulação não paramétrica para geração de dados sintéticos de variáveis contínuas com o foco em pequenas áreas geográfica. 
+		No trabalho feito por Sakshaug and Raghunathan foi aplicado um procedimento de simulação não paramétrica para geração de dados sintéticos de variáveis contínuas com o foco em pequenas áreas geográfica. 
 		Segundo a avaliação do autor os dados sintéticos tiveram validade moderadamente alta em seus testes, mas ressalta a limitação do método não paramétrico. 
 		Em geral, os dados sintéticos se mostram promissores para geração de dados sintéticos para pequenas áreas geográficas, mas faltam testes mais aprofundados como dados de pesquisa em larga escala para substituir os dados reais por dados sintéticos em centros de dados de pesquisa.
 		Na figura \ref{fig:SakshaugandRaghunathan} é possível observar a comparação dos resultados da média da simulação paramétrica e da não paramétrica para cada atributo.
@@ -773,7 +775,7 @@ Lauro César Araújo
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/SakshaugandRaghunathan.jpg}
-			\caption{Fluxo de passos para geração dos dados sintéticos.}
+			\caption{Comparação da média dos dados reais e sintéticos na simulação paramétrica e não paramétrica.}
 			\label{fig:SakshaugandRaghunathan}
 		\end{figure}
 
@@ -789,7 +791,28 @@ Lauro César Araújo
 			\label{fig:whitingetal}
 		\end{figure}
 
-	
+		Com o foco em CARS (Context-Aware Recommender Systems - Sistemas de Recomendação sensíveis ao contexto), o DataGenCARS é uam ferramenta para gerar dados sintéticos de forma flexível e prática.
+		Permitindo que o usuário possa inserir os tipos perfis do usuário, tipos de contexto e itens, misturar dados sintéticos e dados reais com o fim de aumentar o realismos dos dados gerados.
+		Na imagem \ref{fig:DataGenCARS} mostra-se, de forma geral, o funcionamento do DataGenCARS.
+		De início a ferramenta mostra que é possível, opcionalmente, expandir outros conjuntos de dados bem como analisá-los estatisticamente.
+		De qualquer modo, deve ser definido os esquemas de contexto usuários, itens e configuração da geração para que se tenha o conjunto de dados.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/DataGenCARS.jpg}
+			\caption{Fluxo de passos para geração dos dados sintéticos.}
+			\label{fig:DataGenCARS}
+		\end{figure}
+
+		Pensando em oferecer confidencialidade dos dados governamentais, Larsen and Huckett desenvolveram um gerador de dados sintéticos que alia regressão de quartis com imputação \emph{hot deck} e troca de classificação.
+		A predição de regressão de quantis é feita para proteger dados sensíveis a partir de dados não sensíveis,
+		 isto é, o conjunto de dados finais são compostos por dimensões reais - os não sensíveis - e sintéticos - para dimensões sensíveis.
+		Em alguns casos os dados sintéticos são similares aos reais e para isso foi utilizado a imputação \emph{hot deck} junto com a troca de classificação, para garantir a aleatoriedade e confidencialidade dos dados.
+		%Artigo sem imagem.
+
+
+
+
+
 	\section{Aplicações relacionadas}
 
 		DTM Data Generator \cite{DTMDataGenerator} é uma plataforma de geração de dados sintéticos que existe de 1998.
