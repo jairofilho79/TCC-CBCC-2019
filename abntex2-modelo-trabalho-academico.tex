@@ -767,7 +767,7 @@ Lauro César Araújo
 			\label{fig:kofinas}
 		\end{figure}
 
-		No trabalho feito por Sakshaug and Raghunathan foi aplicado um procedimento de simulação não paramétrica para geração de dados sintéticos de variáveis contínuas com o foco em pequenas áreas geográfica. 
+		No trabalho feito por Sakshaug and Raghunathan \cite{Sakshaug2014} foi aplicado um procedimento de simulação não paramétrica para geração de dados sintéticos de variáveis contínuas com o foco em pequenas áreas geográfica. 
 		Segundo a avaliação do autor os dados sintéticos tiveram validade moderadamente alta em seus testes, mas ressalta a limitação do método não paramétrico. 
 		Em geral, os dados sintéticos se mostram promissores para geração de dados sintéticos para pequenas áreas geográficas, mas faltam testes mais aprofundados como dados de pesquisa em larga escala para substituir os dados reais por dados sintéticos em centros de dados de pesquisa.
 		Na figura \ref{fig:SakshaugandRaghunathan} é possível observar a comparação dos resultados da média da simulação paramétrica e da não paramétrica para cada atributo.
@@ -779,8 +779,8 @@ Lauro César Araújo
 			\label{fig:SakshaugandRaghunathan}
 		\end{figure}
 
-		Similarmente ao Blocks Data Generator, o projeto Threat Streaming Generator (TSG) visa criar um gerador de dados sintéticos realistas com foco em dados para testes.
-		É mostrado o fluxograma dos processos do TSG na figura \ref{fig:whitingetal} .
+		Similarmente ao Blocks Data Generator, o projeto Threat Streaming Generator (TSG) \cite{Whiting2008} visa criar um gerador de dados sintéticos realistas com foco em dados para testes.
+		É mostrado o fluxograma dos processos do TSG na figura \ref{fig:whitingetal}.
 		Primeiramente são definidos qual o tipo de conjunto de dados vai ser gerado.
 		Em seguida são dadas 3 possilidades ao usuário de inserir o ambiente e a ameaça: manualmente, através da ferramenta TSG e outras fontes.
 		Por fim, esses dados são analisados por especialistas os quais são responsáveis pela qualidade do conjunto de dados gerado.
@@ -791,7 +791,7 @@ Lauro César Araújo
 			\label{fig:whitingetal}
 		\end{figure}
 
-		Com o foco em CARS (Context-Aware Recommender Systems - Sistemas de Recomendação sensíveis ao contexto), o DataGenCARS é uam ferramenta para gerar dados sintéticos de forma flexível e prática.
+		Com o foco em CARS (Context-Aware Recommender Systems - Sistemas de Recomendação sensíveis ao contexto), o DataGenCARS \cite{delCarmenRodrguezHernndez2017} é uam ferramenta para gerar dados sintéticos de forma flexível e prática.
 		Permitindo que o usuário possa inserir os tipos perfis do usuário, tipos de contexto e itens, misturar dados sintéticos e dados reais com o fim de aumentar o realismos dos dados gerados.
 		Na imagem \ref{fig:DataGenCARS} mostra-se, de forma geral, o funcionamento do DataGenCARS.
 		De início a ferramenta mostra que é possível, opcionalmente, expandir outros conjuntos de dados bem como analisá-los estatisticamente.
@@ -803,15 +803,11 @@ Lauro César Araújo
 			\label{fig:DataGenCARS}
 		\end{figure}
 
-		Pensando em oferecer confidencialidade dos dados governamentais, Larsen and Huckett desenvolveram um gerador de dados sintéticos que alia regressão de quartis com imputação \emph{hot deck} e troca de classificação.
+		Pensando em oferecer confidencialidade dos dados governamentais, Larsen and Huckett \cite{Larsen2012} desenvolveram um gerador de dados sintéticos que alia regressão de quartis com imputação \emph{hot deck} e troca de classificação.
 		A predição de regressão de quantis é feita para proteger dados sensíveis a partir de dados não sensíveis,
 		 isto é, o conjunto de dados finais são compostos por dimensões reais - os não sensíveis - e sintéticos - para dimensões sensíveis.
 		Em alguns casos os dados sintéticos são similares aos reais e para isso foi utilizado a imputação \emph{hot deck} junto com a troca de classificação, para garantir a aleatoriedade e confidencialidade dos dados.
 		%Artigo sem imagem.
-
-
-
-
 
 	\section{Aplicações relacionadas}
 
@@ -936,7 +932,7 @@ Lauro César Araújo
 	%Inserir os Casos de Uso
 	%Inserir as ferramentas utilizadas
 	O software chamado de Blocks Data Generator é \emph{Open Source} e está hospedado no GitHub em \url{http://github.com/gustavoresque/DataGenerator}.
-	Em termos de organização, foi adotado um modelo incremental de desenvolvimento, com reuniões diárias para discussão de \emph{bugs} e melhorias, e utilização da ferramenta Trello (\url{https://trello.com}) para organização das informações, problemas e melhorias.
+	Em termos de organização do projeto, foi adotado um modelo incremental de desenvolvimento, com reuniões diárias para discussão de problemas e melhorias, e utilização da ferramenta Trello (\url{https://trello.com}) para organização das informações, problemas e melhorias.
 	\par
 	Em termos de desenvolvimento, foi utilizada a linguagem Javascript com foco para \emph{Desktop}, através do \emph{Framework} Electron (\url{https://electronjs.org/}).
 	Adotando o padrão de projeto MVC (\emph{Model, View, Controller}), também foi adicionado o \emph{jQuery} para agilizar a codificação do projeto.
