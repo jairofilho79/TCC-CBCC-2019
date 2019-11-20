@@ -932,12 +932,11 @@ Lauro César Araújo
 	%Inserir os Casos de Uso
 	%Inserir as ferramentas utilizadas
 	O software chamado de Blocks Data Generator é \emph{Open Source} e está hospedado no GitHub em \url{http://github.com/gustavoresque/DataGenerator}.
-	Em termos de organização do projeto, foi adotado um modelo incremental de desenvolvimento, com reuniões diárias para discussão de problemas e melhorias, e utilização da ferramenta Trello (\url{https://trello.com}) para organização das informações, problemas e melhorias.
+	Em termos de organização do projeto, foi adotado o padrão de arquitetura de \emph{software} MVC (\emph{Model, View, Controller}), um modelo incremental de desenvolvimento, com reuniões diárias para discussão de problemas e melhorias, e utilização da ferramenta Trello (\url{https://trello.com}) para organização e persistência das informações.
 	\par
-	Em termos de desenvolvimento, foi utilizada a linguagem Javascript com foco para \emph{Desktop}, através do \emph{Framework} Electron (\url{https://electronjs.org/}).
-	Adotando o padrão de projeto MVC (\emph{Model, View, Controller}), também foi adicionado o \emph{jQuery} para agilizar a codificação do projeto.
-	Do Javascript também foi utilizado o Node.js (\url{https://nodejs.org/en/}) para acessar recursos do sistema operacional, para o desenvolvimento do \emph{Web Service} e também para dar suporte ao Electron.
-	E quanto à versão do Javascript foram utilizados os novos recursos do Ecmascript 6 (2015) como o desenvolvimento assíncrono com as \emph{Promises} e \emph{arrow functions}.
+	Quanto ao desenvolvimento, foi utilizada a linguagem Javascript com foco para \emph{Desktop}, através do \emph{Framework} Electron (\url{https://electronjs.org/}).
+	Também foi adicionado o \emph{jQuery} para agilizar a codificação do projeto e o Node.js 10 (\url{https://nodejs.org/en/}) para acessar recursos do sistema operacional, para o desenvolvimento do \emph{Web Service} e também para dar suporte ao Electron.
+	Do Javascript foi utilizado o Ecmascript 6 (2015) e seus novos recursos como o desenvolvimento assíncrono com as \emph{Promises} e \emph{arrow functions}.
 	
 	\section{Casos de uso do sistema}
 		\begin{figure}[h!]
@@ -949,10 +948,11 @@ Lauro César Araújo
 		"O objetivo de um diagrama de casos de uso na UML é demonstrar as diferentes maneiras pelas quais um usuário pode interagir com um sistema." \cite{UCdefinition}
 		Por conta disso, é utilizado o Diagrama de Casos de Uso para demonstrar as principais funcionalidades do protótipo Blocks Data Generator.
 		Na figura \ref{fig:diagramaUC} são encontrados um total de 10 casos de uso.
+		\par
 		No UC01 mostra que é possível modificar um modelo, isto é, adicionar ou remover dimensões, alterar geradores e afins; também há inclusão do UC04 e a possibilidade de desfazer ou refazer as alterações (UC02).
 		O UC04 representa a criação do modelo. 
-		Está é considerada a funcionalidade original, pois é incluída por vários e não inclui nenhuma funcionalidade.
-		Outros que possuem relação com UC04 é o UC03 e UC07 como inclusão e UC05 como extensão.
+		Esta é considerada a funcionalidade original, pois é incluída por vários casos de uso e não inclui nenhuma funcionalidade.
+		Outros casos de uso que possuem relação com UC04 é o UC03 e UC07 como inclusão e UC05 como extensão.
 		\par
 		UC03 é uma funcionalidade para reaproveitamento do modelo, também está atrelado à validação de teste por outros pesquisadores.
 		UC07 é o carro chefe do Blocks Data Generator, o qual refere-se à geração de dados, progredindo para o \emph{Big Data} ou não.
