@@ -927,10 +927,6 @@ Lauro César Araújo
 	% ---
 \chapter{Arquitetura do projeto}\label{cap_trabalho_academico}
 % ---
-
-%-- TODO: 
-	%Inserir os Casos de Uso
-	%Inserir as ferramentas utilizadas
 	O software chamado de Blocks Data Generator é \emph{Open Source} e está hospedado no GitHub em \url{http://github.com/gustavoresque/DataGenerator}.
 	Em termos de organização do projeto, foi adotado o padrão de arquitetura de \emph{software} MVC (\emph{Model, View, Controller}), um modelo incremental de desenvolvimento, com reuniões diárias para discussão de problemas e melhorias, e utilização da ferramenta Trello (\url{https://trello.com}) para organização e persistência das informações.
 	\par
@@ -967,100 +963,164 @@ Lauro César Araújo
 % ---
 \chapter{Protótipo}
 % ---
-	Este capítulo é dedicado em explicar mais sobre o prótótipo, seu fluxo de funcionamento, funcionalidades, mais detalhes sobre a interface do usuário entre outros.
+	Este capítulo é dedicado em explicar mais sobre o protótipo, seu fluxo de funcionamento, funcionalidades, mais detalhes sobre a interface do usuário entre outros.
 	De modo geral, o protótipo é chamado de Blocks Data Generator e visa ser um gerador de dados sintéticos baseado em modelos de dados.
 	Assim, o usuário pode manipular um ou mais modelos e cada modelo pode conter N dimensões, que por sua vez podem conter M geradores de dados encadeados.
 	\par
 	Os geradores de dados podem gerar dados numéricos, categóricos, temporais etc (haverá uma seção específica para geradores) e o resultado de um gerador pode servir de entrada para outro gerador através de operadores.
 	Os operadores podem ou não aplicar uma operação matemática (soma, subtração, divisão, multiplicação) ao resultado do gerador anterior - a leitura de anterior e posterior é da esquerda para a direita, respectivamente.
-	Junto com os operadores, também há outras propriedades que variam de acordo com o gerador (ver seção 4.1).
+	Junto com os operadores, também há outras propriedades que variam de acordo com o gerador.
 	\par
 	Ainda na modelagem das dimensões, é possível modificar seu nome, verificar o tipo do dado gerado pelo gerador, o ID e se está disponível para geração e visualização.
 	Essa disponibilidade (chamado de \emph{display}) foi feita para o caso de haver um modelo em que nem todas as dimensões sejam necessárias em determinado momento, mas também não queira perdê-las.
 	Adicionalmente, é possível copiar e colar dimensões através de atalhos no teclado, bem como adicionar ou excluir dimensões, esta por só meio de um botão.
 	\par
-	Também é disponibilizado um pré-visualizador de dados com apenas um gráfico - o coordenadas paralelas -, cujo volume de dados é independente do volume de dados para ser gerado, colorido e interativo.
-	Além do \emph{preview}, há uma integralização com um visualizador de dados mais elaborado e com mais opções de visualização.
+	Também é disponibilizado um pré-visualizador de dados com apenas um gráfico - o coordenadas paralelas -, o qual é colorido e interativo e seu volume de dados é independente do volume de dados para ser gerado.
+	Além do \emph{preview}, há uma integralização com um visualizador de dados mais elaborado e com mais opções de visualização, o \emph{VisTechLib}.
 	\par
 	Outrossim, há um botão específico para gerar os dados em arquivos JSON, CSV, TSV ou por de requisições HTTP do tipo GET (\emph{Web Service}).
-	Vale ressaltar que quantidade de dados gerados, pré-visualizados, formato dos dados gerados e se contém a legenda dos dados no arquivo final é configurável em ambiente especializado, assim como para o \emph{Web Service}.
+	Vale ressaltar que é possível configurar, em ambiente dedicado, a quantidade de dados gerados, pré-visualizados, formato dos dados gerados, se contém a legenda dos dados no arquivo final e as propriedades do \emph{Web Service}.
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=\linewidth]{./figures/prototipo/fluxogramaUtilizacaoBlocks.png}
-		\caption{Fluxograma de utilização do Blocks Data Generator Fonte: Yvan Brito, 2019.}
+		\caption{Fluxograma de utilização do Blocks Data Generator. Fonte: Yvan Brito, 2019.}
 		\label{fig:fluxograma}
 	\end{figure}
 	\par
 	Na figura \ref{fig:fluxograma} é possível visualizar como foi pensada a utilização da aplicação.
-	Na primeira raia, encontra-se como usuário pode configurar o modelo.
-	Basicamente, o usuário define as dimensões e os seus geradores e o comportamento dos dados pode ser validado pelo \emph{preview}, se precisar o modelo pode ser atualizado a qualquer momento.
+	Na primeira raia, encontra-se como o usuário pode configurar o modelo.
+	Basicamente, o usuário define as dimensões e os seus geradores. 
+	E o comportamento dos dados pode ser validado pelo \emph{preview}. 
+	Caso seja necessário, o modelo pode ser atualizado a qualquer momento.
 	\par
 	A segunda raia demonstra os caminhos para geração de dados.
 	É possível a geração de dados por \emph{Big Data}, isto é, um grande conjunto de dados multidimensionais, apenas por meio de arquivos.
 	Também a geração de dados por \emph{Streaming}, o qual dar mais controle ao usuário sobre o processo de geração, e também é disponibilizado o \emph{Web Service}.
-	E o caminho 5.3 demonstra uma for iterativa de geração de arquivos de dados, com mudanças programadas de atributos.
+	E o caminho 5.3 demonstra uma forma iterativa de geração de arquivos de dados, com mudanças programadas de atributos.
 	Esses dados podem ser usados em experimentos, testes e afins, cujos resultados podem ser publicados.
 	\par
 	A terceira raia funciona como um agrupamento das duas primeiras, mas externa.
-	Isso para demonstrar que os processos anteriores podem ser replicados a partir do mesmo modelo de dados e o resultado pode ser comparado, facilitando Método Científico de pesquisadores sérios.
+	Isso para demonstrar que os processos anteriores podem ser replicados a partir do mesmo modelo de dados e o resultado pode ser comparado, facilitando a produção científica de pesquisadores.
 	
 	\section{Tipos de Geradores de Dados}
 		% TODO: colocar as fórmulas na seção de fórmulas (perguntar para o professor antes)
+		\begin{table}[h]
+			\centering
+			\caption{Geradores do Blocks Data Generator}
+			\vspace{0.5cm}
+			\label{table: geradores blocks}
+			\begin{tabular}{l|l|l|l|l|l|l}
+			
+				Nome                 & Categoria  & Tipo dos valores                 & Tipo dos parâmetros                                                                    & Correlação & Independente & Resumo \\ % Note a separação de col. e a quebra de linhas
+				\hline % para uma linha horizontal
+				Constant             & Sequencial & Numérico                         & Selecionável, Número, Número, Número                                                   & Não        & Sim          & Gera uma sequência de \textbf{números} com sempre o mesmo número.\\
+				Counter              & Sequencial & Numérico                         & Selecionável, Número, Número                                                           & Não        & Sim          & Gera uma sequência de \textbf{números} que é incrementada ou decrementada.\\
+				Fixed Time           & Sequencial & Temporal                         & Selecionável, Número, Número, Tempo, Tempo, Caracteres                                 & Não        & Sim          & Gera uma sequência de \textbf{tempo} que é incrementada ou decrementada.\\
+				Sinusoidal Sequence  & Sequencial & Numérico                         & Selecionável, Número, Número, Número, Número, Número                                   & Não        & Sim          & Gera uma sequência de \textbf{números} de acordo com uma função senoidal.\\
+				Custom Sequence      & Sequencial & Numérico                         & Selecionável, Número, Número, Caracteres                                               & Não        & Sim          & Gera uma sequência de \textbf{números} cujo comportamento é dado pelo usuário.\\
+				%--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+				Poisson Time         & Aleatório  & Temporal                         & Selecionável, Tempo, Número, Selecionável, Caracteres, Número                          & Não        & Sim          & Gera valores aleatórios \textbf{temporais} em uma distribuição de acordo com a função de Poisson.\\
+				Uniform              & Aleatório  & Numérico                         & Selecionável, Número, Número, Checável                                                 & Não        & Sim          & Gera valores aleatórios \textbf{númericos} em uma distribuição uniforme.\\
+				Gaussian             & Aleatório  & Numérico                         & Selecionável, Número, Número                                                           & Não        & Sim          & Gera valores aleatórios \textbf{númericos} em uma distribuição de acordo com a função Gaussiana.\\
+				Poisson              & Aleatório  & Numérico                         & Selecionável, Número                                                                   & Não        & Sim          & Gera valores aleatórios \textbf{númericos} em uma distribuição de acordo com a função de Poisson.\\
+				Bernoulli            & Aleatório  & Numérico                         & Selecionável, Número                                                                   & Não        & Sim          & Gera valores aleatórios \textbf{númericos} em uma distribuição de acordo com a função de Bernoulli.\\
+				Cauchy               & Aleatório  & Numérico                         & Selecionável, Número, Número                                                           & Não        & Sim          & Gera valores aleatórios \textbf{númericos} em uma distribuição de acordo com a função de Cauchy.\\
+				Weighted Categorical & Aleatório  & Categórico                       & Selecionável, Lista de Caracteres, Lista de Números                                    & Não        & Sim          & Gera valores aleatórios \textbf{categóricos} dada uma lista de categorias com probabilidade ponderada.\\
+				Categorical          & Aleatório  & Categórico                       & Selecionável, Lista de Caracteres                                                      & Não        & Sim          & Gera valores aleatórios \textbf{categóricos} dada uma lista de categorias.\\
+				Categorical Quantity & Aleatório  & Categórico                       & Selecionável, Lista de Caracteres, Lista de Números                                    & Não        & Sim          & Gera valores aleatórios \textbf{categóricos} dada uma lista de categorias definindo a quantidade de aparição de categorias. \\
+				%--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+				Linear               & Função     & Numérico                         & Selecionável, Dimensão, Número, Número                                                 & Sim        & Sim          & Gera valores a partir de uma dimensão \textbf{númerica} em uma função linear.\\
+				Quadratic            & Função     & Numérico                         & Selecionável, Dimensão, Número, Número, Número                                         & Sim        & Sim          & Gera valores a partir de uma dimensão \textbf{númerica} em uma função quadrática.\\
+				Polynomial           & Função     & Numérico                         & Selecionável, Dimensão, Lista de Números                                               & Sim        & Sim          & Gera valores a partir de uma dimensão \textbf{númerica} em uma função polinomial.\\
+				Exponential          & Função     & Numérico                         & Selecionável, Dimensão, Número, Número                                                 & Sim        & Sim          & Gera valores a partir de uma dimensão \textbf{númerica} em uma função exponencial.\\
+				Logarithm            & Função     & Numérico                         & Selecionável, Dimensão, Número                                                         & Sim        & Sim          & Gera valores a partir de uma dimensão \textbf{númerica} em uma função logarítmica.\\
+				Sinusoidal           & Função     & Numérico                         & Selecionável, Dimensão, Número, Número, Número                                         & Sim        & Sim          & Gera valores a partir de uma dimensão \textbf{númerica} em uma função senoidal.\\
+				Categorical          & Função     & Categórico                       & Selecionável, Dimensão                                                                 & Sim        & Sim          & Gera valores a partir de uma dimensão \textbf{categórica}.\\
+				Piecewise            & Função     & Numérico                         & Selecionável, Dimensão, Número                                                         & Sim        & Sim          & Gera valores a partir de uma dimensão \textbf{númerica} com limiar recebe dados de 2 outros geradores. \\
+				TimeLaps             & Função     & Temporal                         & Selecionável, Dimensão, Tempo                                                          & Sim        & Sim          & Gera valores a partir de uma dimensão \textbf{temporal} que ao atingir o tempo definido ele dados de um novo gerador.  \\
+				%--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+				MCAR                 & Acessório  & Numérico, Temporal ou Categórico & Selecionável, Caracteres, Número                                                       & Não        & Não          & Gera valores faltantes aleatoriamente com auxílio de um ou mais geradores dada uma probabilidade. \\
+				MAR                  & Acessório  & Numérico, Temporal ou Categórico & Selecionável, Caracteres, Selecionável, Caracteres, Caracteres, Dimensão               & Sim        & Sim          & Gera valores faltantes com auxílio a partir de uma dimensão e com parâmetros definidos pelo usuário faltantes. \\
+				MNAR                 & Acessório  & Numérico, Temporal ou Categórico & Selecionável, Caracteres, Selecionável, Caracteres, Caracteres                         & Não        & Não          & Gera valores faltantes com auxílio de um ou mais geradores com parâmetros definidos pelo usuário para ter dados faltantes. \\
+				Noise                & Acessório  & Numérico, Temporal ou Categórico & Selecionável, Selecionável, Número, Número                                             & Não        & Não          & Gera valores ruidosos com auxílio de um mais geradores dada uma probabilidade e intensidade. \\
+				Constant Noise       & Acessório  & Numérico, Temporal ou Categórico & Selecionável, Número, Número                                                           & Não        & Não          & Gera dados ruidosos com valor específico constante com auxílio de um mais geradores dada uma probabilidade. \\
+				Range Filter         & Acessório  & Numérico, Temporal ou Categórico & Selecionável, Número, Número                                                           & Não        & Não          & Dado um ou mais geradores, os dados que estão no intervalo não são gerados.\\
+				Linear Scale         & Acessório  & Numérico, Temporal ou Categórico & Selecionável, Número, Número, Número, Número                                           & Não        & Não          & Dado um ou mais geradores, os dados são escalados de acordo com os parâmetros definidos. \\
+				No Repeat            & Acessório  & Numérico, Temporal ou Categórico & Selecionável                                                                           & Não        & Não          & Dado um ou mais geradores, são retirados os dados repetidos. \\
+				MinMax               & Acessório  & Numérico, Temporal ou Categórico & Selecionável, Número, Número                                                           & Não        & Não          & Permite escolher qual será o valor máximo e o mínimo gerados. \\
+				Low-Pass Filter      & Acessório  & Numérico, Temporal ou Categórico & Selecionável, Número                                                                   & Não        & Não          & Dado um ou mais geradores, este simula o resultado de um filtro passa-baixa.\\
+				Get Extra Value      & Acessório  & Numérico, Temporal ou Categórico & Selecionável, Caracteres, Número                                                       & Não        & Não          & Recebe o valor de dados multidimensionais. \\
+				%--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+				CubicBezier          & Geométrico & Numérico                         & Selecionável, Número, Número, Número, Número, Número, Número, Número, Número, Checável & Não        & Sim          & Gera dados para desenhar uma curva Bezier cúbica. \\
+				Path2D Stroke        & Geométrico & Numérico                         & Selecionável, Caracteres                                                               & Não        & Sim          & Gera dados para desenhar a borda de um polígono. \\
+				Path2D Fill          & Geométrico & Numérico                         & Selecionável, Caracteres                                                               & Não        & Sim          & Gera dados para preencher um polígono. \\
+			\end{tabular}
+		\end{table}
+		Na tabela \ref{table: geradores blocks} são apresentados, de forma geral, todos os geradores do Blocks Data Generator. São apresentados seus nomes, suas categorias, o tipo de valores retornados, os tipos de parâmetros, se possui correlação - o que na prática é se um dos parâmetros é uma outra dimensão - , se são independentes - ou seja, se precisa encadear geradores para funcionar corretamente - e um breve resumo.
 		\subsection{Sequencial}
 			Os geradores da categoria Sequencial geram valores encadeados dado um padrão.
-			É possível gerar o próprio padrão a partir do gerador \emph{Custom Sequence}, o qual você determina um valor Inicial (\emph{Begin}), o valor Intervalar (\emph{Step}), isto é, o qual vai ser incrementado ou decrementado dado uma Sentencia (\emph{sentence}) customizada.
+			É possível gerar o próprio padrão a partir do gerador \emph{Custom Sequence}, o qual você determina um valor Inicial (\emph{Begin}), o valor Intervalar (\emph{Step}), isto é, o qual vai ser incrementado ou decrementado dado uma Sentença (\emph{sentence}) customizada.
 			\par
 			Contudo, já são predefinidos alguns geradores como 
-				o \emph{constant}, o qual define um valor único de geração;
-				o \emph{counter}, funciona como um contador, onde-se é definido o valor Inicial e o Intervalar;
+				o \emph{Constant}, o qual define um valor único de geração;
+				o \emph{Counter}, funciona como um contador, onde-se é definido o valor Inicial e o Intervalar;
 				o \emph{Fixed Time Generator} gera um intevalo de tempo, onde-se define o valor inicial (\emph{init}), Intervalar e a máscara (\emph{mask}), isto é, como o tempo deve ser formatado;
 				o \emph{Sinusoidal Sequence} gera de acordo com a função senoidal, que, além do valor Inicial e Intervalar, há o 'a' de Amplitude, 'b' de frequência ângular e 'c' para representar a fase da onda.
 
 		\subsection{Aleatório}
-			A categoria aleatória de dados são as que contem mais geradores, pois são mais fáceis de se dissociar da realidade, pelo caráter aleatório, mas também de reaproximar, pelo caráter probabilístico.
+			A categoria aleatória de dados contém um significativo número de geradores, pois são mais fáceis de se dissociar da realidade, pelo caráter aleatório, mas também de reaproximar, pelo caráter probabilístico.
 			\par
 			Esta categoria conta com geradores uniformes, isto é, a distribuição dos dados é equalizada;
 				Também há um gerador de dados de tempo, parecido com o \emph{Fixed Time Generator} com a diferença que o comportamento é definido pela fórmula de Poisson e que há mais duas configurações: unidade de tempo - a qual pode ser desde milissegundos a anos - e o lambda, advindo da fórmula.
 				Há uma distribuição de poisson também, apenas com o lambda;
 				É disponibilizado geradores de fórmulas clássicas com a normal (Gaussiana), Bernoulli, e Cauchy com seus devidos parâmetros.
 			\par
-			Além de números, também é possível gerar dados categóricos (\emph{Categorical}), dadas as palavras inicialmente.
+			Além de números, também é possível gerar dados categóricos (\emph{Categorical}), dadas as palavras - também chamado de categorias - inicialmente.
 				Similarmente há o \emph{Weighted Categorical} que possui valores de probabilidade para cada palavra, e 
 				já o \emph{Categorical Quantity}, em vez de probabilidade, define quantas vezes cada palavra deve aparecer.
 		\subsection{Funcional}
-			A categoria funcional \emph{Function} serve para gerar dados de acordo com outra dimensão chamado de \emph{input}, isto é, facilita a correlação entre dimensões.
+			A categoria funcional (\emph{Function}) serve para gerar dados de acordo com outra dimensão chamado de \emph{input}, isto é, facilita a correlação entre dimensões.
 			Para dados numéricos, disponibiliza-se as 
-				função de primeiro \emph{Linear Function} e 
-				segundo \emph{Quadratic Function} grau, 
-				exponencial \emph{Exponential Function}, 
-				logarítmica \emph{Logarithm Function} e
+				função de primeiro grau (\emph{Linear Function}) e 
+				segundo grau (\emph{Quadratic Function}), 
+				exponencial (\emph{Exponential Function}), 
+				logarítmica (\emph{Logarithm Function}) e
 				a \emph{Piecewise Function}, cuja função é definida por subfunções, e no caso, é possível definir o gerador desejado até um determinado valor chamado de \emph{Intervals} e depois pode-se escolher outro gerador.
 			\par
-			Para dados categóricos, há a função categórica \emph{Categorical Function} e 
-			a \emph{TimeLaps Function} a qual funciona de forma semelhante ao gerador \emph{Piecewise Function}, só que utiliza uma quantidade de tempo como limiar, chamado de \emph{Laps} e também somente geradores de tempo como \emph{input}.
+			Para dados categóricos, há a função categórica (\emph{Categorical Function}) e 
+			a \emph{TimeLaps Function} a qual funciona de forma semelhante ao gerador \emph{Piecewise Function}, só que utiliza uma quantidade de tempo como limiar - imagine uma corrida de fórmula 1 e cada vez que os carros passam pela linha de chegada eles completam uma volta. Esta volta é o limiar também chamado de \emph{Laps} - e para o \emph{input}, somente geradores de tempo.
 		\subsection{Acessórios}
 			Os geradores da categoria Acessórios (\emph{Acessory}) foram pensados especialmente para serem concatenados com outros geradores, com o fim auxiliá-los.
-			Entre os geradores acessórios, pode-se citar o \emph{Missing Value}, o qual retira alguns dados do conjunto;
-			%TODO: Adicionar novos tipos de missing value.
-				o \emph{Noise Generator} que adiciona dados fora do padrão, conhecido como ruído, com uma determinada probabilidade e intensidade*
-				o \emph{Constant Noise Generator} também adiciona ruídos, mas só que é um valor específico com determinada probabilidade de ser adicionado;
-				o \emph{Ranger Filter} permite ficar no conjunto de dados apenas os valores que estão entre os valores de início \emph{Begin} e fim \emph{End};
+			Entre os geradores acessórios, pode-se citar o \emph{Missing Value}, o qual foi subdivido em 3 geradores: o \emph{MCAR}, \emph{MAR} e \emph{MNAR}.
+			O MCAR usa a probabilidade para definir qual dado será faltante;
+			O MAR e o MNAR são similares. 
+			Eles trabalham de forma diferente para cada tipo de dado.
+			Os tipos de dado são os Numéricos, os Categóricos e os Temporais.
+			Para os Numéricos e os Temporais, é definido um intervalo no qual os dados vão ser faltantes.
+			Para os dados Categóricos, é definida uma lista de categorias na qual todas essas categorias faltarão na geração de dados.
+			Quanto a diferença entre MAR e MNAR está em que o MAR possui correlação com outra dimensão e é independente de outros geradores,
+			 enquanto o MNAR não possui correlação com outras dimensões, mas é dependente de outros geradores.   
+			\par
+				O \emph{Noise Generator} que adiciona dados fora do padrão, conhecido como ruído, com uma determinada probabilidade, intensidade - o que ajuda a criar o nível de discrepância - e a partir de 3 distribuições: uniforme, gaussiana, e de Poisson.
+				O \emph{Constant Noise Generator} também adiciona ruídos, mas só que é um valor específico com determinada probabilidade de ser adicionado;
+				o \emph{Ranger Filter} permite retirar do conjunto de dados os valores que estão entre os valores de início (\emph{Begin}) e fim (\emph{End});
 				o \emph{Linear Scale} permite que os determinados (selecionados através do \emph{MinIn} e \emph{MaxIn}) dados sejam escalados através do \emph{minOut} e \emph{MaxOut}.
 			\par
 			O \emph{No Repeat} retira dados repetidos do conjunto;
 				o \emph{MinMax} define quais valores serão os maiores e menores de acordo com os parâmetros dados;
-				o \emph{Low-Pass Filter} faz jus ao nome e filtra pela "Amplitude" do dado. Na prática, o valor sucesso é uma media ponderada (valor recebido pelo parâmetro \emph{Smooth}) do valor anterior com o valor gerado;
+				o \emph{Low-Pass Filter} faz jus ao nome e filtra pela "Amplitude" do dado. Na prática, o valor sucessor é uma media ponderada (valor recebido pelo parâmetro \emph{Smooth}) do valor anterior com o valor gerado;
 				o \emph{Get Extra Value} pega os retornos extras dos geradores que retornam mais que um valor.
 		\subsection{Geométrico}
-			A categoria de geradores Geométricos (\emph{Geometric}) permitem que o usuário desenhem o comportamento dos dados, através da ferramenta de desenho no sistema.
-			Para isso são disponibilizados dois geradores.
-			O primeiro gerados bidimensionais a partir da linha desenhada pelo usuário (\emph{Path2D Stroke}).
-			Quanto ao segundo, este gerado os dados a partir do preenchimento da linha desenhada (ver algoritmo \emph{Floodfill}) pelo usuário (\emph{Path2D Fill}).
+			Os geradores Geométricos (\emph{Geometric}) permitem que seja gerado dados para desenho de polígonos etc.
+			Para isso são disponibilizados três geradores.
+			O primeiro deles (\emph{Path2D Stroke}) gera dados bidimensionais a partir da linha inserida pelo usuário.
+			O segundo, este gerado os dados a partir do preenchimento da linha desenhada (ver algoritmo \emph{Floodfill}) pelo usuário (\emph{Path2D Fill}).
+			Quanto ao terceiro, este gera dados para desenho de uma curva bezier cúbica (\emph{CubicBezier}) a partir de seus pontos.
 		\subsection{Baseado em dados reais}
 			Para esta categoria, existe apenas um gerador, chamado como \emph{Real Data Wrapper}.
 			Basicamente, ele é criado automaticamente quando o usuário importa um conjunto de dados reais através de um CSV, por exemplo.
 			Este gerador recebe tantos valores categóricos como numéricos e essa informação pode ser decidida automaticamente pelo gerador ou ser forçada pelo usuário.
-			É possível gerar uma quande superior de dados do que do conjunto de dados real, para isso é feito um tratamento para dados faltantes.
+			É possível gerar uma quantidade superior de dados em relação ao conjunto de dados real, para isso é feito um tratamento de inputação de dados.
 			Esse tratamento é feito através de funções de geração, chamadas de \emph{GenType}.
 			\par
 			Essas funções pode ser do tipo \emph{Standart}, que é pegar os dados do início ao fim de forma cíclica até chegar ao número desejado de registros.
