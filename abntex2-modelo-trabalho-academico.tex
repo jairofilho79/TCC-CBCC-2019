@@ -1344,13 +1344,14 @@ Lauro César Araújo
 	
 	\section{Modelagem dos Dados}
 
-		Foram criadas 3 bases de dados de contextos genéricos, simulando abstratamente contextos reais.
+		Foram criadas 5 bases de dados de contextos genéricos, simulando abstratamente contextos reais.
 		Para criação dessas bases com 500 instâncias foram utilizados os geradores
 		 \emph{Noise Generator} e o \emph{Constant Noise Generator} para gerar dados discrepantes.
 		E para criação de dados faltantes foram utilizados os geradores
 		 \emph{MCAR}, \emph{MAR} e \emph{MNAR}.
 		Também foram utilizados outros geradores para auxiliar no comportamento das dimensões como os
-		 \emph{Linear Funcion}, \emph{Linear Scale}, \emph{MinMax}, \emph{Uniform Generator}, \emph{Gaussian Generator}, \emph{Piecewise Function} e \emph{Categorical} para geração de nomes.
+		 \emph{Linear Funcion}, \emph{Linear Scale}, \emph{MinMax} e 
+		 \emph{Piecewise Function}.
 		\par
 
 		A primeira base é sobre uma avaliação de carros, onde há a categoria do carro, o ano, marca, preço, notas dos críticos e dos usuários.
@@ -1389,66 +1390,225 @@ Lauro César Araújo
 		Além da correlação, possui a discrepância fraca e muito forte, para simular boas postagens e postagens virais.
 		\par
 
-		Por conseguinte a terceira base, vista na figura \ref{fig:BEmodelo}, diz respeito a um Boletim Escolar que possui
-		 um nome de aluno (categoria genérica);
-		 dimensão de Frequência, a qual possui uma média em 75\%, podendo variar para cima ou para baixo e com discrepâncias como frequência máxima e sem frequência;
-		 Matérias que é distribuída uniformemente;
-		 E CRG (Coeficiente de Rendimento Geral) que possui uma origem de valor com média 5, 
-		  possui correlação inversamente proporcional com matérias, 
-		  diretamente proporcional com frequência,
-		  E uma pequena porcentagem de alunos que tiram nota alta sem essa correlação são exemplos de dados discrepantes.
+		% Por conseguinte a terceira base, vista na figura \ref{fig:BEmodelo}, diz respeito a um Boletim Escolar que possui
+		%  um nome de aluno (categoria genérica);
+		%  dimensão de Frequência, a qual possui uma média em 75\%, podendo variar para cima ou para baixo e com discrepâncias como frequência máxima e sem frequência;
+		%  Matérias que é distribuída uniformemente;
+		%  E CRG (Coeficiente de Rendimento Geral) que possui uma origem de valor com média 5, 
+		%   possui correlação inversamente proporcional com matérias, 
+		%   diretamente proporcional com frequência,
+		%   E uma pequena porcentagem de alunos que tiram nota alta sem essa correlação são exemplos de dados discrepantes.
+		% \par
+		% \begin{figure}[h!]
+		% 	\centering
+		% 	\includegraphics[width=\linewidth]{./figures/Resultados/BEmodelo.jpg}
+		% 	\caption{Base sintética de avaliação de Boletim Escolar.}
+		% 	\label{fig:BEmodelo}
+		% \end{figure}
+
+		A base de Atletismo (ver figura \ref{fig:AtletaModelo}) foi criada para simular um cenário de dados em relação ao tempo.
+		Para isso tem um atleta, um valor categórico qualquer;
+		Uma modalidade que é o quanto um atleta corre em uma competição (100 a 400 metros);
+		Marcação é o valor temporal do instante em que foi marcado;
+		Distância é, dado o instante, o quanto o atleta percorreu, o qual é baseado na sua modalidade;
+		E a última dimensão diz respeito à frequência cardíaca no instante.
 		\par
 		\begin{figure}[h!]
 			\centering
-			\includegraphics[width=\linewidth]{./figures/Resultados/BEmodelo.jpg}
-			\caption{Base sintética de avaliação de Boletim Escolar.}
-			\label{fig:BEmodelo}
+			\includegraphics[width=\linewidth]{./figures/Resultados/AtletaModelo.jpg}
+			\caption{Base sintética de avaliação de Atletas.}
+			\label{fig:AtletaModelo}
+		\end{figure}
+		
+		A quarta base como visto na figura \ref{fig:CMModelo} mostra um esquema de convênios médicos.
+		Primeiramente há o profissional e sua especialidade - ambos dados categóricos uniformes;
+		Quanto ao Plano de saúde - é referente aos que atende - e esta dimensão possui um peso, devido à popularidade e/ou acessibilidade dos planos;
+		E o Preço da Consulta varia de acordo com o plano de saúde.
+		\par
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/Resultados/CMModelo.jpg}
+			\caption{Base sintética de avaliação de Instrumentos Hospitalares.}
+			\label{fig:CMModelo}
 		\end{figure}
 
-		Em suma, na tabela \ref{table:resumo caracteristica dimensao bases de validacao} é possível encontrar um pequeno resumo das características peculiares das dimensões de cada base sintética gerada.
-		O objetivo dessa tabela é facilitar a visualização e comparação do pretendido e dos resultados obtidos que serão mostrados na sessão de validação.
-		\begin{table}[htb]
-			\center
-			\caption{Tabela de Resumo das características das dimensões das bases de validação.}
-			\label{table:resumo caracteristica dimensao bases de validacao}
-			\begin{tabular}{l|l|l|l}
-				Base            & Dimensão          & Característica(s)                                         & Grau Esperado\\
-				\hline
-				Carros          & Categoria         & U\footnotemark[1]                                         & Normal\\
-				Carros          & Ano               & U\footnotemark[1]                                         & Normal\\
-				Carros          & Marca             & U\footnotemark[1]                                         & Normal\\
-				Carros          & Preço             & Di\footnotemark[2] e C\footnotemark[3]                    & Leve\\
-				Carros          & Nota dos Críticos & U\footnotemark[1] e F\footnotemark[4]                     & Leve\\
-				Carros          & Nota do público   & De\footnotemark[5], F\footnotemark[4] e C\footnotemark[3] & Mediano\\
-				Redes Sociais   & Nome              & U\footnotemark[1]                                         & Normal\\
-				Redes Sociais   & Idade             & U\footnotemark[1] e F\footnotemark[4]                     & Mediano\\
-				Redes Sociais   & Postagens         & G\footnotemark[6], Di\footnotemark[2]                     & Alto\\
-				Redes Sociais   & Seguidores        & G\footnotemark[6], Di\footnotemark[2]                     & Extremo\\
-				Redes Sociais   & Curtidas          & Di\footnotemark[2] e C\footnotemark[3]                    & Extremo\\
-				Boletim Escolar & Nome              & U\footnotemark[1]                                         & Normal\\
-				Boletim Escolar & Frequência        & G\footnotemark[6], Di\footnotemark[2]                     & Leve\\
-				Boletim Escolar & Matérias          & U\footnotemark[1]                                         & Normal\\
-				Boletim Escolar & CRG               & De\footnotemark[5], F\footnotemark[4] e C\footnotemark[3] & Mediano\\
-			\end{tabular}
-		\end{table}
+		A base que simula uma estrutura de conta bancária (ver figura \ref{fig:BancoModelo}) foi feita com a intenção de mostrar dados hierárquicos.
+		A identificação de uma conta bancária é composta por um banco composto por 3 dígitos,
+		uma agência de 4 dígitos e uma conta composta por 8 dígitos.
+		Foram acrescentados umas opções de dados faltantes.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/Resultados/BancoModelo.jpg}
+			\caption{Base sintética de avaliação de Estrutura de Conta Bancária.}
+			\label{fig:BancoModelo}
+		\end{figure}
 
-		\footnotetext[1]{Uniforme}
-		\footnotetext[2]{Discrepante}
-		\footnotetext[3]{Correlacional}
-		\footnotetext[4]{Faltante}
-		\footnotetext[5]{Decisional}
-		\footnotetext[6]{Gaussiano}
+		% Em suma, na tabela \ref{table:resumo caracteristica dimensao bases de validacao} é possível encontrar um pequeno resumo das características peculiares das dimensões de cada base sintética gerada.
+		% O objetivo dessa tabela é facilitar a visualização e comparação do pretendido e dos resultados obtidos que serão mostrados na sessão de validação.
+		% \begin{table}[htb]
+		% 	\center
+		% 	\caption{Tabela de Resumo das características das dimensões das bases de validação.
+		% 	}
+		% 	\label{table:resumo caracteristica dimensao bases de validacao}
+		% 	\begin{tabular}{l|l|l|l}
+		% 		Base            & Dimensão          & Característica(s)                                         & Grau Esperado\\
+		% 		\hline
+		% 		Carros          & Categoria         & U\footnotemark[1]                                         & Normal\\
+		% 		Carros          & Ano               & U\footnotemark[1]                                         & Normal\\
+		% 		Carros          & Marca             & U\footnotemark[1]                                         & Normal\\
+		% 		Carros          & Preço             & Di\footnotemark[2] e C\footnotemark[3]                    & Leve\\
+		% 		Carros          & Nota dos Críticos & U\footnotemark[1] e F\footnotemark[4]                     & Leve\\
+		% 		Carros          & Nota do público   & De\footnotemark[5], F\footnotemark[4] e C\footnotemark[3] & Mediano\\
+		% 		Redes Sociais   & Nome              & U\footnotemark[1]                                         & Normal\\
+		% 		Redes Sociais   & Idade             & U\footnotemark[1] e F\footnotemark[4]                     & Mediano\\
+		% 		Redes Sociais   & Postagens         & G\footnotemark[6], Di\footnotemark[2]                     & Alto\\
+		% 		Redes Sociais   & Seguidores        & G\footnotemark[6], Di\footnotemark[2]                     & Extremo\\
+		% 		Redes Sociais   & Curtidas          & Di\footnotemark[2] e C\footnotemark[3]                    & Extremo\\
+		% 		Boletim Escolar & Nome              & U\footnotemark[1]                                         & Normal\\
+		% 		Boletim Escolar & Frequência        & G\footnotemark[6], Di\footnotemark[2]                     & Leve\\
+		% 		Boletim Escolar & Matérias          & U\footnotemark[1]                                         & Normal\\
+		% 		Boletim Escolar & CRG               & De\footnotemark[5], F\footnotemark[4] e C\footnotemark[3] & Mediano\\
+		% 	\end{tabular}
+		% \end{table}
+
+		% \footnotetext[1]{Uniforme}
+		% \footnotetext[2]{Discrepante}
+		% \footnotetext[3]{Correlacional}
+		% \footnotetext[4]{Faltante}
+		% \footnotetext[5]{Decisional}
+		% \footnotetext[6]{Gaussiano}
 		
-	\section{Validação da Modelagem}
-		Para validar os dados, foram utilizadas 3 visualizações encontradas no Blocks Data Generator.
-		As visualizações são Coordenadas Pararelas, Matriz \emph{Scatter Plot} e Histograma.
-		O objetivo é encontrar as características listadas na tabela \ref{table:resumo caracteristica dimensao bases de validacao}.
-		Com isso, verificar a qualidade do Blocks Data Generator de gerar dados faltantes e discrepantes.
-		%Com fé no pai, vou encontrar!
+	\section{Apresentação das Visualizações}
+	Uma vez modelo é preciso visualizar os dados e verificar os resultados da modelagem.
+	O Blocks Data Generator possui visualizações integradas e elas são utilizadas como exemplos.
+	Entretanto, outras aplicações foram utilizadas para visualização de dados como o RawGraphs \url{https://app.rawgraphs.io}, o Tableau Desktop, e o Excel - Programa de computador que faz parte do pacote \emph{Office} da Microsoft.
+	\par
 
-		
+	Para a base de Carros foram utilizadas 2 visualizações de dados, Coordenadas Paralelas e Scatterplot.
+	Na figura \ref{fig:PCCarros}, a qual possui 3 imagens de coordenadas paralelas agrupadas.
+	De cima para baixo, a origem coloração dos dados é Preço, Nota dos críticos e Nota do público.
+	Tom avermelhado signfica um valor alto e tom azulado significa valores baixos.
+	\par
+	Nessa visualização é possível perceber a grande quantidade de carros baratos, e há uma forte correlação com o ano - são mais antigos - e possuem, em geral, uma alta nota dos críticos e do público.
+	Pode-se perceber um vácuo nas notas 1 e 2 na dimensão das Notas dos críticos, o que é resultado do gerador MNAR.
+	Também é observável a correlação entre as notas do críticos e nota do público.
+	\par
+	Na figura \ref{fig:ScatterPlotC} mais detalhes são perceptíveis por conta da dispersão.
+	Primeiramente, os valores abaixo de 0 são os dados faltantes.
+	Esse padrão é adotado não só nesse modelo de dados.
+	\par
+	E por citar dados faltantes, percebe-se esses dados nas notas do público, e por comparar com outras dimensões, observa-se que é uniforme, logo, caracteriza-se um MCAR.
+	No preço, há um vácuo na faixa de 80.000, apesar de não ter sido intencional, caracteriza-se um MNAR, pois a resposta não está na base de dados.
+	Sobre a correlação, agora é possível perceber com mais clareza a correlação diretamente proporcional entre nota dos críticos e do público, e uma leve correlação inversamente proporcional entre preço e nota do público.
+	\par
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/Resultados/PCCarros.png}
+		\caption{Visualização Coordenadas Paralelas da base de carros.}
+		\label{fig:PCCarros}
+	\end{figure}
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/Resultados/ScatterPlotC.jpg}
+		\caption{Visualização Scatterplot da base de carros.}
+		\label{fig:ScatterPlotC}
+	\end{figure}
+
+	A figura \ref{fig:PCRS} é capaz de mostrar as principais características do modelo de dados sobre Redes Sociais.
+	Na dimensão Idade é possível encontrar dados faltantes a partir dos 40 anos, logo, caracteriza-se um MNAR, pois não está na base de dados a explicação.
+	E os dados discrepantes nas dimensões de seguidores, curtidas e postagens.
+	O padrão encontrado é que as pessoas possuam uma faixa de 2 mil postagens, menos de 5 milhões de seguidores e menos de 500 mil curtidas no total.
+	E por conta dos dados discrepantes, a própria escala é prejudicada.
+	\par
+
+	No histograma (ver figura \ref{fig:HistogramaRS}) é possível visualizar um pouco melhor a questão da escala dos dados.
+	A frequência dos dados numa mesma coluna e muito pouco ou nada nas outras ratifica o problema do alto grau de discrepância da base.
+	\par
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/Resultados/PCRS.png}
+		\caption{Visualização Coordenadas Paralelas da base de Redes Sociais.}
+		\label{fig:PCRS}
+	\end{figure}
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/Resultados/HistogramaRS.jpg}
+		\caption{Visualização Histograma da base de Redes Sociais. A unidade de Curtida é bilhões; Seguidores está em milhões e Postagens está em milhares.}
+		\label{fig:HistogramaRS}
+	\end{figure}
+
+	% A figura tal mostra a visualização coordenadas paralelas referente ao modelo Boletim Escolar.
+	% Sem muito esforço, é possível perceber a correlação entre CRG e frequência.
+	% Há um vácuo não intencional na frequência e pode ser caracterizado um MCAR.
 
 
+	% \begin{figure}[h!]
+	% 	\centering
+	% 	\includegraphics[width=\linewidth]{./figures/Resultados/PCBE.png}
+	% 	\caption{Visualização Coordenadas Paralelas da base de Boletim Escolar.}
+	% 	\label{fig:PCBE}
+	% \end{figure}
+
+	% \begin{figure}[h!]
+	% 	\centering
+	% 	\includegraphics[width=\linewidth]{./figures/Resultados/ScatterPlotBE.jpg}
+	% 	\caption{Visualização Scatterplot da base de Boletim Escolar.}
+	% 	\label{fig:ScatterPlotBE}
+	% \end{figure}
+
+	As bases anteriores foram geradas pelo VisTechLib e o Preview do Blocks Data Generator.
+	As visualizações do modelo do Atletismo foram geradas no Excel, utilizando os gráficos de linha, pontos e colunas agrupadas.
+	Foram visualizadas as dimensões de distância, marcação e frequência cardíaca.
+	\par
+	Na figura \ref{fig:Atletismo-Marcacao-Distancia} mostra a relação marcação-distância.
+	Percebe-se que há muitos dados nas extremidades e muitos dados abaixo da faixa de 150 de distância.
+	Contudo, ao se comparar com a marcação-distância (ver figura \ref{fig:Atletismo-Frequencia-Distancia}) não há uma correlação - por exemplo, uma alta distância percorrida em menos tempo tente a aumentar a frequência cardíaca.
+	Isso acontece porque não há um gerador para correlacionar dados temporais e dados numéricos na aplicação Blocks.
+	Por isso, são dados discrepantes ainda que não intencionais.
+	\par
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/Resultados/Atletismo-Marcacao-Distancia.png}
+		\caption{Visualização Gráfico de linha da base de Atletas.}
+		\label{fig:Atletismo-Marcacao-Distancia}
+	\end{figure}
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/Resultados/Atletismo-Frequencia-Distancia.png}
+		\caption{Visualização de Gráfico de Ponto da base de Atletas.}
+		\label{fig:Atletismo-Frequencia-Distancia}
+	\end{figure}
+
+	O modelo de dados sobre estruturas de conta bancária possui uma arquitetura hierárquica e pode ser vista através de um Dendrograma (ver figura )
+	A priori, para esta visualização foi necessário reduzir a 10\% o volume de dados, para que as propriedades hierárquicas sejam perceptíveis.
+	Na visualização é possível identificar dados faltantes do tipo MCAR, visto que foram perdida de forma aleatória, mas não foi imaginada uma forma de gerar dados discrepantes.
+	\par
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/Resultados/BancoDendrograma.png}
+		\caption{Visualização Dendrograma da base sobre estrutura de conta bancária.}
+		\label{fig:BancoDendrograma}
+	\end{figure}
+
+	Na figura \ref{fig:BCCM} é possível ver um gráfico de barras subagrupado por especialidades médicas.
+	Neste gráfico pode-se comparar os valores de cada especialidade por plano de saúde.
+	A priori, o SUS possui uma discrepância anômala, pois os dados são próximos de 0 - fora adicionados valores ínfimos para que não seja confundido com um dado faltante.
+	Os dados faltantes são representados por uma barra sem tamanho.
+	É possível identificar que há discrepância nos dados, mas não foi utilizado um gerador específico, apenas uma função categórica e diferentes geradores de dados, os quais foram escolhidos aleatoriamente.
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/Resultados/BCCM.png}
+		\caption{Visualização Gráfico de Colunas da base Convênios Médicos. Eixo X: Planos de Saúde, Eixo Y: Especialidades, Barra: Preço por Consulta}
+		\label{fig:BCCM}
+	\end{figure}
+	
 
 % ---
 % Conclusão
