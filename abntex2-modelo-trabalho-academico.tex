@@ -358,27 +358,27 @@ Escrever Agradecimentos aqui.
 % resumo em português
 \setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
 \begin{resumo}
- Segundo a \cite{NBR6028:2003}, o resumo deve ressaltar o
- objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão
- destes itens dependem do tipo de resumo (informativo ou indicativo) e do
- tratamento que cada item recebe no documento original. O resumo deve ser
- precedido da referência do documento, com exceção do resumo inserido no
- próprio documento. (\ldots) As palavras-chave devem figurar logo abaixo do
- resumo, antecedidas da expressão Palavras-chave:, separadas entre si por
- ponto e finalizadas também por ponto.
 
- \textbf{Palavras-chave}: latex. abntex. editoração de texto.
+	Neste trabalho é apresentado e analisado o protótipo de geração e visualização de dados sintéticos chamado de Blocks Data Generator.
+	O objetivo foi modelar, visualizar e avaliar a geração de dados sintéticos faltantes e discrepantes.
+	Foram utilizados vários tipos de dados como numéricos, categóricos, temporais etc.
+	Em geral, o Blocks permitiu a geração desses dados de forma satisfatória.
+
+ \textbf{Palavras-chave}: Dados Sintéticos. Dados Faltantes. Dados Discrepantes. Visualização de Dados.
 \end{resumo}
 
 % resumo em inglês
 \begin{resumo}[Abstract]
  \begin{otherlanguage*}{english}
-   This is the english abstract.
+   In this paper it's presented and analyzed the prototype of synthetic data generation and synthetic data visualization called Blocks Data Generator.
+   The goals was modelling, visualizing and evaluate the generation of missing synthetic data and synthetic outliers.
+   Data types as numeric, categorical and time were used.
+   In general, Blocks works fine generating those data.  
 
    \vspace{\onelineskip}
  
    \noindent 
-   \textbf{Keywords}: latex. abntex. text editoration.
+   \textbf{Keywords}: Synthetic Data. Missing Data. Outliers. Data Visualization.
  \end{otherlanguage*}
 \end{resumo}
 
@@ -411,21 +411,21 @@ Escrever Agradecimentos aqui.
 % ---
 % inserir lista de abreviaturas e siglas
 % ---
-\begin{siglas}
-  \item[ABNT] Associação Brasileira de Normas Técnicas
-  \item[abnTeX] ABsurdas Normas para TeX
-\end{siglas}
+% \begin{siglas}
+%   \item[ABNT] Associação Brasileira de Normas Técnicas
+%   \item[abnTeX] ABsurdas Normas para TeX
+% \end{siglas}
 % ---
 
 % ---
 % inserir lista de símbolos
 % ---
-\begin{simbolos}
-  \item[$ \Gamma $] Letra grega Gama
-  \item[$ \Lambda $] Lambda
-  \item[$ \zeta $] Letra grega minúscula zeta
-  \item[$ \in $] Pertence
-\end{simbolos}
+% \begin{simbolos}
+%   \item[$ \Gamma $] Letra grega Gama
+%   \item[$ \Lambda $] Lambda
+%   \item[$ \zeta $] Letra grega minúscula zeta
+%   \item[$ \in $] Pertence
+% \end{simbolos}
 % ---
 
 % ---
@@ -455,48 +455,57 @@ Escrever Agradecimentos aqui.
 %Mostrar que já existem geradores de dados sintéticos.
 %Mostrar o diferencial do protótipo que procuramos fazer.
 %Mostrar o que são dados ausentes (missing data)
-Este documento e seu código-fonte são exemplos de referência de uso da classe
-\textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento 
-exemplifica a elaboração de trabalho acadêmico (tese, dissertação e outros do
-gênero) produzido conforme a ABNT NBR 14724:2011 \emph{Informação e documentação
-- Trabalhos acadêmicos - Apresentação}.
+%Mostrar o que são dados discrepantes
+%Apresentar os Objetivos do Trabalho em conjunto dos métodos.
 
-A expressão ``Modelo Canônico'' é utilizada para indicar que \abnTeX\ não é
-modelo específico de nenhuma universidade ou instituição, mas que implementa tão
-somente os requisitos das normas da ABNT. Uma lista completa das normas
-observadas pelo \abnTeX\ é apresentada em \cite{abntex2classe}.
+Dados sintéticos são dados gerados por uma máquina \cite{pensamentos-dados-sinteticos} a partir de outros dados, geradores, fórmulas matemáticas, funções etc.
+Esses dados, apesar de ainda não atingirem uma maturidade de complexidade a nível dos seres humanos \cite{pensamentos-dados-sinteticos}, pode aplicado de variadas formas.
+Quer seja substituindo/simplificando dados reais - dados previsíveis podem ser substituídos por fórmulas ou funções - ou adicionando novos dados a partir de uma instância apenas fazendo algumas alterações.
+\par
+Ainda, um problema muito complicado aumenta a demanda por dados sintéticos: confidencialidade dos dados.
+Ninguém quer ter seus dados sendo usados de forma arbitrária por empresas, mas todos querem melhores serviços.
+Logo, para melhorar a situação dos dois lados, os dados sintéticos podem atingir um grau de realismo - dependendo da ferramenta e da habilidade do operador - sem ter grandes problemas de privacidade.
+\par
+Também, outro problema é a escassez dos dados.
+Este cenário é encontrado principalmente em lançamento de novas tecnologias ou tratamento de exceções.
+Portanto, nada mais esperto do que, a partir da instância que possui, gerar novas instâncias, determinando novos padrões, logo, novos casos de teste ou de uso.
+\par
+Os dados podem ser variados, como um número, uma categoria, uma marcação de tempo, uma imagem, um áudio, um vídeo e afins.
+Portanto, gerar dados sintéticos exigem variados métodos.
+Entre os mais conhecidos, pode-se citar fórmulas matemáticas, redes neurais, interpolação de frames, embaralhamentos, aleatoriedade etc.
+\par
+Como dito por Moraes \cite{pensamentos-dados-sinteticos} dados sintéticos podem ser muito simples.
+Uma forma de dar realismo aos dados é permitir que algumas instâncias sejam faltantes.
+Eventualmente alguém pode se esquecer ou recusar responder uma informação, pode haver uma falha no disco rígido etc.
+Logo, dados faltantes são bastante presentes em bases de dados reais.
+\par
+Dados faltantes podem assumir formas dependendo do seu contexto.
+Na literatura são encontradas 3 formas: MCAR, MAR e MNAR.
+Basicamente o MCAR determina que a falta do dado é completamente aleatória.
+No MAR ainda é aleatório, mas é possível correlacionar em buscar de predizer o valor faltante.
+O MNAR indica que o dado está faltante e o seu motivo não está dito na base de dados, ou seja, pode haver influência de contexto externo.
+\par
+Outra característica de dados reais são dados discrepantes.
+Entenda-se por discrepante aquele dado que sai do padrão, quer seja no valor ou na formatação.
+Semelhante aos faltantes, dados discrepantes podem existir devido uma falha no sensor, um evento atípico, uma inverdade durante a pesquisa etc.
+\par
+Dados faltantes podem assumir 2 formas também: dados ruidosos e dados anômalos.
+Basicamente um dado ruidoso - ou simplesmente ruído - possui um baixo grau de discrepância.
+Já o dado anômalo - ou anomalia - possui um alto grau de discrepância, podendo até atrapalhar o entendimento do fenômeno e a visualização dos dados.
+\par
+Pensando em oferecer acessibilidade aos dados sintéticos foi desenvolvido o Blocks Data Generator.
+O Blocks é gratuito e oferece vários geradores de diferentes categorias, bem como encadeá-los para que os dados tenham cada vez forma de um dado real.
+É possível gerar sequências, dados randômicos, correlacionar dimensões e adicionar acessórios como ruídos e dados faltantes.
+\par
+Por conseguinte, o objetivo é apresentar o Blocks Data Generator e como gerar dados faltantes e discrepantes nessa aplicação.
+Feito isso, o Blocks permite que os dados sejam visualizados, então é interessante que essa funcionalidade seja analisada.
+Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator modelando e visualizando dados faltantes e discrepantes.
 
-Sinta-se convidado a participar do projeto \abnTeX! Acesse o site do projeto em
-\url{http://www.abntex.net.br/}. Também fique livre para conhecer,
-estudar, alterar e redistribuir o trabalho do \abnTeX, desde que os arquivos
-modificados tenham seus nomes alterados e que os créditos sejam dados aos
-autores originais, nos termos da ``The \LaTeX\ Project Public
-License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
-
-Encorajamos que sejam realizadas customizações específicas deste exemplo para
-universidades e outras instituições --- como capas, folha de aprovação, etc.
-Porém, recomendamos que ao invés de se alterar diretamente os arquivos do
-\abnTeX, distribua-se arquivos com as respectivas customizações.
-Isso permite que futuras versões do \abnTeX~não se tornem automaticamente
-incompatíveis com as customizações promovidas. Consulte
-\cite{abntex2-wiki-como-customizar} para mais informações.
-
-Este documento deve ser utilizado como complemento dos manuais do \abnTeX\ 
-\cite{abntex2classe,abntex2cite,abntex2cite-alf} e da classe \textsf{memoir}
-\cite{memoir}. 
-
-Esperamos, sinceramente, que o \abnTeX\ aprimore a qualidade do trabalho que
-você produzirá, de modo que o principal esforço seja concentrado no principal:
-na contribuição científica.
-
-Equipe \abnTeX 
-
-Lauro César Araújo
 
 % ---
 
 \chapter{Fundamentação Teórica}
-	Neste capítulo é abordado em mais detalhes sobre a literatura dos dados sintéticos, discrepântes, faltantes,
+	Neste capítulo é abordado em mais detalhes sobre a literatura dos dados sintéticos, discrepantes, faltantes,
 	 bem como de arquivos, e serviços como \emph{Web Service} e base de dados.
 	% Por que estou fazendo isso?
 	% Qual a necessidade de um gerador de dados sintéticos?
@@ -1613,8 +1622,24 @@ Lauro César Araújo
 % ---
 % Conclusão
 % ---
-\chapter{Conclusão}
+\chapter{Considerações Finais}
 % ---
+
+O desenvolvimento do presente trabalho proporcionou a análise da geração de dados sintéticos discrepantes e faltantes na aplicação Blocks Data Generator.
+O sistema é \emph{Open Source} e permite que sejam gerados dados sintéticos e visualizá-los.
+\par
+Os dados sintéticos são importantes para mais variadas aplicações, por conta da seu desvínculo com a confidencialidade dos dados.
+O fato de geração basear-se em modelos permite que o compartilhamento dos dados seja mais leve, mas exigindo do processamento em contrapeso.
+A gratuidade para consumir os dados sintéticos permite que a pesquisa e teste de aplicações seja fomentado e democratizado, pois é acessível para todos.
+\par
+De uma forma geral, a aplicação permitiu que as características - dados faltantes e discrepantes - fossem percebidas no conjunto de dados de forma satisfatória, como vista na seção de Resultados, pois além da discrepância e falta de dados, também foi possível fazer correlações.
+Contudo, ao tornar a modelagem um pouco mais complexa, o sistema não permitiu que algumas características fossem adicionadas, como correlacionar dados de diferentes tipos.
+\par
+Para propor soluções para os problemas vistos, é interessante que o Blocks permita que dados de diferentes tipos sejam relacionados.
+Também, mais geradores categóricos, como gerar a partir de uma expressão regular, a partir de um arquivo, permitir uma sequência categórica - adicionar uma categoria seguida de um número, por exemplo - permitir embaralhar categorias etc.
+Alguns acessórios também são interessantes como formatar números de diferentes geradores - como ter números discretos, com cadas decimais fixas.
+O MCAR deve possuir o mesmo tipo de dado que está auxiliando, MAR e MNAR devem ter porcentagem de falta para que se torne mais suave a falta dos dados.
+\par
 
 \lipsum[31-33]
 
