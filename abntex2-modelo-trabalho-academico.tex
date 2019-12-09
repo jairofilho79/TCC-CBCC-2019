@@ -359,8 +359,13 @@ Escrever Agradecimentos aqui.
 \setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
 \begin{resumo}
 
-	Neste trabalho é apresentado e analisado o protótipo de geração e visualização de dados sintéticos chamado de Blocks Data Generator.
-	O objetivo foi modelar, visualizar e avaliar a geração de dados sintéticos faltantes e discrepantes.
+	Neste trabalho é apresentado e analisado o sistema de geração e visualização de dados sintéticos chamado de Blocks Data Generator.
+	Também foi acrescentado ao Sistema Blocks novos geradores de dados faltantes sintéticos.
+	Esse sistema é composto de geradores chamados de blocos, os quais podem ser encadeados - permitindo que seja gerado um comportamento mais complexo.
+	Os blocos possuem categorias sequenciais, randômicas, funcionais, - ou correlacionais -de acessórios e geométricas.
+	O Blocks também permite que os dados sejam visualizados, para isso ele possui um gráfico do tipo Coordenadas Paralelas na tela inicial e integração com o \emph{VisTechLib}.
+	Por conseguinte, os objetivos do trabalho são modelar, visualizar e avaliar a geração de dados sintéticos faltantes e discrepantes.
+	A validação dos resultados foi feita com o uso de visualizações e a partir delas, foi analisado o comportamento das dimensões.
 	Foram utilizados vários tipos de dados como numéricos, categóricos, temporais etc.
 	Em geral, o Blocks permitiu a geração desses dados de forma satisfatória.
 
@@ -370,8 +375,12 @@ Escrever Agradecimentos aqui.
 % resumo em inglês
 \begin{resumo}[Abstract]
  \begin{otherlanguage*}{english}
-   In this paper it's presented and analyzed the prototype of synthetic data generation and synthetic data visualization called Blocks Data Generator.
-   The goals was modelling, visualizing and evaluate the generation of missing synthetic data and synthetic outliers.
+   In this paper it's presented and analyzed the system of synthetic data generation and synthetic data visualization called Blocks Data Generator.
+   Also it's was added to the sistem new generators of synthetic missing values.
+   The system is composed of generators called blocks, which can be chained - letting a more complex data behavior.
+   The generators have cateogories called sequence, random, function, accessory, 
+   The goals are modelling, visualizing and evaluate the generation of missing synthetic data and synthetic outliers.
+   The result validation was made using data visualization and, from it, the dimensions behavior was analysed.
    Data types as numeric, categorical and time were used.
    In general, Blocks works fine generating those data.  
 
@@ -395,9 +404,9 @@ Escrever Agradecimentos aqui.
 % ---
 % inserir lista de quadros
 % ---
-\pdfbookmark[0]{\listofquadrosname}{loq}
-\listofquadros*
-\cleardoublepage
+% \pdfbookmark[0]{\listofquadrosname}{loq}
+% \listofquadros*
+% \cleardoublepage
 % ---
 
 % ---
@@ -453,7 +462,7 @@ Escrever Agradecimentos aqui.
 %Mostrar o uso de dados sintéticos e principais locais de uso.
 %Mostrar a necessidade de um gerador de dados sintéticos.
 %Mostrar que já existem geradores de dados sintéticos.
-%Mostrar o diferencial do protótipo que procuramos fazer.
+%Mostrar o diferencial do sistema que procuramos fazer.
 %Mostrar o que são dados ausentes (missing data)
 %Mostrar o que são dados discrepantes
 %Apresentar os Objetivos do Trabalho em conjunto dos métodos.
@@ -498,6 +507,7 @@ O Blocks é gratuito e oferece vários geradores de diferentes categorias, bem c
 É possível gerar sequências, dados randômicos, correlacionar dimensões e adicionar acessórios como ruídos e dados faltantes.
 \par
 Por conseguinte, o objetivo é apresentar o Blocks Data Generator e como gerar dados faltantes e discrepantes nessa aplicação.
+Também serão apresentados os geradores de dados faltantes de minha autoria.
 Feito isso, o Blocks permite que os dados sejam visualizados, então é interessante que essa funcionalidade seja analisada.
 Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator modelando e visualizando dados faltantes e discrepantes.
 
@@ -538,8 +548,8 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		Também são muito bem aplicáveis para exaustivos testes de segurança, os quais são necessários vários casos de teste
 		pesquisador/analista de teste tem controle suficiente das características (fórmulas matemáticas ou regras de geração) e pode usar em um sistema de detecção de fraudes, por exemplo. \cite{barse2003synthesizing}
 		
-	\section{Proveção dos dados}
-		\subsection{Arquivo}
+	
+	\section{Arquivo}
 		Gerar os dados não é o suficiente, para isso, é necessário oferecer uma forma pronta de uso para o usuário.
 		Para isso, pode ser utilizado os arquivos.
 		Segundo Tanenbaum \cite{tanenbaum1995sistemas} arquivos são unidades lógicas de informação criadas por processos e gerenciados por sistemas operacionais.
@@ -569,10 +579,10 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		A ideia é similar ao CSV, porém é utilizado uma tabulação em vez de vírgula.
 		
 		%\subsection{Banco de Dados}
-		\subsection{Web Service}
-			Um \emph{Web Service} \cite{webService-W3C} é definido como um software criado para suportar interoperabilidade entre máquinas através da rede computadores. Também possui uma interface descrita em um formato processável por máquinas (WSDL) e um protocolo para comunicação (SOAP). \cite{webService-W3C}
-			Essa era a arquitetura utilizada em 2004. Atualmente é predominante o uso de REST que em vez de exportar serviços como o SOAP, exporta os dados em si e não necessita do WSDL. \cite{soapVSrest}
-			%TODO: colocar exemplos de web services
+	\section{Web Service}
+		Um \emph{Web Service} \cite{webService-W3C} é definido como um software criado para suportar interoperabilidade entre máquinas através da rede computadores. Também possui uma interface descrita em um formato processável por máquinas (WSDL) e um protocolo para comunicação (SOAP). \cite{webService-W3C}
+		Essa era a arquitetura utilizada em 2004. Atualmente é predominante o uso de REST que em vez de exportar serviços como o SOAP, exporta os dados em si e não necessita do WSDL. \cite{soapVSrest}
+		%TODO: colocar exemplos de web services
 
 	\section{Dados Ausentes}
 		% O que são dados faltantes
@@ -722,7 +732,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 	Para isso, foram feitas análises sobre os trabalhos para identifcar semelhanças e diferenças pontuais.
 	Essa análise foi feita com o fim de comparar os trabalhos e identificar contribuições, suprir necessidades e captar trabalhos futuros.
 
-	\section{Trabalhos acadêmicos relacionados}
+	\section{Trabalhos acadêmicos}
 		Albuquerque et al. \cite{Albuquerque2011} descreveu um \emph{framework} capaz de gerar dados sintéticos multidimensionais.
 		O sistema (ver figura \ref{fig:albuquerque}) recebe um \emph{input} que representa algumas propriedades do conjunto de dados como número de dimensões,
 			uma distribuição de dados padrão,
@@ -818,7 +828,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		Em alguns casos os dados sintéticos são similares aos reais e para isso foi utilizado a imputação \emph{hot deck} junto com a troca de classificação, para garantir a aleatoriedade e confidencialidade dos dados.
 		%Artigo sem imagem.
 
-	\section{Aplicações relacionadas}
+	\section{Aplicações}
 
 		DTM Data Generator \cite{DTMDataGenerator} é uma plataforma de geração de dados sintéticos que existe de 1998.
 		Esta possui suporte para geração de dados em arquivos, em banco de dados, também para \emph{Big Data}.
@@ -951,7 +961,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 			\label{fig:diagramaUC}
 		\end{figure}
 		"O objetivo de um diagrama de casos de uso na UML é demonstrar as diferentes maneiras pelas quais um usuário pode interagir com um sistema." \cite{UCdefinition}
-		Por conta disso, é utilizado o Diagrama de Casos de Uso para demonstrar as principais funcionalidades do protótipo Blocks Data Generator.
+		Por conta disso, é utilizado o Diagrama de Casos de Uso para demonstrar as principais funcionalidades do sistema Blocks Data Generator.
 		Na figura \ref{fig:diagramaUC} são encontrados um total de 10 casos de uso.
 		\par
 		No UC01 mostra que é possível modificar um modelo, isto é, adicionar ou remover dimensões, alterar geradores e afins; também há inclusão do UC04 e a possibilidade de desfazer ou refazer as alterações (UC02).
@@ -970,10 +980,10 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		Com isso, pode-se validar os dados, ter insights para aprimorar o modelo e afins.
 
 % ---
-\chapter{Protótipo}
+\chapter{Sistema Blocks}
 % ---
-	Este capítulo é dedicado em explicar mais sobre o protótipo, seu fluxo de funcionamento, funcionalidades, mais detalhes sobre a interface do usuário entre outros.
-	De modo geral, o protótipo é chamado de Blocks Data Generator e visa ser um gerador de dados sintéticos baseado em modelos de dados.
+	Este capítulo é dedicado em explicar mais sobre o sistema, seu fluxo de funcionamento, funcionalidades, mais detalhes sobre a interface do usuário entre outros.
+	De modo geral, o sistema é chamado de Blocks Data Generator e visa ser um gerador de dados sintéticos baseado em modelos de dados.
 	Assim, o usuário pode manipular um ou mais modelos e cada modelo pode conter N dimensões, que por sua vez podem conter M geradores de dados encadeados.
 	\par
 	Os geradores de dados podem gerar dados numéricos, categóricos, temporais etc (haverá uma seção específica para geradores) e o resultado de um gerador pode servir de entrada para outro gerador através de operadores.
@@ -1161,14 +1171,22 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		\subsection{Acessórios}
 			Os geradores da categoria Acessórios (\emph{Acessory}) foram pensados especialmente para serem concatenados com outros geradores, com o fim auxiliá-los.
 			Entre os geradores acessórios, pode-se citar o \emph{Missing Value}, o qual foi subdivido em 3 geradores: o \emph{MCAR}, \emph{MAR} e \emph{MNAR}.
+			\par
 			O MCAR usa a probabilidade para definir qual dado será faltante;
 			O MAR e o MNAR são similares. 
 			Eles trabalham de forma diferente para cada tipo de dado.
 			Os tipos de dado são os Numéricos, os Categóricos e os Temporais.
+			\par
 			Para os Numéricos e os Temporais, é definido um intervalo no qual os dados vão ser faltantes.
 			Para os dados Categóricos, é definida uma lista de categorias na qual todas essas categorias faltarão na geração de dados.
 			Quanto a diferença entre MAR e MNAR está em que o MAR possui correlação com outra dimensão e é independente de outros geradores,
-			 enquanto o MNAR não possui correlação com outras dimensões, mas é dependente de outros geradores.   
+			 enquanto o MNAR não possui correlação com outras dimensões, mas é dependente de outros geradores.
+			\par
+			 Os geradores MAR e o MNAR foram desenvolvidos e acrescentados ao sistema por mim.
+			 Entretanto a implementação foi baseada nos artigos (citar artigos) para o MAR,
+			 o trabalho de (por artigo) para o MCAR e os artigos (por artigos) para implementação do MNAR.
+			 Os artigos foram encontrados devido ao artigo de (Por artigo) e que segundo o mesmo, as implementações são consideradas para dados univariados.
+			  
 			\par
 				O \emph{Noise Generator} que adiciona dados fora do padrão, conhecido como ruído, com uma determinada probabilidade, intensidade - o que ajuda a criar o nível de discrepância - e a partir de 3 distribuições: uniforme, gaussiana, e de Poisson.
 				O \emph{Constant Noise Generator} também adiciona ruídos, mas só que é um valor específico com determinada probabilidade de ser adicionado;
@@ -1215,7 +1233,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		A memória secundária e o Web Service são descritos nas subseções a seguir.
 
 		\subsection{\emph{Streaming Data}}
-			O protótipo unificou o processo de geração de dados em arquivos - antes era um modo padrão, bloqueante; e outro não bloqueante - para que otimize a geração de grande volumes de dados (\emph{Big Data}).
+			O sistema unificou o processo de geração de dados em arquivos - antes era um modo padrão, bloqueante; e outro não bloqueante - para que otimize a geração de grande volumes de dados (\emph{Big Data}).
 			Para isso, foi utilizado o conceito de \emph{Streaming Data}, isto é, gerar o volume de dados aos poucos - em blocos - para que não haja estouro de memória primária.
 			Também foi utilizado esse processo assincronamente, para que a interface de usuário não seja bloqueada durante o processo e permitir que o progresso da geração seja acompanhado.
 			\par
@@ -1233,7 +1251,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 			Um exemplo de URI para fazer requisição HTTP do tipo GET é: (\url{http://localhost:8000/?modelid=MODEL_r6w2ffk3.mva&nsample=100&format=csv}), nos quais "modelid" é o \emph{ID} do modelo, "nsample" é a quantidade de instâncias desejada e "format" é o formato do arquivo desejado.
 	 
 	\section{Modos para Visualização de Dados}
-		O protótipo permite modelar os dados, gerá-los e também visualizá-los.
+		O sistema permite modelar os dados, gerá-los e também visualizá-los.
 		Nessa seção são mostradas as duas formas de visualizar dados no Blocks.
 		A primeira é mais simples, acessível e fica na tela inicial do gerador chamado de \emph{Preview}.
 		A outra é um programa a parte que é integrado ao Blocks, isto é, há o compartilhamento do modelo de dados.
@@ -1253,7 +1271,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 			Como diferencial, algumas funcionalidades são adicionadas como detalhe sob demanda, \emph{zoom}, marcação de dados (\emph{Highlight}), múltiplas visualizações simultâneas, entre outras.
 	
 	\section{Estrutura da Interface do Blocks}
-		O protótipo possui uma interface gráfica para \emph{Desktop} e segue um modelo conhecido como SPA (\emph{Single Page Aplication}).
+		O sistema possui uma interface gráfica para \emph{Desktop} e segue um modelo conhecido como SPA (\emph{Single Page Aplication}).
 		Isso significa que há uma tela principal (ver figura \ref{fig:telaPrincipal}), e outras informações mais raras de serem consumidas aparecem através de \emph{tabs}, \emph{modals}, \emph{alerts} e correlacionados.
 		\begin{figure}[h]
 			\centering
@@ -1348,7 +1366,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 % ---
 \chapter{Resultados}
 	Este capítulo é dedicado a apresentar como podem ser modelados dados discrepantes e faltantes no Blocks Data Generator.
-	Também, serão apresentados os dados gerados e também visualização desses dados gerados na diversidade de métodos permitidos pelo protótipo.
+	Também, serão apresentados os dados gerados e também visualização desses dados gerados na diversidade de métodos permitidos pelo sistema.
 	\par
 	
 	\section{Modelagem dos Dados}
