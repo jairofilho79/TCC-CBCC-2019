@@ -847,9 +847,11 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		Há uma suíte de produtos relacionados fornecidos pela DTM soft. 
 		Além do gerador de dados, 
 			há o gerador de dados XML para teste de aplicação (DTM Test XML Generator);
-			um gerador de planilhas Excel (DTM Data Generator for Excel)
+			um gerador de planilhas Excel (DTM Data Generator for Excel);
 			testador exaustivo - teste de estresse - de banco de dados (DTM DB Stress);
-			Bem como editor, visualizador (DTM Data Editor), comparador e sincronizador de banco de dados (DTM Data Comparer) entre outros. 
+			Bem como editor, visualizador (DTM Data Editor), comparador e sincronizador de banco de dados (DTM Data Comparer) entre outros.
+		Não foi possível encontrar a informação se há suporte para geração de dados faltantes, bem como discrepantes.
+
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/DTMDataGenerator.png}
@@ -872,6 +874,12 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		\par
 		Quanto ao SQL Toolbelt oferecido pela Red Gate, ele conta com 2 modalidades, o completo com 14 programas e o \emph{essentials} com 10.
 		Entre os mais relevantes, pode-se citar o \emph{SQL Data Compare}, \emph{SQL Data Generator}, \emph{SQL Test}, \emph{SQL Backup Pro} e \emph{SQL Scripts Manager}.
+		\par
+		Na documentação do SQL \cite{RedgateSQLDataGeneratorDoc} é possível encontrar os geradores de dados sintéticos.
+		Entre os exemplos estão gerador por regex, importação de arquivo, lista ponderada etc.
+		Não houve uma citação por um gerador de dados discrepantes ou faltantes,
+		 contudo é possível criar geradores de dados manualmente utilizando XML em conjunto com classes pré-definidas.
+		Também o uso de embaralhador de texto, bem como a lista ponderada seja possível gerar dados faltantes e discrepantes.
 		\begin{figure}[h]
 			\centering
 			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/sql-data-generator.png}
@@ -885,6 +893,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		\par
 		Para gerar os dados de teste, deve-se utilizar os geradores de dados (\emph{Data Generators}), que são correlacionados às tabelas do banco de dados.
 			Os geradores podem ser dos mais primitivos (Binários, Inteiros, Data, \emph{Float}), como de Imagem, Dinheiro, Expressão Regular, Categórico entre outros.
+		Entre os geradores genéricos pré-definidos, não foi possível encontrar suporte para dados faltantes ou dados discrepantes, mas há a possibilidade de criar geradores customizados.
 		Também é disponibilizado um Plano de Geração de Dados (\emph{Data Generation Plan}), feito em XML, que contém informações do banco de dados, o tipo de dados de cada gerador e a quantidade de dados para ser gerado. 
 		Este plano serve basicamente para reutilização da lógica de teste.
 		\begin{figure}[h]
@@ -906,6 +915,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		Do primeiro tipo, são formas mais próximas dos dados primitivos, como datas, texto \emph{lorem ipsum}, JSON, \emph{ReGex}.
 		Já o avançado conta com número de cartão de crédito, aniversário, número de conta bancária internacional, IPv4, \emph{hash} de senhas.  
 		A geração de dados resume-se à população de banco de dados, não há uma forma de exportar os dados em arquivos como CSV e JSON.
+		Ao acessar a documentação \cite{forgeDBDataGeneratorDoc} dos geradores, elas não estavam disponíveis (erro 404), logo não foi possível encontrar mais informações inclusive sobre dados faltantes ou discrepantes.
 		\par
 		Há um suíte exclusivo para SQL Server, contudo também para Oracle, MySQL, PostgreSQL entre outros.
 		Neste suíte, há várias ferramentas que auxiliam na manutenção, mas não, necessariamente, a geração de dados, a exemplode um \emph{previewer}.
@@ -922,8 +932,21 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		Por ser um site, é possível acessá-lo por qualquer sistema operacional, dependendo apenas de conexão com a internet.
 		O produto possui versões gratuita e pagas. - \emph{Free}, \emph{Silver}, \emph{Gold}, \emph{Enterprise} as quais variam no \emph{host}, o qual pode ser do Mockaroo ou privado, máximo de registros por download, velocidade de download e preço.
 		\par
-		Na tela inicial, é possível escolher o nome da coluna, o tipo de gerador, algumas opções - valores em branco e funções a partir dos dados.
-		Ainda nesta tela, encontra-se o botão para \emph{download} dos dados, pré-visualização dos mesmo (mas sem gráficos), algumas configurações como quantidade de linhas, formato dos dados para \emph{download}, botão para clone ou deleção de banco de dados, e importação de dados csv/Excel ou SQL.
+		Na tela inicial, é possível escolher o nome da coluna, o tipo de gerador, algumas opções.
+		O campo \emph{blank} é possível determinar uma porcentagem de dados que ficarão em branco em ordem aleatória.
+		Por conta da característica aleatória, o mecanismo de dados faltantes utilizado é o MCAR.
+		\par
+		Ao lado de \emph{blank} há o botão de fórmula, o qual é possível operar uma função com o valor gerado.
+		Essas funções podem ser matemáticas ou outras disponibilizadas de acordo com a sintaxe de fórmula do Mockaroo.
+		A partir dessa funcionalidade, é possível gerar dados discrepantes tanto ruidosos como anômalos, dependendo da função e parâmetros inseridos.
+		\par
+		Ainda na tela inicial encontra-se 
+		 o botão para \emph{download} dos dados, 
+		 pré-visualização dos mesmo, - sem gráficos, apenas tabular e CSV - 
+		 algumas configurações como quantidade de linhas, 
+		 formato dos dados para \emph{download}, 
+		 botão para clone ou deleção de banco de dados, 
+		 e importação de dados csv/Excel ou SQL.
 		\par
 		Outro serviço interessante do Mockaroo é Mockaroo APIs \cite{mockarooAPI}.
 		Este consiste em baixar dados programaticamente através de requisições REST (\emph{Representational State Transfer}).
@@ -1183,9 +1206,9 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 			 enquanto o MNAR não possui correlação com outras dimensões, mas é dependente de outros geradores.
 			\par
 			 Os geradores MAR e o MNAR foram desenvolvidos e acrescentados ao sistema por mim.
-			 Entretanto a implementação foi baseada nos artigos (citar artigos) para o MAR,
-			 o trabalho de (por artigo) para o MCAR e os artigos (por artigos) para implementação do MNAR.
-			 Os artigos foram encontrados devido ao artigo de (Por artigo) e que segundo o mesmo, as implementações são consideradas para dados univariados.
+			 Entretanto a implementação foi baseada no artigo \cite{rieger2010random} para o MAR,
+			 os trabalhos de \cite{rieger2010random} \cite{xia2017adjusted} são semelhantes ao gerador MCAR e os artigos \cite{twala2009empirical} \cite{xia2017adjusted} para implementação do MNAR.
+			 Os artigos foram encontrados devido ao artigo de \cite{santos2019generating} e segundo o mesmo, as implementações são consideradas univariadas, isto é, apenas uma dimensão é afetada.
 			  
 			\par
 				O \emph{Noise Generator} que adiciona dados fora do padrão, conhecido como ruído, com uma determinada probabilidade, intensidade - o que ajuda a criar o nível de discrepância - e a partir de 3 distribuições: uniforme, gaussiana, e de Poisson.
@@ -1654,7 +1677,7 @@ De uma forma geral, a aplicação permitiu que as características - dados falta
 Contudo, ao tornar a modelagem um pouco mais complexa, o sistema não permitiu que algumas características fossem adicionadas, como correlacionar dados de diferentes tipos.
 \par
 Para propor soluções para os problemas vistos, é interessante que o Blocks permita que dados de diferentes tipos sejam relacionados.
-Também, mais geradores categóricos, como gerar a partir de uma expressão regular, a partir de um arquivo, permitir uma sequência categórica - adicionar uma categoria seguida de um número, por exemplo - permitir embaralhar categorias etc.
+Também, mais geradores categóricos, como gerar a partir de uma expressão regular, a partir de um arquivo, geração de anagramas datas as letras ou uma categoria, permitir embaralhar categorias etc.
 Alguns acessórios também são interessantes como formatar números de diferentes geradores - como ter números discretos, com cadas decimais fixas.
 O MCAR deve possuir o mesmo tipo de dado que está auxiliando, MAR e MNAR devem ter porcentagem de falta para que se torne mais suave a falta dos dados.
 \par
