@@ -1001,7 +1001,56 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		Incluindo a UC07, mais especificamente a UC10, a UC06 permite que o usuário visualize os dados. 
 		Assim, a visualização - a qual pode ser rápida (através do \emph{preview}) ou detalhada (com o VisTechLib) - tendo um panorama do comportamento dos dados. 
 		Com isso, pode-se validar os dados, ter insights para aprimorar o modelo e afins.
+	\section{Classe dos Geradores}
+	No diagrama de classe visto na figura \ref{fig:diagramaCD} é possível encontrar a estrutura de classe geradores de forma resumida.
+	Há uma classe abstrata chamada \emph{Generator} que possui a maioria dos métodos e atributos, sendo que alguns deles são sobrescritos nas subclasses.
+	Na segunda geração de classes (ver figura \ref{fig:diagramaCDCima}), elas basicamente existem para identificar as categorias - exceto \emph{Real Data Wrapper} e não adicionam novas propriedades - com exceção da classe \emph{Sequence}, por exemplo.
+	Então a terceira geração de classes (ver figura \ref{fig:diagramaCDBaixo}) são os geradores em si, que herdam das suas respectivas categorias, mas uma exceção é a classe \emph{SwitchCaseFunction} a qual possui a propriedade de permitir geradores distintos de acordo com o valor.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/prototipo/DiagramadeClasseGeradores.png}
+		\caption{Diagrama de Classes dos geradores do Blocks Data Generator. Fonte: o autor.}
+		\label{fig:diagramaCD}
+	\end{figure}
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/prototipo/DiagramadeClasseGeradoresCima.png}
+		\caption{Diagrama de Classes (2ª Geração) dos geradores do Blocks Data Generator. Fonte: o autor.}
+		\label{fig:diagramaCDCima}
+	\end{figure}
 
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/prototipo/DiagramadeClasseGeradoresBaixo.png}
+		\caption{Diagrama de Classes (3ª Geração) dos geradores do Blocks Data Generator. Fonte: o autor.}
+		\label{fig:diagramaCDBaixo}
+	\end{figure}
+
+	\section{Sequência de atividades no Blocks}
+	Para gerar os diagramas de sequência do Blocks Data Generator, foram utilizados os casos de uso UC06 e UC09, vistos na figura \ref{fig:diagramaUC}.
+	No diagrama \ref{fig:DiagramadeSequenciaArquivo} percebe-se que há a introdução das configurações do modelo pelo usuário, então o sistema cria/modifica o objeto modelo (UC01).
+	Mais abaixo, há 2 loops para geração dos dados, o primeiro é a geração pelos geradores presentes no modelo até um certo limite, então esse conjunto de dados é salvo no arquivo, por conseguinte há uma resposta ao usuário de que houve progresso.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/prototipo/DiagramadeSequenciaArquivo.png}
+		\caption{Diagrama de Sequência para geração de dados em arquivos no Blocks Data Generator. Fonte: O autor.}
+		\label{fig:DiagramadeSequenciaArquivo}
+	\end{figure}
+	\par
+	No diagrama de sequência visto na figura \ref{fig:DiagramadeSequenciaVisTechLib} é em relação ao UC06.
+	Primeiramente, assim como na geração do arquivo, há o uso do UC01.
+	Em seguida há geração dos dados em memória referente ao UC10.
+	Com esses dados em memória, o \emph{preview} é desenhado automaticamente.
+	A partir dos dados, há uma comunicação via \emph{WebSocket} com o VisTechLib enviando os dados.
+	O VisTechLib retorna as opções de visualização, o usuário escolhe uma e então é retornado a visualização para que esta seja renderizada.
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/prototipo/DiagramadeSequenciaVisTechLib.png}
+		\caption{Diagrama de Sequência para visualização dos dados no Blocks Data Generator. Fonte: o autor.}
+		\label{fig:DiagramadeSequenciaVisTechLib}
+	\end{figure}
 % ---
 \chapter{Sistema Blocks}
 % ---
@@ -1462,13 +1511,21 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		Marcação é o valor temporal do instante em que foi marcado;
 		Distância é, dado o instante, o quanto o atleta percorreu, o qual é baseado na sua modalidade;
 		E a última dimensão diz respeito à frequência cardíaca no instante.
+		A base de Atletismo foi levemente alterada para introdução do gerador MAR em vez de uma função Linear, como visto na figura \ref{fig:AtletaModeloMAR}
 		\par
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=\linewidth]{./figures/Resultados/AtletaModelo.jpg}
-			\caption{Base sintética de avaliação de Atletas.}
+			\caption{Base sintética de avaliação de atletas.}
 			\label{fig:AtletaModelo}
 		\end{figure}
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/Resultados/AtletismoModeloMAR.jpg}
+			\caption{Base sintética de avaliação de atletas com MAR.}
+			\label{fig:AtletaModeloMAR}
+		\end{figure}
+
 		
 		A quarta base como visto na figura \ref{fig:CMModelo} mostra um esquema de convênios médicos.
 		Primeiramente há o profissional e sua especialidade - ambos dados categóricos uniformes;
@@ -1619,31 +1676,48 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 	Contudo, ao se comparar com a marcação-distância (ver figura \ref{fig:Atletismo-Frequencia-Distancia}) não há uma correlação - por exemplo, uma alta distância percorrida em menos tempo tente a aumentar a frequência cardíaca.
 	Isso acontece porque não há um gerador para correlacionar dados temporais e dados numéricos na aplicação Blocks.
 	Por isso, são dados discrepantes ainda que não intencionais.
+	E para melhorar a visualização dos faltantes foi utilizado o Matrix Plot (ver figura \ref{fig:Atletismo-Matrix-Plot}), contudo, foi diminuida a quantidade de dados, para não haver sobreposição dos dados.
+
 	\par
 
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=\linewidth]{./figures/Resultados/Atletismo-Marcacao-Distancia.png}
-		\caption{Visualização Gráfico de linha da base de Atletas.}
+		\caption{Visualização Gráfico de linha da base de atletas.}
 		\label{fig:Atletismo-Marcacao-Distancia}
 	\end{figure}
 
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=\linewidth]{./figures/Resultados/Atletismo-Frequencia-Distancia.png}
-		\caption{Visualização de Gráfico de Ponto da base de Atletas.}
+		\caption{Visualização de Gráfico de Ponto da base de atletas.}
 		\label{fig:Atletismo-Frequencia-Distancia}
+	\end{figure}
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/Resultados/AtletismoMatrixPlot.jpg}
+		\caption{Visualização Matrix Plot da base de atletas.}
+		\label{fig:Atletismo-Matrix-Plot}
 	\end{figure}
 
 	O modelo de dados sobre estruturas de conta bancária possui uma arquitetura hierárquica e pode ser vista através de um Dendrograma (ver figura )
 	A priori, para esta visualização foi necessário reduzir a 10\% o volume de dados, para que as propriedades hierárquicas sejam perceptíveis.
 	Na visualização é possível identificar dados faltantes do tipo MCAR, visto que foram perdida de forma aleatória, mas não foi imaginada uma forma de gerar dados discrepantes.
+	E também na figura \ref{fig:BancoMatrixPlot} é possível encontrar os dados faltantes através do gráfico de matriz.
 	\par
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=\linewidth]{./figures/Resultados/BancoDendrograma.png}
 		\caption{Visualização Dendrograma da base sobre estrutura de conta bancária.}
 		\label{fig:BancoDendrograma}
+	\end{figure}
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/Resultados/BancoMatrixPlot.jpg}
+		\caption{Visualização Matrix Plot da base sobre os dados faltantes de conta bancária.}
+		\label{fig:BancoMatrixPlot}
 	\end{figure}
 
 	Na figura \ref{fig:BCCM} é possível ver um gráfico de barras subagrupado por especialidades médicas.
@@ -1679,7 +1753,7 @@ Contudo, ao tornar a modelagem um pouco mais complexa, o sistema não permitiu q
 Para propor soluções para os problemas vistos, é interessante que o Blocks permita que dados de diferentes tipos sejam relacionados.
 Também, mais geradores categóricos, como gerar a partir de uma expressão regular, a partir de um arquivo, geração de anagramas datas as letras ou uma categoria, permitir embaralhar categorias etc.
 Alguns acessórios também são interessantes como formatar números de diferentes geradores - como ter números discretos, com cadas decimais fixas.
-O MCAR deve possuir o mesmo tipo de dado que está auxiliando, MAR e MNAR devem ter porcentagem de falta para que se torne mais suave a falta dos dados.
+O MCAR deve possuir o mesmo tipo de dado que está auxiliando, MAR e MNAR devem ter porcentagem de falta para que se torne mais suave a falta dos dados, e o MAR deve receber ou não os dados de outra coluna.
 \par
 
 \lipsum[31-33]
