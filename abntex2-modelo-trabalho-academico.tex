@@ -32,7 +32,7 @@
 	% -- opções da classe memoir --
 	12pt,				% tamanho da fonte
 	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	twoside,			% para impressão em recto e verso. Oposto a oneside
+	oneside,			% para impressão em recto e verso. Oposto a oneside
 	a4paper,			% tamanho do papel. 
 	% -- opções da classe abntex2 --
 	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
@@ -108,7 +108,7 @@
 \tipotrabalho{Monografia (Graduação)}
 % O preambulo deve conter o tipo do trabalho, o objetivo, 
 % o nome da instituição e a área de concentração 
-\preambulo{Monografia apresentada na Faculdade de Computação do Instituto de Ciências Exatas e Naturais como requisito parcial para obtenção do grau de Bacharel.}
+\preambulo{Monografia apresentada na Faculdade de Computação do Instituto de Ciências Exatas e Naturais como requisito parcial para obtenção do grau de Bacharel em Ciência da Computação.}
 % ---
 
 
@@ -232,7 +232,7 @@
 	\begin{center}					% Minipage Centralizado
 	\fbox{\begin{minipage}[c][8cm]{13.5cm}		% Largura
 	\small
-	Solicite sua ficha catalográfica em: \url{http://bcficat.ufpa.br/}
+	Insira a ficha catalográfica aqui.
 	\end{minipage}}
 	\end{center}
 \end{fichacatalografica}
@@ -310,8 +310,8 @@
 
    \assinatura{\textbf{\imprimirorientador} - Orientador \\ UFPA}
    %\assinatura{\textbf{\imprimircoorientador} - Coorientador \\ UFPA}
-   \assinatura{\textbf{Nome Convidado 1} \\ SIGLA INSTITUIÇÃO}
-   \assinatura{\textbf{Nome Convidado 2} \\ SIGLA INSTITUIÇÃO}
+   \assinatura{\textbf{Prof. Dr. Bianchi Serique Meiguins} - Membro Interno \\ UFPA}
+   \assinatura{\textbf{MSc. Diego Hortêncio dos Santos}  - Membro Externo\\ UFPA}
    %\assinatura{\textbf{Nome Convidado 3} \\ SIGLA INSTITUIÇÃO}
       
 
@@ -322,19 +322,19 @@
 % ---
 % Dedicatória
 % ---
-\begin{dedicatoria}
-   \vspace*{\fill}
-   \centering
-   \noindent
-   \textit{ Escreva sua dedicatória aqui.} \vspace*{\fill}
-\end{dedicatoria}
+% \begin{dedicatoria}
+%   \vspace*{\fill}
+%   \centering
+%   \noindent
+%   \textit{ Escreva sua dedicatória aqui.} \vspace*{\fill}
+% \end{dedicatoria}
 % ---
 
 % ---
 % Agradecimentos
 % ---
 \begin{agradecimentos}
-Escrever Agradecimentos aqui.
+Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. Também agradeço a minha família por me dar suporte em todos os aspectos da minha vida. Também agradeço ao meu orientador e todos meus colegas do laboratório que me ajudaram incansavelmente a sanar minhas dúvidas. Aos meus amigos da faculdade estiveram comigo nos melhores e piores momentos, trabalhos e descontrações. Agradeço aos meus amigos fora da faculdade também que, por mais que estivessem distantes, também significam muito para mim.
 
 \end{agradecimentos}
 % ---
@@ -342,13 +342,13 @@ Escrever Agradecimentos aqui.
 % ---
 % Epígrafe
 % ---
-\begin{epigrafe}
-    \vspace*{\fill}
-	\begin{flushright}
-		\textit{``Escreva sua epígrafe aqui''\\
-		(Fulano de Tal, 19XX)}
-	\end{flushright}
-\end{epigrafe}
+% \begin{epigrafe}
+%     \vspace*{\fill}
+% 	\begin{flushright}
+% 		\textit{``Escreva sua epígrafe aqui''\\
+% 		(Fulano de Tal, 19XX)}
+% 	\end{flushright}
+% \end{epigrafe}
 % ---
 
 % ---
@@ -359,11 +359,11 @@ Escrever Agradecimentos aqui.
 \setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
 \begin{resumo}
 
-	Neste trabalho é apresentado e analisado o sistema de geração e visualização de dados sintéticos chamado de Blocks Data Generator.
-	Também foi acrescentado ao Sistema Blocks novos geradores de dados faltantes sintéticos.
+	Neste trabalho é apresentado e analisado o sistema de geração e visualização de dados sintéticos chamado de Blocks para geração de dados sintéticos faltantes e discrepantes.
+	Também foi acrescentado ao Sistema Blocks novos geradores de dados faltantes e discrepantes sintéticos.
 	Esse sistema é composto de geradores chamados de blocos, os quais podem ser encadeados - permitindo que seja gerado um comportamento mais complexo.
-	Os blocos possuem categorias sequenciais, randômicas, funcionais, - ou correlacionais -de acessórios e geométricas.
-	O Blocks também permite que os dados sejam visualizados, para isso ele possui um gráfico do tipo Coordenadas Paralelas na tela inicial e integração com o \emph{VisTechLib}.
+	Os blocos possuem categorias que produzem sequência - quer seja de números ou de tempo, que possuem distribuição de probabilidade aleatória. Categoria funcional, a qual utiliza outra dimensão como parâmetro; de acessórios - adicionam a formatação ou valor dos dados e geométrica para geração de dados a partir de formas geométricas.
+	O Blocks também permite que os dados sejam visualizados, para isso ele possui um gráfico do tipo Coordenadas Paralelas na tela inicial e integração com o uma ferramenta.
 	Por conseguinte, os objetivos do trabalho são modelar, visualizar e avaliar a geração de dados sintéticos faltantes e discrepantes.
 	A validação dos resultados foi feita com o uso de visualizações e a partir delas, foi analisado o comportamento das dimensões.
 	Foram utilizados vários tipos de dados como numéricos, categóricos, temporais etc.
@@ -375,14 +375,18 @@ Escrever Agradecimentos aqui.
 % resumo em inglês
 \begin{resumo}[Abstract]
  \begin{otherlanguage*}{english}
-   In this paper it's presented and analyzed the system of synthetic data generation and synthetic data visualization called Blocks Data Generator.
-   Also it's was added to the sistem new generators of synthetic missing values.
-   The system is composed of generators called blocks, which can be chained - letting a more complex data behavior.
-   The generators have cateogories called sequence, random, function, accessory, 
-   The goals are modelling, visualizing and evaluate the generation of missing synthetic data and synthetic outliers.
-   The result validation was made using data visualization and, from it, the dimensions behavior was analysed.
-   Data types as numeric, categorical and time were used.
-   In general, Blocks works fine generating those data.  
+This work presents and analyzes the synthetic data generation and visualization system called Blocks for the generation of missing and discrepant synthetic data.
+Also added to the Blocks System a new synthetic missing and discrepant data generators.
+This system is made up of generators called blocks, which can be chained together - allowing more complex behavior to be generated.
+Blocks have categories that produce sequence - whether of numbers or time, 
+ anothers which have random probability distribution.
+Functional category, which uses another dimension as a parameter;
+ accessories - add the formatting or value of the data and geometric for data generation from geometric shapes.
+Blocks also allows data to be previewed, so it has a Parallel Coordinates graph on the home screen and integration with one visualization tool.
+Therefore, the objectives of the work are to model, visualize and evaluate the generation of missing and discrepant synthetic data.
+The validation of the results was made using visualizations and from them, the behavior of the dimensions was analyzed.
+Various types of data were used such as numeric, categorical, temporal etc.
+In general, Blocks has allowed this data to be satisfactorily generated.  
 
    \vspace{\onelineskip}
  
@@ -420,10 +424,24 @@ Escrever Agradecimentos aqui.
 % ---
 % inserir lista de abreviaturas e siglas
 % ---
-% \begin{siglas}
-%   \item[ABNT] Associação Brasileira de Normas Técnicas
-%   \item[abnTeX] ABsurdas Normas para TeX
-% \end{siglas}
+\begin{siglas}
+  \item[JSON] JavaScript Object Notation
+  \item[CSV] Comma Separated Values
+  \item[DSV] Delimiter Separated Values
+  \item[TSV] Tabular Separated Values
+  \item[TSG] Threat Streaming Generator
+  \item[XML] Extensible Markup Language
+  \item[SOAP] Simple Object Access Protocol
+  \item[REST] Representational State Transfer
+  \item[HTTP] HiperText Transfer Protocol
+  \item[MCAR] Missing Completely At Random
+  \item[MAR] Missing At Random
+  \item[MNAR] Missing not At Random
+  \item[SVM] Support Vector Machine
+  \item[CARS] Context-Aware Recommender Systems
+  \item[UC] Use Case
+  
+\end{siglas}
 % ---
 
 % ---
@@ -468,7 +486,7 @@ Escrever Agradecimentos aqui.
 %Apresentar os Objetivos do Trabalho em conjunto dos métodos.
 
 Dados sintéticos são dados gerados por uma máquina \cite{pensamentos-dados-sinteticos} a partir de outros dados, geradores, fórmulas matemáticas, funções etc.
-Esses dados, apesar de ainda não atingirem uma maturidade de complexidade a nível dos seres humanos \cite{pensamentos-dados-sinteticos}, pode aplicado de variadas formas.
+Esses dados, apesar de não possuirem um comportamento comparável aos da realidade \cite{pensamentos-dados-sinteticos}, podem ser aplicados de variadas formas.
 Quer seja substituindo/simplificando dados reais - dados previsíveis podem ser substituídos por fórmulas ou funções - ou adicionando novos dados a partir de uma instância apenas fazendo algumas alterações.
 \par
 Ainda, um problema muito complicado aumenta a demanda por dados sintéticos: confidencialidade dos dados.
@@ -477,39 +495,38 @@ Logo, para melhorar a situação dos dois lados, os dados sintéticos podem atin
 \par
 Também, outro problema é a escassez dos dados.
 Este cenário é encontrado principalmente em lançamento de novas tecnologias ou tratamento de exceções.
-Portanto, nada mais esperto do que, a partir da instância que possui, gerar novas instâncias, determinando novos padrões, logo, novos casos de teste ou de uso.
+Portanto, nada mais esperto do que, a partir da amostra que possui, gerar novas instâncias, determinando novos padrões, logo, novos casos de teste ou de uso.
 \par
 Os dados podem ser variados, como um número, uma categoria, uma marcação de tempo, uma imagem, um áudio, um vídeo e afins.
 Portanto, gerar dados sintéticos exigem variados métodos.
 Entre os mais conhecidos, pode-se citar fórmulas matemáticas, redes neurais, interpolação de frames, embaralhamentos, aleatoriedade etc.
 \par
-Como dito por Moraes \cite{pensamentos-dados-sinteticos} dados sintéticos podem ser muito simples.
-Uma forma de dar realismo aos dados é permitir que algumas instâncias sejam faltantes.
-Eventualmente alguém pode se esquecer ou recusar responder uma informação, pode haver uma falha no disco rígido etc.
+Como dito por Moraes dados sintéticos podem ser muito simples. Sendo assim, uma forma de dar realismo aos dados é permitir que algumas instâncias sejam faltantes.
+Por exemplo, alguém pode se esquecer ou recusar responder uma informação, pode haver uma falha no disco rígido etc.
 Logo, dados faltantes são bastante presentes em bases de dados reais.
 \par
 Dados faltantes podem assumir formas dependendo do seu contexto.
-Na literatura são encontradas 3 formas: MCAR, MAR e MNAR.
+Na literatura são encontradas 3 formas: \emph{Missing Completely At Random} (MCAR), \emph{Missing At Random} (MAR) e \emph{Missing Not At Random} (MNAR).
 Basicamente o MCAR determina que a falta do dado é completamente aleatória.
 No MAR ainda é aleatório, mas é possível correlacionar em buscar de predizer o valor faltante.
 O MNAR indica que o dado está faltante e o seu motivo não está dito na base de dados, ou seja, pode haver influência de contexto externo.
 \par
 Outra característica de dados reais são dados discrepantes.
 Entenda-se por discrepante aquele dado que sai do padrão, quer seja no valor ou na formatação.
-Semelhante aos faltantes, dados discrepantes podem existir devido uma falha no sensor, um evento atípico, uma inverdade durante a pesquisa etc.
+Semelhante aos faltantes, dados discrepantes podem existir por exemplo, em uma falha no sensor, um evento atípico etc.
 \par
-Dados faltantes podem assumir 2 formas também: dados ruidosos e dados anômalos.
+Dados discrepantes podem assumir 2 formas também: dados ruidosos e dados anômalos.
 Basicamente um dado ruidoso - ou simplesmente ruído - possui um baixo grau de discrepância.
 Já o dado anômalo - ou anomalia - possui um alto grau de discrepância, podendo até atrapalhar o entendimento do fenômeno e a visualização dos dados.
 \par
-Pensando em oferecer acessibilidade aos dados sintéticos foi desenvolvido o Blocks Data Generator.
-O Blocks é gratuito e oferece vários geradores de diferentes categorias, bem como encadeá-los para que os dados tenham cada vez forma de um dado real.
+Pensando em oferecer acessibilidade aos dados sintéticos foi desenvolvido o software de código aberto e gratuito chamado de Blocks.
+O Blocks oferece vários geradores de diferentes categorias, bem como encadeá-los para que os dados tenham cada vez mais forma de um dado real.
 É possível gerar sequências, dados randômicos, correlacionar dimensões e adicionar acessórios como ruídos e dados faltantes.
 \par
-Por conseguinte, o objetivo é apresentar o Blocks Data Generator e como gerar dados faltantes e discrepantes nessa aplicação.
-Também serão apresentados os geradores de dados faltantes de minha autoria.
+Por conseguinte, o objetivo é apresentar o Blocks e como gerar dados faltantes e discrepantes nessa aplicação.
+Também serão apresentados os geradores de dados faltantes desenvolvidos no âmbito deste trabalho.
 Feito isso, o Blocks permite que os dados sejam visualizados, então é interessante que essa funcionalidade seja analisada.
-Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator modelando e visualizando dados faltantes e discrepantes.
+Em suma, este trabalho vai apresentar o funcionamento do Blocks modelando e visualizando dados faltantes e discrepantes.
 
 
 % ---
@@ -530,10 +547,10 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 
 	\section{Dados Sintéticos}
 		Dados sintéticos foi definido como "qualquer dado produzido o qual possa ser aplicado a uma dada situação que não foi obtido por mensuração direta.". \cite{mcgraw-hilleducation2016}
-		Em seu trabalho, Rubin \cite{rubin1993statistical} a introduziu um conjunto de dados completamente sintético.
-		Em suma, seu objetivo era tornar anônimo os domicílios que participaram do censo daquela época.
+		Como exemplo, Rubin \cite{rubin1993statistical} a introduziu um conjunto de dados completamente sintético.
+		Com o objetivo de tornar anônimo os domicílios que participaram do censo daquela época.
 		A questão da confidencialidade sempre foi uma característica necessária para dados divulgados, principalmente para dados sensíveis.
-		Os dados sintéticos possuem possuem a possibilidade de serem alterados mantendo a mesma ideia, logo, representa os dados reais originais.
+		Os dados sintéticos possuem a possibilidade de serem alterados mantendo a mesma ideia, logo, representa os dados reais originais.
 		Essa característica que ajudou na popularização dos dados sintéticos.
 		\par
 		A necessidade de dados sintéticos podem ser de várias formas, 
@@ -561,11 +578,14 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		Basicamente, um sistema operacional adota um sistema de arquivos para personalizar a questão da leitura e escrita. \cite{tanenbaum1995sistemas}
 		Também, um arquivo possui uma extensão (nome.extensão) cuja esta dá mais informações a respeito do conteúdo do arquivo.
 		\par
-
+		Os arquivos são amplamente utilizados na computação, e por conta da larga escala de uso, foram criadas várias extensões de arquivos. Toda linguagem de programação possui seu arquivo como .java para Java, .js para JavaScript, .py para Python e muitos outros.
+		\par
+		Também existem os arquivos cujos dados são acessados para várias plataformas. O XML é muito utilizado na Web e pela linguagem Java, o JSON (\emph{Javascript Object Notation}, ou em português Notação de Objeto Javacript) tomou uma parcela da web com o uso, principalmente, de APIs, e o CSV ( \emph{Comma Separated Values}) é largamente utilizado em aplicações de ciência de dados, por exemplo.
+        \par
 		%JSON
-		A exemplo de extensão de arquivo há o JSON \cite{json-rfc-8259} \cite{json-jsonOrg} (Javascript Object Notation, ou em português Notação de Objecto Javacript) lançado em 2002, é uma formatação leve para troca de dados. 
+		E quanto ao JSON, \cite{json-rfc-8259} \cite{json-jsonOrg} este lançado em 2002, é uma formatação leve para troca de dados. 
 		O uso é facilitado tanto para seres humano quanto para máquina.
-		O JSON é um formato de texto que é independente de linguagem, mas foi baseado no objeto provido do Javascript (ECMA-262, 1999).
+		O JSON é um formato de texto que é independente de linguagem, mas foi baseado na notação de objeto do Javascript (ECMA-262, 1999).
 		\par
 		Quanto aos tipos de dados suportados, o JSON \cite{json-rfc-8259} é uma sequência de tokens. 
 		Os tipos de tokens aceitos é do tipo \textit{object}, \textit{array}, \textit{string}, \textit{number} e nomes literais como \textit{false}, \textit{true} e \textit{null}.
@@ -573,15 +593,17 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		%CSV
 		Outra extensão de arquivo é o CSV \cite{csv-rfc-4180} (comma-separated values, ou em português Valores Separados por Vírgula) o qual é um arquivo do tipo de texto MIME (Internet Media) \cite{mime-rfc-2048} que utiliza a encodificação de caracteres US-ASCII \cite{csv-rfc-7111}.
 		Ao longo dos anos, seu uso foi consolidado para exportar dados entre vários softwares de tabelas (Microsoft suíte para Apple Suíte, por exemplo).
-		A padronização do CSV de morou a ocorrer e por isso, vários outros estilos surgiram, a exemplo, o uso do CSV com ponto-e-vírgula (;).
+		A padronização do CSV demorou a ocorrer e por isso, vários outros estilos surgiram, a exemplo, o uso do CSV com ponto-e-vírgula (;).
 		Outros estilos foram criados a ponto de ser chamado de arquivo DSV \cite{dsv}.
 		Por conseguinte, outro estilo que teve notoriedade na troca de dados entre bancos de dados ou tabelas de dados foi o TSV \cite{tsv-iana}.
 		A ideia é similar ao CSV, porém é utilizado uma tabulação em vez de vírgula.
 		
 		%\subsection{Banco de Dados}
 	\section{Web Service}
-		Um \emph{Web Service} \cite{webService-W3C} é definido como um software criado para suportar interoperabilidade entre máquinas através da rede computadores. Também possui uma interface descrita em um formato processável por máquinas (WSDL) e um protocolo para comunicação (SOAP). \cite{webService-W3C}
-		Essa era a arquitetura utilizada em 2004. Atualmente é predominante o uso de REST que em vez de exportar serviços como o SOAP, exporta os dados em si e não necessita do WSDL. \cite{soapVSrest}
+		Um \emph{Web Service} \cite{webService-W3C} é definido como um software criado para suportar interoperabilidade entre máquinas através da rede computadores.
+		Na história do \emph{Web Service} surgiram o Protocolo SOAP (Simple Object Access Protocol) que utiliza o WSDL (Web Services Description Language) como uma interface descrita em um formato processável por máquinas \cite{webService-W3C} e o modelo de arquitetura REST (Representational State Transfer) proposto por (Por autor) que não utiliza o WSDL.
+		Atualmente é predominante o uso de REST que em vez de exportar serviços como o SOAP, exporta os dados em si e não necessita do WSDL. \cite{soapVSrest}
+		O REST foi criado em conjunto ao HTTP 1.1 e a sua principal característica é a utilização simplificada dos verbos do protocolo HTTP (GET, POST, PUT, HEAD, OPTIONS e DELETE) (citar esse link(https://www.devmedia.com.br/web-services-rest-versus-soap/32451))
 		%TODO: colocar exemplos de web services
 
 	\section{Dados Ausentes}
@@ -589,27 +611,23 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		O termo dados ausentes ou dados faltantes significa que está faltando dados suficientes para se formar uma informação e,
 		por conseguinte, compreender o fenômeno de interesse ao observar o conjunto de dados. \cite{patrickmcknight2007}
 		% Porque dados podem faltar
-		Esses dados podem ser perdidos ou não coletados em todas as etapas de geração de dados
+		Esses dados podem ser perdidos ou não coletados em todas as etapas de obtenção de dados em uma situação real
 		como um participante desistindo ou não respondendo parte da pesquisa,
-		o pesquisador esquecendo ou perdendo seu dispositivo de anotação,
+		o pesquisador perdendo seu dispositivo de anotação,
 		má operação ao salvar em dispositivos eletrônicos etc. \cite{patrickmcknight2007}
 		\par
 
 		% O impacto dos dados ausentes
-		O grande impacto dos dados ausentes está nos resultados da pesquisa,
-		isto é, se esta se tornará tendenciosa, inconclusiva ou inconsistente. \cite{patrickmcknight2007}
-		Um exemplo seria uma pesquisa de salários de executivos, os quais são coletados o sexo, a idade, o cargo e o salário.
-		E por quaisquer motivos, os executivos do sexo masculino de idade acima dos 40 anos que tinham altos cargos e salário abaixo da média resolvessem não responder qual o seu salário.
-		Uma avaliação sem perceber e tratar esse fenômeno pode inferenciar que os homens mais velhos de altos cargos ganham na média ou acima da média, o que se caracterizaria uma pesquisa incondizente com a verdade.
+		O grande impacto dos dados ausentes está quando faltam dados a ponto da pesquisa se tornar tendenciosa, inconclusiva ou inconsistente. \cite{patrickmcknight2007}
+		Um exemplo seria uma pesquisa de avaliação de motos. Características como modelo, ano, preço, número de vendas e média de notas seriam coletadas. Contudo, ao salvar a pesquisa no mesmo disco rígido, a parte referida a um dos integrantes foi corrompida e, portanto, há uma ausência de dados.
 		\par
-
 		% Mecanismos de dados ausentes
 		Para compreender e lidar melhor com os dados ausentes foram definidos os mecanismos de dados ausentes.
 		Esses mecanismos são conceituados como a probabilidade de uma resposta ser observada ou estar faltando \cite{hbmissingdatameth2014}
 		Existem 3 mecanismos conhecidos como 
-		faltando de forma completamente aleatória - \emph{Missing completely at random (MCAR)};
-		faltando de forma aleatória - \emph{Missing at random (MAR)};
-		faltando de forma não aleatória - \emph{Not missing at random (NMAR)}. \cite{hbmissingdatameth2014}
+		faltando de forma completamente aleatória - \emph{MCAR  (Missing completely at random)};
+		faltando de forma aleatória - \emph{MAR (Missing At Random)};
+		faltando de forma não aleatória - \emph{ MNAR (Missing Not At random)}. \cite{hbmissingdatameth2014}
 
 		\subsection{MCAR}
 			Um dado faltante é classificado como MCAR quando a probabilidade da resposta está faltando não é relacionada com outros valores do conjunto de dados nem com os dados que deveriam ser coletados. \cite{hbmissingdatameth2014}
@@ -634,8 +652,8 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 			\end{table}
 		
 		\subsection{MAR}
-			Quanto ao MAR, este é definido como a probabilidade da resposta está faltando depende dos dados obtidos, mas não está relacionado com dados não coletados.
-			Este é o mecanismo menos arriscado de se assumir, pois permite a predição de resultados. \cite{hbmissingdatameth2014} \cite{little2016missing}
+			Quanto ao MAR, este é definido como a probabilidade da resposta está faltando depende dos dados obtidos, mas não está relacionado com dados fora da amostra coletada.
+			Este é o mecanismo mais fácil de utilizar técnicas de imputação de dados, pois permite a predição de resultados. \cite{hbmissingdatameth2014} \cite{little2016missing}
 			Na tabela \ref{table: exemplo DA MAR e DA MNAR} é possível visualizar um exemplo de dados ausentes do mecanismo MAR.
 			Neste caso, assume-se que há correlação entre os valores da tabela e por isso, por predição, assume-se que o valor faltante seja "Alta".
 			\begin{table}[h]
@@ -657,9 +675,9 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 			\end{table}
 		
 		\subsection{MNAR}
-			Quanto ao MNAR, este é definido como a probabilidade da resposta está relacionada com os dados não coletados. \cite{hbmissingdatameth2014} \cite{little2016missing}
+			Quanto ao MNAR, este é definido como a probabilidade da resposta está relacionada com os dados que não estão presentes na amostra. \cite{hbmissingdatameth2014} \cite{little2016missing}
 			Isto é, por algum motivo que não está no conjunto de dados, há dados ausentes.
-			Este mecanismo permite a geração de hipóteses para justificar a ausencia desses dados. %Professor Bianchi adora fazer isso.
+			Este mecanismo permite a geração de hipóteses para justificar a ausência desses dados. %Professor Bianchi adora fazer isso.
 			Ainda na tabela \ref{table: exemplo DA MAR e DA MNAR} visualiza-se um exemplo de dados ausentes do mecanismo MNAR.
 			O fato da receita de laranja não ter sido divulgada neste registro pode indicar que o produtor não queira preocupar os possíveis investidores (ou partes interessadas no agronegócio) devido uma possível baixa nos rendimentos.
 			
@@ -667,14 +685,14 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		%O que são dados discrepantes
 		Dados discrepantes ou \emph{outliers} são dados que são significativamente diferentes dos outros dados do conjunto de dados. \cite{Aggarwal2012}
 		%Por que são causados
-		Também conhecidos como anomalias, dados desviantes, ou descordantes na literatura, esses dados podem ser gerados, em geral, quando o sistema se comporta de forma não usual. \cite{Aggarwal2012}
+		Também conhecidos como anomalias ou dados desviantes esses dados podem ser gerados, em geral, quando o sistema se comporta de forma não usual. \cite{Aggarwal2012}
 		Por isso, a presença e a frequência de dados discrepantes também são informações relevantes para com o conjunto de dados.
 		Exemplos desta relevância são para sistemas de detecção de invasão, fraudes de cartão de crédito, diagnósticos médicos, estudos geológicos etc. \cite{Aggarwal2012}
 		%Como identificá-los
 		\par
-		Para identificar os dados discrepantes é um pouco mais subjetivo, isto é, mais dependente de criterios feitos por quem está avaliando, assim como de qual aplicação está sendo extraído o conjunto de dados. \cite{Aggarwal2012}
+		Para identificar os dados discrepantes é um pouco mais subjetivo, isto é, mais dependente de critérios feitos por quem está avaliando, assim como de qual aplicação está sendo extraído o conjunto de dados. \cite{Aggarwal2012}
 		Contudo, existe um espectro de dados normais para discrepantes como pode ser visto na figura \ref{fig:Aggarwal}.
-		Nesta figura, justamente o limiar entre os normais para os ruídos e anormalias não são precisamente definidos,
+		Nesta figura, justamente o limiar entre os normais para os ruídos e anomalias não são precisamente definidos,
 		mas algoritmos de detecção de discrepância podem dar pontuação de discrepância para cada dado e utilizar este nível. \cite{Aggarwal2012}
 
 		%figura
@@ -734,15 +752,18 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 
 	\section{Trabalhos acadêmicos}
 		Albuquerque et al. \cite{Albuquerque2011} descreveu um \emph{framework} capaz de gerar dados sintéticos multidimensionais.
-		O sistema (ver figura \ref{fig:albuquerque}) recebe um \emph{input} que representa algumas propriedades do conjunto de dados como número de dimensões,
+		O sistema como mostra a figura \ref{fig:albuquerque} recebe um \emph{input} que representa algumas propriedades do conjunto de dados como número de dimensões,
 			uma distribuição de dados padrão,
 			tipo de dado de cada dimensão entre outros.
-		A partir disso, é criada uma função densidade de probabilidade, com o fim de gerar um cojunto de dados padrão.
+		A partir disso, é criada uma função densidade de probabilidade, com o fim de gerar um conjunto de dados padrão.
 		Essas funções podem ser ajustadas e modeladas através de objetos.
 		Também, essas funções podem ser de 1, 2 ou 3 dimensões.
 		Adicionalmente, pode-se haver ruídos, para simular as irregularidades encontradas em conjunto de dados reais.
 		\par
-		O framework apresentado também possui uma interface gráfica para auxiliar o usuário a configurar o conjunto de dados, bem como gerá-lo. Contudo, não foi encontrado uma interface para pré-visualização dos futuros dados gerados. Quanto aos tipos de dados, estes são restritos aos numéricos, quer sejam inteiros ou de ponto flutuante.    
+		O framework apresentado também possui uma interface gráfica para auxiliar o usuário a configurar o conjunto de dados, bem como gerá-lo. 
+		Contudo, não foi encontrado uma interface para pré-visualização dos futuros dados gerados.
+		Quanto aos tipos de dados, estes são restritos aos numéricos, quer sejam inteiros ou de ponto flutuante.
+		No texto, nada foi citado sobre dados faltantes ou discrepantes.    
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Albuquerque10.png}
@@ -750,7 +771,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 			\label{fig:albuquerque}
 		\end{figure}
 
-		Wang et al. \cite{BingWang2013} apresentou uma aplicação cujo principal diferencial é a capacidade de modelar, através de desenho, o comportamento das dimensões do conjunto de dados sintéticos. A priori, o usuário pode iniciar o processo de geração através do zero, de um conjunto de dados já existente, ou um conjunto de dados aleatório. A partir disso, o usuário visualiza os dados no gráfico - que pode ser as coordenadas paralelas ou o \emph{scatterplot} - e pode modificá-lo através de cliques e arrastos. Por conseguinte, os dados podem ser gerados e isto também serve como retroalimentação do sistema. Na figura \ref{fig:sketchpad} é possível visualizar a visão geral do funcionamento do SketchPad.
+		Wang et al. \cite{BingWang2013} apresentou uma aplicação chamada SketchPad cujo principal diferencial é a capacidade de modelar, através de desenho, o comportamento das dimensões do conjunto de dados sintéticos. A priori, o usuário pode iniciar o processo de geração através do zero, de um conjunto de dados já existente, ou um conjunto de dados aleatório. A partir disso, o usuário visualiza os dados no gráfico - que pode ser as coordenadas paralelas ou o \emph{scatterplot} - e pode modificá-lo através de cliques e arrastos. Por conseguinte, os dados podem ser gerados e isto também serve como retroalimentação do sistema. Na figura \ref{fig:sketchpad} é possível visualizar a visão geral do funcionamento do SketchPad como a introdução de dados, visualização e modelação utilizando o gráfico Coordenadas Paralelas e o espaço para desenho chamado de \emph{Touchpad n-d} e a criação ou modificação de um conjunto de dados.
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Wang11.png}
@@ -758,7 +779,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 			\label{fig:sketchpad}
 		\end{figure}
 
-		Liu \cite{Liu2016} criou um gerador de dados sintéticos a partir de avaliação de regras de aprendizagem. O sistema funciona criando regras de aprendizagem - usando algoritmos de árvore de decisão como o ID3 - baseado em dados de entrada contruindo correlações entre os dados. Na figura \ref{fig:liu} é possível visualizar uma árvore de decisão. Durante a leitura do conjunto de dados de entrada é feita a árvore de decisão e, concomitantemente, são geradas as regras de aprendizagem. Essas regras são utilizadas para gerar amostras de dados sintéticos.
+		Liu \cite{Liu2016} criou um gerador de dados sintéticos a partir de avaliação de regras de aprendizagem. O sistema funciona criando regras de aprendizagem - usando algoritmos de árvore de decisão como o ID3 - baseado em dados de entrada construindo correlações entre os dados. Na figura \ref{fig:liu} é possível visualizar uma árvore de decisão. Durante a leitura do conjunto de dados de entrada é feita a árvore de decisão e, concomitantemente, são geradas as regras de aprendizagem. Essas regras são utilizadas para gerar amostras de dados sintéticos. As regras são interessantes tanto para reutilizar os dados quanto para facilitar em determinar o comportamento dos dados.
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Liu13.png}
@@ -766,7 +787,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 			\label{fig:liu}
 		\end{figure}
 
-		Garcia e Millán \cite{Garcia2011} criaram um sistema par gerar dados sintéticos pensado para desenvolvedores que buscam testar de forma eficiente e exaustiva a sua aplicação. Esses dados pode ser configurados (ver figura \ref{fig:garcia}) de acordo com as preferências do usuário. As dimensões de dados seguem alguns padrões como a partir de fontes externas (Arquivos, Bibliotecas, Base de dados) Sequencial, Constante, Funcional, Intervalo ou Lista de valores. 
+		Garcia e Millán \cite{Garcia2011} criaram um sistema de geração de dados sintéticos pensado para desenvolvedores que buscam testar de forma eficiente e exaustiva a sua aplicação. Esses dados pode ser configurados (ver figura \ref{fig:garcia}) de acordo com as preferências do usuário. As dimensões de dados seguem alguns padrões como a partir de fontes externas (Arquivos, Bibliotecas, Base de dados) Sequencial, Constante, Funcional, Intervalo ou Lista de valores. Contudo, os geradores, para alterar o comportamento dos dados, depende apenas dos parâmetros e não é possível misturar os geradores.
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Garcia18.png}
@@ -776,9 +797,13 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 
 		Kofinas et al. \cite{Kofinas2018} criou uma metedologia para gerar dados sintéticos para simular consumo de água. A metodologia é avaliada através de algoritmos de validação - como a visualização dos resultados e fórmulas.
 		\par
-		Como pode ser visto na figura \ref{fig:kofinas}, a geração dos dados é feita a partir de 2 fases. A fase 1 serve, basicamente, para investigar a distribuição dos dados. Esta fase, primeiramente transforma dados números em séries temporais de 30 segundos. Em alguns casos, não há registro, para isso, é criada uma tabela de incidentes e posteriormente uma probabilidade de existência de registro para que seja encontrada as classes usadas para construção do histograma de Pearson \cite{dean2009descriptive}, por fim, são comparadas funções de distribuição com a atual com o fim de encontrar a que mais se aproxima.
+		Como pode ser visto na figura \ref{fig:kofinas}, a geração dos dados é feita a partir de 2 fases. A fase 1 serve, basicamente, para investigar a distribuição dos dados. Esta fase, primeiramente transforma dados números em séries temporais de 30 segundos. Em alguns casos, não há registro, para isso, é criada uma tabela de incidentes e posteriormente uma probabilidade de existência de registro para que seja encontrada as classes usadas para construção do histograma de Pearson \cite{dean2009descriptive}, por fim, são comparadas funções de distribuição com a atual com o objetivo de encontrar a que mais se aproxima.
 		\par
-		Para a fase 2 cuida da geração de dados sintéticos propriamente. Basicamente, o sistema utiliza a distribuição criada na fase um para gerar os dados para 24h, respeitando as características diferenciadas para dias de semana e finais de semana.
+		A fase 2 cuida da geração de dados sintéticos utilizando  a distribuição criada na fase 1 para gerar os dados para 24h, respeitando as características diferenciadas para dias de semana e finais de semana.
+		\par
+		Apesar de o trabalho ter como principal a calibração, modelagem e geração dos dados, não foi disponibilizada uma interface gráfica do usuário para utilização dos dados, nem visualização dos mesmos nem possibilidade de gerar dados faltantes e discrepantes.
+		\par
+		
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/Kofinas21.png}
@@ -798,11 +823,14 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 			\label{fig:SakshaugandRaghunathan}
 		\end{figure}
 
-		Similarmente ao Blocks Data Generator, o projeto Threat Streaming Generator (TSG) \cite{Whiting2008} visa criar um gerador de dados sintéticos realistas com foco em dados para testes.
+		O projeto Threat Streaming Generator (TSG) \cite{Whiting2008} visa criar um gerador de dados sintéticos realistas com foco em dados para testes.
 		É mostrado o fluxograma dos processos do TSG na figura \ref{fig:whitingetal}.
 		Primeiramente são definidos qual o tipo de conjunto de dados vai ser gerado.
 		Em seguida são dadas 3 possilidades ao usuário de inserir o ambiente e a ameaça: manualmente, através da ferramenta TSG e outras fontes.
 		Por fim, esses dados são analisados por especialistas os quais são responsáveis pela qualidade do conjunto de dados gerado.
+		\par
+		O projeto é bem completo para desenvolvimento de dados sintéticos, inclusive com a validação pelos especialistas, o qual pode elevar o preço para geração dos dados.
+		\par
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/whitingetal.jpg}
@@ -810,11 +838,15 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 			\label{fig:whitingetal}
 		\end{figure}
 
-		Com o foco em CARS (Context-Aware Recommender Systems - Sistemas de Recomendação sensíveis ao contexto), o DataGenCARS \cite{delCarmenRodrguezHernndez2017} é uam ferramenta para gerar dados sintéticos de forma flexível e prática.
-		Permitindo que o usuário possa inserir os tipos perfis do usuário, tipos de contexto e itens, misturar dados sintéticos e dados reais com o fim de aumentar o realismos dos dados gerados.
+		Com o foco em CARS (Context-Aware Recommender Systems - Sistemas de Recomendação sensíveis ao contexto), o DataGenCARS \cite{delCarmenRodrguezHernndez2017} é uma ferramenta para gerar dados sintéticos de forma flexível e prática.
+		Permitindo que o usuário possa inserir os tipos de perfis do usuário, tipos de contexto e itens, misturar dados sintéticos e dados reais com o fim de aumentar o realismo dos dados gerados.
+		\par
 		Na imagem \ref{fig:DataGenCARS} mostra-se, de forma geral, o funcionamento do DataGenCARS.
 		De início a ferramenta mostra que é possível, opcionalmente, expandir outros conjuntos de dados bem como analisá-los estatisticamente.
 		De qualquer modo, deve ser definido os esquemas de contexto usuários, itens e configuração da geração para que se tenha o conjunto de dados.
+		\par
+		Dentro do tema que foi especificado (CARS) o DataGenCARS permite gerar dados de forma satisfatória bem como validar por meio de visualizações, mas não foi citado um tratamento para geração de dados faltantes e discrepantes.
+		\par
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=\linewidth]{./figures/TrabalhosRelacionados/DataGenCARS.jpg}
@@ -825,24 +857,26 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		Pensando em oferecer confidencialidade dos dados governamentais, Larsen and Huckett \cite{Larsen2012} desenvolveram um gerador de dados sintéticos que alia regressão de quartis com imputação \emph{hot deck} e troca de classificação.
 		A predição de regressão de quantis é feita para proteger dados sensíveis a partir de dados não sensíveis,
 		 isto é, o conjunto de dados finais são compostos por dimensões reais - os não sensíveis - e sintéticos - para dimensões sensíveis.
-		Em alguns casos os dados sintéticos são similares aos reais e para isso foi utilizado a imputação \emph{hot deck} junto com a troca de classificação, para garantir a aleatoriedade e confidencialidade dos dados.
+		Em alguns casos os dados sintéticos são similares aos reais e para isso foi utilizado a imputação \emph{hot deck} junto com a troca de classificação, para garantir a aleatoriedade e confidencialidade dos dados. Contudo, não foi citado sobre a geração de dados sintéticos ou faltantes.
+        \par
+        Dos trabalhos realizados, nem todos apresentaram uma interface gráfica ao usuário, ou variedade de geradores, com tratamento de dados faltantes ou discrepantes. Também sobre a validação por visualização poucos trabalhos apresentam integração dos dados gerados com uma ferramenta de visualização em tempo real.
 		%Artigo sem imagem.
 
 	\section{Aplicações}
 
-		DTM Data Generator \cite{DTMDataGenerator} é uma plataforma de geração de dados sintéticos que existe de 1998.
+		DTM Data Generator \cite{DTMDataGenerator} é uma plataforma de geração de dados sintéticos que existe desde 1998.
 		Esta possui suporte para geração de dados em arquivos, em banco de dados, também para \emph{Big Data}.
 		Possui suporte multiplataforma, através do modo \emph{multiplatform runtime}, contudo é limitado quando comparado à versão Windows, o qual suporta a versão para servidor também.
-		É válido destacar que é um software essencialmente pago, isto é, existem versões gratuitas - demonstrações, para ser mais exato - mas limitadas.
+		É válido destacar que é um software pago para utilização oferecendo uma demonstração por tempo limitado.
 		Além disso, há categorias de versões pagas, que vão desde limitações de geração (Standart - Professional) à vantagens mais técnicas (Professional - Entrerprise).
 		\par
 		O DTM Data Generator possui uma vasta coleção de funcionalidades, as quais liberadas de acordo com as versões pagas.
 		Adotando a versão mais cara, a lista de \emph{features} é composta por geração de dados em JSON, XML, CSV ou geração por separador customizado.
-		Também permite gerar dados por arquivo DSN (Database Source Name), gerar dados por linha de comando, e gerar um arquivo SQL para não seja necessário conexão com banco de dados.
+		Também permite gerar dados por arquivo DSN (Database Source Name), gerar dados por linha de comando, e gerar um arquivo SQL para que não seja necessário conexão com banco de dados.
 		\par
 		É possível gerar cerca de 9.2 sextilhões de registros por \emph{rule}, modos de atualizar dados existentes (adicionar, substituir e \emph{Data Scrambling}), e suporte para bibliotecas de dados realistas.
 		A plataforma disponibiliza entrada de dados através de SQL, XML, JSON, pela WEB através de HTTP ou FTP, XLSM, arquivos de texto e scripts em Python.
-		Também é possível visualizar e testar os dados gerados, bem como gerá-los nos principais arquivos de texto (TSV, CSV, "DSV", JSON, XML) e banco de dados. (MS SQL Server, Oracle, DB2, MySQL, PostgreSQL, Informix, Sybase, SQLite e Firebird) 
+		Também é possível visualizar e testar os dados gerados, bem como gerá-los nos principais arquivos de texto (TSV, CSV, DSV, JSON, XML) e banco de dados. (MS SQL Server, Oracle, DB2, MySQL, PostgreSQL, Informix, Sybase, SQLite e Firebird) 
 		\par
 		Há uma suíte de produtos relacionados fornecidos pela DTM soft. 
 		Além do gerador de dados, 
@@ -850,7 +884,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 			um gerador de planilhas Excel (DTM Data Generator for Excel);
 			testador exaustivo - teste de estresse - de banco de dados (DTM DB Stress);
 			Bem como editor, visualizador (DTM Data Editor), comparador e sincronizador de banco de dados (DTM Data Comparer) entre outros.
-		Não foi possível encontrar a informação se há suporte para geração de dados faltantes, bem como discrepantes.
+		Não foi encontrado uma documentação com mais detalhes dos geradores e se há suporte para geração de dados faltantes, bem como discrepantes.
 
 		\begin{figure}[h!]
 			\centering
@@ -868,6 +902,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		A população acontece ao escolher, primeiramente, uma tabela do banco.
 		A partir disso, escolhe-se um gerador para cada coluna da tabela.
 		Um gerador tem classificação fortemente baseada na realidade, isto é, possui geradores como palavras relacionadas à compras, pagamentos, pessoas (primeiro e último nome), dado geográficos e afins.
+		\par
 		Contudo, também disponibiliza a geração a partir de expressões regulares \emph{Regex generator} e scripts de python.
 		Por se tratar de banco de dados, também há checagem e tratamento de \emph{constraints}, \emph{Foreign keys} e \emph{Dependencies}.
 		O SQL Data Generator também permite lidar com arquivos XML, quer seja para geração de valores XML, como utilizar como dados de entrada, além de mesclá-los com o \emph{Regex generator}.
@@ -893,7 +928,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		\par
 		Para gerar os dados de teste, deve-se utilizar os geradores de dados (\emph{Data Generators}), que são correlacionados às tabelas do banco de dados.
 			Os geradores podem ser dos mais primitivos (Binários, Inteiros, Data, \emph{Float}), como de Imagem, Dinheiro, Expressão Regular, Categórico entre outros.
-		Entre os geradores genéricos pré-definidos, não foi possível encontrar suporte para dados faltantes ou dados discrepantes, mas há a possibilidade de criar geradores customizados.
+		Entre os geradores genéricos pré-definidos, não foi encontrado suporte para dados faltantes ou dados discrepantes, mas há a possibilidade de criar geradores personalizados.
 		Também é disponibilizado um Plano de Geração de Dados (\emph{Data Generation Plan}), feito em XML, que contém informações do banco de dados, o tipo de dados de cada gerador e a quantidade de dados para ser gerado. 
 		Este plano serve basicamente para reutilização da lógica de teste.
 		\begin{figure}[h]
@@ -915,7 +950,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		Do primeiro tipo, são formas mais próximas dos dados primitivos, como datas, texto \emph{lorem ipsum}, JSON, \emph{ReGex}.
 		Já o avançado conta com número de cartão de crédito, aniversário, número de conta bancária internacional, IPv4, \emph{hash} de senhas.  
 		A geração de dados resume-se à população de banco de dados, não há uma forma de exportar os dados em arquivos como CSV e JSON.
-		Ao acessar a documentação \cite{forgeDBDataGeneratorDoc} dos geradores, elas não estavam disponíveis (erro 404), logo não foi possível encontrar mais informações inclusive sobre dados faltantes ou discrepantes.
+		Ao acessar a documentação \cite{forgeDBDataGeneratorDoc} dos geradores, elas não estavam disponíveis (erro 404), logo não foi encontrado mais informações inclusive sobre dados faltantes ou discrepantes.
 		\par
 		Há um suíte exclusivo para SQL Server, contudo também para Oracle, MySQL, PostgreSQL entre outros.
 		Neste suíte, há várias ferramentas que auxiliam na manutenção, mas não, necessariamente, a geração de dados, a exemplode um \emph{previewer}.
@@ -969,7 +1004,6 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 	% ---
 \chapter{Arquitetura do projeto}\label{cap_trabalho_academico}
 % ---
-	O software chamado de Blocks Data Generator é \emph{Open Source} e está hospedado no GitHub em \url{http://github.com/gustavoresque/DataGenerator}.
 	Em termos de organização do projeto, foi adotado o padrão de arquitetura de \emph{software} MVC (\emph{Model, View, Controller}), um modelo incremental de desenvolvimento, com reuniões diárias para discussão de problemas e melhorias, e utilização da ferramenta Trello (\url{https://trello.com}) para organização e persistência das informações.
 	\par
 	Quanto ao desenvolvimento, foi utilizada a linguagem Javascript com foco para \emph{Desktop}, através do \emph{Framework} Electron (\url{https://electronjs.org/}).
@@ -980,12 +1014,12 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=\linewidth]{./figures/prototipo/diagramaUC.png}
-			\caption{Diagrama de Caso de uso do Blocks Data Generator. Fonte: o autor.}
+			\caption{Diagrama de Caso de uso do Blocks. Fonte: o autor.}
 			\label{fig:diagramaUC}
 		\end{figure}
-		"O objetivo de um diagrama de casos de uso na UML é demonstrar as diferentes maneiras pelas quais um usuário pode interagir com um sistema." \cite{UCdefinition}
-		Por conta disso, é utilizado o Diagrama de Casos de Uso para demonstrar as principais funcionalidades do sistema Blocks Data Generator.
-		Na figura \ref{fig:diagramaUC} são encontrados um total de 10 casos de uso.
+		O diagrama de casos de uso visa demonstrar as diferentes formas de um usuário pode utilizar um sistema. \cite{UCdefinition}
+		Por conta disso, é utilizado o Diagrama de Casos de Uso para demonstrar as principais funcionalidades do sistema Blocks.
+		Na figura \ref{fig:diagramaUC} são encontrados um total de 10 casos de uso, nomeados de UC01 a UC10.
 		\par
 		No UC01 mostra que é possível modificar um modelo, isto é, adicionar ou remover dimensões, alterar geradores e afins; também há inclusão do UC04 e a possibilidade de desfazer ou refazer as alterações (UC02).
 		O UC04 representa a criação do modelo. 
@@ -993,15 +1027,15 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		Outros casos de uso que possuem relação com UC04 é o UC03 e UC07 como inclusão e UC05 como extensão.
 		\par
 		UC03 é uma funcionalidade para reaproveitamento do modelo, também está atrelado à validação de teste por outros pesquisadores.
-		UC07 é o carro chefe do Blocks Data Generator, o qual refere-se à geração de dados, progredindo para o \emph{Big Data} ou não.
+		UC07 é o principal caso de uso do Blocks, o qual refere-se à geração de dados, progredindo para o \emph{Big Data} ou não.
 		Esta geração pode ser feita, especificamente, de 3 formas: gerando dados em Memória, para ser utilizado dentro do sistema (UC10);
 			salvar em arquivos - TSV, CSV e JSON - (UC09);
 			e distribuir os dados através de requisições HTTP (UC08).
 		\par
 		Incluindo a UC07, mais especificamente a UC10, a UC06 permite que o usuário visualize os dados. 
-		Assim, a visualização - a qual pode ser rápida (através do \emph{preview}) ou detalhada (com o VisTechLib) - tendo um panorama do comportamento dos dados. 
+		Assim, a visualização - a qual pode ser rápida (através do \emph{preview}) ou detalhada (com o VisApplication) - tendo um panorama do comportamento dos dados. 
 		Com isso, pode-se validar os dados, ter insights para aprimorar o modelo e afins.
-	\section{Classe dos Geradores}
+	\section{Diagrama de Classes}
 	No diagrama de classe visto na figura \ref{fig:diagramaCD} é possível encontrar a estrutura de classe geradores de forma resumida.
 	Há uma classe abstrata chamada \emph{Generator} que possui a maioria dos métodos e atributos, sendo que alguns deles são sobrescritos nas subclasses.
 	Na segunda geração de classes (ver figura \ref{fig:diagramaCDCima}), elas basicamente existem para identificar as categorias - exceto \emph{Real Data Wrapper} e não adicionam novas propriedades - com exceção da classe \emph{Sequence}, por exemplo.
@@ -1009,149 +1043,143 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=\linewidth]{./figures/prototipo/DiagramadeClasseGeradores.png}
-		\caption{Diagrama de Classes dos geradores do Blocks Data Generator. Fonte: o autor.}
+		\caption{Diagrama de Classes dos geradores do Blocks. Fonte: o autor.}
 		\label{fig:diagramaCD}
 	\end{figure}
 	
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=\linewidth]{./figures/prototipo/DiagramadeClasseGeradoresCima.png}
-		\caption{Diagrama de Classes (2ª Geração) dos geradores do Blocks Data Generator. Fonte: o autor.}
+		\caption{Diagrama de Classes (2ª Geração) dos geradores do Blocks. Fonte: o autor.}
 		\label{fig:diagramaCDCima}
 	\end{figure}
 
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=\linewidth]{./figures/prototipo/DiagramadeClasseGeradoresBaixo.png}
-		\caption{Diagrama de Classes (3ª Geração) dos geradores do Blocks Data Generator. Fonte: o autor.}
+		\caption{Diagrama de Classes (3ª Geração) dos geradores do Blocks. Fonte: o autor.}
 		\label{fig:diagramaCDBaixo}
 	\end{figure}
 
 	\section{Sequência de atividades no Blocks}
-	Para gerar os diagramas de sequência do Blocks Data Generator, foram utilizados os casos de uso UC06 e UC09, vistos na figura \ref{fig:diagramaUC}.
+	Para gerar os diagramas de sequência do Blocks, foram utilizados os casos de uso UC06 e UC09, vistos na figura \ref{fig:diagramaUC}.
 	No diagrama \ref{fig:DiagramadeSequenciaArquivo} percebe-se que há a introdução das configurações do modelo pelo usuário, então o sistema cria/modifica o objeto modelo (UC01).
 	Mais abaixo, há 2 loops para geração dos dados, o primeiro é a geração pelos geradores presentes no modelo até um certo limite, então esse conjunto de dados é salvo no arquivo, por conseguinte há uma resposta ao usuário de que houve progresso.
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=\linewidth]{./figures/prototipo/DiagramadeSequenciaArquivo.png}
-		\caption{Diagrama de Sequência para geração de dados em arquivos no Blocks Data Generator. Fonte: O autor.}
+		\caption{Diagrama de Sequência para geração de dados em arquivos no Blocks. Fonte: O autor.}
 		\label{fig:DiagramadeSequenciaArquivo}
 	\end{figure}
 	\par
-	No diagrama de sequência visto na figura \ref{fig:DiagramadeSequenciaVisTechLib} é em relação ao UC06.
+	No diagrama de sequência visto na figura \ref{fig:DiagramadeSequenciaVisApplication} é em relação ao UC06.
 	Primeiramente, assim como na geração do arquivo, há o uso do UC01.
 	Em seguida há geração dos dados em memória referente ao UC10.
 	Com esses dados em memória, o \emph{preview} é desenhado automaticamente.
-	A partir dos dados, há uma comunicação via \emph{WebSocket} com o VisTechLib enviando os dados.
-	O VisTechLib retorna as opções de visualização, o usuário escolhe uma e então é retornado a visualização para que esta seja renderizada.
+	A partir dos dados, há uma comunicação via \emph{WebSocket} com o VisApplication enviando os dados.
+	O VisApplication retorna as opções de visualização, o usuário escolhe uma e então é retornado a visualização para que esta seja renderizada.
 
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=\linewidth]{./figures/prototipo/DiagramadeSequenciaVisTechLib.png}
-		\caption{Diagrama de Sequência para visualização dos dados no Blocks Data Generator. Fonte: o autor.}
-		\label{fig:DiagramadeSequenciaVisTechLib}
+		\includegraphics[width=\linewidth]{./figures/prototipo/DiagramadeSequenciaVisApplication.png}
+		\caption{Diagrama de Sequência para visualização dos dados no Blocks. Fonte: o autor.}
+		\label{fig:DiagramadeSequenciaVisApplication}
 	\end{figure}
 % ---
 \chapter{Sistema Blocks}
 % ---
-	Este capítulo é dedicado em explicar mais sobre o sistema, seu fluxo de funcionamento, funcionalidades, mais detalhes sobre a interface do usuário entre outros.
-	De modo geral, o sistema é chamado de Blocks Data Generator e visa ser um gerador de dados sintéticos baseado em modelos de dados.
+	Este capítulo é dedicado em explicar mais sobre o sistema, seu fluxo de funcionamento, funcionalidades, detalhes sobre a interface do usuário entre outros.
+	De modo geral, o sistema é chamado de Blocks e visa ser um gerador de dados sintéticos baseado na combinação de modelos de dados.
 	Assim, o usuário pode manipular um ou mais modelos e cada modelo pode conter N dimensões, que por sua vez podem conter M geradores de dados encadeados.
 	\par
 	Os geradores de dados podem gerar dados numéricos, categóricos, temporais etc (haverá uma seção específica para geradores) e o resultado de um gerador pode servir de entrada para outro gerador através de operadores.
 	Os operadores podem ou não aplicar uma operação matemática (soma, subtração, divisão, multiplicação) ao resultado do gerador anterior - a leitura de anterior e posterior é da esquerda para a direita, respectivamente.
 	Junto com os operadores, também há outras propriedades que variam de acordo com o gerador.
 	\par
-	Ainda na modelagem das dimensões, é possível modificar seu nome, verificar o tipo do dado gerado pelo gerador, o ID e se está disponível para geração e visualização.
-	Essa disponibilidade (chamado de \emph{display}) foi feita para o caso de haver um modelo em que nem todas as dimensões sejam necessárias em determinado momento, mas também não queira perdê-las.
-	Adicionalmente, é possível copiar e colar dimensões através de atalhos no teclado, bem como adicionar ou excluir dimensões, esta por só meio de um botão.
+	Também é disponibilizado um pré-visualizador de dados com o gráfico coordenadas paralelas, o qual é colorido e interativo e seu volume de dados é independente do volume de dados para ser gerado.
+	Além do \emph{preview}, há uma integralização com um visualizador de dados mais elaborado e com mais opções de visualização, o \emph{VisApplication}.
 	\par
-	Também é disponibilizado um pré-visualizador de dados com apenas um gráfico - o coordenadas paralelas -, o qual é colorido e interativo e seu volume de dados é independente do volume de dados para ser gerado.
-	Além do \emph{preview}, há uma integralização com um visualizador de dados mais elaborado e com mais opções de visualização, o \emph{VisTechLib}.
-	\par
-	Outrossim, há um botão específico para gerar os dados em arquivos JSON, CSV, TSV ou por de requisições HTTP do tipo GET (\emph{Web Service}).
-	Vale ressaltar que é possível configurar, em ambiente dedicado, a quantidade de dados gerados, pré-visualizados, formato dos dados gerados, se contém a legenda dos dados no arquivo final e as propriedades do \emph{Web Service}.
+	O Blocks permite gerar os dados em arquivos JSON, CSV, TSV ou por de requisições HTTP do tipo GET (\emph{Web Service}).
+	Vale ressaltar que é possível configurar a quantidade de dados gerados, pré-visualizados, formato dos dados gerados, se contém o cabeçalho dos dados no arquivo final e as propriedades do \emph{Web Service}.
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=\linewidth]{./figures/prototipo/fluxogramaUtilizacaoBlocks.png}
-		\caption{Fluxograma de utilização do Blocks Data Generator. Fonte: Yvan Brito, 2019.}
+		\caption{Fluxograma de utilização do Blocks. Fonte: Yvan Brito, 2019.}
 		\label{fig:fluxograma}
 	\end{figure}
 	\par
 	Na figura \ref{fig:fluxograma} é possível visualizar como foi pensada a utilização da aplicação.
-	Na primeira raia, encontra-se como o usuário pode configurar o modelo.
+	Na aba "Configuração do Modelo de Dados" da figura \ref{fig:fluxograma} encontra-se como o usuário pode configurar o modelo.
 	Basicamente, o usuário define as dimensões e os seus geradores. 
 	E o comportamento dos dados pode ser validado pelo \emph{preview}. 
 	Caso seja necessário, o modelo pode ser atualizado a qualquer momento.
 	\par
-	A segunda raia demonstra os caminhos para geração de dados.
+	Em "Usar Dados para Avaliação" demonstra os caminhos para geração de dados.
 	É possível a geração de dados por \emph{Big Data}, isto é, um grande conjunto de dados multidimensionais, apenas por meio de arquivos.
 	Também a geração de dados por \emph{Streaming}, o qual dar mais controle ao usuário sobre o processo de geração, e também é disponibilizado o \emph{Web Service}.
 	E o caminho 5.3 demonstra uma forma iterativa de geração de arquivos de dados, com mudanças programadas de atributos.
 	Esses dados podem ser usados em experimentos, testes e afins, cujos resultados podem ser publicados.
 	\par
-	A terceira raia funciona como um agrupamento das duas primeiras, mas externa.
-	Isso para demonstrar que os processos anteriores podem ser replicados a partir do mesmo modelo de dados e o resultado pode ser comparado, facilitando a produção científica de pesquisadores.
+	E em "Compartilhar Modelo para Reprodução" mostra que os processos anteriores podem ser replicados a partir do mesmo modelo de dados e o resultado pode ser comparado, facilitando a produção científica de pesquisadores.
 	
 	\section{Tipos de Geradores de Dados}
 		% TODO: colocar as fórmulas na seção de fórmulas (perguntar para o professor antes)
 		\begin{table}[h]
 			\centering
-			\caption{Propriedade dos geradores do Blocks Data Generator}
+			\caption{Propriedade dos geradores do Blocks}
 			\vspace{0.5cm}
 			\label{table: Propriedade Geradores Blocks}
 			\begin{tabular}{c|c|c|c|c}
 			
-				Nome                 & Categoria  & T. dos valores                                            & Correlação & Independente \\ % Note a separação de col. e a quebra de linhas
+				Nome                 & Categoria  & T. dos valores                                            & Correlação & Dependente \\ % Note a separação de col. e a quebra de linhas
 				\hline % para uma linha horizontal
-				Constant             & Sequencial & N\footnotemark[1]                                         & Não        & Sim \\
-				Counter              & Sequencial & N\footnotemark[1]                                         & Não        & Sim \\
-				Fixed Time           & Sequencial & T\footnotemark[3]                                         & Não        & Sim \\
-				Sinusoidal Sequence  & Sequencial & N\footnotemark[1]                                         & Não        & Sim \\
-				Custom Sequence      & Sequencial & N\footnotemark[1]                                         & Não        & Sim \\
+				Constant             & Sequencial & N\footnotemark[1]                                         & Não        & Não \\
+				Counter              & Sequencial & N\footnotemark[1]                                         & Não        & Não \\
+				Fixed Time           & Sequencial & T\footnotemark[3]                                         & Não        & Não \\
+				Sinusoidal Sequence  & Sequencial & N\footnotemark[1]                                         & Não        & Não \\
+				Custom Sequence      & Sequencial & N\footnotemark[1]                                         & Não        & Não \\
 				%--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-				Poisson Time         & Aleatório  & T\footnotemark[3]                                         & Não        & Sim \\
-				Uniform              & Aleatório  & N\footnotemark[1]                                         & Não        & Sim \\
-				Gaussian             & Aleatório  & N\footnotemark[1]                                         & Não        & Sim \\
-				Poisson              & Aleatório  & N\footnotemark[1]                                         & Não        & Sim \\
-				Bernoulli            & Aleatório  & N\footnotemark[1]                                         & Não        & Sim \\
-				Cauchy               & Aleatório  & N\footnotemark[1]                                         & Não        & Sim \\
-				Weighted Categorical & Aleatório  & C\footnotemark[2]                                         & Não        & Sim \\
-				Categorical          & Aleatório  & C\footnotemark[2]                                         & Não        & Sim \\
-				Categorical Quantity & Aleatório  & C\footnotemark[2]                                         & Não        & Sim \\
+				Poisson Time         & Aleatório  & T\footnotemark[3]                                         & Não        & Não \\
+				Uniform              & Aleatório  & N\footnotemark[1]                                         & Não        & Não \\
+				Gaussian             & Aleatório  & N\footnotemark[1]                                         & Não        & Não \\
+				Poisson              & Aleatório  & N\footnotemark[1]                                         & Não        & Não \\
+				Bernoulli            & Aleatório  & N\footnotemark[1]                                         & Não        & Não \\
+				Cauchy               & Aleatório  & N\footnotemark[1]                                         & Não        & Não \\
+				Weighted Categorical & Aleatório  & C\footnotemark[2]                                         & Não        & Não \\
+				Categorical          & Aleatório  & C\footnotemark[2]                                         & Não        & Não \\
+				Categorical Quantity & Aleatório  & C\footnotemark[2]                                         & Não        & Não \\
 				%--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-				Linear               & Função     & N\footnotemark[1]                                         & Sim        & Sim \\
-				Quadratic            & Função     & N\footnotemark[1]                                         & Sim        & Sim \\
-				Polynomial           & Função     & N\footnotemark[1]                                         & Sim        & Sim \\
-				Exponential          & Função     & N\footnotemark[1]                                         & Sim        & Sim \\
-				Logarithm            & Função     & N\footnotemark[1]                                         & Sim        & Sim \\
-				Sinusoidal           & Função     & N\footnotemark[1]                                         & Sim        & Sim \\
-				Categorical          & Função     & C\footnotemark[2]                                         & Sim        & Sim \\
-				Piecewise            & Função     & N\footnotemark[1]                                         & Sim        & Sim \\
-				TimeLaps             & Função     & T\footnotemark[3]                                         & Sim        & Sim \\
+				Linear               & Função     & N\footnotemark[1]                                         & Sim        & Não \\
+				Quadratic            & Função     & N\footnotemark[1]                                         & Sim        & Não \\
+				Polynomial           & Função     & N\footnotemark[1]                                         & Sim        & Não \\
+				Exponential          & Função     & N\footnotemark[1]                                         & Sim        & Não \\
+				Logarithm            & Função     & N\footnotemark[1]                                         & Sim        & Não \\
+				Sinusoidal           & Função     & N\footnotemark[1]                                         & Sim        & Não \\
+				Categorical          & Função     & C\footnotemark[2]                                         & Sim        & Não \\
+				Piecewise            & Função     & N\footnotemark[1]                                         & Sim        & Não \\
+				TimeLaps             & Função     & T\footnotemark[3]                                         & Sim        & Não \\
 				%--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-				MCAR                 & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Não \\
-				MAR                  & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Sim        & Sim \\
-				MNAR                 & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Não \\
-				Noise                & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Não \\
-				Constant Noise       & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Não \\
-				Range Filter         & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Não \\
-				Linear Scale         & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Não \\
-				No Repeat            & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Não \\
-				MinMax               & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Não \\
-				Low-Pass Filter      & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Não \\
-				Get Extra Value      & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Não \\
+				MCAR                 & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Sim \\
+				MNAR                 & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Sim \\
+				Noise                & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Sim \\
+				Constant Noise       & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Sim \\
+				Range Filter         & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Sim \\
+				Linear Scale         & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Sim \\
+				No Repeat            & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Sim \\
+				MinMax               & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Sim \\
+				Low-Pass Filter      & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Sim \\
+				Get Extra Value      & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Sim \\
 				%--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-				CubicBezier          & Geométrico & N\footnotemark[1]                                         & Não        & Sim \\
-				Path2D Stroke        & Geométrico & N\footnotemark[1]                                         & Não        & Sim \\
-				Path2D Fill          & Geométrico & N\footnotemark[1]                                         & Não        & Sim \\
+				CubicBezier          & Geométrico & N\footnotemark[1]                                         & Não        & Não \\
+				Path2D Stroke        & Geométrico & N\footnotemark[1]                                         & Não        & Não \\
+				Path2D Fill          & Geométrico & N\footnotemark[1]                                         & Não        & Não \\
 			\end{tabular}
 		\end{table}
 
-		\begin{table}[h]
+		\begin{table}[h!]
 			\centering
-			\caption{Resumo dos geradores do Blocks Data Generator}
-			\vspace{0.5cm}
+			\caption{Resumo dos geradores do Blocks}
+			% \vspace{0.5cm}
 			\label{table: Resumo Geradores Blocks}
 			\begin{tabular}{l|p{14cm}}
 			
@@ -1163,31 +1191,30 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 				Sinusoidal Sequence  & Sequência de \textbf{números} de acordo com uma função senoidal.\\
 				Custom Sequence      & Sequência de \textbf{números} cujo comportamento é dado pelo usuário.\\
 				%--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-				Poisson Time         & Gera valores aleatórios \textbf{temporais} em uma distribuição de de Poisson.\\
-				Uniform              & Gera valores aleatórios \textbf{númericos} em uma distribuição uniforme.\\
-				Gaussian             & Gera valores aleatórios \textbf{númericos} em uma distribuição de Gaussiana.\\
-				Poisson              & Gera valores aleatórios \textbf{númericos} em uma distribuição de de Poisson.\\
-				Bernoulli            & Gera valores aleatórios \textbf{númericos} em uma distribuição de de Bernoulli.\\
-				Cauchy               & Gera valores aleatórios \textbf{númericos} em uma distribuição de de Cauchy.\\
-				Weighted Categorical & Gera valores aleatórios \textbf{categóricos} dadas as categorias com probabilidade ponderada.\\
-				Categorical          & Gera valores aleatórios \textbf{categóricos} dadas as categorias.\\
-				Categorical Quantity & Gera valores aleatórios \textbf{categóricos} dadas as categorias definindo a quantidade de aparição de categorias. \\
+				Poisson Time         & Valores aleatórios \textbf{temporais} em uma distribuição de de Poisson.\\
+				Uniform              & Valores aleatórios \textbf{númericos} em uma distribuição uniforme.\\
+				Gaussian             & Valores aleatórios \textbf{númericos} em uma distribuição de Gaussiana.\\
+				Poisson              & Valores aleatórios \textbf{númericos} em uma distribuição de de Poisson.\\
+				Bernoulli            & Valores aleatórios \textbf{númericos} em uma distribuição de de Bernoulli.\\
+				Cauchy               & Valores aleatórios \textbf{númericos} em uma distribuição de de Cauchy.\\
+				Weighted Categorical & Valores aleatórios \textbf{categóricos} dadas as categorias com probabilidade ponderada.\\
+				Categorical          & Valores aleatórios \textbf{categóricos} dadas as categorias.\\
+				Categorical Quantity & Valores aleatórios \textbf{categóricos} dadas as categorias definindo a quantidade de aparição de categorias. \\
 				%--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-				Linear               & Gera valores a partir de uma dimensão \textbf{númerica} em uma função linear.\\
-				Quadratic            & Gera valores a partir de uma dimensão \textbf{númerica} em uma função quadrática.\\
-				Polynomial           & Gera valores a partir de uma dimensão \textbf{númerica} em uma função polinomial.\\
-				Exponential          & Gera valores a partir de uma dimensão \textbf{númerica} em uma função exponencial.\\
-				Logarithm            & Gera valores a partir de uma dimensão \textbf{númerica} em uma função logarítmica.\\
-				Sinusoidal           & Gera valores a partir de uma dimensão \textbf{númerica} em uma função senoidal.\\
-				Categorical          & Gera valores a partir de uma dimensão \textbf{categórica}.\\
-				Piecewise            & Gera valores a partir de uma dimensão \textbf{númerica} com limiar recebe dados de 2 outros geradores. \\
-				TimeLaps             & Gera valores a partir de uma dimensão \textbf{temporal} que ao atingir o tempo definido ele dados de um novo gerador.  \\
+				Linear               & Valores a partir de uma dimensão \textbf{númerica} em uma função linear.\\
+				Quadratic            & Valores a partir de uma dimensão \textbf{númerica} em uma função quadrática.\\
+				Polynomial           & Valores a partir de uma dimensão \textbf{númerica} em uma função polinomial.\\
+				Exponential          & Valores a partir de uma dimensão \textbf{númerica} em uma função exponencial.\\
+				Logarithm            & Valores a partir de uma dimensão \textbf{númerica} em uma função logarítmica.\\
+				Sinusoidal           & Valores a partir de uma dimensão \textbf{númerica} em uma função senoidal.\\
+				Categorical          & Valores a partir de uma dimensão \textbf{categórica}.\\
+				Piecewise            & Valores a partir de uma dimensão \textbf{númerica} com limiar para 2 encadeamentos. \\
+				TimeLaps             & Valores a partir de uma dimensão \textbf{temporal} que gera dados ao atingir um tempo.  \\
 				%--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-				MCAR                 & Gera valores faltantes aleatoriamente com auxílio de um ou mais geradores dada uma probabilidade. \\
-				MAR                  & Gera valores faltantes com auxílio a partir de uma dimensão e com parâmetros definidos pelo usuário faltantes. \\
-				MNAR                 & Gera valores faltantes com auxílio de um ou mais geradores com parâmetros definidos pelo usuário para ter dados faltantes. \\
-				Noise                & Gera valores ruidosos com auxílio de um mais geradores dada uma probabilidade e intensidade. \\
-				Constant Noise       & Gera dados ruidosos com valor específico constante com auxílio de um mais geradores dada uma probabilidade. \\
+				MCAR                 & Valores faltantes aleatoriamente com auxílio de um ou mais geradores dada uma probabilidade. \\
+				MNAR                 & Valores faltantes aleatoriamente com auxílio de um ou mais geradores dada uma lógica. \\
+				Noise                & Valores ruidosos com auxílio de um mais geradores dada uma probabilidade e intensidade. \\
+				Constant Noise       & Dados ruidosos com valor constante com auxílio de um mais geradores dada uma probabilidade. \\
 				Range Filter         & Dado um ou mais geradores, os dados que estão no intervalo não são gerados.\\
 				Linear Scale         & Dado um ou mais geradores, os dados são escalados de acordo com os parâmetros definidos. \\
 				No Repeat            & Dado um ou mais geradores, são retirados os dados repetidos. \\
@@ -1195,13 +1222,13 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 				Low-Pass Filter      & Dado um ou mais geradores, este simula o resultado de um filtro passa-baixa.\\
 				Get Extra Value      & Recebe o valor de dados multidimensionais. \\
 				%--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-				CubicBezier          & Gera dados para desenhar uma curva Bezier cúbica. \\
-				Path2D Stroke        & Gera dados para desenhar a borda de um polígono. \\
-				Path2D Fill          & Gera dados para preencher um polígono. \\
+				CubicBezier          & Dados para desenhar uma curva Bezier cúbica. \\
+				Path2D Stroke        & Dados para desenhar a borda de um polígono. \\
+				Path2D Fill          & Dados para preencher um polígono. \\
 			\end{tabular}
 		\end{table}
 		
-		Na tabela \ref{table: Propriedade Geradores Blocks} são apresentados, de forma geral, todos os geradores do Blocks Data Generator. São apresentados seus nomes, suas categorias, o tipo de valores retornados, os tipos de parâmetros, se possui correlação - o que na prática é se um dos parâmetros é uma outra dimensão - , se são independentes - ou seja, se precisa encadear geradores para funcionar corretamente.
+		Na tabela \ref{table: Propriedade Geradores Blocks} são apresentados todos os geradores do Blocks até o momento desde trabalho. São apresentados seus nomes, suas categorias, o tipo de valores retornados, os tipos de parâmetros, se possui correlação - isto é, se é baseado no valor de outra dimensão - , se são dependentes - ou seja, se precisa de um gerador encadeado para funcionar corretamente.
 		Na tabela \ref{table: Resumo Geradores Blocks} é mostrado um breve resumo para um entendimento abrangente do comportamento de cada gerador.
 
 		\footnotetext[1]{Numérico}
@@ -1219,7 +1246,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 				o \emph{Sinusoidal Sequence} gera de acordo com a função senoidal, que, além do valor Inicial e Intervalar, há o 'a' de Amplitude, 'b' de frequência ângular e 'c' para representar a fase da onda.
 
 		\subsection{Aleatório}
-			A categoria aleatória de dados contém um significativo número de geradores, pois são mais fáceis de se dissociar da realidade, pelo caráter aleatório, mas também de reaproximar, pelo caráter probabilístico.
+			A categoria aleatória de dados contém um grande número de geradores, pois existe uma diversidade de distribuições de probabilidade comparada às outras categorias.
 			\par
 			Esta categoria conta com geradores uniformes, isto é, a distribuição dos dados é equalizada;
 				Também há um gerador de dados de tempo, parecido com o \emph{Fixed Time Generator} com a diferença que o comportamento é definido pela fórmula de Poisson e que há mais duas configurações: unidade de tempo - a qual pode ser desde milissegundos a anos - e o lambda, advindo da fórmula.
@@ -1229,8 +1256,8 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 			Além de números, também é possível gerar dados categóricos (\emph{Categorical}), dadas as palavras - também chamado de categorias - inicialmente.
 				Similarmente há o \emph{Weighted Categorical} que possui valores de probabilidade para cada palavra, e 
 				já o \emph{Categorical Quantity}, em vez de probabilidade, define quantas vezes cada palavra deve aparecer.
-		\subsection{Funcional}
-			A categoria funcional (\emph{Function}) serve para gerar dados de acordo com outra dimensão chamado de \emph{input}, isto é, facilita a correlação entre dimensões.
+		\subsection{Função}
+			A categoria funções (\emph{Function}) serve para gerar dados de acordo com outra dimensão chamado de \emph{input}, isto é, facilita a correlação entre dimensões.
 			Para dados numéricos, disponibiliza-se as 
 				função de primeiro grau (\emph{Linear Function}) e 
 				segundo grau (\emph{Quadratic Function}), 
@@ -1241,23 +1268,24 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 			Para dados categóricos, há a função categórica (\emph{Categorical Function}) e 
 			a \emph{TimeLaps Function} a qual funciona de forma semelhante ao gerador \emph{Piecewise Function}, só que utiliza uma quantidade de tempo como limiar - imagine uma corrida de fórmula 1 e cada vez que os carros passam pela linha de chegada eles completam uma volta. Esta volta é o limiar também chamado de \emph{Laps} - e para o \emph{input}, somente geradores de tempo.
 		\subsection{Acessórios}
-			Os geradores da categoria Acessórios (\emph{Acessory}) foram pensados especialmente para serem concatenados com outros geradores, com o fim auxiliá-los.
-			Entre os geradores acessórios, pode-se citar o \emph{Missing Value}, o qual foi subdivido em 3 geradores: o \emph{MCAR}, \emph{MAR} e \emph{MNAR}.
+			Os geradores da categoria Acessórios (\emph{Acessory}) foram pensados especialmente para serem concatenados com outros geradores, com o fim de incrementá-los.
+			Entre os geradores acessórios, pode-se citar o \emph{Missing Value}, o qual foi subdivido em 2 geradores: o \emph{MCAR} e \emph{MNAR}.
 			\par
-			O MCAR usa a probabilidade para definir qual dado será faltante;
-			O MAR e o MNAR são similares. 
-			Eles trabalham de forma diferente para cada tipo de dado.
+			O MCAR usa a probabilidade para definir se um dado será faltante;
+			O MNAR trabalha de forma diferente para cada tipo de dado.
 			Os tipos de dado são os Numéricos, os Categóricos e os Temporais.
+			\par
+			O MAR é gerado a partir do encadeamento de geradores.
+			Isto é, por conta do MAR levar em consideração a correlação a uma dimensão,
+			este pode utilizar um gerador da categoria função em conjunto do MCAR ou MNAR.
 			\par
 			Para os Numéricos e os Temporais, é definido um intervalo no qual os dados vão ser faltantes.
 			Para os dados Categóricos, é definida uma lista de categorias na qual todas essas categorias faltarão na geração de dados.
-			Quanto a diferença entre MAR e MNAR está em que o MAR possui correlação com outra dimensão e é independente de outros geradores,
-			 enquanto o MNAR não possui correlação com outras dimensões, mas é dependente de outros geradores.
 			\par
-			 Os geradores MAR e o MNAR foram desenvolvidos e acrescentados ao sistema por mim.
-			 Entretanto a implementação foi baseada no artigo \cite{rieger2010random} para o MAR,
-			 os trabalhos de \cite{rieger2010random} \cite{xia2017adjusted} são semelhantes ao gerador MCAR e os artigos \cite{twala2009empirical} \cite{xia2017adjusted} para implementação do MNAR.
-			 Os artigos foram encontrados devido ao artigo de \cite{santos2019generating} e segundo o mesmo, as implementações são consideradas univariadas, isto é, apenas uma dimensão é afetada.
+			 Os geradores MNAR e o MCAR foram desenvolvidos ou modificados no sistema ao longo deste trabalho.
+			 Entretanto a implementação foi baseada nos artigos \cite{twala2009empirical} \cite{xia2017adjusted} para implementação do MNAR,
+			 os trabalhos de \cite{rieger2010random} \cite{xia2017adjusted} são semelhantes ao gerador MCAR, pois utilizam uma probabilidade para definir aleatoriamente um dado faltante.
+			 Os artigos de implementação também podem ser encontrados no artigo \cite{santos2019generating} e segundo o mesmo, as implementações são consideradas univariadas, isto é, apenas uma dimensão é afetada.
 			  
 			\par
 				O \emph{Noise Generator} que adiciona dados fora do padrão, conhecido como ruído, com uma determinada probabilidade, intensidade - o que ajuda a criar o nível de discrepância - e a partir de 3 distribuições: uniforme, gaussiana, e de Poisson.
@@ -1267,26 +1295,26 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 			\par
 			O \emph{No Repeat} retira dados repetidos do conjunto;
 				o \emph{MinMax} define quais valores serão os maiores e menores de acordo com os parâmetros dados;
-				o \emph{Low-Pass Filter} faz jus ao nome e filtra pela "Amplitude" do dado. Na prática, o valor sucessor é uma media ponderada (valor recebido pelo parâmetro \emph{Smooth}) do valor anterior com o valor gerado;
+				o \emph{Low-Pass Filter} realiza um filtro passa-baixa nos dados. Ou seja, o valor sucessor é uma media ponderada (valor recebido pelo parâmetro \emph{Smooth}) do valor anterior com o valor gerado;
 				o \emph{Get Extra Value} pega os retornos extras dos geradores que retornam mais que um valor.
 		\subsection{Geométrico}
-			Os geradores Geométricos (\emph{Geometric}) permitem que seja gerado dados para desenho de polígonos etc.
+			Os geradores Geométricos (\emph{Geometric}) permitem que seja gerado dados a partir de formas geométricas.
 			Para isso são disponibilizados três geradores.
-			O primeiro deles (\emph{Path2D Stroke}) gera dados bidimensionais a partir do polígono inserido pelo usuário.
-			O segundo (\emph{Path2D Fill}) gera os dados a partir do preenchimento do polígono inserido  (ver algoritmo \emph{Floodfill}) pelo usuário.
+			O primeiro deles (\emph{Path2D Stroke}) gera dados bidimensionais presentes nas arestas de um polígono inserido pelo usuário.
+			O segundo (\emph{Path2D Fill}) gera os dados pertencentes do polígono inserido pelo usuário.
 			Quanto ao terceiro (\emph{CubicBezier}), este gera dados para desenho de uma curva bezier cúbica a partir de seus pontos.
 		\subsection{Baseado em dados reais}
-			Para esta categoria, existe apenas um gerador, chamado como \emph{Real Data Wrapper}.
-			Basicamente, ele é criado automaticamente quando o usuário importa um conjunto de dados reais através de um CSV, por exemplo.
+			Para esta categoria, existe um gerador, chamado como \emph{Real Data Wrapper}.
+			Ele é criado automaticamente quando o usuário importa um conjunto de dados reais através de um CSV.
 			Este gerador recebe tantos valores categóricos como numéricos e essa informação pode ser decidida automaticamente pelo gerador ou ser forçada pelo usuário.
 			É possível gerar uma quantidade superior de dados em relação ao conjunto de dados real, para isso é feito um tratamento de inputação de dados.
 			Esse tratamento é feito através de funções de geração, chamadas de \emph{GenType}.
 			\par
-			Essas funções pode ser do tipo \emph{Standart}, que é pegar os dados do início ao fim de forma cíclica até chegar ao número desejado de registros.
-			Também pode ser do tipo \emph{Reverse} que ao invés do \emph{Standart}, pega os dados do final ao início.
+			Essas funções podem ser do tipo \emph{Standart}, que é utilizar os dados do início ao fim de forma cíclica até chegar ao número desejado de registros.
+			Também pode ser do tipo \emph{Reverse} que ao contrário do \emph{Standart}, utiliza os dados do final ao início.
 			É disponibilizado o modo aleatório (\emph{Random}), e algumas variações.
 			\par
-			A primeira variação é o \emph{QuartileRandom}, que divide o conjunto de dados em 3 marcos e a probabilidade de se pegar um dado daquele quartil é proporcional ao tamanho do marco.
+			A primeira variação do modo aleatório é o \emph{QuartileRandom}, que divide o conjunto de dados em 3 marcos e a probabilidade de se pegar um dado daquele quartil é proporcional ao tamanho do marco.
 			A leitura dos Marcos pode ser visualizada na figura \ref{fig:leituraMarco}. Então, se o valor do espaço entre 0 e quartil 1 for 100, todos os dados gerados serão do primeiro 1/4 do conjunto de dados.
 			A segunda variação é o \emph{AverageRandom} que utiliza o valor da média e da variancia - [Média - Variancia, Média + Variancia] de um conjunto de dados númerico ou utiliza os N valores categóricos mais frequentes com distribuição uniforme.
 			\begin{figure}[h]
@@ -1296,21 +1324,20 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 				\label{fig:leituraMarco}
 			\end{figure}
 	\section{Modos de Geração de Dados}
-		Cada gerador possui um comportamento e este foi demonstrado na subseção anterior. 
-		Nessa seção é demonstrado como é feita a concretização desse comportamento, isto é, os dados em si.
+		Nessa seção é demonstrado como é feita a concretização do comportamento dos geradores, isto é, os dados em si.
 		Gerar os dados é tão importante quanto gerar o modelo, visto que os dados gerados podem ser utilizados para testes de aplicações, por exemplo.
 		\par
-		Os dados são gerados por \emph{Web Service} e 2 em tipos de memória: a primária e a secundária.
+		Os dados são gerados por \emph{Web Service} e em dois tipos de memória: a primária e a secundária.
 		A memória primária serve de base para escrever na memória secundária e também alimenta as visualizações de dados.
 		A memória secundária e o Web Service são descritos nas subseções a seguir.
 
 		\subsection{\emph{Streaming Data}}
-			O sistema unificou o processo de geração de dados em arquivos - antes era um modo padrão, bloqueante; e outro não bloqueante - para que otimize a geração de grande volumes de dados (\emph{Big Data}).
-			Para isso, foi utilizado o conceito de \emph{Streaming Data}, isto é, gerar o volume de dados aos poucos - em blocos - para que não haja estouro de memória primária.
+			Para otimizar a geração de grande volumes de dados, foi utilizado o conceito de \emph{Streaming Data}, isto é, gerar o volume de dados aos poucos - em blocos - para que não haja estouro de memória primária.
 			Também foi utilizado esse processo assincronamente, para que a interface de usuário não seja bloqueada durante o processo e permitir que o progresso da geração seja acompanhado.
 			\par
 			O usuário escolhe a quantidade de dados a ser gerada e a aplicação define automaticamente a quantidade de blocos.
 			Cada bloco é fixado em até 10.000 instâncias.
+			Esse valor foi definido de forma aleatória, mas que não bloqueasse a aplicação enquanto estava gerando.
 			O bloco é processado e armazenado temporariamente na memória primária até que ele esteja completo.
 			Então, o bloco é escrito na memória secundária.
 		\subsection{Web Service}
@@ -1337,18 +1364,18 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 				também é possível recarregá-lo e desativá-lo, para travamentos quando for trabalhar com \emph{Big Data}, por exemplo.
 
 		\subsection{Módulo de Visualização Externo e Integralizado}
-			O módulo chamado VisTechLib é um conjunto de técnicas de visualização reutilizáveis.
+			O módulo chamado VisApplication é um conjunto de técnicas de visualização reutilizáveis.
 			Ela pode chamada por dentro do Blocks e já pode consumir os dados do modelo atual.
 			Dentre as visualizações disponíveis pode-se citar as Coordenadas Paralelas, \emph{Scatter Plot}, \emph{Treemap}, \emph{Sunburst}, \emph{Bar Chart} entre outros.
 			Como diferencial, algumas funcionalidades são adicionadas como detalhe sob demanda, \emph{zoom}, marcação de dados (\emph{Highlight}), múltiplas visualizações simultâneas, entre outras.
 	
-	\section{Estrutura da Interface do Blocks}
-		O sistema possui uma interface gráfica para \emph{Desktop} e segue um modelo conhecido como SPA (\emph{Single Page Aplication}).
-		Isso significa que há uma tela principal (ver figura \ref{fig:telaPrincipal}), e outras informações mais raras de serem consumidas aparecem através de \emph{tabs}, \emph{modals}, \emph{alerts} e correlacionados.
+	\section{Estrutura da Interface Gráfica do Blocks}
+		O sistema possui uma interface gráfica para \emph{Desktop} e segue um modelo de estrutura que possui uma janela principal, mas com janelas auxiliares.
+		Isso significa que há uma tela com as principais informações (ver figura \ref{fig:telaPrincipal}), e outras informações mais raras de serem consumidas aparecem através de \emph{tabs}, \emph{modals}, \emph{alerts} e correlacionados.
 		\begin{figure}[h]
 			\centering
 			\includegraphics[width=\linewidth]{./figures/prototipo/telaprincipalmarcada.png}
-			\caption{Conhecendo os elementos da tela principal do Blocks Data Generator, na sua versão para Windows. Fonte: O Autor.}
+			\caption{Conhecendo os elementos da tela principal do Blocks, na sua versão para Windows. Fonte: O Autor.}
 			\label{fig:telaPrincipal}
 		\end{figure}
 		\begin{figure}[h]
@@ -1358,7 +1385,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 			\label{fig:generationSettings}
 		\end{figure}
 		\par
-		Na figura \ref{fig:telaPrincipal}, pode-se encontrar os principais elementos para utilizar o Blocks Data Generator.
+		Na figura \ref{fig:telaPrincipal}, pode-se encontrar os principais elementos para utilizar o Blocks.
 		Na marcação 1 (M1), são definidas as propriedades da dimensão, é possível visualizar informações e alterar o título.
 		A M2 mostra o nome atual do modelo, ao seu lado há o símbolo de que este modelo está servindo dados (\emph{Web Service}) (M3);
 			M4 mostra que há alterações não salvas no modelo, a M5 é um botão para fechar o modelo e a M6 é para criar um novo modelo.
@@ -1370,7 +1397,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		A M12 é um dos botões responsáveis pela exclusão da dimensão do modelo, o outro botão é encontrado na M14, junto com os botões para reorganização de dimensões - significa poder mover uma dimensão para cima ou para baixo.
 		\par
 		A M13 agrupa as configurações atuais do gerador. 
-		Tanto as configurações da M13 quanto da M1 seguem um padrão chamado \emph{Two-way data binding}, o que signfica que não há a necessidade de um botão de salvar os dados, toda alteração é salva automaticamente, prevalecendo a consistência em todo o sistema.
+		Tanto as configurações da M13 quanto da M1 seguem um sistema de gerenciamento de eventos que retira a necessidade de um botão para salvar os dados, toda alteração é salva automaticamente, prevalecendo a consistência em todo o sistema.
 		Na M13 encontra-se o tipo de gerador, que apresenta uma lista de categorias que, por sua vez, cada uma apresenta uma lista de geradores (ver seção 4.1) e também as propriedades do gerador selecionado.
 		A M15 possui alguns botões que tornam a modelagem mais prática como um copiador de gerador, e (saber o que é magic painter!). 
 		\par
@@ -1393,7 +1420,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		Ao lado do botão (\emph{Generate}) para iniciar a geração é encontrado outro botão com o ícone de engrenagem (M21).
 		Na imagem \ref{fig:generationSettings}, no lado esquerdo, encontra-se 3 seções.
 		A primeira é dedicada para configurações gerais do modelo, como quantidade de dados para ser gerados, mostrado no \emph{preview} ou formato dos dados.
-		A segunda seção (\emph{Parameter Iterator}) foi pensada para quer precisar criar mais de um arquivo variando apenas alguns parâmetros, de forma iterativa.
+		A segunda seção (\emph{Parameter Iterator}) foi desenvolvida para quem precisar criar mais de um arquivo variando apenas alguns parâmetros, de forma iterativa.
 		A terceira seção é especial para o \emph{Web Service} no qual, liga ou desliga o servidor ou troca a porta padrão para servir os dados.
 		
 		\subsection{Mensagens para o usuário}
@@ -1430,14 +1457,14 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 			\par
 			E para termos de segurança no uso, há o desfazer/refazer com Ctrl/Cmd + Z e Ctrl/Cmd + Shift + Z respectivamente.
 			Além de acesso pelo teclado, os atalhos podem ser acessados pela barra superior da tela inicial (M22).
-			É válido ressaltar, ainda na questão de segurança de uso, que o Blocks Data Generator salva as mudanças no automaticamente em arquivo separado, o qual pode ser recuperado se não forem salvas/descartadas adequadamente. 
+			É válido ressaltar, ainda na questão de segurança de uso, que o Blocks salva as mudanças no automaticamente em arquivo separado, o qual pode ser recuperado se não forem salvas/descartadas adequadamente. 
 
 			% Se sobrar tempo, fazer uns vídeos no YouTube.
 			% \subsection{Ajuda}
 
 % ---
-\chapter{Resultados}
-	Este capítulo é dedicado a apresentar como podem ser modelados dados discrepantes e faltantes no Blocks Data Generator.
+\chapter{Validação Visual}
+	Este capítulo é dedicado a apresentar como podem ser modelados dados discrepantes e faltantes no Blocks.
 	Também, serão apresentados os dados gerados e também visualização desses dados gerados na diversidade de métodos permitidos pelo sistema.
 	\par
 	
@@ -1505,29 +1532,29 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		% 	\label{fig:BEmodelo}
 		% \end{figure}
 
-		A base de Atletismo (ver figura \ref{fig:AtletaModelo}) foi criada para simular um cenário de dados em relação ao tempo.
-		Para isso tem um atleta, um valor categórico qualquer;
-		Uma modalidade que é o quanto um atleta corre em uma competição (100 a 400 metros);
-		Marcação é o valor temporal do instante em que foi marcado;
-		Distância é, dado o instante, o quanto o atleta percorreu, o qual é baseado na sua modalidade;
-		E a última dimensão diz respeito à frequência cardíaca no instante.
-		A base de Atletismo foi levemente alterada para introdução do gerador MAR em vez de uma função Linear, como visto na figura \ref{fig:AtletaModeloMAR}
+		% A base de Atletismo (ver figura \ref{fig:AtletaModelo}) foi criada para simular um cenário de dados em relação ao tempo.
+		% Para isso tem um atleta, um valor categórico qualquer;
+		% Uma modalidade que é o quanto um atleta corre em uma competição (100 a 400 metros);
+		% Marcação é o valor temporal do instante em que foi marcado;
+		% Distância é, dado o instante, o quanto o atleta percorreu, o qual é baseado na sua modalidade;
+		% E a última dimensão diz respeito à frequência cardíaca no instante.
+		% A base de Atletismo foi levemente alterada para introdução do gerador MAR em vez de uma função Linear, como visto na figura \ref{fig:AtletaModeloMAR}
 		\par
-		\begin{figure}[h!]
-			\centering
-			\includegraphics[width=\linewidth]{./figures/Resultados/AtletaModelo.jpg}
-			\caption{Base sintética de avaliação de atletas.}
-			\label{fig:AtletaModelo}
-		\end{figure}
-		\begin{figure}[h!]
-			\centering
-			\includegraphics[width=\linewidth]{./figures/Resultados/AtletismoModeloMAR.jpg}
-			\caption{Base sintética de avaliação de atletas com MAR.}
-			\label{fig:AtletaModeloMAR}
-		\end{figure}
+		% \begin{figure}[h!]
+		% 	\centering
+		% 	\includegraphics[width=\linewidth]{./figures/Resultados/AtletaModelo.jpg}
+		% 	\caption{Base sintética de avaliação de atletas.}
+		% 	\label{fig:AtletaModelo}
+		% \end{figure}
+		% \begin{figure}[h!]
+		% 	\centering
+		% 	\includegraphics[width=\linewidth]{./figures/Resultados/AtletismoModeloMAR.jpg}
+		% 	\caption{Base sintética de avaliação de atletas com MAR.}
+		% 	\label{fig:AtletaModeloMAR}
+		% \end{figure}
 
 		
-		A quarta base como visto na figura \ref{fig:CMModelo} mostra um esquema de convênios médicos.
+		A terceira base como visto na figura \ref{fig:CMModelo} mostra um esquema de convênios médicos.
 		Primeiramente há o profissional e sua especialidade - ambos dados categóricos uniformes;
 		Quanto ao Plano de saúde - é referente aos que atende - e esta dimensão possui um peso, devido à popularidade e/ou acessibilidade dos planos;
 		E o Preço da Consulta varia de acordo com o plano de saúde.
@@ -1535,7 +1562,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=\linewidth]{./figures/Resultados/CMModelo.jpg}
-			\caption{Base sintética de avaliação de Instrumentos Hospitalares.}
+			\caption{Base sintética de avaliação de Convênios Médicos.}
 			\label{fig:CMModelo}
 		\end{figure}
 
@@ -1548,6 +1575,22 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 			\includegraphics[width=\linewidth]{./figures/Resultados/BancoModelo.jpg}
 			\caption{Base sintética de avaliação de Estrutura de Conta Bancária.}
 			\label{fig:BancoModelo}
+		\end{figure}
+
+		Há também três bases genéricas unificadas em uma base como vista na figura \ref{fig:BaseGenerica} com o intuito de mostrar os dados faltantes de uma forma mais simples.
+		A primeira dimensão é chamada de dimensão observada, que é a dimensão utilizada para predizer dados faltantes no mecanismo MAR.
+		A segunda dimensão possui dados faltantes do mecanismo MAR.
+		A primeira com a segunda dimensão compõem a primeira base.
+		A terceira dimensão possui do mecanismo MCAR, que também é a segunda base. 
+		E a quarta coluna possui valores faltantes do tipo MNAR, a qual é equivalente à terceira base.
+		As bases foram unificadas para termos de comparação, mas as gerações dos dados foram feitas de forma separadas.
+		Utilizando o filtro de dimensões do Blocks.
+
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=\linewidth]{./figures/Resultados/BaseGenericaModelo.jpg}
+			\caption{Base sintética genérica para geração de dados faltantes numéricos.}
+			\label{fig:BaseGenerica}
 		\end{figure}
 
 		% Em suma, na tabela \ref{table:resumo caracteristica dimensao bases de validacao} é possível encontrar um pequeno resumo das características peculiares das dimensões de cada base sintética gerada.
@@ -1587,7 +1630,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		
 	\section{Apresentação das Visualizações}
 	Uma vez modelo é preciso visualizar os dados e verificar os resultados da modelagem.
-	O Blocks Data Generator possui visualizações integradas e elas são utilizadas como exemplos.
+	O Blocks possui visualizações integradas e elas são utilizadas como exemplos.
 	Entretanto, outras aplicações foram utilizadas para visualização de dados como o RawGraphs \url{https://app.rawgraphs.io}, o Tableau Desktop, e o Excel - Programa de computador que faz parte do pacote \emph{Office} da Microsoft.
 	\par
 
@@ -1604,7 +1647,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 	Primeiramente, os valores abaixo de 0 são os dados faltantes.
 	Esse padrão é adotado não só nesse modelo de dados.
 	\par
-	E por citar dados faltantes, percebe-se esses dados nas notas do público, e por comparar com outras dimensões, observa-se que é uniforme, logo, caracteriza-se um MCAR.
+	E ainda na figura \ref{fig:ScatterPlotC}, percebe-se esses dados nas notas do público, e por comparar com outras dimensões, observa-se que é uniforme, logo, caracteriza-se um MCAR.
 	No preço, há um vácuo na faixa de 80.000, apesar de não ter sido intencional, caracteriza-se um MNAR, pois a resposta não está na base de dados.
 	Sobre a correlação, agora é possível perceber com mais clareza a correlação diretamente proporcional entre nota dos críticos e do público, e uma leve correlação inversamente proporcional entre preço e nota do público.
 	\par
@@ -1667,44 +1710,42 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 	% 	\label{fig:ScatterPlotBE}
 	% \end{figure}
 
-	As bases anteriores foram geradas pelo VisTechLib e o Preview do Blocks Data Generator.
-	As visualizações do modelo do Atletismo foram geradas no Excel, utilizando os gráficos de linha, pontos e colunas agrupadas.
-	Foram visualizadas as dimensões de distância, marcação e frequência cardíaca.
+	As bases anteriores foram geradas pelo VisApplication e o Preview do Blocks.
+	As visualizações do modelo de base genérica foram geradas no Excel, utilizando os gráficos de linha, pontos e colunas agrupadas.
 	\par
-	Na figura \ref{fig:Atletismo-Marcacao-Distancia} mostra a relação marcação-distância.
-	Percebe-se que há muitos dados nas extremidades e muitos dados abaixo da faixa de 150 de distância.
-	Contudo, ao se comparar com a marcação-distância (ver figura \ref{fig:Atletismo-Frequencia-Distancia}) não há uma correlação - por exemplo, uma alta distância percorrida em menos tempo tente a aumentar a frequência cardíaca.
-	Isso acontece porque não há um gerador para correlacionar dados temporais e dados numéricos na aplicação Blocks.
-	Por isso, são dados discrepantes ainda que não intencionais.
-	E para melhorar a visualização dos faltantes foi utilizado o Matrix Plot (ver figura \ref{fig:Atletismo-Matrix-Plot}), contudo, foi diminuida a quantidade de dados, para não haver sobreposição dos dados.
-
+	% Na figura \ref{fig:Atletismo-Marcacao-Distancia} mostra a relação marcação-distância.
+	% Percebe-se que há muitos dados nas extremidades e muitos dados abaixo da faixa de 150 de distância.
+	% Contudo, ao se comparar com a marcação-distância (ver figura \ref{fig:Atletismo-Frequencia-Distancia}) não há uma correlação - por exemplo, uma alta distância percorrida em menos tempo tente a aumentar a frequência cardíaca.
+	% Isso acontece porque não há um gerador para correlacionar dados temporais e dados numéricos na aplicação Blocks.
+	% Por isso, são dados discrepantes ainda que não intencionais.
+	% E para melhorar a visualização dos faltantes foi utilizado o Matrix Plot (ver figura \ref{fig:Atletismo-Matrix-Plot}), contudo, foi diminuida para 50 instâncias a quantidade de dados, para não haver sobreposição dos dados.
 	\par
 
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[width=\linewidth]{./figures/Resultados/Atletismo-Marcacao-Distancia.png}
-		\caption{Visualização Gráfico de linha da base de atletas.}
-		\label{fig:Atletismo-Marcacao-Distancia}
-	\end{figure}
+	% \begin{figure}[h!]
+	% 	\centering
+	% 	\includegraphics[width=\linewidth]{./figures/Resultados/Atletismo-Marcacao-Distancia.png}
+	% 	\caption{Visualização Gráfico de linha da base de atletas.}
+	% 	\label{fig:Atletismo-Marcacao-Distancia}
+	% \end{figure}
 
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[width=\linewidth]{./figures/Resultados/Atletismo-Frequencia-Distancia.png}
-		\caption{Visualização de Gráfico de Ponto da base de atletas.}
-		\label{fig:Atletismo-Frequencia-Distancia}
-	\end{figure}
+	% \begin{figure}[h!]
+	% 	\centering
+	% 	\includegraphics[width=\linewidth]{./figures/Resultados/Atletismo-Frequencia-Distancia.png}
+	% 	\caption{Visualização de Gráfico de Ponto da base de atletas.}
+	% 	\label{fig:Atletismo-Frequencia-Distancia}
+	% \end{figure}
 
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[width=\linewidth]{./figures/Resultados/AtletismoMatrixPlot.jpg}
-		\caption{Visualização Matrix Plot da base de atletas.}
-		\label{fig:Atletismo-Matrix-Plot}
-	\end{figure}
+	% \begin{figure}[h!]
+	% 	\centering
+	% 	\includegraphics[width=\linewidth]{./figures/Resultados/AtletismoMatrixPlot.jpg}
+	% 	\caption{Visualização Matrix Plot da base de atletas.}
+	% 	\label{fig:Atletismo-Matrix-Plot}
+	% \end{figure}
 
-	O modelo de dados sobre estruturas de conta bancária possui uma arquitetura hierárquica e pode ser vista através de um Dendrograma (ver figura )
-	A priori, para esta visualização foi necessário reduzir a 10\% o volume de dados, para que as propriedades hierárquicas sejam perceptíveis.
-	Na visualização é possível identificar dados faltantes do tipo MCAR, visto que foram perdida de forma aleatória, mas não foi imaginada uma forma de gerar dados discrepantes.
-	E também na figura \ref{fig:BancoMatrixPlot} é possível encontrar os dados faltantes através do gráfico de matriz.
+	O modelo de dados sobre estruturas de conta bancária possui uma arquitetura hierárquica e pode ser vista através de um Dendrograma (ver figura \ref{fig:BancoDendrograma})
+	A priori, para esta visualização foi necessário reduzir a 10\% - 50 instâncias - o volume de dados, para que as propriedades hierárquicas sejam perceptíveis.
+	Na visualização é possível identificar dados faltantes do tipo MCAR, visto que foram perdida de forma aleatória, mas não foi imaginada uma forma de gerar dados discrepantes. Também percebe-se que os valores faltantes foram repetidos para que não fira a propriedade dos dados hierárquicos.
+	% E também na figura \ref{fig:BancoMatrixPlot} é possível encontrar os dados faltantes através do gráfico de matriz.
 	\par
 	\begin{figure}[h!]
 		\centering
@@ -1713,16 +1754,16 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		\label{fig:BancoDendrograma}
 	\end{figure}
 
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[width=\linewidth]{./figures/Resultados/BancoMatrixPlot.jpg}
-		\caption{Visualização Matrix Plot da base sobre os dados faltantes de conta bancária.}
-		\label{fig:BancoMatrixPlot}
-	\end{figure}
+	% \begin{figure}[h!]
+	% 	\centering
+	% 	\includegraphics[width=\linewidth]{./figures/Resultados/BancoMatrixPlot.jpg}
+	% 	\caption{Visualização Matrix Plot da base sobre os dados faltantes de conta bancária.}
+	% 	\label{fig:BancoMatrixPlot}
+	% \end{figure}
 
 	Na figura \ref{fig:BCCM} é possível ver um gráfico de barras subagrupado por especialidades médicas.
 	Neste gráfico pode-se comparar os valores de cada especialidade por plano de saúde.
-	A priori, o SUS possui uma discrepância anômala, pois os dados são próximos de 0 - fora adicionados valores ínfimos para que não seja confundido com um dado faltante.
+	A priori, o SYS1 possui uma discrepância anômala, pois os dados são próximos de 0 - fora adicionados valores ínfimos para que não seja confundido com um dado faltante.
 	Os dados faltantes são representados por uma barra sem tamanho.
 	É possível identificar que há discrepância nos dados, mas não foi utilizado um gerador específico, apenas uma função categórica e diferentes geradores de dados, os quais foram escolhidos aleatoriamente.
 
@@ -1732,6 +1773,19 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 		\caption{Visualização Gráfico de Colunas da base Convênios Médicos. Eixo X: Planos de Saúde, Eixo Y: Especialidades, Barra: Preço por Consulta}
 		\label{fig:BCCM}
 	\end{figure}
+
+	Também foi gerada uma base genérica para visualização dos mecanismo de dados faltantes e essas podem ser vistas na figura \ref{fig:MVMatrixPlot}.
+	As duas dimensões à esquerda foram ordenadas juntas, as outras foram dissociadas para que sejam mantidas as propriedades dos dados faltantes.
+	Na figura percebe-se que o a dimensão MAR podem ser preditos a partir da dimensão Observada.
+	A dimensão MCAR possui dados faltantes espalhados, caracterizando completamentamente aleatório.
+	E a coluna MNAR possui somente seus valores mais baixos como dados faltantes, o que pode ter uma explicação fora da base de dados.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{./figures/Resultados/MVMatrixPlot.png}
+		\caption{Visualização Gráfico de Colunas da base genérica para visualização de dados faltantes.}
+		\label{fig:MVMatrixPlot}
+	\end{figure}
 	
 
 % ---
@@ -1740,23 +1794,31 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks Data Generator m
 \chapter{Considerações Finais}
 % ---
 
-O desenvolvimento do presente trabalho proporcionou a análise da geração de dados sintéticos discrepantes e faltantes na aplicação Blocks Data Generator.
+O desenvolvimento do presente trabalho proporcionou a análise da geração de dados sintéticos discrepantes e faltantes na aplicação Blocks.
 O sistema é \emph{Open Source} e permite que sejam gerados dados sintéticos e visualizá-los.
 \par
 Os dados sintéticos são importantes para mais variadas aplicações, por conta da seu desvínculo com a confidencialidade dos dados.
 O fato de geração basear-se em modelos permite que o compartilhamento dos dados seja mais leve, mas exigindo do processamento em contrapeso.
 A gratuidade para consumir os dados sintéticos permite que a pesquisa e teste de aplicações seja fomentado e democratizado, pois é acessível para todos.
 \par
-De uma forma geral, a aplicação permitiu que as características - dados faltantes e discrepantes - fossem percebidas no conjunto de dados de forma satisfatória, como vista na seção de Resultados, pois além da discrepância e falta de dados, também foi possível fazer correlações.
-Contudo, ao tornar a modelagem um pouco mais complexa, o sistema não permitiu que algumas características fossem adicionadas, como correlacionar dados de diferentes tipos.
+O Blocks é um sistema bastante completo.
+Sua geração de dados é baseada em modelos, os quais por sua vez possuem blocos de geradores que podem ser encadeados.
+Esse encadeamento permite que o comportamento dos dados sejam mais complexos, o que distancia de dados mais previsíveis e comuns.
+Além do encadeamento, o sistema possui uma vasta gama de geradores, desde sequenciais, aleatórios, funcionais, acessórios e geométricos, os quais permitem que o usuário crie variados cenários e níveis de abstração.
 \par
-Para propor soluções para os problemas vistos, é interessante que o Blocks permita que dados de diferentes tipos sejam relacionados.
-Também, mais geradores categóricos, como gerar a partir de uma expressão regular, a partir de um arquivo, geração de anagramas datas as letras ou uma categoria, permitir embaralhar categorias etc.
-Alguns acessórios também são interessantes como formatar números de diferentes geradores - como ter números discretos, com cadas decimais fixas.
-O MCAR deve possuir o mesmo tipo de dado que está auxiliando, MAR e MNAR devem ter porcentagem de falta para que se torne mais suave a falta dos dados, e o MAR deve receber ou não os dados de outra coluna.
+O Blocks também permite que esses dados sejam distribuídos via \emph{Web Service};
+ salvos em arquivos - CSV, JSON, TSV;
+ O sistema permite visualizar os modelos de dados de forma rápida e prática ou de forma mais detalhada e diversa com a integração com o \emph{VisApplication}.
 \par
-
-\lipsum[31-33]
+Nos resultados, os dados faltantes do mecanismo MCAR apresentaram a característica aleatória dada uma taxa de ausência. 
+No MAR, os dados também foram faltantes, mas foi possível enxergar correlação entre as dimensões que possui a ausência e a dimensão observada. 
+O gerador do mecanismo MNAR permite que os dados faltem dada uma lógica - para simular um motivo fora da base de dados.
+\par
+Portanto, de forma geral, a aplicação permitiu que as características - dados faltantes e discrepantes - fossem percebidas no conjunto de dados de forma satisfatória, como vista na seção de Resultados, pois além da discrepância e falta de dados, também foi possível fazer correlações.
+Para propor soluções para os problemas vistos, é interessante que o Blocks possua mais geradores categóricos, como gerar a partir de uma expressão regular, a partir de um arquivo, geração de anagramas datas as letras ou uma categoria, permitir embaralhar categorias etc.
+Um gerador temporal sazonal, que possui a estrutura de encadeamento similar ao \emph{TimeLaps Function}.
+Alguns acessórios também são interessantes como formatar números de diferentes geradores - como ter números discretos ou com casas decimais fixas.
+\par
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS
@@ -1770,3 +1832,4 @@ O MCAR deve possuir o mesmo tipo de dado que está auxiliando, MAR e MNAR devem 
 \bibliography{abntex2-modelo-references}
 
 \end{document}
+ 
