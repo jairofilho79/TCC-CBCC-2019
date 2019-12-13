@@ -32,7 +32,7 @@
 	% -- opções da classe memoir --
 	12pt,				% tamanho da fonte
 	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	oneside,			% para impressão em recto e verso. Oposto a oneside
+	twoside,			% para impressão em recto e verso. Oposto a oneside
 	a4paper,			% tamanho do papel. 
 	% -- opções da classe abntex2 --
 	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
@@ -1181,7 +1181,7 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks modelando e visu
 			\caption{Resumo dos geradores do Blocks}
 			% \vspace{0.5cm}
 			\label{table: Resumo Geradores Blocks}
-			\begin{tabular}{l|p{14cm}}
+			\begin{tabular}{l|p{13.3cm}}
 			
 				Nome                 & Resumo \\ % Note a separação de col. e a quebra de linhas
 				\hline % para uma linha horizontal
@@ -1211,10 +1211,10 @@ Em suma, este trabalho vai apresentar o funcionamento do Blocks modelando e visu
 				Piecewise            & Valores a partir de uma dimensão \textbf{númerica} com limiar para 2 encadeamentos. \\
 				TimeLaps             & Valores a partir de uma dimensão \textbf{temporal} que gera dados ao atingir um tempo.  \\
 				%--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-				MCAR                 & Valores faltantes aleatoriamente com auxílio de um ou mais geradores dada uma probabilidade. \\
-				MNAR                 & Valores faltantes aleatoriamente com auxílio de um ou mais geradores dada uma lógica. \\
-				Noise                & Valores ruidosos com auxílio de um mais geradores dada uma probabilidade e intensidade. \\
-				Constant Noise       & Dados ruidosos com valor constante com auxílio de um mais geradores dada uma probabilidade. \\
+				MCAR                 & Valores faltantes aleatoriamente um ou mais geradores dada uma probabilidade. \\
+				MNAR                 & Valores faltantes aleatoriamente um ou mais geradores dada uma lógica. \\
+				Noise                & Valores ruidosos um mais geradores dada uma probabilidade e intensidade. \\
+				Constant Noise       & Dados ruidosos com valor constante um mais geradores dada uma probabilidade. \\
 				Range Filter         & Dado um ou mais geradores, os dados que estão no intervalo não são gerados.\\
 				Linear Scale         & Dado um ou mais geradores, os dados são escalados de acordo com os parâmetros definidos. \\
 				No Repeat            & Dado um ou mais geradores, são retirados os dados repetidos. \\
