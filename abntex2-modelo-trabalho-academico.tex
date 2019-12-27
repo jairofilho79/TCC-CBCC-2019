@@ -555,10 +555,13 @@ Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. També
 	\section{Estrutura do Trabalho}
 		Este trabalho está organizado em 6 capítulos, o qual o presente capítulo trouxe uma contextualização do estudo dos dados sintéticos, faltantes, discrepantes, e também os objetivos do trabalho.
 		O segundo capítulo trata da fundamentação teórica do trabalho, a qual busca embasar os conceitos utilizados durante o trabalho, bem como mostrar outros trabalhos e aplicações relacionadas.
+		\par
 		O terceiro capítulo visa dar mais detalhes sobre a arquitetura de \emph{software} do Blocks, com a apresentação de diagramas de classe, de sequência e casos de uso.
 		O quarto capítulo apresenta o sistema blocks em seu funcionamento, interface gráfica, modos de geração de dados entre outros aspectos.
+		\par
 		No quinto capítulo estão as visualizações a partir dos modelos de dados, que por sua vez, possuem os métodos implementados de dados faltantes e discrepântes.
-		Por fim, no sexto capítulo, estão o resumo do trabalho apresentado, algumas considerações sobre os resultados e trabalhos futuros para a continuação da pesquisa. 
+		No sexto capítulo, estão o resumo do trabalho apresentado, algumas considerações sobre os resultados e trabalhos futuros para a continuação da pesquisa. 
+		Por fim, há um apêndice para mostrar os atalhos de teclados disponíveis no Blocks até o desenvolvimento desse trabalho.
 % ---
 
 \chapter{Fundamentação Teórica}
@@ -872,7 +875,7 @@ Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. També
 		Segundo a avaliação do autor os dados sintéticos tiveram validade moderadamente alta em seus testes, mas ressalta a limitação do método não paramétrico. 
 		Em geral, o método não paramétrico se mostrou promissor para geração de dados sintéticos para pequenas áreas geográficas, mas faltam testes mais aprofundados como dados de pesquisa em larga escala para substituir os dados reais por dados sintéticos em centros de dados de pesquisa.
 		Na figura \ref{fig:SakshaugandRaghunathan} é possível observar a comparação dos resultados da média da simulação paramétrica e da não paramétrica para cada atributo.
-		Na simulação não paramétrica as médias dos dados sintéticos e reais ficam bem próximas, com exceção da idade (\emph{age}), apresentando um bom resultado para a troca de dados reais para dados sintéticos.
+		Na simulação não paramétrica as médias dos dados sintéticos e reais ficam bem próximas, com exceção da Idade, apresentando um bom resultado para a troca de dados reais para dados sintéticos.
 		\begin{figure}[h!]
 			\centering
 			\caption{Comparação da média dos dados reais e sintéticos na simulação paramétrica e não paramétrica.}
@@ -928,13 +931,14 @@ Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. També
 		Possui suporte multiplataforma, através da versão \emph{multiplatform runtime}, contudo esta é limitada quando comparado à versão Windows, o qual suporta a versão para servidor também.
 		É válido destacar que o DTM Data Generator é um software pago para utilização oferecendo uma versão para testes.
 		Além disso, há categorias de versões pagas, que vão desde limitações de geração (Standart - Professional) à vantagens mais técnicas (Professional - Enterprise).
+		\\
 		\par
 		O DTM Data Generator possui uma vasta coleção de funcionalidades, as quais são acrescentadas de acordo com a versão do software.
 		Adotando a versão mais cara, a lista de funcionalidades é composta por geração de dados em JSON, XML, CSV ou geração por separador customizado.
 		Também permite gerar dados por arquivo DSN (Database Source Name), gerar dados por linha de comando e gerar um arquivo SQL para que não seja necessário conexão com banco de dados.
 		\par
 		É possível gerar cerca de nove vírgula dois sextilhões de registros por geração, modos de atualizar dados existentes (adicionar, substituir e ofuscar dados pessoais), e suporte para bibliotecas de dados realistas.
-		A plataforma disponibiliza entrada de dados através de SQL, XML, JSON, pela WEB através de HTTP ou FTP, XLSM, arquivos de texto e scripts em Python.
+		A plataforma disponibiliza entrada de dados através de SQL, XML, JSON, pela WEB através de HTTP ou FTP, XLSM, arquivos de texto e \emph{scripts} em Python.
 		Também é possível visualizar e testar os dados gerados, bem como gerá-los nos principais arquivos de texto (TSV, CSV, DSV, JSON, XML) e banco de dados (MS SQL Server, Oracle, DB2, MySQL, PostgreSQL, Informix, Sybase, SQLite e Firebird). 
 		\par
 		Há uma suíte de produtos relacionados fornecidos pela DTM soft. 
@@ -954,7 +958,7 @@ Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. També
 		\end{figure}
 
 		O SQL Data Generator \cite{RedgateSQLDataGenerator} é um software que compõe uma suíte de ferramentas (chamada de SQL Toolbelt) da Red Gate.
-		O software é exclusivo para o ecossistema Windows, com suporte ao Windows 7 ou superior, à versão pWindows Server, SQL Server (2008 ao 2017), .NET e Oracle.
+		O software é exclusivo para o ecossistema Windows, com suporte ao Windows 7 ou superior, à versão Windows Server, SQL Server (2008 ao 2017), .NET e Oracle.
 		Este produto é distribuido através de licenças pagas e vitalícias, com atualizações gratuitas e no mínimo 1 ano de suporte gratuito.
 		Vale ressaltar que é possível testar o produto por 14 dias gratuitamente.
 		\par
@@ -983,7 +987,7 @@ Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. També
 			\footnotesize Fonte: \cite{RedgateSQLDataGeneratorDoc}.
 		\end{figure}
 
-		\emph{Microsoft Visual Studio} \cite{VSDataGenerator} é um pacote de programas da Microsoft para desenvolvimento de \emph{software}. 
+		\emph{Microsoft Visual Studio} \cite{VSDataGenerator} é um pacote multiplataforma de programas da Microsoft para desenvolvimento de \emph{software}. 
 		Este é composto por quatro versões (\emph{Express}, \emph{Professional}, \emph{Premium} e \emph{Ultimate}) e a opção de gerar dados para teste está disponível a partir da versão \emph{Premium}.
 		O foco é permitir que verique o comportamento do banco de dados, sem relacioná-los com os dados da aplicação em produção.
 		\par
@@ -1064,21 +1068,37 @@ Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. També
 		% \subsubsection{EMS Data Generator}
 		% \subsubsection{GEDIS Studio}
 
+		Na tabela \ref{table: aplicacoes relacionadas} é apresentada uma comparação de funcionalidades entre as aplicações estudadas.
+		A dimensão B.D. diz respeito se a aplicação é capaz de se comunicar com um banco de dados para criar novas instâncias de dados.
+		A dimensão Arquivo é referente à geração de dados e salvá-los em um arquivo.
+		O suporte aos sistemas operacionais como Windows, Linux e MacOS é mostrado na dimensão S.O.
+		O DTM possui suporte multiplataforma por meio da versão \emph{multiplatform runtime}, mas é limitada em relação à versão Windows.
+		\par
+		A dimensão D.F. e D.D. apresenta o suporte à geração de dados faltantes e dicrepantes, respectivamente.
+		As instâncias que possuem sim* nessas dimensões significam que há suporte a geração de dados sintéticos e discrepantes, mas são feitos através de geradores personalizados, isto é, não há geradores predefinidos para esse fim.
+		E o não* é porque a documentação sobre os geradores estava offline para consulta durante o desenvolvimento desse estudo.
+		Quanto à dimensão Preço, esta refere-se ao acesso gratuito ou não a todas as funcionalidades da aplicação.
+		O Gratuito* significa que há acesso gratuito, mas é limitado em processamento, havendo outras versões pagas.
 		\begin{table}[h]
 			\centering
-			\caption{Tabela de comparação das funcionalidades de cada aplicação}
+			\caption{Tabela de comparação das funcionalidades de cada aplicação. 
+				B.D. = Banco de Dados; 
+				S.O. = Sistema Operacional; 
+				D.F. = Dados Faltantes;
+				D.D. = Dados Discrepantes;
+				W.S. = \emph{Web Service}.}
 			\vspace{0.5cm}
-			\label{table: comandos do teclado}
-			\begin{tabular}{r|lll}
+			\label{table: aplicacoes relacionadas}
+			\begin{tabular}{r|lllllll}
 			
-				Nome                 & Interface Gráfica & Dados Faltantes & Dados Discrepantes & Orientado a & Preço    \\ % Note a separação de col. e a quebra de linhas
+				Nome                    & B.D. & Arquivo & S.O.    & D.F. & D.D. & W.S. & Preço    \\ % Note a separação de col. e a quebra de linhas
 				\hline                                  % para uma linha horizontal
-				\emph{Blocks}        & Sim               & Sim             & Sim                & Modelo      & Gratuito \\ 
-				\emph{Blocks}        & Sim               & Sim             & Sim                & Modelo      & Gratuito \\ 
-				\emph{Blocks}        & Sim               & Sim             & Sim                & Modelo      & Gratuito \\ 
-				\emph{Blocks}        & Sim               & Sim             & Sim                & Modelo      & Gratuito \\ 
-				\emph{Blocks}        & Sim               & Sim             & Sim                & Modelo      & Gratuito \\ 
-				\emph{Blocks}        & Sim               & Sim             & Sim                & Modelo      & Gratuito \\ 
+				\emph{Blocks}           & Não  & Sim     & Vários  & Sim  & Sim  & Sim & Gratuito \\ 
+				\emph{DTM D.G.}         & Sim  & Sim     & Vários* & Não  & Sim* & Sim & Pago \\ 
+				\emph{SQL D.G.}         & Sim  & Não     & Windows & Sim* & Sim* & Não & Pago \\ 
+				\emph{MS Visual Studio} & Sim  & Não     & Vários  & Sim* & Sim* & Não & Pago \\ 
+				\emph{Test D.G.}        & Sim  & Não     & Windows & Não* & Não* & Não & Pago \\ 
+				\emph{Mockaroo}         & Não  & Sim     & Web     & Sim  & Sim  & Sim & Gratuito* \\ 
 
 			\end{tabular}
 			\bigskip
@@ -1097,6 +1117,9 @@ Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. També
 	Do Javascript foi utilizado o Ecmascript 6 e seus novos recursos como o desenvolvimento assíncrono com as \emph{Promises} e \emph{arrow functions}.
 	
 	\section{Casos de uso do sistema}
+		O diagrama de casos de uso visa demonstrar as diferentes formas de um usuário pode utilizar um sistema \cite{UCdefinition}.
+		Por conta disso, é utilizado o Diagrama de Casos de Uso para demonstrar as principais funcionalidades do sistema Blocks.
+		Na figura \ref{fig:diagramaUC} são encontrados um total de dez casos de uso, nomeados de UC01 a UC10.
 		\begin{figure}[h!]
 			\centering
 			\caption{Diagrama de Caso de uso do Blocks}
@@ -1104,13 +1127,9 @@ Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. També
 			\label{fig:diagramaUC}
 			\footnotesize Fonte: O autor do trabalho.
 		\end{figure}
-		O diagrama de casos de uso visa demonstrar as diferentes formas de um usuário pode utilizar um sistema \cite{UCdefinition}.
-		Por conta disso, é utilizado o Diagrama de Casos de Uso para demonstrar as principais funcionalidades do sistema Blocks.
-		Na figura \ref{fig:diagramaUC} são encontrados um total de dez casos de uso, nomeados de UC01 a UC10.
 		\par
 		No UC01 mostra que é possível modificar um modelo, isto é, adicionar ou remover dimensões, alterar geradores e afins; também há inclusão do UC04 e a possibilidade de desfazer ou refazer as alterações (UC02).
-		O UC04 representa a criação do modelo. 
-		Esta é considerada a funcionalidade original, pois é incluída por vários casos de uso e não inclui nenhuma funcionalidade.
+		O UC04 representa a criação do modelo.
 		Outros casos de uso que possuem relação com UC04 é o UC03 e UC07 como inclusão e UC05 como extensão.
 		\par
 		UC03 é uma funcionalidade para reaproveitamento do modelo, também está ligado à validação de teste por outros pesquisadores.
@@ -1151,6 +1170,7 @@ Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. També
 		\footnotesize Fonte: O autor do trabalho.
 	\end{figure}
 
+	\pagebreak
 	\section{Diagrama de Sequência de atividades no Blocks}
 	Para gerar os diagramas de sequência do Blocks, foram utilizados os casos de uso UC06 e UC09, vistos na figura \ref{fig:diagramaUC}.
 	No diagrama \ref{fig:DiagramadeSequenciaArquivo} percebe-se que há a introdução das configurações do modelo pelo usuário, então o sistema cria/modifica o objeto modelo (UC01).
@@ -1172,11 +1192,107 @@ Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. També
 
 	\begin{figure}[h!]
 		\centering
-		\caption{Diagrama de Sequência para visualização dos dados no Blocks.}
+		\caption{Diagrama de Sequência para visualização de dados no Blocks.}
 		\includegraphics[width=\linewidth]{./figures/prototipo/DiagramadeSequenciaVisApplication.png}
 		\label{fig:DiagramadeSequenciaVisApplication}
 		\footnotesize Fonte: O autor do trabalho.
 	\end{figure}
+	\pagebreak
+	\section{Pseudocódigos dos geradores desenvolvidos}
+		São apresentados pseudocódigos nessa seção com o objetivo de demonstrar como foram implementados os métodos para gerar dados sintéticos e discrepantes.
+		Primeiramente é mostrada a classe Generator (ver figura \ref{fig:Generator}), que utiliza o padrão de projeto \emph{Decorator} com o fim de encadear os geradores.
+		Nessa clase estão os principais atributos como o nome do gerador, os geradores encadeados (gerador), um operador (soma, subtração, divisão etc) entre outros.
+		Quanto ao método gerar, este verifica se há um gerador encadeado, se não ele retorna o valor recebido.
+		Por ser uma classe abstrata, a classe Generator recebe o valor da subclasse instanciada.
+		%TODO: Generator
+		\begin{figure}[h!]
+			\centering
+			\caption{Pseudocódigo sobre a classe Generator do Blocks.}
+			\includegraphics[width=\linewidth]{./figures/prototipo/Generator.png}
+			\label{fig:Generator}
+			\footnotesize Fonte: O autor do trabalho.
+		\end{figure}
+		\par
+		%TODO: MCAR
+		O gerador MCAR (ver classe na figura \ref{fig:classeMCAR}) tem como atributos um valor (o dado faltante recebe esse valor) e uma probabilidade, isto é, uma taxa aproximada de dados faltantes nessa dimensão.
+		Para gerar, ele verifica a probabilidade e então retorna o valor faltante, se não o valor do gerador encadeado.
+		
+		\begin{figure}[h!]
+			\centering
+			\caption{Pseudocódigo sobre a classe MCAR do Blocks.}
+			\includegraphics[width=\linewidth]{./figures/prototipo/MCAR.png}
+			\label{fig:classeMCAR}
+			\footnotesize Fonte: O autor do trabalho.
+		\end{figure}
+		\par
+		%TODO: MNAR
+		\pagebreak
+		A classe do gerador MNAR (ver figura \ref{fig:MNARConstrutor}) foi dividida em 4 figuras, por conta do seu tamanho.
+		Nesta figura, é possível ver os atributos no método construtor e 3 condições dentro do método gerar.
+		O MNAR possui valor e probabilidade assim como o MCAR (figura \ref{fig:classeMCAR}), mas possui outros atributos para tratar os 3 tipos de dado.
+		primeiroPadrao e segundoPadrao são úteis para o usuário colocar os valores de intervalo ou uma lista de categorias (somente para o primeiroPadrao).
+		E a máscara é utilizada para determinar o formato do tempo utilizado e funciona somente para dados temporais.   
+		\begin{figure}[h!]
+			\centering
+			\caption{Pseudocódigo sobre os atributos da classe MNAR do Blocks.}
+			\includegraphics[width=\linewidth]{./figures/prototipo/MNARConstrutor.png}
+			\label{fig:MNARConstrutor}
+			\footnotesize Fonte: O autor do trabalho.
+		\end{figure}
+		\par
+		Na figura \ref{fig:MNARNum} é apresentado como o gerador MNAR lida com dados numéricos.
+		Primeiramente é verificado se a probabilidade é atendida, se não, é retornado o valor do gerador.
+		Se sim, é verificado se o valor gerado (pelo gerador encadeado) entá no intervalo dado pelo usuário, se sim, o dado é faltante.
+		\begin{figure}[h!]
+			\centering
+			\caption{Pseudocódigo sobre a classe MNAR do Blocks para dados numéricos.}
+			\includegraphics[width=\linewidth]{./figures/prototipo/MNARNum.png}
+			\label{fig:MNARNum}
+			\footnotesize Fonte: O autor do trabalho.
+		\end{figure}
+		Para dados categóricos (ver figura \ref{fig:MNARCat}) o gerador MNAR utiliza apenas o primeiroPadrao e, nesse caso, recebe uma lista de categorias.
+		Depois de verificar a probabilidade, é verificado se a categoria gerada está na lista de categorias dada, se sim, o dado é faltante, se não é retornado o valor vindo do gerador encadeado.
+		\begin{figure}[h!]
+			\centering
+			\caption{Pseudocódigo sobre a classe MNAR do Blocks para dados categóricos.}
+			\includegraphics[width=\linewidth]{./figures/prototipo/MNARCat.png}
+			\label{fig:MNARCat}
+			\footnotesize Fonte: O autor do trabalho.
+		\end{figure}
+		O gerador MNAR para dados temporais (ver figura \ref{fig:MNARTemp}) funciona de forma similar para com dados numéricos \ref{fig:MNARNum}.
+		Pois também utiliza do intervalo, no caso temporal, para determinar os dados faltantes.
+		\begin{figure}[h!]
+			\centering
+			\caption{Pseudocódigo sobre a classe MNAR do Blocks para dados temporais.}
+			\includegraphics[width=\linewidth]{./figures/prototipo/MNARTemp.png}
+			\label{fig:MNARTemp}
+			\footnotesize Fonte: O autor do trabalho.
+		\end{figure}
+		%TODO: Noise
+		O gerador \emph{Noise} (ver figura \ref{fig:classeNoise}) é um dos principais para geração de dados discrepantes.
+		
+		Ele utiliza também a probabilidade para ser a taxa de dados discrepantes e de um outro gerador para adicionar ruídos na dimensão.
+		O nível de discrepância é dado pelo atributo intensidade, o qual multiplica o valor gerado.
+		\begin{figure}[h!]
+			\centering
+			\caption{Pseudocódigo sobre a classe do Blocks.}
+			\includegraphics[width=\linewidth]{./figures/prototipo/Noise.png}
+			\label{fig:classeNoise}
+			\footnotesize Fonte: O autor do trabalho.
+		\end{figure}
+		\par
+		%TODO: Constant Noise
+		\pagebreak
+		Já o gerador \emph{Constant Noise} (ver figura \ref{fig:classeConstantNoise}) funciona de forma semelhante ao \emph{Noise}, mas não possui o atributo intensidade.
+		O seu método consiste em adicionar um ruído fixo em uma determinada amostra (definidade pela probabilidade) dos dados.
+
+		\begin{figure}[h!]
+			\centering
+			\caption{Pseudocódigo sobre a classe do Blocks.}
+			\includegraphics[width=\linewidth]{./figures/prototipo/ConstantNoise.png}
+			\label{fig:classeConstantNoise}
+			\footnotesize Fonte: O autor do trabalho.
+		\end{figure}
 % ---
 \chapter{Sistema Blocks}
 % ---
@@ -1199,7 +1315,7 @@ Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. També
 		\caption{Fluxograma de utilização do Blocks.}
 		\includegraphics[width=\linewidth]{./figures/prototipo/fluxogramaUtilizacaoBlocks.png}
 		\label{fig:fluxograma}
-		\footnotesize Fonte: adaptado de %TODO: Pegar dissertação do YVAN.
+		\footnotesize Fonte: adaptado de (Brito Y., 2019).
 	\end{figure}
 	\par
 	Na figura \ref{fig:fluxograma} é possível visualizar como foi pensada a utilização da aplicação.
@@ -1217,60 +1333,72 @@ Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. També
 	
 	\section{Tipos de Geradores de Dados}
 		% TODO: colocar as fórmulas na seção de fórmulas (perguntar para o professor antes)
+		
+		Na tabela \ref{table: Propriedade Geradores Blocks} são apresentados todos os geradores do Blocks até o momento desde trabalho.
+		São apresentados seus nomes, suas categorias, o tipo de valores retornados, os tipos de parâmetros, se possui correlação - isto é, se é baseado no valor de outra dimensão - se são dependentes - ou seja, se precisa de um gerador encadeado para funcionar corretamente.
+		
 		\begin{table}[h]
 			\centering
-			\caption{Propriedade dos geradores do Blocks}
+			\caption{Propriedade dos geradores do Blocks. 
+				N=Numéro;
+				C=Categoria;
+				T=Tempo.
+			}
 			\vspace{0.5cm}
 			\label{table: Propriedade Geradores Blocks}
 			\begin{tabular}{c|c|c|c|c}
 			
 				Nome                 & Categoria  & T. dos valores                                            & Correlação & Dependente \\ % Note a separação de col. e a quebra de linhas
 				\hline % para uma linha horizontal
-				Constant             & Sequencial & N\footnotemark[1]                                         & Não        & Não \\
-				Counter              & Sequencial & N\footnotemark[1]                                         & Não        & Não \\
-				Fixed Time           & Sequencial & T\footnotemark[3]                                         & Não        & Não \\
-				Sinusoidal Sequence  & Sequencial & N\footnotemark[1]                                         & Não        & Não \\
-				Custom Sequence      & Sequencial & N\footnotemark[1]                                         & Não        & Não \\
+				Constant             & Sequencial & N                                         & Não        & Não \\
+				Counter              & Sequencial & N                                         & Não        & Não \\
+				Fixed Time           & Sequencial & T                                         & Não        & Não \\
+				Sinusoidal Sequence  & Sequencial & N                                         & Não        & Não \\
+				Custom Sequence      & Sequencial & N                                         & Não        & Não \\
 				%--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-				Poisson Time         & Aleatório  & T\footnotemark[3]                                         & Não        & Não \\
-				Uniform              & Aleatório  & N\footnotemark[1]                                         & Não        & Não \\
-				Gaussian             & Aleatório  & N\footnotemark[1]                                         & Não        & Não \\
-				Poisson              & Aleatório  & N\footnotemark[1]                                         & Não        & Não \\
-				Bernoulli            & Aleatório  & N\footnotemark[1]                                         & Não        & Não \\
-				Cauchy               & Aleatório  & N\footnotemark[1]                                         & Não        & Não \\
-				Weighted Categorical & Aleatório  & C\footnotemark[2]                                         & Não        & Não \\
-				Categorical          & Aleatório  & C\footnotemark[2]                                         & Não        & Não \\
-				Categorical Quantity & Aleatório  & C\footnotemark[2]                                         & Não        & Não \\
+				Poisson Time         & Aleatório  & T                                         & Não        & Não \\
+				Uniform              & Aleatório  & N                                         & Não        & Não \\
+				Gaussian             & Aleatório  & N                                         & Não        & Não \\
+				Poisson              & Aleatório  & N                                         & Não        & Não \\
+				Bernoulli            & Aleatório  & N                                         & Não        & Não \\
+				Cauchy               & Aleatório  & N                                         & Não        & Não \\
+				Weighted Categorical & Aleatório  & C                                         & Não        & Não \\
+				Categorical          & Aleatório  & C                                         & Não        & Não \\
+				Categorical Quantity & Aleatório  & C                                         & Não        & Não \\
 				%--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-				Linear               & Função     & N\footnotemark[1]                                         & Sim        & Não \\
-				Quadratic            & Função     & N\footnotemark[1]                                         & Sim        & Não \\
-				Polynomial           & Função     & N\footnotemark[1]                                         & Sim        & Não \\
-				Exponential          & Função     & N\footnotemark[1]                                         & Sim        & Não \\
-				Logarithm            & Função     & N\footnotemark[1]                                         & Sim        & Não \\
-				Sinusoidal           & Função     & N\footnotemark[1]                                         & Sim        & Não \\
-				Categorical          & Função     & C\footnotemark[2]                                         & Sim        & Não \\
-				Piecewise            & Função     & N\footnotemark[1]                                         & Sim        & Não \\
-				TimeLaps             & Função     & T\footnotemark[3]                                         & Sim        & Não \\
+				Linear               & Função     & N                                         & Sim        & Não \\
+				Quadratic            & Função     & N                                         & Sim        & Não \\
+				Polynomial           & Função     & N                                         & Sim        & Não \\
+				Exponential          & Função     & N                                         & Sim        & Não \\
+				Logarithm            & Função     & N                                         & Sim        & Não \\
+				Sinusoidal           & Função     & N                                         & Sim        & Não \\
+				Categorical          & Função     & C                                         & Sim        & Não \\
+				Piecewise            & Função     & N                                         & Sim        & Não \\
+				TimeLaps             & Função     & T                                         & Sim        & Não \\
 				%--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-				MCAR                 & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Sim \\
-				MNAR                 & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Sim \\
-				Noise                & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Sim \\
-				Constant Noise       & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Sim \\
-				Range Filter         & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Sim \\
-				Linear Scale         & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Sim \\
-				No Repeat            & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Sim \\
-				MinMax               & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Sim \\
-				Low-Pass Filter      & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Sim \\
-				Get Extra Value      & Acessório  & N\footnotemark[1], C\footnotemark[2] ou T\footnotemark[3] & Não        & Sim \\
+				MCAR                 & Acessório  & N, C ou T & Não        & Sim \\
+				MNAR                 & Acessório  & N, C ou T & Não        & Sim \\
+				Noise                & Acessório  & N, C ou T & Não        & Sim \\
+				Constant Noise       & Acessório  & N, C ou T & Não        & Sim \\
+				Range Filter         & Acessório  & N, C ou T & Não        & Sim \\
+				Linear Scale         & Acessório  & N, C ou T & Não        & Sim \\
+				No Repeat            & Acessório  & N, C ou T & Não        & Sim \\
+				MinMax               & Acessório  & N, C ou T & Não        & Sim \\
+				Low-Pass Filter      & Acessório  & N, C ou T & Não        & Sim \\
+				Get Extra Value      & Acessório  & N, C ou T & Não        & Sim \\
 				%--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-				CubicBezier          & Geométrico & N\footnotemark[1]                                         & Não        & Não \\
-				Path2D Stroke        & Geométrico & N\footnotemark[1]                                         & Não        & Não \\
-				Path2D Fill          & Geométrico & N\footnotemark[1]                                         & Não        & Não \\
+				CubicBezier          & Geométrico & N                                         & Não        & Não \\
+				Path2D Stroke        & Geométrico & N                                         & Não        & Não \\
+				Path2D Fill          & Geométrico & N                                         & Não        & Não \\
 			\end{tabular}
 			\bigskip
 			\\
 			\footnotesize Fonte: O autor do trabalho.
 		\end{table}
+
+		
+
+		% Na tabela \ref{table: Resumo Geradores Blocks} é apresentado um breve resumo para um entendimento abrangente do comportamento de cada gerador.
 
 		% \begin{table}[h!]
 		% 	\centering
@@ -1326,14 +1454,6 @@ Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. També
 		% 	\\
 		% 	\footnotesize Fonte: O autor do trabalho.
 		% \end{table}
-		
-		Na tabela \ref{table: Propriedade Geradores Blocks} são apresentados todos os geradores do Blocks até o momento desde trabalho.
-		São apresentados seus nomes, suas categorias, o tipo de valores retornados, os tipos de parâmetros, se possui correlação - isto é, se é baseado no valor de outra dimensão - , se são dependentes - ou seja, se precisa de um gerador encadeado para funcionar corretamente.
-		% Na tabela \ref{table: Resumo Geradores Blocks} é apresentado um breve resumo para um entendimento abrangente do comportamento de cada gerador.
-
-		\footnotetext[1]{Numérico}
-		\footnotetext[2]{Categórico}
-		\footnotetext[3]{Temporal}
 
 		\subsection{Sequencial}
 			Os geradores da categoria Sequencial geram valores encadeados dado um padrão.
@@ -1540,7 +1660,7 @@ Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. També
 			Há um espaço dedicado na tela principal para mensagens advindas de um processo de geração de dados.
 			Mensagem para preparação, progresso, finalização ou falha na geração de dados pode ser acompanhado pelo \emph{Footer Display}. (ver figura \ref{fig:SDvisor}).
 			Para outros avisos mais genéricos como erros ou tarefas bem sucedidas, bem como avisos mais detalhados há o \emph{Modal} (ver figura \ref{fig:modal}).
-			Também há um apêndice para demonstrar os atalhos do teclado, para melhorar a eficiência de usuários que preferem esse recurso.
+			Também há Atalhos do Teclado da aplicação Blocks para demonstrar os atalhos do teclado, para melhorar a eficiência de usuários que preferem esse recurso.
 			\begin{figure}[h]
 				\centering
 				\caption{Conhecendo os elementos da tela de configurações para geração de dados.}
@@ -1688,7 +1808,7 @@ Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. També
 		\begin{figure}[h!]
 			\centering
 			\caption{Base sintética de avaliação de Estrutura de Conta Bancária.}
-			\includegraphics[width=\linewidth]{./figures/Resultados/BancoModelo.jpg}
+			\includegraphics[width=\linewidth]{./figures/Resultados/BancoModelo.png}
 			\label{fig:BancoModelo}
 			\footnotesize Fonte: O autor do trabalho.
 		\end{figure}
@@ -1753,17 +1873,17 @@ Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. També
 	Os gráficos se diferenciam na origem da coloração dos dados.
 	O gráfico mais em cima tem como origem a dimensão Preço, o do meio tem Nota dos críticos e o mais embaixo tem a Nota do público.
 	\par
-	Nessa visualização é possível perceber a grande quantidade de carros baratos, por conta da predominância de linhas azuis no primeiro gráfico e há uma forte correlação com o ano - são mais antigos - e possuem, em geral, uma alta nota dos críticos e do público.
-	Pode-se perceber um vácuo nas notas 1 e 2 na dimensão das Notas dos críticos, o que é resultado do gerador MNAR.
-	Também é observável a correlação entre as notas do críticos e nota do público.
+	Nessa visualização é possível perceber a grande quantidade de carros baratos, por conta da predominância de linhas azuis (marcação alaranjada) no primeiro gráfico e há uma forte correlação com o ano (marcação cinza) e possuem, em geral, uma alta nota dos críticos e do público (Marcação rosa).
+	Pode-se perceber um vácuo nas notas 1 e 2 (marcação verde) na dimensão das Notas dos críticos, o que é resultado do gerador MNAR.
+	Também é observável a correlação (marcação rosa) entre as notas do críticos e nota do público.
 	\par
 	Na figura \ref{fig:ScatterPlotC} mais detalhes podem ser percebidos por conta da dispersão.
-	Primeiramente, os valores abaixo de 0 são os dados faltantes.
+	Primeiramente, os valores abaixo de 0 (marcação verde) são os dados faltantes.
 	Esse padrão é adotado não só nesse modelo de dados.
 	\par
-	Ainda na figura \ref{fig:ScatterPlotC}, percebe-se esses dados nas notas do público, e por comparar com outras dimensões, observa-se que é uniforme, logo, caracteriza-se um MCAR.
-	No preço, há um vácuo na faixa de 80.000, apesar de não ter sido intencional, caracteriza-se um MNAR, pois a resposta não está na base de dados.
-	Sobre a correlação, agora é possível perceber com mais clareza a correlação diretamente proporcional entre nota dos críticos e do público, e uma leve correlação inversamente proporcional entre preço e nota do público.
+	Ainda na figura \ref{fig:ScatterPlotC}, encontra-se a correlação entre Nota do público e dos Críticos (Marcação vermelha).
+	No preço, há um vácuo na faixa de 80.000 (marcação cinza), apesar de não ter sido intencional, caracteriza-se um MNAR, pois a resposta não está na base de dados.
+	Sobre a correlação, é possível perceber com mais clareza a correlação diretamente proporcional entre nota dos críticos e do público (marcação vermelha), e uma leve correlação inversamente proporcional entre preço e nota do público (marcação alaranjada) e também entre preço e ano (marcação em roxo).
 	\par
 
 	\begin{figure}[h!]
@@ -1783,14 +1903,17 @@ Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. També
 	\end{figure}
 
 	A figura \ref{fig:PCRS} apresenta as principais características do modelo de dados sobre Redes Sociais.
-	Na dimensão Idade é possível encontrar dados faltantes a partir dos 40 anos, logo, caracteriza-se um MNAR, pois não está na base de dados a explicação.
+	Na dimensão Idade é possível encontrar dados faltantes a partir dos 40 anos (marcação alaranjada), logo, caracteriza-se um MNAR, pois não está na base de dados a explicação.
 	E os dados discrepantes nas dimensões de seguidores, curtidas e postagens.
+	É possível identificar exemplos de dados discrepantes ruidosos (marcação verde) e anômalos (marcação vermelha)
 	O padrão encontrado é que as pessoas possuam uma faixa de duas mil postagens, menos de cinco milhões de seguidores e menos de quinhetas mil curtidas no total.
 	E por conta dos dados discrepantes, a própria escala é prejudicada.
 	\par
 
 	No histograma (ver figura \ref{fig:HistogramaRS}) é possível visualizar a questão da escala dos dados.
 	A frequência dos dados numa mesma coluna e muito pouco ou nada nas outras ratifica o problema do alto grau de discrepância da base.
+	Este problema pode ser visto nas dimensões de Curtida, Postagens e Seguidores (marcação alaranjada).
+	Em Idade, pode ser visto uma alta frequência de dados faltantes, mas uma frequência melhor distribuída (marcação em verde).
 	\par
 
 	\begin{figure}[h!]
@@ -1964,35 +2087,41 @@ Também testes de exaustão com o objetivo de otimizar o número de instâncias 
 % ----------------------------------------------------------
 \bibliography{abntex2-modelo-references}
 
-\appendix
-\chapter{Atalhos do Teclado da aplicação Blocks}
-Modelar um conjunto de dados pode ser exaustivo, portanto, alguns atalhos podem facilitar na prevenção e correção de erros, eficiência e economia de esforço e afins.
-Visando dar praticidade ao usuário, o Block Data Generator possui atalhos de teclados que podem ser vistos na tabela \ref{table: comandos do teclado}.
-	\begin{table}[h]
-		\centering
-		\caption{Tabela de atalhos do teclado do Blocks.}
-		\vspace{0.5cm}
-		\label{table: comandos do teclado}
-		\begin{tabular}{r|lll}
-		
-			Nome                 & Comando          & Descrição                           \\ % Note a separação de col. e a quebra de linhas
-			\hline                                  % para uma linha horizontal
-			\emph{New Model}     & Ctrl/Cmd+M       & Cria novo modelo.                   \\
-			\emph{Delete Model}  & Ctrl/Cmd+W       & Deleta modelo atual.                \\
-			\emph{New Dimension} & Ctrl/Cmd+D       & Cria nova dimensão.                 \\
-			\emph{Open Model}    & Ctrl/Cmd+O       & Insere um modelo no sistema.        \\
-			\emph{Save Model}    & Ctrl/Cmd+S       & Salva as alterações do modelo atual.\\
-			\emph{Undo}          & Ctrl/Cmd+Z       & Desfaz uma alteração.               \\
-			\emph{Redo}          & Ctrl/Cmd+Shift+Z & Refaz uma alteração.                \\
 
-		\end{tabular}
-		\bigskip
-		\\
-		\footnotesize Fonte: O autor do trabalho.
-	\end{table}
-\par
+% \appendix
+% \addcontentsline{page}{chapter}{APÊNDICES}
 
-Além de acesso pelo teclado, os atalhos podem ser acessados pela barra superior da tela inicial \ref{\ref{fig:telaPrincipal}} (22).
-É válido ressaltar sobre a questão de edição da modelagem, que o Blocks salva as mudanças no automaticamente em arquivo separado, o qual pode ser recuperado se não forem salvas/descartadas adequadamente.
+\part*{Apêndices} % se quiser uma página antes dos apêndices
+\chapter*{Apêndice A -- Atalhos do Teclado da aplicação Blocks}
+\addcontentsline{toc}{chapter}{Apêndice A -- Atalhos do Teclado da aplicação Blocks}
+			Modelar um conjunto de dados pode ser exaustivo, portanto, alguns atalhos podem facilitar na prevenção e correção de erros, eficiência e economia de esforço e afins.
+			Visando dar praticidade ao usuário, o Block Data Generator possui atalhos de teclados que podem ser vistos na tabela \ref{table: comandos do teclado}.
+				\begin{table}[h]
+					\centering
+					\caption{Tabela de atalhos do teclado do Blocks.}
+					\vspace{0.5cm}
+					\label{table: comandos do teclado}
+					\begin{tabular}{r|lll}
+					
+						Nome                 & Comando          & Descrição                           \\ % Note a separação de col. e a quebra de linhas
+						\hline                                  % para uma linha horizontal
+						\emph{New Model}     & Ctrl/Cmd+M       & Cria novo modelo.                   \\
+						\emph{Delete Model}  & Ctrl/Cmd+W       & Deleta modelo atual.                \\
+						\emph{New Dimension} & Ctrl/Cmd+D       & Cria nova dimensão.                 \\
+						\emph{Open Model}    & Ctrl/Cmd+O       & Insere um modelo no sistema.        \\
+						\emph{Save Model}    & Ctrl/Cmd+S       & Salva as alterações do modelo atual.\\
+						\emph{Undo}          & Ctrl/Cmd+Z       & Desfaz uma alteração.               \\
+						\emph{Redo}          & Ctrl/Cmd+Shift+Z & Refaz uma alteração.                \\
+			
+					\end{tabular}
+					\bigskip
+					\\
+					\footnotesize Fonte: O autor do trabalho.
+				\end{table}
+			\par
+			
+			Além de acesso pelo teclado, os atalhos podem ser acessados pela barra superior da tela inicial \ref{fig:telaPrincipal} (22).
+			É válido ressaltar sobre a questão de edição da modelagem, que o Blocks salva as mudanças no automaticamente em arquivo separado, o qual pode ser recuperado se não forem salvas/descartadas adequadamente.
+
 \end{document}
  
