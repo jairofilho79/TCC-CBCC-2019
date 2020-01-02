@@ -162,6 +162,7 @@
 \counterwithout{quadro}{chapter}
 \renewcommand{\cftquadroname}{\quadroname\space} 
 \renewcommand*{\cftquadroaftersnum}{.\hfill}
+\usepackage[final]{pdfpages}
 
 \setfloatlocations{quadro}{hbtp} % Ver https://github.com/abntex/abntex2/issues/176
 % ---
@@ -223,20 +224,20 @@
 % com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
 % o conteúdo de implementação deste arquivo pelo comando abaixo:
 %
-% \begin{fichacatalografica}
-%     \includepdf{fig_ficha_catalografica.pdf}
-% \end{fichacatalografica}
-
 \begin{fichacatalografica}
-	\sffamily
-	\vspace*{\fill}					% Posição vertical
-	\begin{center}					% Minipage Centralizado
-	\fbox{\begin{minipage}[c][8cm]{13.5cm}		% Largura
-	\small
-	Insira a ficha catalográfica aqui.
-	\end{minipage}}
-	\end{center}
+    \includepdf{ficha.pdf}
 \end{fichacatalografica}
+
+% \begin{fichacatalografica}
+% 	\sffamily
+% 	\vspace*{\fill}					% Posição vertical
+% 	\begin{center}					% Minipage Centralizado
+% 	\fbox{\begin{minipage}[c][8cm]{13.5cm}		% Largura
+% 	\small
+	 
+% 	\end{minipage}}
+% 	\end{center}
+% \end{fichacatalografica}
 % ---
 
 % ---
@@ -541,11 +542,9 @@ Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. També
 		Outros diferenciais podem ser citados como a performance na obtenção de grande volume de dados ou acréscimo de dados sintéticos em bases reais.
 
 	\section{Objetivos}
-		Nessa seção são apresentados os objetivos do trabalho e as metas para atingí-los.
-		\subsection{Objetivo Geral}
-			O principal objetivo deste trabalho é implementar e validar geradores de dados sintéticos faltantes e discrepantes utilizando a aplicação Blocks.
-			Também, a aplicação Blocks é demonstrada desde sua estrutura, a interface gráfica e o uso dos geradores implementados.			
-		\subsection{Objetivos Específicos}
+		O objetivo geral deste trabalho é implementar e validar geradores de dados sintéticos faltantes e discrepantes utilizando a aplicação Blocks.
+		Também, a aplicação Blocks é demonstrada desde sua estrutura, a interface gráfica e o uso dos geradores implementados.			
+		E os objetivos específicos são:
 		\begin{itemize}
 			\item Implementar geradores de dados faltantes no sistema Blocks.
 			\item Implementar geradores de dados discrepantes no sistema Blocks.
@@ -1332,7 +1331,6 @@ Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. També
 	E na aba "Compartilhar Modelo para Reprodução" é apresentado que os processos anteriores podem ser replicados a partir do mesmo modelo de dados e o resultado pode ser comparado, facilitando o consumo de dados por pesquisadores.
 	
 	\section{Tipos de Geradores de Dados}
-		% TODO: colocar as fórmulas na seção de fórmulas (perguntar para o professor antes)
 		
 		Na tabela \ref{table: Propriedade Geradores Blocks} são apresentados todos os geradores do Blocks até o momento desde trabalho.
 		São apresentados seus nomes, suas categorias, o tipo de valores retornados, os tipos de parâmetros, se possui correlação - isto é, se é baseado no valor de outra dimensão - se são dependentes - ou seja, se precisa de um gerador encadeado para funcionar corretamente.
@@ -1593,8 +1591,6 @@ Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. També
 	\section{Estrutura da Interface Gráfica do Blocks}
 		O sistema possui uma interface gráfica para \emph{Desktop} e segue um modelo de estrutura que possui uma janela principal, mais algumas janelas auxiliares.
 		Isso significa que há uma tela com as principais informações (ver figura \ref{fig:telaPrincipal}), e outras informações mais específicas são visualizadas através de \emph{tabs}, \emph{modals}, \emph{alerts} e correlacionados.
-		%TODO: Subdividir imagem.
-		%TODO: Descrever as marcações em formato de lista.
 		\begin{figure}[h]
 			\centering
 			\caption{Conhecendo os elementos da tela principal do Blocks, na sua versão para Windows.}
@@ -1656,30 +1652,16 @@ Agradeço a Deus por permitir a oportunidade de desenvolver meu trabalho. També
 		
 		\subsection{Mensagens para o usuário}
 			O sistema precisa avisar o usuário de falhas, perguntar sobre preferências e afins.
-			Para isso, o Blocks utiliza-se de \emph{Dialogs} (ver figura \ref{fig:dialog}) para receber um caminho para salvar ou abrir um arquivo.
+			Para isso, o Blocks utiliza-se de \emph{Dialogs} para receber um caminho para salvar ou abrir um arquivo.
 			Há um espaço dedicado na tela principal para mensagens advindas de um processo de geração de dados.
 			Mensagem para preparação, progresso, finalização ou falha na geração de dados pode ser acompanhado pelo \emph{Footer Display}. (ver figura \ref{fig:SDvisor}).
-			Para outros avisos mais genéricos como erros ou tarefas bem sucedidas, bem como avisos mais detalhados há o \emph{Modal} (ver figura \ref{fig:modal}).
+			Para outros avisos mais genéricos como erros ou tarefas bem sucedidas, bem como avisos mais detalhados há o \emph{Modal}.
 			Também há Atalhos do Teclado da aplicação Blocks para demonstrar os atalhos do teclado, para melhorar a eficiência de usuários que preferem esse recurso.
 			\begin{figure}[h]
 				\centering
-				\caption{Conhecendo os elementos da tela de configurações para geração de dados.}
-				\includegraphics[width=\linewidth]{./figures/prototipo/dialog.png}
-				\label{fig:dialog}
-				\footnotesize Fonte: O autor do trabalho.
-			\end{figure}
-			\begin{figure}[h]
-				\centering
-				\caption{Conhecendo os elementos da tela de configurações para geração de dados.}
+				\caption{Conhecendo o \emph{Footer Display} na tela Inicial do Blocks.}
 				\includegraphics[width=\linewidth]{./figures/prototipo/SDvisor.png}
 				\label{fig:SDvisor}
-				\footnotesize Fonte: O autor do trabalho.
-			\end{figure}
-			\begin{figure}[h]
-				\centering
-				\caption{Conhecendo os elementos da tela de configurações para geração de dados.}
-				\includegraphics[width=\linewidth]{./figures/prototipo/modal.png}
-				\label{fig:modal}
 				\footnotesize Fonte: O autor do trabalho.
 			\end{figure}
 
@@ -2120,7 +2102,7 @@ Também testes de exaustão com o objetivo de otimizar o número de instâncias 
 				\end{table}
 			\par
 			
-			Além de acesso pelo teclado, os atalhos podem ser acessados pela barra superior da tela inicial \ref{fig:telaPrincipal} (22).
+			Além de acesso pelo teclado, os atalhos podem ser acessados pela barra superior da tela inicial (ver figura \ref{fig:telaPrincipal}) (22).
 			É válido ressaltar sobre a questão de edição da modelagem, que o Blocks salva as mudanças no automaticamente em arquivo separado, o qual pode ser recuperado se não forem salvas/descartadas adequadamente.
 
 \end{document}
